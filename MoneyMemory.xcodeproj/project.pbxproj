@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17ED421917E756E600C7080A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421817E756E600C7080A /* UIKit.framework */; };
+		17ED421B17E756E600C7080A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421A17E756E600C7080A /* Foundation.framework */; };
+		17ED421D17E756E600C7080A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421C17E756E600C7080A /* CoreGraphics.framework */; };
+		17ED422317E756E700C7080A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17ED422117E756E700C7080A /* InfoPlist.strings */; };
+		17ED422517E756E700C7080A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED422417E756E700C7080A /* main.m */; };
+		17ED422917E756E700C7080A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED422817E756E700C7080A /* AppDelegate.m */; };
+		17ED422B17E756E700C7080A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ED422A17E756E700C7080A /* Default.png */; };
+		17ED422D17E756E700C7080A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ED422C17E756E700C7080A /* Default@2x.png */; };
+		17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ED422E17E756E700C7080A /* Default-568h@2x.png */; };
+		17ED423217E756E700C7080A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED423117E756E700C7080A /* ViewController.m */; };
+		17ED423517E756E700C7080A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ED423317E756E700C7080A /* ViewController.xib */; };
+		17ED423D17E756E700C7080A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED423C17E756E700C7080A /* SenTestingKit.framework */; };
+		17ED423E17E756E700C7080A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421817E756E600C7080A /* UIKit.framework */; };
+		17ED423F17E756E700C7080A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421A17E756E600C7080A /* Foundation.framework */; };
+		17ED424717E756E700C7080A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17ED424517E756E700C7080A /* InfoPlist.strings */; };
+		17ED424A17E756E700C7080A /* MoneyMemoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424917E756E700C7080A /* MoneyMemoryTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17ED424017E756E700C7080A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17ED420D17E756E600C7080A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17ED421417E756E600C7080A;
+			remoteInfo = MoneyMemory;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17ED421517E756E600C7080A /* MoneyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17ED421817E756E600C7080A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		17ED421A17E756E600C7080A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17ED421C17E756E600C7080A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		17ED422017E756E700C7080A /* MoneyMemory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoneyMemory-Info.plist"; sourceTree = "<group>"; };
+		17ED422217E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17ED422417E756E700C7080A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17ED422617E756E700C7080A /* MoneyMemory-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoneyMemory-Prefix.pch"; sourceTree = "<group>"; };
+		17ED422717E756E700C7080A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17ED422817E756E700C7080A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		17ED422A17E756E700C7080A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		17ED422C17E756E700C7080A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		17ED422E17E756E700C7080A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		17ED423017E756E700C7080A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		17ED423117E756E700C7080A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		17ED423417E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMemoryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17ED423C17E756E700C7080A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		17ED424417E756E700C7080A /* MoneyMemoryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoneyMemoryTests-Info.plist"; sourceTree = "<group>"; };
+		17ED424617E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17ED424817E756E700C7080A /* MoneyMemoryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyMemoryTests.h; sourceTree = "<group>"; };
+		17ED424917E756E700C7080A /* MoneyMemoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyMemoryTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17ED421217E756E600C7080A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17ED421917E756E600C7080A /* UIKit.framework in Frameworks */,
+				17ED421B17E756E600C7080A /* Foundation.framework in Frameworks */,
+				17ED421D17E756E600C7080A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17ED423717E756E700C7080A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17ED423D17E756E700C7080A /* SenTestingKit.framework in Frameworks */,
+				17ED423E17E756E700C7080A /* UIKit.framework in Frameworks */,
+				17ED423F17E756E700C7080A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17ED420C17E756E600C7080A = {
+			isa = PBXGroup;
+			children = (
+				17ED421E17E756E600C7080A /* MoneyMemory */,
+				17ED424217E756E700C7080A /* MoneyMemoryTests */,
+				17ED421717E756E600C7080A /* Frameworks */,
+				17ED421617E756E600C7080A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17ED421617E756E600C7080A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17ED421517E756E600C7080A /* MoneyMemory.app */,
+				17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17ED421717E756E600C7080A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17ED421817E756E600C7080A /* UIKit.framework */,
+				17ED421A17E756E600C7080A /* Foundation.framework */,
+				17ED421C17E756E600C7080A /* CoreGraphics.framework */,
+				17ED423C17E756E700C7080A /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17ED421E17E756E600C7080A /* MoneyMemory */ = {
+			isa = PBXGroup;
+			children = (
+				17ED422717E756E700C7080A /* AppDelegate.h */,
+				17ED422817E756E700C7080A /* AppDelegate.m */,
+				17ED423017E756E700C7080A /* ViewController.h */,
+				17ED423117E756E700C7080A /* ViewController.m */,
+				17ED423317E756E700C7080A /* ViewController.xib */,
+				17ED421F17E756E700C7080A /* Supporting Files */,
+			);
+			path = MoneyMemory;
+			sourceTree = "<group>";
+		};
+		17ED421F17E756E700C7080A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17ED422017E756E700C7080A /* MoneyMemory-Info.plist */,
+				17ED422117E756E700C7080A /* InfoPlist.strings */,
+				17ED422417E756E700C7080A /* main.m */,
+				17ED422617E756E700C7080A /* MoneyMemory-Prefix.pch */,
+				17ED422A17E756E700C7080A /* Default.png */,
+				17ED422C17E756E700C7080A /* Default@2x.png */,
+				17ED422E17E756E700C7080A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17ED424217E756E700C7080A /* MoneyMemoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				17ED424817E756E700C7080A /* MoneyMemoryTests.h */,
+				17ED424917E756E700C7080A /* MoneyMemoryTests.m */,
+				17ED424317E756E700C7080A /* Supporting Files */,
+			);
+			path = MoneyMemoryTests;
+			sourceTree = "<group>";
+		};
+		17ED424317E756E700C7080A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17ED424417E756E700C7080A /* MoneyMemoryTests-Info.plist */,
+				17ED424517E756E700C7080A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17ED421417E756E600C7080A /* MoneyMemory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17ED424D17E756E700C7080A /* Build configuration list for PBXNativeTarget "MoneyMemory" */;
+			buildPhases = (
+				17ED421117E756E600C7080A /* Sources */,
+				17ED421217E756E600C7080A /* Frameworks */,
+				17ED421317E756E600C7080A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoneyMemory;
+			productName = MoneyMemory;
+			productReference = 17ED421517E756E600C7080A /* MoneyMemory.app */;
+			productType = "com.apple.product-type.application";
+		};
+		17ED423A17E756E700C7080A /* MoneyMemoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17ED425017E756E700C7080A /* Build configuration list for PBXNativeTarget "MoneyMemoryTests" */;
+			buildPhases = (
+				17ED423617E756E700C7080A /* Sources */,
+				17ED423717E756E700C7080A /* Frameworks */,
+				17ED423817E756E700C7080A /* Resources */,
+				17ED423917E756E700C7080A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17ED424117E756E700C7080A /* PBXTargetDependency */,
+			);
+			name = MoneyMemoryTests;
+			productName = MoneyMemoryTests;
+			productReference = 17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17ED420D17E756E600C7080A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Rex Jason Alobba";
+			};
+			buildConfigurationList = 17ED421017E756E600C7080A /* Build configuration list for PBXProject "MoneyMemory" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17ED420C17E756E600C7080A;
+			productRefGroup = 17ED421617E756E600C7080A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17ED421417E756E600C7080A /* MoneyMemory */,
+				17ED423A17E756E700C7080A /* MoneyMemoryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17ED421317E756E600C7080A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
+				17ED422B17E756E700C7080A /* Default.png in Resources */,
+				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
+				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
+				17ED423517E756E700C7080A /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17ED423817E756E700C7080A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17ED424717E756E700C7080A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17ED423917E756E700C7080A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17ED421117E756E600C7080A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17ED422517E756E700C7080A /* main.m in Sources */,
+				17ED422917E756E700C7080A /* AppDelegate.m in Sources */,
+				17ED423217E756E700C7080A /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17ED423617E756E700C7080A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17ED424A17E756E700C7080A /* MoneyMemoryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		17ED424117E756E700C7080A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17ED421417E756E600C7080A /* MoneyMemory */;
+			targetProxy = 17ED424017E756E700C7080A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		17ED422117E756E700C7080A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17ED422217E756E700C7080A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		17ED423317E756E700C7080A /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17ED423417E756E700C7080A /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+		17ED424517E756E700C7080A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17ED424617E756E700C7080A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17ED424B17E756E700C7080A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		17ED424C17E756E700C7080A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17ED424E17E756E700C7080A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
+				INFOPLIST_FILE = "MoneyMemory/MoneyMemory-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		17ED424F17E756E700C7080A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
+				INFOPLIST_FILE = "MoneyMemory/MoneyMemory-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		17ED425117E756E700C7080A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoneyMemory.app/MoneyMemory";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
+				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		17ED425217E756E700C7080A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoneyMemory.app/MoneyMemory";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
+				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17ED421017E756E600C7080A /* Build configuration list for PBXProject "MoneyMemory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17ED424B17E756E700C7080A /* Debug */,
+				17ED424C17E756E700C7080A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17ED424D17E756E700C7080A /* Build configuration list for PBXNativeTarget "MoneyMemory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17ED424E17E756E700C7080A /* Debug */,
+				17ED424F17E756E700C7080A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		17ED425017E756E700C7080A /* Build configuration list for PBXNativeTarget "MoneyMemoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17ED425117E756E700C7080A /* Debug */,
+				17ED425217E756E700C7080A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17ED420D17E756E600C7080A /* Project object */;
+}
