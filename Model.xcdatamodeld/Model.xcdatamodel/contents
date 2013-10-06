@@ -19,6 +19,6 @@
     <elements>
         <element name="Category" positionX="-180" positionY="258" width="128" height="90"/>
         <element name="Remark" positionX="-63" positionY="90" width="128" height="90"/>
-        <element name="Transaction" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Transaction" positionX="295" positionY="162" width="128" height="105"/>
     </elements>
 </model>
