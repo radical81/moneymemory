@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17D8B64B180149D000D90AF6 /* Remark.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64A180149D000D90AF6 /* Remark.m */; };
+		17D8B64E180149E100D90AF6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64D180149E100D90AF6 /* Category.m */; };
+		17D8B651180149F500D90AF6 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B650180149F500D90AF6 /* Transaction.m */; };
 		17ED421917E756E600C7080A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421817E756E600C7080A /* UIKit.framework */; };
 		17ED421B17E756E600C7080A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421A17E756E600C7080A /* Foundation.framework */; };
 		17ED421D17E756E600C7080A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421C17E756E600C7080A /* CoreGraphics.framework */; };
@@ -38,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17D8B649180149D000D90AF6 /* Remark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Remark.h; path = ../Remark.h; sourceTree = "<group>"; };
+		17D8B64A180149D000D90AF6 /* Remark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Remark.m; path = ../Remark.m; sourceTree = "<group>"; };
+		17D8B64C180149E100D90AF6 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = ../Category.h; sourceTree = "<group>"; };
+		17D8B64D180149E100D90AF6 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = ../Category.m; sourceTree = "<group>"; };
+		17D8B64F180149F500D90AF6 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = ../Transaction.h; sourceTree = "<group>"; };
+		17D8B650180149F500D90AF6 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transaction.m; path = ../Transaction.m; sourceTree = "<group>"; };
 		17ED421517E756E600C7080A /* MoneyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED421817E756E600C7080A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17ED421A17E756E600C7080A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,10 +99,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D8B65218014A1C00D90AF6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				17D8B64F180149F500D90AF6 /* Transaction.h */,
+				17D8B650180149F500D90AF6 /* Transaction.m */,
+				17D8B64C180149E100D90AF6 /* Category.h */,
+				17D8B64D180149E100D90AF6 /* Category.m */,
+				17F8ADE717F07F00007F7C9E /* Model.xcdatamodeld */,
+				17D8B649180149D000D90AF6 /* Remark.h */,
+				17D8B64A180149D000D90AF6 /* Remark.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		17ED420C17E756E600C7080A = {
 			isa = PBXGroup;
 			children = (
-				17F8ADE717F07F00007F7C9E /* Model.xcdatamodeld */,
 				17ED421E17E756E600C7080A /* MoneyMemory */,
 				17ED424217E756E700C7080A /* MoneyMemoryTests */,
 				17ED421717E756E600C7080A /* Frameworks */,
@@ -126,6 +148,7 @@
 		17ED421E17E756E600C7080A /* MoneyMemory */ = {
 			isa = PBXGroup;
 			children = (
+				17D8B65218014A1C00D90AF6 /* CoreData */,
 				17ED422717E756E700C7080A /* AppDelegate.h */,
 				17ED422817E756E700C7080A /* AppDelegate.m */,
 				17ED423017E756E700C7080A /* ViewController.h */,
@@ -315,6 +338,9 @@
 				17ED422917E756E700C7080A /* AppDelegate.m in Sources */,
 				17ED423217E756E700C7080A /* ViewController.m in Sources */,
 				17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */,
+				17D8B64B180149D000D90AF6 /* Remark.m in Sources */,
+				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
+				17D8B651180149F500D90AF6 /* Transaction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +541,8 @@
 				17F8ADE817F07F00007F7C9E /* Model.xcdatamodel */,
 			);
 			currentVersion = 17F8ADE817F07F00007F7C9E /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
