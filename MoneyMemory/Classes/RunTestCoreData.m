@@ -42,13 +42,8 @@
     
     
     ////Saving
-    Transaction* firstTransaction = [NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:managedObjectContext];
-    firstTransaction.id = [NSNumber numberWithInt:1];
-    firstTransaction.amount = [NSNumber numberWithDouble:2.5];
-    NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
-    NSInteger timeInt = interval;
-    firstTransaction.timestamp = [NSNumber numberWithInt:timeInt];
-    
+    [coreDataManager insertTransaction:managedObjectContext id:1 amount:2.5];
+        
     
     NSError* error = nil;
     if (![managedObjectContext save:&error]){

@@ -12,6 +12,20 @@
 
 @implementation CoreDataManager
 
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount {
+    Transaction* newTransaction = [NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:moc];
+    newTransaction.id = [NSNumber numberWithInt:_id];
+    newTransaction.amount = [NSNumber numberWithDouble:_amount];
+    NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
+    NSInteger timeInt = interval;
+    newTransaction.timestamp = [NSNumber numberWithInt:timeInt];
+    
+    
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }
+}
 
 -(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc{
     NSFetchRequest* request = [[NSFetchRequest alloc]init];

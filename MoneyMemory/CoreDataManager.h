@@ -11,6 +11,8 @@
 
 @interface CoreDataManager : NSObject
 
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount;
+
 -(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc;
 
 @end
