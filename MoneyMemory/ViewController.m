@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CoreDataManager.h"
+#import "RunTestCoreData.h"
 
 @interface ViewController ()
 
@@ -20,8 +20,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"This is money memory");
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [coreDataManager release];
+    RunTestCoreData* rc = [[RunTestCoreData alloc]init];
+    [rc runTestData];
+    [rc release];
     
 }
 

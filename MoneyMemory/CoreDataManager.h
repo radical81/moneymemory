@@ -9,11 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CoreDataManager : NSObject  {
-    NSManagedObjectContext *context;
-    NSFetchedResultsController *fetchedResultsController;    
-}
+@interface CoreDataManager : NSObject
 
--(void) run: (NSManagedObjectContext*) moc;
+-(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc;
 
 @end

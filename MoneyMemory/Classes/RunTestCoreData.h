@@ -1,5 +1,5 @@
 //
-//  RunCoreData.h
+//  RunTestCoreData
 //  MoneyMemory
 //
 //  Created by Rex Jason Alobba on 6/10/13.
@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RunCoreData : NSObject
+
+@interface RunTestCoreData : NSObject {
+    NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
+}
+
+-(void) runTestData;
 
 @end
