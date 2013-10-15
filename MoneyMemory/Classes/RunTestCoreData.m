@@ -41,10 +41,16 @@
     NSLog(@"First Result Count: %d", [firstResult count]);
         
     ////Saving
-    [coreDataManager insertCategory:managedObjectContext id:2 limit:10 name:@"Test Category"];
+    int categoryId = 3;
+    double limit = 100;
+    NSString* categoryName = @"Test Category For Edit";
+    int transactionId = 4;
+    double transactionAmount = 8.5;
+    
+    [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
     
     
-    [coreDataManager insertTransaction:managedObjectContext id:3 amount:7.5 categoryId:2];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
         
     
     NSError* error = nil;
@@ -55,7 +61,15 @@
     ////Results after saving
     NSArray* secondResults= [coreDataManager fetchAllTransactions:managedObjectContext];
     NSLog(@"Seconds Result Count: %d", [secondResults count]);
-    NSLog(@"Transactions with category 2: %@", [coreDataManager fetchTransactionIsA:2 context:managedObjectContext]);
+    NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
+    [coreDataManager fetchTransactionWithId:transactionId context:managedObjectContext];
+    
+    //Update transaction
+    [coreDataManager updateTransactionWithId:transactionId newAmount:10 context:managedObjectContext];
+
+    NSLog(@"AFter update:");
+    [coreDataManager fetchTransactionWithId:transactionId context:managedObjectContext];
+
     [coreDataManager release];
     
     

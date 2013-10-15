@@ -46,7 +46,9 @@
     [request setPredicate:[NSPredicate predicateWithFormat:@"id = %@", [NSNumber numberWithInt:_id]]];
     NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
     [request release];
-    return [resultTransaction objectAtIndex:0];
+    Transaction* resultSingle = [resultTransaction objectAtIndex:0];
+    NSLog(@"Transaction with id %@ amount %@ category %@", resultSingle.id, resultSingle.amount, resultSingle.is_a.id);
+    return resultSingle;
 }
 
 -(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc {
@@ -57,6 +59,21 @@
     NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
     [request release];
     return resultTransaction;
+}
+
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSEntityDescription* transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
+    [request setEntity:transactionEntity];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"id = %@", [NSNumber numberWithInt:_id]]];
+    NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
+    [request release];
+    Transaction* transactionToUpdate = [resultTransaction objectAtIndex:0];
+    transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }    
 }
 
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc  {
