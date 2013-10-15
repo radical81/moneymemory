@@ -40,9 +40,14 @@
     NSArray* firstResult = [coreDataManager fetchAllTransactions:managedObjectContext];
     NSLog(@"First Result Count: %d", [firstResult count]);
     
+    NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
+    NSLog(@"Categories: %@", categories);
     
     ////Saving
-    [coreDataManager insertTransaction:managedObjectContext id:1 amount:2.5];
+    [coreDataManager insertCategory:managedObjectContext id:1 limit:10 name:@"Test Category"];
+    
+    
+    [coreDataManager insertTransaction:managedObjectContext id:2 amount:5.5 categoryId:1];
         
     
     NSError* error = nil;
