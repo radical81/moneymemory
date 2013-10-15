@@ -63,8 +63,8 @@
     NSLog(@"Seconds Result Count: %d", [secondResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
-    //Delete Transaction
-    [coreDataManager deleteTransactionWithId:transactionId context:managedObjectContext];
+    //Delete Category
+    [coreDataManager deleteCategoryWithId:categoryId context:managedObjectContext];
     
     //Results after deleting
     NSArray* thirdResults= [coreDataManager fetchAllTransactions:managedObjectContext];

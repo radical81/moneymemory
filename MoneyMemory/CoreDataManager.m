@@ -125,6 +125,10 @@
 }
 
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc {
+    NSArray* transactionsInCategory = [self fetchTransactionIsA:_id context:moc];
+    for(Transaction* transaction in transactionsInCategory) {
+        [moc deleteObject:transaction];
+    }
     Category* categoryToDelete = [self fetchCategoryWithId:_id context:moc];
     [moc deleteObject:categoryToDelete];
 }

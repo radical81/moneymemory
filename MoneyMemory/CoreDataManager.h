@@ -22,4 +22,5 @@
 -(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc;
 -(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc;
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc;
+-(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc;
 @end
