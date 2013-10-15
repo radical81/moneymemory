@@ -8,8 +8,6 @@
 
 #import "CoreDataManager.h"
 #import <CoreData/CoreData.h>
-#import "Transaction.h"
-#import "Category.h"
 
 @implementation CoreDataManager
 
@@ -41,6 +39,15 @@
     }
 }
 
+-(Transaction*)fetchTransactionWithId: (int) _id context: (NSManagedObjectContext*) moc {
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSEntityDescription* transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
+    [request setEntity:transactionEntity];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"id = %@", [NSNumber numberWithInt:_id]]];
+    NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
+    [request release];
+    return [resultTransaction objectAtIndex:0];
+}
 
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc  {
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
@@ -73,7 +80,7 @@
     NSArray* resultsArray = [moc executeFetchRequest:request error:nil];
     [request release];
     for (Transaction* transaction in resultsArray){
-        NSLog(@"Transaction %@ is %@:",transaction.id,transaction.amount);
+        NSLog(@"Transaction %@ under category %@ is %@:",transaction.id,transaction.is_a.id,transaction.amount);
     }
     
     return resultsArray;

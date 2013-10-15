@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Category.h"
+#import "Transaction.h"
 
 @interface CoreDataManager : NSObject
 
@@ -15,5 +16,7 @@
 -(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId;
 -(NSArray*) fetchAllCategories: (NSManagedObjectContext*)moc;
 -(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc;
+-(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc;
+-(Transaction*)fetchTransactionWithId: (int) _id context: (NSManagedObjectContext*) moc;
 
 @end

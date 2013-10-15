@@ -39,15 +39,12 @@
     
     NSArray* firstResult = [coreDataManager fetchAllTransactions:managedObjectContext];
     NSLog(@"First Result Count: %d", [firstResult count]);
-    
-    NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
-    NSLog(@"Categories: %@", categories);
-    
+        
     ////Saving
-    [coreDataManager insertCategory:managedObjectContext id:1 limit:10 name:@"Test Category"];
+    [coreDataManager insertCategory:managedObjectContext id:2 limit:10 name:@"Test Category"];
     
     
-    [coreDataManager insertTransaction:managedObjectContext id:2 amount:5.5 categoryId:1];
+    [coreDataManager insertTransaction:managedObjectContext id:3 amount:6.5 categoryId:2];
         
     
     NSError* error = nil;
@@ -58,7 +55,8 @@
     ////Results after saving
     NSArray* secondResults= [coreDataManager fetchAllTransactions:managedObjectContext];
     NSLog(@"Seconds Result Count: %d", [secondResults count]);
-    [coreDataManager release];    
+    
+    [coreDataManager release];
     
     
 }
