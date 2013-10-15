@@ -119,6 +119,16 @@
     }
 }
 
+-(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc {
+    Transaction* transactionToDelete = [self fetchTransactionWithId:_id context:moc];
+    [moc deleteObject:transactionToDelete];
+}
+
+-(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc {
+    Category* categoryToDelete = [self fetchCategoryWithId:_id context:moc];
+    [moc deleteObject:categoryToDelete];
+}
+
 
 
 @end
