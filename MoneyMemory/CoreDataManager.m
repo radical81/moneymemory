@@ -61,25 +61,6 @@
     return resultTransaction;
 }
 
--(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc {
-    Category* categoryToUpdate = [self fetchCategoryWithId:_id context:moc];
-    categoryToUpdate.limit = [NSNumber numberWithDouble:_newLimit];
-    categoryToUpdate.name = _newName;
-    NSError* error = nil;
-    if (![moc save:&error]){
-        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
-    }    
-}
-
--(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
-    Transaction* transactionToUpdate = [self fetchTransactionWithId:_id context:moc];
-    transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
-    NSError* error = nil;
-    if (![moc save:&error]){
-        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
-    }    
-}
-
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc  {
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription* categoryEntity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
@@ -118,5 +99,26 @@
     
     return resultsArray;
 }
+
+-(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc {
+    Category* categoryToUpdate = [self fetchCategoryWithId:_id context:moc];
+    categoryToUpdate.limit = [NSNumber numberWithDouble:_newLimit];
+    categoryToUpdate.name = _newName;
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }
+}
+
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
+    Transaction* transactionToUpdate = [self fetchTransactionWithId:_id context:moc];
+    transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }
+}
+
+
 
 @end
