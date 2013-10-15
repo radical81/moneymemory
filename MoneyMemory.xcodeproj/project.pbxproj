@@ -12,6 +12,7 @@
 		17D8B651180149F500D90AF6 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B650180149F500D90AF6 /* Transaction.m */; };
 		17D8B68218014CB400D90AF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D8B68118014CB400D90AF6 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B68418014D0100D90AF6 /* CoreDataManager.m */; };
+		17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B689180163D100D90AF6 /* RunTestCoreData.m */; };
 		17ED421917E756E600C7080A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421817E756E600C7080A /* UIKit.framework */; };
 		17ED421B17E756E600C7080A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421A17E756E600C7080A /* Foundation.framework */; };
 		17ED421D17E756E600C7080A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421C17E756E600C7080A /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 		17D8B68118014CB400D90AF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17D8B68318014D0100D90AF6 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		17D8B68418014D0100D90AF6 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		17D8B688180163D100D90AF6 /* RunTestCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunTestCoreData.h; path = Classes/RunTestCoreData.h; sourceTree = "<group>"; };
+		17D8B689180163D100D90AF6 /* RunTestCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunTestCoreData.m; path = Classes/RunTestCoreData.m; sourceTree = "<group>"; };
 		17ED421517E756E600C7080A /* MoneyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED421817E756E600C7080A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17ED421A17E756E600C7080A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +124,24 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		17D8B6861801635500D90AF6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17D8B65218014A1C00D90AF6 /* CoreData */,
+				17D8B6871801636000D90AF6 /* Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		17D8B6871801636000D90AF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17D8B688180163D100D90AF6 /* RunTestCoreData.h */,
+				17D8B689180163D100D90AF6 /* RunTestCoreData.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		17ED420C17E756E600C7080A = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +178,7 @@
 		17ED421E17E756E600C7080A /* MoneyMemory */ = {
 			isa = PBXGroup;
 			children = (
-				17D8B65218014A1C00D90AF6 /* CoreData */,
+				17D8B6861801635500D90AF6 /* Classes */,
 				17ED422717E756E700C7080A /* AppDelegate.h */,
 				17ED422817E756E700C7080A /* AppDelegate.m */,
 				17ED423017E756E700C7080A /* ViewController.h */,
@@ -351,6 +372,7 @@
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				17D8B651180149F500D90AF6 /* Transaction.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
+				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
