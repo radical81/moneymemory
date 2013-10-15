@@ -61,14 +61,18 @@
     return resultTransaction;
 }
 
+-(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc {
+    Category* categoryToUpdate = [self fetchCategoryWithId:_id context:moc];
+    categoryToUpdate.limit = [NSNumber numberWithDouble:_newLimit];
+    categoryToUpdate.name = _newName;
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }    
+}
+
 -(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
-    NSFetchRequest* request = [[NSFetchRequest alloc]init];
-    NSEntityDescription* transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
-    [request setEntity:transactionEntity];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"id = %@", [NSNumber numberWithInt:_id]]];
-    NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
-    [request release];
-    Transaction* transactionToUpdate = [resultTransaction objectAtIndex:0];
+    Transaction* transactionToUpdate = [self fetchTransactionWithId:_id context:moc];
     transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
     NSError* error = nil;
     if (![moc save:&error]){
@@ -83,7 +87,9 @@
     [request setPredicate:[NSPredicate predicateWithFormat:@"id = %@",[NSNumber numberWithInt:_id]]];
     NSArray* resultCategory = [moc executeFetchRequest:request error:nil];
     [request release];
-    return [resultCategory objectAtIndex:0];
+    Category* resultSingle = [resultCategory objectAtIndex:0];
+    NSLog(@"Category %@ named %@ with limit %@", resultSingle.id, resultSingle.name, resultSingle.limit);
+    return resultSingle;
 }
 
 -(NSArray*) fetchAllCategories: (NSManagedObjectContext*)moc{

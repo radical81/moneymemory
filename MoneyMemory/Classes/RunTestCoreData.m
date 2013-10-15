@@ -41,10 +41,10 @@
     NSLog(@"First Result Count: %d", [firstResult count]);
         
     ////Saving
-    int categoryId = 3;
+    int categoryId = 4;
     double limit = 100;
     NSString* categoryName = @"Test Category For Edit";
-    int transactionId = 4;
+    int transactionId = 5;
     double transactionAmount = 8.5;
     
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
@@ -62,13 +62,12 @@
     NSArray* secondResults= [coreDataManager fetchAllTransactions:managedObjectContext];
     NSLog(@"Seconds Result Count: %d", [secondResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
-    [coreDataManager fetchTransactionWithId:transactionId context:managedObjectContext];
     
-    //Update transaction
-    [coreDataManager updateTransactionWithId:transactionId newAmount:10 context:managedObjectContext];
+    //Update category
+    [coreDataManager updateCategoryWithId:categoryId newLimit:200 newName:@"Test Category Updated" context:managedObjectContext];
 
     NSLog(@"AFter update:");
-    [coreDataManager fetchTransactionWithId:transactionId context:managedObjectContext];
+    [coreDataManager fetchCategoryWithId:categoryId context:managedObjectContext];
 
     [coreDataManager release];
     
