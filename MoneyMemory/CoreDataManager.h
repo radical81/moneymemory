@@ -16,6 +16,7 @@
 -(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId;
 -(NSArray*) fetchAllCategories: (NSManagedObjectContext*)moc;
 -(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc;
+-(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc;
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(Transaction*)fetchTransactionWithId: (int) _id context: (NSManagedObjectContext*) moc;
 

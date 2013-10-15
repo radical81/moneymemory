@@ -49,6 +49,16 @@
     return [resultTransaction objectAtIndex:0];
 }
 
+-(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc {
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSEntityDescription* transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
+    [request setEntity:transactionEntity];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"is_a.id = %@", [NSNumber numberWithInt:categoryId]]];
+    NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
+    [request release];
+    return resultTransaction;
+}
+
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc  {
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription* categoryEntity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
