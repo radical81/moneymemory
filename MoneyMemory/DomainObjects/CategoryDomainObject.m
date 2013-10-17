@@ -10,4 +10,8 @@
 
 @implementation CategoryDomainObject
 
+@synthesize id;
+@synthesize limit;
+@synthesize name;
+
 @end

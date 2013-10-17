@@ -10,4 +10,10 @@
 
 @implementation TransactionDomainObject
 
+@synthesize id;
+@synthesize amount;
+@synthesize timestamp;
+@synthesize currency;
+@synthesize is_a;
+
 @end
