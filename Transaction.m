@@ -2,7 +2,7 @@
 //  Transaction.m
 //  MoneyMemory
 //
-//  Created by Rex Jason Alobba on 6/10/13.
+//  Created by Rex Jason Alobba on 17/10/13.
 //  Copyright (c) 2013 Rex Jason Alobba. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @dynamic amount;
 @dynamic id;
 @dynamic timestamp;
+@dynamic currency;
 @dynamic is_a;
 
 @end
