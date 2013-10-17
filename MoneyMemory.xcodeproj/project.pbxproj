@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		17D8B64B180149D000D90AF6 /* Remark.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64A180149D000D90AF6 /* Remark.m */; };
 		17D8B64E180149E100D90AF6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64D180149E100D90AF6 /* Category.m */; };
-		17D8B651180149F500D90AF6 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B650180149F500D90AF6 /* Transaction.m */; };
 		17D8B68218014CB400D90AF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D8B68118014CB400D90AF6 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B68418014D0100D90AF6 /* CoreDataManager.m */; };
 		17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B689180163D100D90AF6 /* RunTestCoreData.m */; };
@@ -30,6 +29,7 @@
 		17ED424717E756E700C7080A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17ED424517E756E700C7080A /* InfoPlist.strings */; };
 		17ED424A17E756E700C7080A /* MoneyMemoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424917E756E700C7080A /* MoneyMemoryTests.m */; };
 		17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F8ADE717F07F00007F7C9E /* Model.xcdatamodeld */; };
+		17FC250F18103AFA0067282D /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC250E18103AFA0067282D /* Transaction.m */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +48,6 @@
 		17D8B64A180149D000D90AF6 /* Remark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Remark.m; path = ../Remark.m; sourceTree = "<group>"; };
 		17D8B64C180149E100D90AF6 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = ../Category.h; sourceTree = "<group>"; };
 		17D8B64D180149E100D90AF6 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = ../Category.m; sourceTree = "<group>"; };
-		17D8B64F180149F500D90AF6 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = ../Transaction.h; sourceTree = "<group>"; };
-		17D8B650180149F500D90AF6 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transaction.m; path = ../Transaction.m; sourceTree = "<group>"; };
 		17D8B68118014CB400D90AF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17D8B68318014D0100D90AF6 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		17D8B68418014D0100D90AF6 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
@@ -78,6 +76,8 @@
 		17ED424817E756E700C7080A /* MoneyMemoryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyMemoryTests.h; sourceTree = "<group>"; };
 		17ED424917E756E700C7080A /* MoneyMemoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyMemoryTests.m; sourceTree = "<group>"; };
 		17F8ADE817F07F00007F7C9E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		17FC250D18103AFA0067282D /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = SOURCE_ROOT; };
+		17FC250E18103AFA0067282D /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = SOURCE_ROOT; };
 		C432C4616D1D4605AA12CB2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,13 +111,13 @@
 		17D8B65218014A1C00D90AF6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				17D8B64F180149F500D90AF6 /* Transaction.h */,
-				17D8B650180149F500D90AF6 /* Transaction.m */,
 				17D8B64C180149E100D90AF6 /* Category.h */,
 				17D8B64D180149E100D90AF6 /* Category.m */,
 				17D8B649180149D000D90AF6 /* Remark.h */,
 				17D8B64A180149D000D90AF6 /* Remark.m */,
 				17F8ADE717F07F00007F7C9E /* Model.xcdatamodeld */,
+				17FC250D18103AFA0067282D /* Transaction.h */,
+				17FC250E18103AFA0067282D /* Transaction.m */,
 				17D8B68318014D0100D90AF6 /* CoreDataManager.h */,
 				17D8B68418014D0100D90AF6 /* CoreDataManager.m */,
 			);
@@ -370,9 +370,9 @@
 				17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */,
 				17D8B64B180149D000D90AF6 /* Remark.m in Sources */,
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
-				17D8B651180149F500D90AF6 /* Transaction.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
+				17FC250F18103AFA0067282D /* Transaction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

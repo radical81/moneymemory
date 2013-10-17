@@ -46,11 +46,12 @@
     NSString* categoryName = @"Test Category For Edit";
     int transactionId = 6;
     double transactionAmount = 8.5;
+    NSString* transactionCurrency = @"SGD";
     
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
     
     
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount currency: transactionCurrency categoryId:categoryId];
         
     
     NSError* error = nil;
@@ -63,8 +64,8 @@
     NSLog(@"Seconds Result Count: %d", [secondResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
-    //Delete Category
-    [coreDataManager deleteCategoryWithId:categoryId context:managedObjectContext];
+    //Update transaction with Peso
+    [coreDataManager updateTransactionWithId:transactionId newAmount:400 currency:@"PHP" context:managedObjectContext];
     
     //Results after deleting
     NSArray* thirdResults= [coreDataManager fetchAllTransactions:managedObjectContext];
