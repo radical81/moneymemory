@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CategoryDomainObject.h"
 
 @interface TransactionsLogicManager : NSObject
+
+-(void) createCategory:(int)_id limit:(double) _limit name: (NSString*) _name;
+-(void) createTransaction:(int) _id amount: (double) _amount timestamp:(int) _timestamp currency: (NSString*) _currency is_a:(CategoryDomainObject*) _is_a;
 
 @end
