@@ -22,10 +22,11 @@
     }
 }
 
--(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId {
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount currency:(NSString*)_currency categoryId: (int) _categoryId {
     Transaction* newTransaction = [NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:moc];
     newTransaction.id = [NSNumber numberWithInt:_id];
     newTransaction.amount = [NSNumber numberWithDouble:_amount];
+    newTransaction.currency = _currency;
     Category* whichCategory = [self fetchCategoryWithId:_categoryId context:moc];
     newTransaction.is_a = whichCategory;
     NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
@@ -110,9 +111,10 @@
     }
 }
 
--(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount currency: (NSString*) _currency context: (NSManagedObjectContext*) moc {
     Transaction* transactionToUpdate = [self fetchTransactionWithId:_id context:moc];
     transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
+    transactionToUpdate.currency = _currency;
     NSError* error = nil;
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
