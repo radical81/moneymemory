@@ -2,7 +2,7 @@
 //  Transaction.h
 //  MoneyMemory
 //
-//  Created by Rex Jason Alobba on 6/10/13.
+//  Created by Rex Jason Alobba on 17/10/13.
 //  Copyright (c) 2013 Rex Jason Alobba. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSNumber * timestamp;
+@property (nonatomic, retain) NSString * currency;
 @property (nonatomic, retain) Category *is_a;
 
 @end
