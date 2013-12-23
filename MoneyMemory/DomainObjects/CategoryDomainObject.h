@@ -14,6 +14,6 @@
 @property (nonatomic, retain) NSNumber * limit;
 @property (nonatomic, retain) NSString * name;
 
-
+-(void) resetValues;
 
 @end

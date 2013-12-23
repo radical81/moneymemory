@@ -14,4 +14,10 @@
 @synthesize limit;
 @synthesize name;
 
+-(void) resetValues {
+    self.id = nil;
+    self.limit = nil;
+    self.name = nil;
+}
+
 @end

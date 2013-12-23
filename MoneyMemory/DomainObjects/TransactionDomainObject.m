@@ -16,4 +16,12 @@
 @synthesize currency;
 @synthesize is_a;
 
+-(void) resetValues {
+    self.id = nil;
+    self.amount = nil;
+    self.timestamp = nil;
+    self.currency = nil;
+    self.is_a = nil;
+}
+
 @end

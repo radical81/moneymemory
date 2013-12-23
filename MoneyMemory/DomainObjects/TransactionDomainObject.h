@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString * currency;
 @property (nonatomic, retain) CategoryDomainObject* is_a;
 
+-(void) resetValues;
 
 @end
