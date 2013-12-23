@@ -15,7 +15,6 @@
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
     [_managedObjectContext release];
     [_managedObjectModel release];
     [_persistentStoreCoordinator release];
@@ -31,9 +30,11 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    ViewController* vc = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

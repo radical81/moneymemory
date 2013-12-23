@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "RunTestCoreData.h"
+#import "SpendMoneyViewController.h"
 
 @interface ViewController ()
 
@@ -26,10 +27,20 @@
     
 }
 
+-(IBAction)spendButtonClicked:(id)sender {
+    SpendMoneyViewController* spendMoneyViewController = [[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil];
+    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
+    [spendMoneyViewController release];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_spendButton release];
+    [super dealloc];
+}
 @end

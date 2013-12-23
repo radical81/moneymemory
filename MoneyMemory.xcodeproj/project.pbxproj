@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178475B61868901B00F5ED1F /* SpendMoneyViewController.m */; };
+		178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */; };
 		17D8B64B180149D000D90AF6 /* Remark.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64A180149D000D90AF6 /* Remark.m */; };
 		17D8B64E180149E100D90AF6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64D180149E100D90AF6 /* Category.m */; };
 		17D8B68218014CB400D90AF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D8B68118014CB400D90AF6 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -47,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178475B51868901B00F5ED1F /* SpendMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpendMoneyViewController.h; path = Classes/SpendMoneyViewController.h; sourceTree = "<group>"; };
+		178475B61868901B00F5ED1F /* SpendMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpendMoneyViewController.m; path = Classes/SpendMoneyViewController.m; sourceTree = "<group>"; };
+		178475BC1868960C00F5ED1F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SpendMoneyViewController.xib; sourceTree = "<group>"; };
 		17D8B649180149D000D90AF6 /* Remark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Remark.h; path = ../Remark.h; sourceTree = "<group>"; };
 		17D8B64A180149D000D90AF6 /* Remark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Remark.m; path = ../Remark.m; sourceTree = "<group>"; };
 		17D8B64C180149E100D90AF6 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = ../Category.h; sourceTree = "<group>"; };
@@ -117,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		178475AD18688E7B00F5ED1F /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				17ED423317E756E700C7080A /* ViewController.xib */,
+				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
 		17D8B65218014A1C00D90AF6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,8 +160,12 @@
 		17D8B6871801636000D90AF6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				17ED423017E756E700C7080A /* ViewController.h */,
+				17ED423117E756E700C7080A /* ViewController.m */,
 				17D8B688180163D100D90AF6 /* RunTestCoreData.h */,
 				17D8B689180163D100D90AF6 /* RunTestCoreData.m */,
+				178475B51868901B00F5ED1F /* SpendMoneyViewController.h */,
+				178475B61868901B00F5ED1F /* SpendMoneyViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,13 +206,11 @@
 		17ED421E17E756E600C7080A /* MoneyMemory */ = {
 			isa = PBXGroup;
 			children = (
-				17FC25161810418B0067282D /* Domain Objects */,
 				17D8B6861801635500D90AF6 /* Classes */,
+				17FC25161810418B0067282D /* Domain Objects */,
+				178475AD18688E7B00F5ED1F /* XIB */,
 				17ED422717E756E700C7080A /* AppDelegate.h */,
 				17ED422817E756E700C7080A /* AppDelegate.m */,
-				17ED423017E756E700C7080A /* ViewController.h */,
-				17ED423117E756E700C7080A /* ViewController.m */,
-				17ED423317E756E700C7080A /* ViewController.xib */,
 				17ED421F17E756E700C7080A /* Supporting Files */,
 			);
 			path = MoneyMemory;
@@ -330,6 +346,7 @@
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
+				178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */,
 				17ED423517E756E700C7080A /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +419,7 @@
 				17D8B64B180149D000D90AF6 /* Remark.m in Sources */,
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
+				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 				17FC250F18103AFA0067282D /* Transaction.m in Sources */,
 				17FC251D181042510067282D /* CategoryDomainObject.m in Sources */,
@@ -429,6 +447,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				178475BC1868960C00F5ED1F /* en */,
+			);
+			name = SpendMoneyViewController.xib;
+			sourceTree = "<group>";
+		};
 		17ED422117E756E700C7080A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
