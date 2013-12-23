@@ -21,7 +21,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"This is money memory");
     RunTestCoreData* rc = [[RunTestCoreData alloc]init];
-    [rc runTestData];
+    //[rc runTestData];
     [rc release];
     
 }
