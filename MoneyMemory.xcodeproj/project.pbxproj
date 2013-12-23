@@ -30,6 +30,9 @@
 		17ED424A17E756E700C7080A /* MoneyMemoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424917E756E700C7080A /* MoneyMemoryTests.m */; };
 		17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F8ADE717F07F00007F7C9E /* Model.xcdatamodeld */; };
 		17FC250F18103AFA0067282D /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC250E18103AFA0067282D /* Transaction.m */; };
+		17FC251D181042510067282D /* CategoryDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251C181042510067282D /* CategoryDomainObject.m */; };
+		17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251F1810426D0067282D /* TransactionDomainObject.m */; };
+		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,12 @@
 		17F8ADE817F07F00007F7C9E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		17FC250D18103AFA0067282D /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = SOURCE_ROOT; };
 		17FC250E18103AFA0067282D /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = SOURCE_ROOT; };
+		17FC251B181042510067282D /* CategoryDomainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDomainObject.h; path = DomainObjects/CategoryDomainObject.h; sourceTree = "<group>"; };
+		17FC251C181042510067282D /* CategoryDomainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDomainObject.m; path = DomainObjects/CategoryDomainObject.m; sourceTree = "<group>"; };
+		17FC251E1810426D0067282D /* TransactionDomainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionDomainObject.h; path = DomainObjects/TransactionDomainObject.h; sourceTree = "<group>"; };
+		17FC251F1810426D0067282D /* TransactionDomainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDomainObject.m; path = DomainObjects/TransactionDomainObject.m; sourceTree = "<group>"; };
+		17FC25211810429E0067282D /* TransactionsLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsLogicManager.h; path = Classes/TransactionsLogicManager.h; sourceTree = "<group>"; };
+		17FC25221810429E0067282D /* TransactionsLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsLogicManager.m; path = Classes/TransactionsLogicManager.m; sourceTree = "<group>"; };
 		C432C4616D1D4605AA12CB2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +136,7 @@
 		17D8B6861801635500D90AF6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17FC2517181041A10067282D /* Logic */,
 				17D8B65218014A1C00D90AF6 /* CoreData */,
 				17D8B6871801636000D90AF6 /* Controllers */,
 			);
@@ -178,6 +188,7 @@
 		17ED421E17E756E600C7080A /* MoneyMemory */ = {
 			isa = PBXGroup;
 			children = (
+				17FC25161810418B0067282D /* Domain Objects */,
 				17D8B6861801635500D90AF6 /* Classes */,
 				17ED422717E756E700C7080A /* AppDelegate.h */,
 				17ED422817E756E700C7080A /* AppDelegate.m */,
@@ -220,6 +231,26 @@
 				17ED424517E756E700C7080A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17FC25161810418B0067282D /* Domain Objects */ = {
+			isa = PBXGroup;
+			children = (
+				17FC251B181042510067282D /* CategoryDomainObject.h */,
+				17FC251C181042510067282D /* CategoryDomainObject.m */,
+				17FC251E1810426D0067282D /* TransactionDomainObject.h */,
+				17FC251F1810426D0067282D /* TransactionDomainObject.m */,
+			);
+			name = "Domain Objects";
+			sourceTree = "<group>";
+		};
+		17FC2517181041A10067282D /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				17FC25211810429E0067282D /* TransactionsLogicManager.h */,
+				17FC25221810429E0067282D /* TransactionsLogicManager.m */,
+			);
+			name = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +404,9 @@
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 				17FC250F18103AFA0067282D /* Transaction.m in Sources */,
+				17FC251D181042510067282D /* CategoryDomainObject.m in Sources */,
+				17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */,
+				17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

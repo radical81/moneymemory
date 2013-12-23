@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>60C6ACA6-554E-4AAC-932A-1D0D68A23DF1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MoneyMemory</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1AC5B0C9-2D1B-40D3-97D3-3246DF374818</key>
+		<string>https://github.com/radical81/moneymemory.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MoneyMemory.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1AC5B0C9-2D1B-40D3-97D3-3246DF374818</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/radical81/moneymemory.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1AC5B0C9-2D1B-40D3-97D3-3246DF374818</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1AC5B0C9-2D1B-40D3-97D3-3246DF374818</string>
+			<key>IDESourceControlWCCName</key>
+			<string>moneymemory</string>
+		</dict>
+	</array>
+</dict>
+</plist>
