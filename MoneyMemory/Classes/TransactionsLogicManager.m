@@ -125,6 +125,27 @@
     return allTransactions;
 }
 
+-(NSArray*)fetchTransactionIsA: (int) categoryId {
+    NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
+    NSArray* transactions = [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext];
+    for(Transaction* transaction in transactions) {
+        [transactionDomainObject resetValues];
+        transactionDomainObject.id = [transaction valueForKey:@"id"];
+        transactionDomainObject.amount = [transaction valueForKey:@"amount"];
+        transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
+        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
+        transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
+        [allTransactions addObject:transactionDomainObject];
+    }
+    [transactionDomainObject release];
+    [coreDataManager release];
+    return allTransactions;
+}
+
+
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];

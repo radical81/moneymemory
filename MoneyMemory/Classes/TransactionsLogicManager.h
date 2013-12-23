@@ -18,6 +18,7 @@
 -(NSArray*) fetchAllCategories;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
 -(NSArray*) fetchAllTransactions;
+-(NSArray*)fetchTransactionIsA: (int) categoryId;
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;
 @end
