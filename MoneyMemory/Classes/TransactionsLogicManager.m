@@ -8,6 +8,8 @@
 
 #import "TransactionsLogicManager.h"
 #import "CoreDataManager.h"
+#import "Category.h"
+#import "Transaction.h"
 
 @implementation TransactionsLogicManager {
     NSManagedObjectContext *managedObjectContext;
@@ -51,6 +53,40 @@
     transaction.is_a = _is_a;
     return  transaction;
 }
+
+-(CategoryDomainObject*) fetchCategoryWithId: (int) _id {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    
+    Category* category = [coreDataManager fetchCategoryWithId:_id context:managedObjectContext];
+    [coreDataManager release];
+    CategoryDomainObject* categoryDomainObject = [[[CategoryDomainObject alloc]init]autorelease];
+    if(![category isKindOfClass:[NSNull class]]) {
+        categoryDomainObject.id = [category valueForKey:@"id"];
+        categoryDomainObject.limit = [category valueForKey:@"limit"];
+        categoryDomainObject.name = [category valueForKey:@"name"];
+    }
+    return categoryDomainObject;
+}
+
+-(TransactionDomainObject*)fetchTransactionWithId: (int) _id {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    
+    Transaction* transaction = [coreDataManager fetchTransactionWithId:_id context:managedObjectContext];
+    [coreDataManager release];
+    TransactionDomainObject* transactionDomainObject = [[[TransactionDomainObject alloc]init
+                                                         ]autorelease];
+    if(![transaction isKindOfClass:[NSNull class]]) {
+        transactionDomainObject.id = [transaction valueForKey:@"id"];
+        transactionDomainObject.amount = [transaction valueForKey:@"amount"];
+        transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
+        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
+        transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
+    }
+    return transactionDomainObject;
+}
+
 
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
