@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "RunTestCoreData.h"
 #import "SpendMoneyViewController.h"
+#import "TransactionCategoriesViewController.h"
 
 @interface ViewController ()
 
@@ -33,6 +34,12 @@
     [spendMoneyViewController release];
 }
 
+-(IBAction)transactionCategoriesClicked:(id)sender {
+    TransactionCategoriesViewController* categoriesView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];
+    [self.navigationController pushViewController:categoriesView animated:YES];
+    [categoriesView release];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -41,6 +48,7 @@
 
 - (void)dealloc {
     [_spendButton release];
+    [_transactionCategoriesButton release];
     [super dealloc];
 }
 @end

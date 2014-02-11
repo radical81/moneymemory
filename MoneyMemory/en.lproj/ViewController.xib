@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
                 <outlet property="spendButton" destination="NpP-El-K30" id="PDu-5R-Clh"/>
+                <outlet property="transactionCategoriesButton" destination="DMY-Bb-AlD" id="Emq-h3-8VG"/>
                 <outlet property="view" destination="6" id="7"/>
             </connections>
         </placeholder>
@@ -16,14 +17,37 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-El-K30">
-                    <rect key="frame" x="110" y="156" width="76" height="30"/>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iP9-ga-ie5" userLabel="backgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="329" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Spend"/>
-                    <connections>
-                        <action selector="spendButtonClicked:" destination="-1" eventType="touchUpInside" id="P78-Tu-dqQ"/>
-                    </connections>
-                </button>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-El-K30" userLabel="spendButton">
+                            <rect key="frame" x="96" y="126" width="76" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Spend"/>
+                            <connections>
+                                <action selector="spendButtonClicked:" destination="-1" eventType="touchUpInside" id="P78-Tu-dqQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMY-Bb-AlD" userLabel="transactionCategoriesButton">
+                            <rect key="frame" x="126" y="172" width="158" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Transaction Categories">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="transactionCategoriesClicked:" destination="-1" eventType="touchUpInside" id="wR5-0h-A8M"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="NpP-El-K30" firstAttribute="leading" secondItem="iP9-ga-ie5" secondAttribute="leading" constant="130" id="Ikl-ag-NpK"/>
+                        <constraint firstAttribute="trailing" secondItem="DMY-Bb-AlD" secondAttribute="trailing" constant="120" id="Zyx-iZ-db2"/>
+                        <constraint firstAttribute="trailing" secondItem="NpP-El-K30" secondAttribute="trailing" constant="130" id="bRj-A3-VxT"/>
+                        <constraint firstItem="DMY-Bb-AlD" firstAttribute="leading" secondItem="iP9-ga-ie5" secondAttribute="leading" constant="120" id="xf4-a4-Yxg"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

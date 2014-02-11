@@ -87,6 +87,18 @@
     return allCategories;
 }
 
+-(NSArray*) fetchCategoryNames {
+    NSMutableArray* categoryNames = [[[NSMutableArray alloc]init]autorelease];
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
+    for(Category* category in categories) {
+        [categoryNames addObject:[category valueForKey:@"name"]];
+    }
+    [coreDataManager release];
+    return categoryNames;
+}
+
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];

@@ -16,6 +16,7 @@
 -(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp currency: (NSString*) _currency is_a:(CategoryDomainObject*) _is_a;
 -(CategoryDomainObject*) fetchCategoryWithId: (int) _id;
 -(NSArray*) fetchAllCategories;
+-(NSArray*) fetchCategoryNames;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
 -(NSArray*) fetchAllTransactions;
 -(NSArray*)fetchTransactionIsA: (int) categoryId;

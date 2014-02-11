@@ -41,9 +41,9 @@
     NSLog(@"First Result Count: %d", [firstResult count]);
         
     ////Saving
-    int categoryId = 4;
+    int categoryId = 8;
     double limit = 100;
-    NSString* categoryName = @"Test Category For Edit";
+    NSString* categoryName = @"Miscellaneous";
     int transactionId = 6;
     double transactionAmount = 8.5;
     NSString* transactionCurrency = @"SGD";
