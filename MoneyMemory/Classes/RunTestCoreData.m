@@ -41,11 +41,11 @@
     NSLog(@"First Result Count: %lu", (unsigned long)[firstResult count]);
         
     ////Saving
-    int categoryId = 8;
+    int categoryId = 9;
     double limit = 100;
-    NSString* categoryName = @"Miscellaneous";
-    int transactionId = 6;
-    double transactionAmount = 8.5;
+    NSString* categoryName = @"Rent";
+    int transactionId = 8;
+    double transactionAmount = 800;
     NSString* transactionCurrency = @"SGD";
     
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
