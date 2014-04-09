@@ -324,6 +324,7 @@
 		17ED420D17E756E600C7080A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Rex Jason Alobba";
 			};

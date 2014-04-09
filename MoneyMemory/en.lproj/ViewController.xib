@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
@@ -18,18 +18,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iP9-ga-ie5" userLabel="backgroundView">
-                    <rect key="frame" x="0.0" y="0.0" width="329" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-El-K30" userLabel="spendButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-El-K30" userLabel="spendButton">
                             <rect key="frame" x="96" y="126" width="76" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="76" id="Ca1-0D-5YH"/>
+                            </constraints>
                             <state key="normal" title="Spend"/>
                             <connections>
                                 <action selector="spendButtonClicked:" destination="-1" eventType="touchUpInside" id="P78-Tu-dqQ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMY-Bb-AlD" userLabel="transactionCategoriesButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMY-Bb-AlD" userLabel="transactionCategoriesButton">
                             <rect key="frame" x="126" y="172" width="158" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Transaction Categories">
@@ -42,10 +45,11 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="NpP-El-K30" firstAttribute="leading" secondItem="iP9-ga-ie5" secondAttribute="leading" constant="130" id="Ikl-ag-NpK"/>
-                        <constraint firstAttribute="trailing" secondItem="DMY-Bb-AlD" secondAttribute="trailing" constant="120" id="Zyx-iZ-db2"/>
-                        <constraint firstAttribute="trailing" secondItem="NpP-El-K30" secondAttribute="trailing" constant="130" id="bRj-A3-VxT"/>
-                        <constraint firstItem="DMY-Bb-AlD" firstAttribute="leading" secondItem="iP9-ga-ie5" secondAttribute="leading" constant="120" id="xf4-a4-Yxg"/>
+                        <constraint firstItem="DMY-Bb-AlD" firstAttribute="top" secondItem="iP9-ga-ie5" secondAttribute="top" constant="172" id="38N-ks-n7Y"/>
+                        <constraint firstItem="DMY-Bb-AlD" firstAttribute="top" secondItem="NpP-El-K30" secondAttribute="bottom" constant="16" id="E0z-0r-uH4"/>
+                        <constraint firstItem="NpP-El-K30" firstAttribute="leading" secondItem="iP9-ga-ie5" secondAttribute="leading" constant="96" id="Shd-ij-7BZ"/>
+                        <constraint firstAttribute="trailing" secondItem="DMY-Bb-AlD" secondAttribute="trailing" constant="45" id="WCH-qm-LKx"/>
+                        <constraint firstItem="DMY-Bb-AlD" firstAttribute="leading" secondItem="iP9-ga-ie5" secondAttribute="leading" constant="126" id="eWM-O9-4lW"/>
                     </constraints>
                 </view>
             </subviews>

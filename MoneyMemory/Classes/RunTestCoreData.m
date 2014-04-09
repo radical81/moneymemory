@@ -38,7 +38,7 @@
     
     
     NSArray* firstResult = [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"First Result Count: %d", [firstResult count]);
+    NSLog(@"First Result Count: %lu", (unsigned long)[firstResult count]);
         
     ////Saving
     int categoryId = 8;
@@ -61,7 +61,7 @@
     
     ////Results after saving
     NSArray* secondResults= [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"Seconds Result Count: %d", [secondResults count]);
+    NSLog(@"Seconds Result Count: %lu", (unsigned long)[secondResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
     //Update transaction with Peso
@@ -69,7 +69,7 @@
     
     //Results after deleting
     NSArray* thirdResults= [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"Third Result Count: %d", [thirdResults count]);
+    NSLog(@"Third Result Count: %lu", (unsigned long)[thirdResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
     [coreDataManager release];

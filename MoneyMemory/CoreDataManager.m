@@ -30,7 +30,7 @@
     Category* whichCategory = [self fetchCategoryWithId:_categoryId context:moc];
     newTransaction.is_a = whichCategory;
     NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
-    NSInteger timeInt = interval;
+    int timeInt = (int)interval;
     newTransaction.timestamp = [NSNumber numberWithInt:timeInt];
     
     
