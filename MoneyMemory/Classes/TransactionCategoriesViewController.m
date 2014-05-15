@@ -9,19 +9,21 @@
 #import "TransactionCategoriesViewController.h"
 #import "TransactionsLogicManager.h"
 #import "CategoryDomainObject.h"
+#import "SpendMoneyViewController.h"
 
 @interface TransactionCategoriesViewController ()
 
 @property(atomic,retain) IBOutlet UITableView* tblView;
+@property(nonatomic, retain) NSArray* transactionCategories;
 
 @end
 
-@implementation TransactionCategoriesViewController {
-    NSArray* transactionCategories;
-}
+@implementation TransactionCategoriesViewController
 
 @synthesize tblView;
-int const CELL_HEIGHT = 100;
+@synthesize transactionCategories;
+
+int const CELL_HEIGHT = 50;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,11 +32,8 @@ int const CELL_HEIGHT = 100;
     if (self) {
         // Custom initialization
         TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
-        transactionCategories = [logicManager fetchCategoryNames];
+        transactionCategories = [[logicManager fetchAllCategories] retain];
         [logicManager release];
-        tblView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-        [self.view addSubview:tblView];
-        self.tblView.dataSource = self;
     }
     return self;
 }
@@ -61,7 +60,8 @@ int const CELL_HEIGHT = 100;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cellForRow = [[[UITableViewCell alloc]init]autorelease];
-    cellForRow.textLabel.text = [transactionCategories objectAtIndex:indexPath.row];
+    CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
+    cellForRow.textLabel.text = cat.name;
     return  cellForRow;
 }
 
@@ -82,6 +82,15 @@ int const CELL_HEIGHT = 100;
     return CELL_HEIGHT;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
+
+    SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
+    spendMoneyViewController.transactionCategory = cat.id;
+    spendMoneyViewController.transactionCategoryText =  cat.name;
+    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
+}
 
 
 @end

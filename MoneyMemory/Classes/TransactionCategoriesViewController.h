@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TransactionCategoriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TransactionCategoriesViewController : UITableViewController
 
 
 @end

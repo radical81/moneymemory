@@ -28,11 +28,6 @@
     
 }
 
--(IBAction)spendButtonClicked:(id)sender {
-    SpendMoneyViewController* spendMoneyViewController = [[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil];
-    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
-    [spendMoneyViewController release];
-}
 
 -(IBAction)transactionCategoriesClicked:(id)sender {
     TransactionCategoriesViewController* categoriesView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];
@@ -47,7 +42,6 @@
 }
 
 - (void)dealloc {
-    [_spendButton release];
     [_transactionCategoriesButton release];
     [super dealloc];
 }

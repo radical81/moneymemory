@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SpendMoneyViewController : UIViewController
-
+@property  (nonatomic, retain) NSNumber* transactionCategory;
+@property (nonatomic, retain) NSString* transactionCategoryText;
+@property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @end

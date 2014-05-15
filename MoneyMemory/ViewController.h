@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (retain, nonatomic) IBOutlet UIButton *spendButton;
 @property (retain, nonatomic) IBOutlet UIButton *transactionCategoriesButton;
 
--(IBAction)spendButtonClicked:(id)sender;
 -(IBAction)transactionCategoriesClicked:(id)sender;
 
 @end

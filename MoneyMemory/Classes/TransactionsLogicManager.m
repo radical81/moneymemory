@@ -8,8 +8,8 @@
 
 #import "TransactionsLogicManager.h"
 #import "CoreDataManager.h"
-#import "Category.h"
 #import "Transaction.h"
+#import "Category.h"
 
 @implementation TransactionsLogicManager {
     NSManagedObjectContext *managedObjectContext;
@@ -36,12 +36,13 @@
     }
 }
 
--(CategoryDomainObject*) generateCategoryDomainObject:(int)_id limit:(double) _limit name: (NSString*) _name {
-    CategoryDomainObject* category = [[[CategoryDomainObject alloc]init]autorelease];
-    category.id = [NSNumber numberWithInt:_id];
-    category.limit = [NSNumber numberWithDouble:_limit];
-    category.name = _name;
-    return  category;
+-(CategoryDomainObject*) generateCategoryDomainObjectFromCategory:(Category*) category {
+    CategoryDomainObject* categoryDomainObject = [[[CategoryDomainObject alloc]init]autorelease];
+    categoryDomainObject.id = [category valueForKey:@"id"];
+    categoryDomainObject.limit = [category valueForKey:@"limit"];
+    categoryDomainObject.name = [category valueForKey:@"name"];
+
+    return categoryDomainObject;
 }
 
 -(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp currency: (NSString*) _currency is_a:(CategoryDomainObject*) _is_a {
@@ -73,17 +74,13 @@
     NSMutableArray* allCategories = [[[NSMutableArray alloc]init]autorelease];
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    CategoryDomainObject* categoryDomainObject = [[CategoryDomainObject alloc]init];
     NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
     for(Category* category in categories) {
-        [categoryDomainObject resetValues];
-        categoryDomainObject.id = [category valueForKey:@"id"];
-        categoryDomainObject.limit = [category valueForKey:@"limit"];
-        categoryDomainObject.name = [category valueForKey:@"name"];
+        CategoryDomainObject* categoryDomainObject = [self generateCategoryDomainObjectFromCategory:category];
         [allCategories addObject:categoryDomainObject];
     }
-    [categoryDomainObject release];
     [coreDataManager release];
+    
     return allCategories;
 }
 

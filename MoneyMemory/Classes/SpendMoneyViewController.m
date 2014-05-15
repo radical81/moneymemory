@@ -13,6 +13,9 @@
 @end
 
 @implementation SpendMoneyViewController
+@synthesize transactionCategory;
+@synthesize transactionType = _transactionType;
+@synthesize transactionCategoryText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [_transactionType setText:transactionCategoryText];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +39,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_transactionType release];
+    [super dealloc];
+}
 @end
