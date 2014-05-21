@@ -10,6 +10,7 @@
 #import "TransactionsLogicManager.h"
 #import "CategoryDomainObject.h"
 #import "SpendMoneyViewController.h"
+#import "AddCategoryViewController.h"
 
 @interface TransactionCategoriesViewController ()
 
@@ -46,10 +47,19 @@ int const CELL_HEIGHT = 50;
     [super dealloc];
 }
 
+- (void)addTransactionCategory {
+    AddCategoryViewController* addCategoryViewController = [[AddCategoryViewController alloc]init];
+    [self.navigationController pushViewController:addCategoryViewController animated:YES];
+    [addCategoryViewController release];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTransactionCategory)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [rightButton release];
 }
 
 - (void)didReceiveMemoryWarning
