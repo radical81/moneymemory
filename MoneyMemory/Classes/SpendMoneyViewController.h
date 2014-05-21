@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpendMoneyViewController : UIViewController
+@interface SpendMoneyViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+    NSArray* currencies;
+}
+
 @property  (nonatomic, retain) NSNumber* transactionCategory;
 @property (nonatomic, retain) NSString* transactionCategoryText;
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
+@property (retain, nonatomic) IBOutlet UITextField *amountTextField;
+
 @end
