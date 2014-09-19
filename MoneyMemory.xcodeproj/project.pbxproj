@@ -29,7 +29,6 @@
 		17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ED422E17E756E700C7080A /* Default-568h@2x.png */; };
 		17ED423217E756E700C7080A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED423117E756E700C7080A /* ViewController.m */; };
 		17ED423517E756E700C7080A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ED423317E756E700C7080A /* ViewController.xib */; };
-		17ED423D17E756E700C7080A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED423C17E756E700C7080A /* SenTestingKit.framework */; };
 		17ED423E17E756E700C7080A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421817E756E600C7080A /* UIKit.framework */; };
 		17ED423F17E756E700C7080A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421A17E756E600C7080A /* Foundation.framework */; };
 		17ED424717E756E700C7080A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17ED424517E756E700C7080A /* InfoPlist.strings */; };
@@ -88,7 +87,6 @@
 		17ED423117E756E700C7080A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17ED423417E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMemoryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17ED423C17E756E700C7080A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		17ED424417E756E700C7080A /* MoneyMemoryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoneyMemoryTests-Info.plist"; sourceTree = "<group>"; };
 		17ED424617E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17ED424817E756E700C7080A /* MoneyMemoryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyMemoryTests.h; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17ED423D17E756E700C7080A /* SenTestingKit.framework in Frameworks */,
 				17ED423E17E756E700C7080A /* UIKit.framework in Frameworks */,
 				17ED423F17E756E700C7080A /* Foundation.framework in Frameworks */,
 			);
@@ -213,7 +210,6 @@
 				17ED421817E756E600C7080A /* UIKit.framework */,
 				17ED421A17E756E600C7080A /* Foundation.framework */,
 				17ED421C17E756E600C7080A /* CoreGraphics.framework */,
-				17ED423C17E756E700C7080A /* SenTestingKit.framework */,
 				C432C4616D1D4605AA12CB2D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -324,7 +320,7 @@
 			name = MoneyMemoryTests;
 			productName = MoneyMemoryTests;
 			productReference = 17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -332,7 +328,7 @@
 		17ED420D17E756E600C7080A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0510;
+				LastTestingUpgradeCheck = 0600;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Rex Jason Alobba";
 			};
@@ -598,13 +594,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -615,13 +611,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
