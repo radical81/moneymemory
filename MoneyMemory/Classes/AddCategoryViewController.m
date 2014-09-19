@@ -7,6 +7,8 @@
 //
 
 #import "AddCategoryViewController.h"
+#import "TransactionsLogicManager.h"
+#import "CategoryDomainObject.h"
 
 @interface AddCategoryViewController ()
 
@@ -14,13 +16,33 @@
 
 @implementation AddCategoryViewController
 
+TransactionsLogicManager* transactionsLogicManager;
+
+
+@synthesize categoryNew = _categoryNew;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _categoryNew = [[UITextField alloc]init];
+        transactionsLogicManager = [[TransactionsLogicManager alloc]init];
+        
     }
     return self;
+}
+
+- (IBAction)didTapSave:(id)sender {
+    NSLog(@"Save tapped %@", _categoryNew.text);
+    CategoryDomainObject* category = [[CategoryDomainObject alloc]init];
+    int latestCategoryId = [transactionsLogicManager retrieveLatestCategoryId];
+    latestCategoryId++;
+    category.id = [NSNumber numberWithInt:latestCategoryId];
+    category.name = _categoryNew.text;
+    category.limit = [NSNumber numberWithInt: 100];
+    [transactionsLogicManager saveCategoryToCoreData:category];
+    [category release];
 }
 
 - (void)viewDidLoad
@@ -35,4 +57,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_categoryNew release];
+    [transactionsLogicManager release];
+    [super dealloc];
+}
 @end

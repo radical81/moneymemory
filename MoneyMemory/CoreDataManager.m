@@ -135,6 +135,18 @@
     [moc deleteObject:categoryToDelete];
 }
 
+-(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    
+    request.fetchLimit = 1;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO]];
+    
+    NSError *error = nil;
+    
+    Category* category = [moc executeFetchRequest:request error:&error].lastObject;
+
+    return category;
+}
 
 
 @end

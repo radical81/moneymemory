@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddCategoryViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UITextField *categoryNew;
 
 @end

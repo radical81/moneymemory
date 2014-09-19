@@ -176,4 +176,12 @@
     [coreDataManager release];
 }
 
+-(int) retrieveLatestCategoryId {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    Category* lastCategory = [coreDataManager retrieveCategoryWithMaxId:managedObjectContext];
+ 
+    return [lastCategory.id intValue];
+}
+
 @end
