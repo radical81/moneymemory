@@ -86,7 +86,7 @@
 		17ED423017E756E700C7080A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		17ED423117E756E700C7080A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17ED423417E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMemoryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17ED423B17E756E700C7080A /* MoneyMemoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMemoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED424417E756E700C7080A /* MoneyMemoryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoneyMemoryTests-Info.plist"; sourceTree = "<group>"; };
 		17ED424617E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17ED424817E756E700C7080A /* MoneyMemoryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyMemoryTests.h; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				17ED421517E756E600C7080A /* MoneyMemory.app */,
-				17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */,
+				17ED423B17E756E700C7080A /* MoneyMemoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			);
 			name = MoneyMemoryTests;
 			productName = MoneyMemoryTests;
-			productReference = 17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */;
+			productReference = 17ED423B17E756E700C7080A /* MoneyMemoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

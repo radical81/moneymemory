@@ -176,11 +176,19 @@
     [coreDataManager release];
 }
 
+-(int) retrieveLatestTransactionId {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    Transaction* lastTransaction = [coreDataManager retrieveTransactionWithMaxId:managedObjectContext];
+    NSLog(@"retrieveLatestTransactionId, %d", [lastTransaction.id intValue]);
+    return [lastTransaction.id intValue];
+}
+
 -(int) retrieveLatestCategoryId {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
     Category* lastCategory = [coreDataManager retrieveCategoryWithMaxId:managedObjectContext];
- 
+    NSLog(@"retrieveLatestCategoryId, %d", [lastCategory.id intValue]);
     return [lastCategory.id intValue];
 }
 

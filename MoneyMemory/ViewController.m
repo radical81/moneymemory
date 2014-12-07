@@ -24,6 +24,7 @@
     NSLog(@"This is money memory");
     RunTestCoreData* rc = [[RunTestCoreData alloc]init];
     //[rc runTestData];
+    [rc viewTransactions];
     [rc release];
     
 }

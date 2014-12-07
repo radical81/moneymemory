@@ -121,6 +121,20 @@
     }
 }
 
+-(Transaction*) retrieveTransactionWithMaxId: (NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Transaction"];
+    
+    request.fetchLimit = 1;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO]];
+    
+    NSError *error = nil;
+    
+    Transaction* transaction = [moc executeFetchRequest:request error:&error].lastObject;
+    
+    return transaction;
+}
+
+
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc {
     Transaction* transactionToDelete = [self fetchTransactionWithId:_id context:moc];
     [moc deleteObject:transactionToDelete];

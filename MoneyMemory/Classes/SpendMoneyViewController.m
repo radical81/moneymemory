@@ -7,6 +7,9 @@
 //
 
 #import "SpendMoneyViewController.h"
+#import "CategoryDomainObject.h"
+#import "TransactionDomainObject.h"
+#import "TransactionsLogicManager.h"
 
 @interface SpendMoneyViewController ()
 
@@ -14,6 +17,7 @@
 
 @implementation SpendMoneyViewController {
     NSString* currencySelected;
+    TransactionsLogicManager* transactionsLogicManager;
 }
 
 @synthesize transactionCategory;
@@ -26,6 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        transactionsLogicManager = [[TransactionsLogicManager alloc]init];
     }
     return self;
 }
@@ -55,6 +60,7 @@
     }
     [_transactionType release];
     [_amountTextField release];
+    [transactionsLogicManager release];
     [super dealloc];
 }
 
@@ -77,4 +83,20 @@
     NSLog(@"Currency selected: %@", currencySelected);
 }
 
+- (IBAction)didButtonPressSaveTransaction:(id)sender {
+    CategoryDomainObject *category = [[CategoryDomainObject alloc]init];
+    category.id = transactionCategory;
+    category.name = transactionCategoryText;
+    TransactionDomainObject *transaction = [[TransactionDomainObject alloc]init];
+    int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
+    latestTransactionId++;
+    transaction.id = [NSNumber numberWithInt:latestTransactionId];
+    transaction.amount = [NSNumber numberWithFloat:[_amountTextField.text floatValue]];
+    NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+    transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
+    transaction.currency = currencySelected;
+    [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:category];
+    [transaction release];
+    [category release];
+}
 @end
