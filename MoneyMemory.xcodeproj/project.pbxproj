@@ -38,6 +38,8 @@
 		17FC251D181042510067282D /* CategoryDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251C181042510067282D /* CategoryDomainObject.m */; };
 		17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251F1810426D0067282D /* TransactionDomainObject.m */; };
 		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
+		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
+		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,9 @@
 		17FC251F1810426D0067282D /* TransactionDomainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDomainObject.m; path = DomainObjects/TransactionDomainObject.m; sourceTree = "<group>"; };
 		17FC25211810429E0067282D /* TransactionsLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsLogicManager.h; path = Classes/TransactionsLogicManager.h; sourceTree = "<group>"; };
 		17FC25221810429E0067282D /* TransactionsLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsLogicManager.m; path = Classes/TransactionsLogicManager.m; sourceTree = "<group>"; };
+		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
+		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
+		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
 		C432C4616D1D4605AA12CB2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
+				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
 				17ED423317E756E700C7080A /* ViewController.xib */,
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
 				179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */,
@@ -179,6 +185,8 @@
 				179EEF6318AA789B0070B834 /* TransactionCategoriesViewController.m */,
 				17139EFD192C80D30051794A /* AddCategoryViewController.h */,
 				17139EFE192C80D30051794A /* AddCategoryViewController.m */,
+				86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */,
+				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -356,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
+				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
@@ -436,6 +445,7 @@
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
 				17139F00192C80D30051794A /* AddCategoryViewController.m in Sources */,
+				86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */,
 				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 				17FC250F18103AFA0067282D /* Transaction.m in Sources */,

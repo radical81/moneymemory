@@ -9,7 +9,8 @@
 #import "TransactionCategoriesViewController.h"
 #import "TransactionsLogicManager.h"
 #import "CategoryDomainObject.h"
-#import "SpendMoneyViewController.h"
+#import "CategoryDetailViewController.h"
+
 #import "AddCategoryViewController.h"
 
 @interface TransactionCategoriesViewController ()
@@ -95,11 +96,11 @@ int const CELL_HEIGHT = 50;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
+    CategoryDetailViewController* categoryDetail = [[[CategoryDetailViewController alloc]initWithNibName:@"CategoryDetailViewController" bundle:nil]autorelease];
+    categoryDetail.transactionCategory = cat.id;
+    categoryDetail.transactionCategoryText =  cat.name;
+    [self.navigationController pushViewController:categoryDetail animated:YES];
 
-    SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
-    spendMoneyViewController.transactionCategory = cat.id;
-    spendMoneyViewController.transactionCategoryText =  cat.name;
-    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
 }
 
 

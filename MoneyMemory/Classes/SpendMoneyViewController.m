@@ -111,13 +111,13 @@
                                queue:nil
                           usingBlock:^(NSNotification* notification){
                               // Explore notification
-                              NSLog(@"Notification found with:"
-                                    "\r\n     name:     %@"
-                                    "\r\n     object:   %@"
-                                    "\r\n     userInfo: %@",
-                                    [notification name],
-                                    [notification object],
-                                    [notification userInfo]);
+//                              NSLog(@"Notification found with:"
+//                                    "\r\n     name:     %@"
+//                                    "\r\n     object:   %@"
+//                                    "\r\n     userInfo: %@",
+//                                    [notification name],
+//                                    [notification object],
+//                                    [notification userInfo]);
                                     if([[notification name] isEqualToString:@"NSManagingContextDidSaveChangesNotification"]) {
                                             transactionSave = YES;
                                     }
