@@ -18,6 +18,7 @@
 @implementation SpendMoneyViewController {
     NSString* currencySelected;
     TransactionsLogicManager* transactionsLogicManager;
+    BOOL transactionSave;
 }
 
 @synthesize transactionCategory;
@@ -95,8 +96,58 @@
     NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
     transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
     transaction.currency = currencySelected;
+    [self createNotificationObserver];
     [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:category];
     [transaction release];
     [category release];
+    [self showAlertSavedTransaction:transactionSave];
 }
+
+-(void) createNotificationObserver {
+    transactionSave = NO;
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserverForName:nil
+                              object:nil
+                               queue:nil
+                          usingBlock:^(NSNotification* notification){
+                              // Explore notification
+                              NSLog(@"Notification found with:"
+                                    "\r\n     name:     %@"
+                                    "\r\n     object:   %@"
+                                    "\r\n     userInfo: %@",
+                                    [notification name],
+                                    [notification object],
+                                    [notification userInfo]);
+                                    if([[notification name] isEqualToString:@"NSManagingContextDidSaveChangesNotification"]) {
+                                            transactionSave = YES;
+                                    }
+                          }];
+}
+
+-(void) showAlertSavedTransaction:(BOOL) success {
+    NSString* alertMessage;
+    
+    if(success == YES) {
+        alertMessage = @"The transaction has been saved.";
+    }
+    else {
+        alertMessage = @"Failed to save transaction. Please try again.";
+    }
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Save Transaction"
+                                  message: alertMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [self.navigationController popViewControllerAnimated:YES];
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end
