@@ -15,5 +15,6 @@
 }
 
 -(void) runTestData;
+-(void) viewTransactions;
 
 @end

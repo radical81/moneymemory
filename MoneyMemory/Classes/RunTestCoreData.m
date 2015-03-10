@@ -50,7 +50,6 @@
     
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
     
-    
     [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount currency: transactionCurrency categoryId:categoryId];
         
     
@@ -73,7 +72,16 @@
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
     [coreDataManager release];
+}
+
+-(void) viewTransactions {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
     
+    NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext];
+    NSLog(@"TransactionsCount: %lu", (unsigned long)[transactions count]);
+    
+    [coreDataManager release];
     
 }
 

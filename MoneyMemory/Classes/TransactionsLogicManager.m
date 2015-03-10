@@ -134,22 +134,34 @@
     return allTransactions;
 }
 
+-(NSNumber*) calculateTotalForCategory: (int) categoryId {
+    NSLog(@"calculateTotalForCategory %d", categoryId);
+    float total = 0;
+    NSArray* transactions = [self fetchTransactionIsA:categoryId];
+    for(TransactionDomainObject* transaction in transactions) {
+        NSLog(@"Add %@ with id %@", transaction.amount, transaction.id);
+        total += [transaction.amount floatValue];
+    }
+    return [NSNumber numberWithFloat:total];
+}
+
 -(NSArray*)fetchTransactionIsA: (int) categoryId {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
     NSArray* transactions = [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext];
     for(Transaction* transaction in transactions) {
+        TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
         [transactionDomainObject resetValues];
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
         transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
+        NSLog(@"Fetched transaction with id %@ amount %@", transactionDomainObject.id, transactionDomainObject.amount);
         [allTransactions addObject:transactionDomainObject];
+        [transactionDomainObject release];
     }
-    [transactionDomainObject release];
     [coreDataManager release];
     return allTransactions;
 }
@@ -174,6 +186,22 @@
     NSString* transactionCurrency = transactionDomainObject.currency;
     [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount currency: transactionCurrency categoryId:categoryId];
     [coreDataManager release];
+}
+
+-(int) retrieveLatestTransactionId {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    Transaction* lastTransaction = [coreDataManager retrieveTransactionWithMaxId:managedObjectContext];
+    NSLog(@"retrieveLatestTransactionId, %d", [lastTransaction.id intValue]);
+    return [lastTransaction.id intValue];
+}
+
+-(int) retrieveLatestCategoryId {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    Category* lastCategory = [coreDataManager retrieveCategoryWithMaxId:managedObjectContext];
+    NSLog(@"retrieveLatestCategoryId, %d", [lastCategory.id intValue]);
+    return [lastCategory.id intValue];
 }
 
 @end

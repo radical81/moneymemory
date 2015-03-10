@@ -29,7 +29,6 @@
 		17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ED422E17E756E700C7080A /* Default-568h@2x.png */; };
 		17ED423217E756E700C7080A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED423117E756E700C7080A /* ViewController.m */; };
 		17ED423517E756E700C7080A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ED423317E756E700C7080A /* ViewController.xib */; };
-		17ED423D17E756E700C7080A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED423C17E756E700C7080A /* SenTestingKit.framework */; };
 		17ED423E17E756E700C7080A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421817E756E600C7080A /* UIKit.framework */; };
 		17ED423F17E756E700C7080A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ED421A17E756E600C7080A /* Foundation.framework */; };
 		17ED424717E756E700C7080A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17ED424517E756E700C7080A /* InfoPlist.strings */; };
@@ -39,6 +38,8 @@
 		17FC251D181042510067282D /* CategoryDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251C181042510067282D /* CategoryDomainObject.m */; };
 		17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251F1810426D0067282D /* TransactionDomainObject.m */; };
 		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
+		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
+		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -87,8 +88,7 @@
 		17ED423017E756E700C7080A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		17ED423117E756E700C7080A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17ED423417E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMemoryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17ED423C17E756E700C7080A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		17ED423B17E756E700C7080A /* MoneyMemoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMemoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED424417E756E700C7080A /* MoneyMemoryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoneyMemoryTests-Info.plist"; sourceTree = "<group>"; };
 		17ED424617E756E700C7080A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17ED424817E756E700C7080A /* MoneyMemoryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyMemoryTests.h; sourceTree = "<group>"; };
@@ -102,6 +102,9 @@
 		17FC251F1810426D0067282D /* TransactionDomainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDomainObject.m; path = DomainObjects/TransactionDomainObject.m; sourceTree = "<group>"; };
 		17FC25211810429E0067282D /* TransactionsLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsLogicManager.h; path = Classes/TransactionsLogicManager.h; sourceTree = "<group>"; };
 		17FC25221810429E0067282D /* TransactionsLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsLogicManager.m; path = Classes/TransactionsLogicManager.m; sourceTree = "<group>"; };
+		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
+		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
+		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
 		C432C4616D1D4605AA12CB2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17ED423D17E756E700C7080A /* SenTestingKit.framework in Frameworks */,
 				17ED423E17E756E700C7080A /* UIKit.framework in Frameworks */,
 				17ED423F17E756E700C7080A /* Foundation.framework in Frameworks */,
 			);
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
+				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
 				17ED423317E756E700C7080A /* ViewController.xib */,
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
 				179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */,
@@ -182,6 +185,8 @@
 				179EEF6318AA789B0070B834 /* TransactionCategoriesViewController.m */,
 				17139EFD192C80D30051794A /* AddCategoryViewController.h */,
 				17139EFE192C80D30051794A /* AddCategoryViewController.m */,
+				86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */,
+				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -201,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				17ED421517E756E600C7080A /* MoneyMemory.app */,
-				17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */,
+				17ED423B17E756E700C7080A /* MoneyMemoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,7 +218,6 @@
 				17ED421817E756E600C7080A /* UIKit.framework */,
 				17ED421A17E756E600C7080A /* Foundation.framework */,
 				17ED421C17E756E600C7080A /* CoreGraphics.framework */,
-				17ED423C17E756E700C7080A /* SenTestingKit.framework */,
 				C432C4616D1D4605AA12CB2D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -323,8 +327,8 @@
 			);
 			name = MoneyMemoryTests;
 			productName = MoneyMemoryTests;
-			productReference = 17ED423B17E756E700C7080A /* MoneyMemoryTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 17ED423B17E756E700C7080A /* MoneyMemoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -332,7 +336,7 @@
 		17ED420D17E756E600C7080A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0510;
+				LastTestingUpgradeCheck = 0600;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Rex Jason Alobba";
 			};
@@ -360,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
+				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
@@ -440,6 +445,7 @@
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
 				17139F00192C80D30051794A /* AddCategoryViewController.m in Sources */,
+				86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */,
 				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 				17FC250F18103AFA0067282D /* Transaction.m in Sources */,
@@ -598,13 +604,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -615,13 +621,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
