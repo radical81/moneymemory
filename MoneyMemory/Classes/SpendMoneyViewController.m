@@ -7,6 +7,9 @@
 //
 
 #import "SpendMoneyViewController.h"
+#import "CategoryDomainObject.h"
+#import "TransactionDomainObject.h"
+#import "TransactionsLogicManager.h"
 
 @interface SpendMoneyViewController ()
 
@@ -14,6 +17,8 @@
 
 @implementation SpendMoneyViewController {
     NSString* currencySelected;
+    TransactionsLogicManager* transactionsLogicManager;
+    BOOL transactionSave;
 }
 
 @synthesize transactionCategory;
@@ -26,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        transactionsLogicManager = [[TransactionsLogicManager alloc]init];
     }
     return self;
 }
@@ -55,6 +61,7 @@
     }
     [_transactionType release];
     [_amountTextField release];
+    [transactionsLogicManager release];
     [super dealloc];
 }
 
@@ -75,6 +82,72 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     currencySelected = [currencies objectAtIndex:row];
     NSLog(@"Currency selected: %@", currencySelected);
+}
+
+- (IBAction)didButtonPressSaveTransaction:(id)sender {
+    CategoryDomainObject *category = [[CategoryDomainObject alloc]init];
+    category.id = transactionCategory;
+    category.name = transactionCategoryText;
+    TransactionDomainObject *transaction = [[TransactionDomainObject alloc]init];
+    int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
+    latestTransactionId++;
+    transaction.id = [NSNumber numberWithInt:latestTransactionId];
+    transaction.amount = [NSNumber numberWithFloat:[_amountTextField.text floatValue]];
+    NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+    transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
+    transaction.currency = currencySelected;
+    [self createNotificationObserver];
+    [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:category];
+    [transaction release];
+    [category release];
+    [self showAlertSavedTransaction:transactionSave];
+}
+
+-(void) createNotificationObserver {
+    transactionSave = NO;
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserverForName:nil
+                              object:nil
+                               queue:nil
+                          usingBlock:^(NSNotification* notification){
+                              // Explore notification
+//                              NSLog(@"Notification found with:"
+//                                    "\r\n     name:     %@"
+//                                    "\r\n     object:   %@"
+//                                    "\r\n     userInfo: %@",
+//                                    [notification name],
+//                                    [notification object],
+//                                    [notification userInfo]);
+                                    if([[notification name] isEqualToString:@"NSManagingContextDidSaveChangesNotification"]) {
+                                            transactionSave = YES;
+                                    }
+                          }];
+}
+
+-(void) showAlertSavedTransaction:(BOOL) success {
+    NSString* alertMessage;
+    
+    if(success == YES) {
+        alertMessage = @"The transaction has been saved.";
+    }
+    else {
+        alertMessage = @"Failed to save transaction. Please try again.";
+    }
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Save Transaction"
+                                  message: alertMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [self.navigationController popViewControllerAnimated:YES];
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

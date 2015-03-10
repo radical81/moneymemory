@@ -23,4 +23,6 @@
 -(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount currency: (NSString*) _currency context: (NSManagedObjectContext*) moc;
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc;
+-(Transaction*) retrieveTransactionWithMaxId: (NSManagedObjectContext*) moc;
+-(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc;
 @end

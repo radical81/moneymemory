@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString* transactionCategoryText;
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UITextField *amountTextField;
+- (IBAction)didButtonPressSaveTransaction:(id)sender;
 
 @end
