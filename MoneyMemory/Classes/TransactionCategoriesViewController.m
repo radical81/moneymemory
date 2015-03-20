@@ -16,6 +16,7 @@
 @interface TransactionCategoriesViewController ()
 
 @property(atomic,retain) IBOutlet UITableView* tblView;
+
 @property(nonatomic, retain) NSArray* transactionCategories;
 
 @end
@@ -23,19 +24,20 @@
 @implementation TransactionCategoriesViewController
 
 @synthesize tblView;
+
 @synthesize transactionCategories;
 
 int const CELL_HEIGHT = 50;
 
+TransactionsLogicManager* logicManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
+        logicManager = [[TransactionsLogicManager alloc]init];
         transactionCategories = [[logicManager fetchAllCategories] retain];
-        [logicManager release];
     }
     return self;
 }
@@ -44,6 +46,10 @@ int const CELL_HEIGHT = 50;
     if(tblView) {
         [tblView release];
         tblView = nil;
+    }
+    if(logicManager) {
+        [logicManager release];
+        logicManager = nil;
     }
     [super dealloc];
 }
@@ -60,6 +66,7 @@ int const CELL_HEIGHT = 50;
 	// Do any additional setup after loading the view.
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTransactionCategory)];
     self.navigationItem.rightBarButtonItem = rightButton;
+
     [rightButton release];
 }
 
@@ -70,10 +77,17 @@ int const CELL_HEIGHT = 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cellForRow = [[[UITableViewCell alloc]init]autorelease];
     CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
-    cellForRow.textLabel.text = cat.name;
-    return  cellForRow;
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = cat.name;
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -100,8 +114,20 @@ int const CELL_HEIGHT = 50;
     categoryDetail.transactionCategory = cat.id;
     categoryDetail.transactionCategoryText =  cat.name;
     [self.navigationController pushViewController:categoryDetail animated:YES];
-
 }
 
-
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"transactionCategories before delete: %@",transactionCategories);
+    NSLog(@"number of transactionCategories before delete: %lu",(unsigned long)[transactionCategories count]);
+    CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
+    [logicManager deleteCategoryInCoreData:cat];
+    NSLog(@"transactionCategories after delete: %@",transactionCategories);
+    NSLog(@"Deleted row %d", (int)indexPath.row);
+    transactionCategories = [[logicManager fetchAllCategories] retain];
+    NSLog(@"number of transactionCategories after delete: %lu",(unsigned long)[transactionCategories count]);
+    
+    [tableView reloadData];
+    
+}
 @end

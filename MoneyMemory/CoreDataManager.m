@@ -63,6 +63,7 @@
 }
 
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc  {
+    NSLog(@"Coredata fetchCategoryWithId...");
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription* categoryEntity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
     [request setEntity:categoryEntity];
@@ -70,7 +71,7 @@
     NSArray* resultCategory = [moc executeFetchRequest:request error:nil];
     [request release];
     Category* resultSingle = [resultCategory objectAtIndex:0];
-    NSLog(@"Category %@ named %@ with limit %@", resultSingle.id, resultSingle.name, resultSingle.limit);
+    NSLog(@"Single Category %@ named %@ with limit %@", resultSingle.id, resultSingle.name, resultSingle.limit);
     return resultSingle;
 }
 
@@ -138,15 +139,29 @@
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc {
     Transaction* transactionToDelete = [self fetchTransactionWithId:_id context:moc];
     [moc deleteObject:transactionToDelete];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Delete: %@", [error localizedDescription]);
+    }
 }
 
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc {
+    NSLog(@"Coredata deleteCategoryWithId...");
     NSArray* transactionsInCategory = [self fetchTransactionIsA:_id context:moc];
     for(Transaction* transaction in transactionsInCategory) {
-        [moc deleteObject:transaction];
+        NSLog(@"Found deletable transaction");
+        [self deleteTransactionWithId:[transaction.id intValue]  context:moc];
     }
     Category* categoryToDelete = [self fetchCategoryWithId:_id context:moc];
+    if(categoryToDelete != NULL) {
+        NSLog(@"Found deletable category");
+    }
     [moc deleteObject:categoryToDelete];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Delete: %@", [error localizedDescription]);
+    }
+
 }
 
 -(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc {

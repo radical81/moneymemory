@@ -177,6 +177,16 @@
     [coreDataManager release];
 }
 
+-(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject {
+    NSLog(@"deleteCategoryInCoreData...");
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    int categoryId = [categoryDomainObject.id intValue];
+    NSLog(@"Deleting category with id %d", categoryId);
+    [coreDataManager deleteCategoryWithId:categoryId context: managedObjectContext];
+    [coreDataManager release];
+}
+
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];

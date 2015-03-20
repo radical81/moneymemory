@@ -51,7 +51,8 @@
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
     
     [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount currency: transactionCurrency categoryId:categoryId];
-        
+    
+    [coreDataManager deleteCategoryWithId:categoryId context:managedObjectContext];
     
     NSError* error = nil;
     if (![managedObjectContext save:&error]){
