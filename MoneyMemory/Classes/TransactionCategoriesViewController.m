@@ -15,7 +15,6 @@
 
 @interface TransactionCategoriesViewController ()
 
-@property(atomic,retain) IBOutlet UITableView* tblView;
 
 @property(nonatomic, retain) NSArray* transactionCategories;
 
@@ -23,7 +22,6 @@
 
 @implementation TransactionCategoriesViewController
 
-@synthesize tblView;
 
 @synthesize transactionCategories;
 
@@ -43,10 +41,6 @@ TransactionsLogicManager* logicManager;
 }
 
 -(void) dealloc {
-    if(tblView) {
-        [tblView release];
-        tblView = nil;
-    }
     if(logicManager) {
         [logicManager release];
         logicManager = nil;
@@ -130,4 +124,10 @@ TransactionsLogicManager* logicManager;
     [tableView reloadData];
     
 }
+
+-(void) viewWillAppear:(BOOL)animated {
+    transactionCategories = [[logicManager fetchAllCategories] retain];
+    [self.tableView reloadData];
+}
+
 @end
