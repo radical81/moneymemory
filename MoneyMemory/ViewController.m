@@ -17,23 +17,32 @@
 
 @implementation ViewController
 
+@synthesize incomeView = _incomeView;
+@synthesize categoriesTableView = _categoriesTableView;
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"This is money memory");
     RunTestCoreData* rc = [[RunTestCoreData alloc]init];
     //[rc runTestData];
     [rc viewTransactions];
     [rc release];
+    _categoriesTableView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];
+    _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
     
+    [super viewDidLoad];
 }
 
+-(IBAction)loadIncomeView:(id)sender {
+    NSLog(@"loadIncomeView");
+    [self.navigationController pushViewController:_incomeView animated:YES];
+}
 
--(IBAction)transactionCategoriesClicked:(id)sender {
-    TransactionCategoriesViewController* categoriesView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];
-    [self.navigationController pushViewController:categoriesView animated:YES];
-    [categoriesView release];
+-(IBAction)loadCategoriesTableView:(id)sender {
+    NSLog(@"loadCategoriesTableView");
+    [self.navigationController pushViewController:_categoriesTableView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +52,9 @@
 }
 
 - (void)dealloc {
+    [_incomeView release];
     [_transactionCategoriesButton release];
+    [_categoriesTableView release];
     [super dealloc];
 }
 @end

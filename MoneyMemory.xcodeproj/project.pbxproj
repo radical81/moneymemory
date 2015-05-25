@@ -38,6 +38,8 @@
 		17FC251D181042510067282D /* CategoryDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251C181042510067282D /* CategoryDomainObject.m */; };
 		17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251F1810426D0067282D /* TransactionDomainObject.m */; };
 		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
+		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
+		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
 		86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D592951B0B8930008748DE /* LaunchScreen.xib */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
@@ -103,6 +105,9 @@
 		17FC251F1810426D0067282D /* TransactionDomainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDomainObject.m; path = DomainObjects/TransactionDomainObject.m; sourceTree = "<group>"; };
 		17FC25211810429E0067282D /* TransactionsLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsLogicManager.h; path = Classes/TransactionsLogicManager.h; sourceTree = "<group>"; };
 		17FC25221810429E0067282D /* TransactionsLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsLogicManager.m; path = Classes/TransactionsLogicManager.m; sourceTree = "<group>"; };
+		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
+		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
+		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
 		86D592951B0B8930008748DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Classes/LaunchScreen.xib; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
 				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
 				17ED423317E756E700C7080A /* ViewController.xib */,
+				86918B221B13770600AAA530 /* IncomeViewController.xib */,
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
 				179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */,
 				86D592951B0B8930008748DE /* LaunchScreen.xib */,
@@ -190,6 +196,8 @@
 				17139EFE192C80D30051794A /* AddCategoryViewController.m */,
 				86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */,
 				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
+				86918B201B13770600AAA530 /* IncomeViewController.h */,
+				86918B211B13770600AAA530 /* IncomeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 			files = (
 				86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */,
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
+				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
@@ -447,6 +456,7 @@
 				17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */,
 				17D8B64B180149D000D90AF6 /* Remark.m in Sources */,
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
+				86918B231B13770600AAA530 /* IncomeViewController.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
 				17139F00192C80D30051794A /* AddCategoryViewController.m in Sources */,
 				86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */,

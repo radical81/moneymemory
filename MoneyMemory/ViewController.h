@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransactionCategoriesViewController.h"
+#import "IncomeViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController 
+
 @property (retain, nonatomic) IBOutlet UIButton *transactionCategoriesButton;
+@property (nonatomic, retain) TransactionCategoriesViewController * categoriesTableView;
+@property (nonatomic, retain) IncomeViewController *incomeView;
 
--(IBAction)transactionCategoriesClicked:(id)sender;
+-(IBAction)loadIncomeView:(id)sender;
+-(IBAction)loadCategoriesTableView:(id)sender;
 
 @end
