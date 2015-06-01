@@ -43,6 +43,13 @@ BOOL categorySave;
     category.id = [NSNumber numberWithInt:latestCategoryId];
     category.name = _categoryNew.text;
     category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
+    NSNumber* totalOfCategories = [transactionsLogicManager calculateTotalOfCategories];
+    double total = [totalOfCategories doubleValue] + [_amountLimit.text doubleValue];
+    double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];
+    if(total > monthlyIncome) {
+        [self showOverShotBudget:[NSString stringWithFormat:@"%.0f", monthlyIncome]];
+        return;
+    }
     [self createNotificationObserver];
     [transactionsLogicManager saveCategoryToCoreData:category];
     [category release];
@@ -95,6 +102,27 @@ BOOL categorySave;
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+-(void) showOverShotBudget:(NSString*) incomeLimit {
+    NSString* alertMessage;
+    
+    alertMessage = [NSString stringWithFormat:@"Your monthly budget is over $%@",incomeLimit];
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Save Category"
+                                  message: alertMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 - (void)viewDidLoad
 {

@@ -143,6 +143,19 @@
     return [NSNumber numberWithDouble:total];
 }
 
+-(NSNumber*) calculateTotalOfCategories {
+    NSLog(@"calculateTotalOfCategories");
+    double total = 0;
+    NSArray* categories = [self fetchAllCategories];
+    for(CategoryDomainObject* category in categories) {
+        NSLog(@"Add %@ with id %@", category.limit, category.id);
+        total += [category.limit doubleValue];
+    }
+    NSLog(@"%f", total);
+    return [NSNumber numberWithDouble:total];
+}
+
+
 -(NSArray*)fetchTransactionIsA: (int) categoryId {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
