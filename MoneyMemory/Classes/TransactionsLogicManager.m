@@ -133,13 +133,13 @@
 
 -(NSNumber*) calculateTotalForCategory: (int) categoryId {
     NSLog(@"calculateTotalForCategory %d", categoryId);
-    float total = 0;
+    double total = 0;
     NSArray* transactions = [self fetchTransactionIsA:categoryId];
     for(TransactionDomainObject* transaction in transactions) {
         NSLog(@"Add %@ with id %@", transaction.amount, transaction.id);
-        total += [transaction.amount floatValue];
+        total += [transaction.amount doubleValue];
     }
-    return [NSNumber numberWithFloat:total];
+    return [NSNumber numberWithDouble:total];
 }
 
 -(NSArray*)fetchTransactionIsA: (int) categoryId {

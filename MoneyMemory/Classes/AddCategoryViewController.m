@@ -42,7 +42,7 @@ BOOL categorySave;
     latestCategoryId++;
     category.id = [NSNumber numberWithInt:latestCategoryId];
     category.name = _categoryNew.text;
-    category.limit = [NSNumber numberWithFloat: [_amountLimit.text floatValue]];
+    category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
     [self createNotificationObserver];
     [transactionsLogicManager saveCategoryToCoreData:category];
     [category release];

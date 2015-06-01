@@ -64,8 +64,8 @@
     int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
     latestTransactionId++;
     transaction.id = [NSNumber numberWithInt:latestTransactionId];
-    transaction.amount = [NSNumber numberWithFloat:[_amountTextField.text floatValue]];
-    if([transaction.amount floatValue] > [_category.limit floatValue]) {
+    transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
+    if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
     }
