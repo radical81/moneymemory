@@ -14,17 +14,16 @@
 
 @end
 
-@implementation CategoryDetailViewController
+@implementation CategoryDetailViewController 
 
-@synthesize transactionCategory;
-@synthesize transactionCategoryText;
+@synthesize category = _category;
 @synthesize transactionType = _transactionType;
 @synthesize totalExpenses = _totalExpenses;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [_transactionType setText:transactionCategoryText];
+    [_transactionType setText:_category.name];
     [self calculateAndDisplayTotalExpenses];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,7 +32,7 @@
 
 -(void) calculateAndDisplayTotalExpenses {
     TransactionsLogicManager* transactionLogic = [[TransactionsLogicManager alloc]init];
-    NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[transactionCategory intValue]];
+    NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[_category.id intValue]];
     [_totalExpenses setText: [totalExpensesAmount stringValue]];
     [transactionLogic release];
 }
@@ -54,16 +53,15 @@
 */
 
 - (void)dealloc {
+    [_category release];
     [_transactionType release];
     [_totalExpenses release];
     [super dealloc];
 }
 - (IBAction)didPressNewExpense:(id)sender {
-    
-        SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
-        spendMoneyViewController.transactionCategory = transactionCategory;
-    spendMoneyViewController.transactionCategoryText =  transactionCategoryText;
-        [self.navigationController pushViewController:spendMoneyViewController animated:YES];
+    SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
+    spendMoneyViewController.category = _category;
+    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
 }
 
 @end

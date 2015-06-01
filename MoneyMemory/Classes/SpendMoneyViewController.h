@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategoryDomainObject.h"
 
-@interface SpendMoneyViewController : UIViewController {
-    NSArray* currencies;
-}
+@interface SpendMoneyViewController : UIViewController 
 
-@property  (nonatomic, retain) NSNumber* transactionCategory;
-@property (nonatomic, retain) NSString* transactionCategoryText;
+@property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UITextField *amountTextField;
 - (IBAction)didButtonPressSaveTransaction:(id)sender;

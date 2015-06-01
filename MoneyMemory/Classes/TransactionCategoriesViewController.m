@@ -105,8 +105,7 @@ TransactionsLogicManager* logicManager;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
     CategoryDetailViewController* categoryDetail = [[[CategoryDetailViewController alloc]initWithNibName:@"CategoryDetailViewController" bundle:nil]autorelease];
-    categoryDetail.transactionCategory = cat.id;
-    categoryDetail.transactionCategoryText =  cat.name;
+    categoryDetail.category = cat;
     [self.navigationController pushViewController:categoryDetail animated:YES];
 }
 
