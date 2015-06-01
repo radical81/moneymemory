@@ -20,6 +20,7 @@ TransactionsLogicManager* transactionsLogicManager;
 BOOL categorySave;
 
 @synthesize categoryNew = _categoryNew;
+@synthesize amountLimit = _amountLimit;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,7 @@ BOOL categorySave;
     if (self) {
         // Custom initialization
         _categoryNew = [[UITextField alloc]init];
+        _amountLimit = [[UITextField alloc] init];
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
         
     }
@@ -40,7 +42,7 @@ BOOL categorySave;
     latestCategoryId++;
     category.id = [NSNumber numberWithInt:latestCategoryId];
     category.name = _categoryNew.text;
-    category.limit = [NSNumber numberWithInt: 100];
+    category.limit = [NSNumber numberWithFloat: [_amountLimit.text floatValue]];
     [self createNotificationObserver];
     [transactionsLogicManager saveCategoryToCoreData:category];
     [category release];
@@ -108,6 +110,7 @@ BOOL categorySave;
 
 - (void)dealloc {
     [_categoryNew release];
+    [_amountLimit release];
     [transactionsLogicManager release];
     [super dealloc];
 }

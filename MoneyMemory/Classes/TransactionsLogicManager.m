@@ -45,12 +45,11 @@
     return categoryDomainObject;
 }
 
--(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp currency: (NSString*) _currency is_a:(CategoryDomainObject*) _is_a {
+-(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp is_a:(CategoryDomainObject*) _is_a {
     TransactionDomainObject* transaction = [[[TransactionDomainObject alloc]init]autorelease];
     transaction.id = [NSNumber numberWithInt:_id];
     transaction.amount = [NSNumber numberWithDouble:_amount];
     transaction.timestamp = [NSNumber numberWithInt:_timestamp];
-    transaction.currency = _currency;
     transaction.is_a = _is_a;
     return  transaction;
 }
@@ -108,7 +107,6 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
-        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
     }
     return transactionDomainObject;
@@ -125,7 +123,6 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
-        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         [allTransactions addObject:transactionDomainObject];
     }
@@ -156,7 +153,6 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
-        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         NSLog(@"Fetched transaction with id %@ amount %@", transactionDomainObject.id, transactionDomainObject.amount);
         [allTransactions addObject:transactionDomainObject];
@@ -193,8 +189,7 @@
     int categoryId = [categoryDomainObject.id intValue];
     int transactionId = [transactionDomainObject.id intValue];
     double transactionAmount = [transactionDomainObject.amount doubleValue];
-    NSString* transactionCurrency = transactionDomainObject.currency;
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount currency: transactionCurrency categoryId:categoryId];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
     [coreDataManager release];
 }
 

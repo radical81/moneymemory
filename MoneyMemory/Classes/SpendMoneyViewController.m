@@ -16,7 +16,6 @@
 @end
 
 @implementation SpendMoneyViewController {
-    NSString* currencySelected;
     TransactionsLogicManager* transactionsLogicManager;
     BOOL transactionSave;
 }
@@ -65,24 +64,6 @@
     [super dealloc];
 }
 
-//Picker view for currency
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [currencies count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [currencies objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    currencySelected = [currencies objectAtIndex:row];
-    NSLog(@"Currency selected: %@", currencySelected);
-}
 
 - (IBAction)didButtonPressSaveTransaction:(id)sender {
     CategoryDomainObject *category = [[CategoryDomainObject alloc]init];
@@ -95,7 +76,6 @@
     transaction.amount = [NSNumber numberWithFloat:[_amountTextField.text floatValue]];
     NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
     transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
-    transaction.currency = currencySelected;
     [self createNotificationObserver];
     [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:category];
     [transaction release];

@@ -15,7 +15,6 @@
 @dynamic amount;
 @dynamic id;
 @dynamic timestamp;
-@dynamic currency;
 @dynamic is_a;
 
 @end

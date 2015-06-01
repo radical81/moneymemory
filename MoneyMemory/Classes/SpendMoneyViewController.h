@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpendMoneyViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface SpendMoneyViewController : UIViewController {
     NSArray* currencies;
 }
 

@@ -10,5 +10,6 @@
 
 @interface AddCategoryViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UITextField *categoryNew;
+@property (retain, nonatomic) IBOutlet UITextField *amountLimit;
 
 @end
