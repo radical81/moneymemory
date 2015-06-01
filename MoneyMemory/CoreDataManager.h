@@ -9,20 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "Category.h"
 #import "Transaction.h"
+#import "Income.h"
 
 @interface CoreDataManager : NSObject
 
 -(void) insertCategory: (NSManagedObjectContext*)moc id: (int) _id limit: (double)_limit name: (NSString*) _name;
--(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount currency:(NSString*)_currency categoryId: (int) _categoryId;
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount  categoryId: (int) _categoryId;
 -(NSArray*) fetchAllCategories: (NSManagedObjectContext*)moc;
 -(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc;
 -(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc;
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(Transaction*)fetchTransactionWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc;
--(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount currency: (NSString*) _currency context: (NSManagedObjectContext*) moc;
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc;
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(Transaction*) retrieveTransactionWithMaxId: (NSManagedObjectContext*) moc;
 -(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc;
+-(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount;
+-(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc;
+
 @end

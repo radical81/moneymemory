@@ -10,6 +10,7 @@
 #import "CoreDataManager.h"
 #import "Transaction.h"
 #import "Category.h"
+#import "Income.h"
 
 @implementation TransactionsLogicManager {
     NSManagedObjectContext *managedObjectContext;
@@ -45,12 +46,11 @@
     return categoryDomainObject;
 }
 
--(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp currency: (NSString*) _currency is_a:(CategoryDomainObject*) _is_a {
+-(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp is_a:(CategoryDomainObject*) _is_a {
     TransactionDomainObject* transaction = [[[TransactionDomainObject alloc]init]autorelease];
     transaction.id = [NSNumber numberWithInt:_id];
     transaction.amount = [NSNumber numberWithDouble:_amount];
     transaction.timestamp = [NSNumber numberWithInt:_timestamp];
-    transaction.currency = _currency;
     transaction.is_a = _is_a;
     return  transaction;
 }
@@ -108,7 +108,6 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
-        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
     }
     return transactionDomainObject;
@@ -125,7 +124,6 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
-        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         [allTransactions addObject:transactionDomainObject];
     }
@@ -136,14 +134,27 @@
 
 -(NSNumber*) calculateTotalForCategory: (int) categoryId {
     NSLog(@"calculateTotalForCategory %d", categoryId);
-    float total = 0;
+    double total = 0;
     NSArray* transactions = [self fetchTransactionIsA:categoryId];
     for(TransactionDomainObject* transaction in transactions) {
         NSLog(@"Add %@ with id %@", transaction.amount, transaction.id);
-        total += [transaction.amount floatValue];
+        total += [transaction.amount doubleValue];
     }
-    return [NSNumber numberWithFloat:total];
+    return [NSNumber numberWithDouble:total];
 }
+
+-(NSNumber*) calculateTotalOfCategories {
+    NSLog(@"calculateTotalOfCategories");
+    double total = 0;
+    NSArray* categories = [self fetchAllCategories];
+    for(CategoryDomainObject* category in categories) {
+        NSLog(@"Add %@ with id %@", category.limit, category.id);
+        total += [category.limit doubleValue];
+    }
+    NSLog(@"%f", total);
+    return [NSNumber numberWithDouble:total];
+}
+
 
 -(NSArray*)fetchTransactionIsA: (int) categoryId {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
@@ -156,7 +167,6 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
-        transactionDomainObject.currency = [transaction valueForKey:@"currency"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         NSLog(@"Fetched transaction with id %@ amount %@", transactionDomainObject.id, transactionDomainObject.amount);
         [allTransactions addObject:transactionDomainObject];
@@ -177,14 +187,23 @@
     [coreDataManager release];
 }
 
+-(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject {
+    NSLog(@"deleteCategoryInCoreData...");
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    int categoryId = [categoryDomainObject.id intValue];
+    NSLog(@"Deleting category with id %d", categoryId);
+    [coreDataManager deleteCategoryWithId:categoryId context: managedObjectContext];
+    [coreDataManager release];
+}
+
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
     int categoryId = [categoryDomainObject.id intValue];
     int transactionId = [transactionDomainObject.id intValue];
     double transactionAmount = [transactionDomainObject.amount doubleValue];
-    NSString* transactionCurrency = transactionDomainObject.currency;
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount currency: transactionCurrency categoryId:categoryId];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
     [coreDataManager release];
 }
 
@@ -202,6 +221,21 @@
     Category* lastCategory = [coreDataManager retrieveCategoryWithMaxId:managedObjectContext];
     NSLog(@"retrieveLatestCategoryId, %d", [lastCategory.id intValue]);
     return [lastCategory.id intValue];
+}
+
+-(void) updateIncomeMonthly: (double) amount {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    [coreDataManager updateIncomeMonthly:managedObjectContext amount:amount];
+    NSLog(@"updateIncomeMonthly %f",amount);
+}
+
+-(double) retrieveIncomeMonthly {
+    NSLog(@"retrieveIncomeMonthly...");
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    Income* income = [coreDataManager retrieveIncomeWithMaxId:managedObjectContext];
+    return [income.monthly doubleValue];
 }
 
 @end

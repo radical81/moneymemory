@@ -22,11 +22,10 @@
     }
 }
 
--(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount currency:(NSString*)_currency categoryId: (int) _categoryId {
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId {
     Transaction* newTransaction = [NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:moc];
     newTransaction.id = [NSNumber numberWithInt:_id];
     newTransaction.amount = [NSNumber numberWithDouble:_amount];
-    newTransaction.currency = _currency;
     Category* whichCategory = [self fetchCategoryWithId:_categoryId context:moc];
     newTransaction.is_a = whichCategory;
     NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
@@ -63,6 +62,7 @@
 }
 
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc  {
+    NSLog(@"Coredata fetchCategoryWithId...");
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription* categoryEntity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
     [request setEntity:categoryEntity];
@@ -70,7 +70,7 @@
     NSArray* resultCategory = [moc executeFetchRequest:request error:nil];
     [request release];
     Category* resultSingle = [resultCategory objectAtIndex:0];
-    NSLog(@"Category %@ named %@ with limit %@", resultSingle.id, resultSingle.name, resultSingle.limit);
+    NSLog(@"Single Category %@ named %@ with limit %@", resultSingle.id, resultSingle.name, resultSingle.limit);
     return resultSingle;
 }
 
@@ -111,10 +111,9 @@
     }
 }
 
--(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount currency: (NSString*) _currency context: (NSManagedObjectContext*) moc {
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
     Transaction* transactionToUpdate = [self fetchTransactionWithId:_id context:moc];
     transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
-    transactionToUpdate.currency = _currency;
     NSError* error = nil;
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
@@ -138,15 +137,29 @@
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc {
     Transaction* transactionToDelete = [self fetchTransactionWithId:_id context:moc];
     [moc deleteObject:transactionToDelete];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Delete: %@", [error localizedDescription]);
+    }
 }
 
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc {
+    NSLog(@"Coredata deleteCategoryWithId...");
     NSArray* transactionsInCategory = [self fetchTransactionIsA:_id context:moc];
     for(Transaction* transaction in transactionsInCategory) {
-        [moc deleteObject:transaction];
+        NSLog(@"Found deletable transaction");
+        [self deleteTransactionWithId:[transaction.id intValue]  context:moc];
     }
     Category* categoryToDelete = [self fetchCategoryWithId:_id context:moc];
+    if(categoryToDelete != NULL) {
+        NSLog(@"Found deletable category");
+    }
     [moc deleteObject:categoryToDelete];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Delete: %@", [error localizedDescription]);
+    }
+
 }
 
 -(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc {
@@ -161,6 +174,46 @@
 
     return category;
 }
+
+-(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount {
+    Income*  income = [NSEntityDescription insertNewObjectForEntityForName:@"Income" inManagedObjectContext:moc];
+    income.monthly = [NSNumber numberWithDouble:_amount];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }
+}
+
+-(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount {
+    Income* income = [self retrieveIncomeWithMaxId:moc];
+    if(income == nil) {
+        NSLog(@"Setting income for the first time...");
+        [self insertIncomeMonthly:moc amount:_amount];
+    }
+    else {
+        NSLog(@"Updating income...");
+        income.monthly = [NSNumber numberWithDouble:_amount];
+        NSError* error = nil;
+        if (![moc save:&error]){
+            NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+        }
+    }
+}
+
+-(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
+    
+    request.fetchLimit = 1;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO]];
+    
+    NSError *error = nil;
+    
+    Income* income = [moc executeFetchRequest:request error:&error].lastObject;
+    
+    return income;
+}
+
+
 
 
 @end

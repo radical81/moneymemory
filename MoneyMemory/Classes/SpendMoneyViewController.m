@@ -7,7 +7,6 @@
 //
 
 #import "SpendMoneyViewController.h"
-#import "CategoryDomainObject.h"
 #import "TransactionDomainObject.h"
 #import "TransactionsLogicManager.h"
 
@@ -16,14 +15,12 @@
 @end
 
 @implementation SpendMoneyViewController {
-    NSString* currencySelected;
     TransactionsLogicManager* transactionsLogicManager;
     BOOL transactionSave;
 }
 
-@synthesize transactionCategory;
+@synthesize category = _category;
 @synthesize transactionType = _transactionType;
-@synthesize transactionCategoryText;
 @synthesize amountTextField = _amountTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,8 +37,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [_transactionType setText:transactionCategoryText];
-    currencies = [[NSArray alloc] initWithObjects:@"SGD", @"PHP", @"USD", nil];
+    [_transactionType setText:_category.name];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,51 +51,36 @@
 }
 
 - (void)dealloc {
-    if(currencies) {
-        [currencies release];
-        currencies = nil;
-    }
+    [_category release];
     [_transactionType release];
     [_amountTextField release];
     [transactionsLogicManager release];
     [super dealloc];
 }
 
-//Picker view for currency
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [currencies count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [currencies objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    currencySelected = [currencies objectAtIndex:row];
-    NSLog(@"Currency selected: %@", currencySelected);
-}
 
 - (IBAction)didButtonPressSaveTransaction:(id)sender {
-    CategoryDomainObject *category = [[CategoryDomainObject alloc]init];
-    category.id = transactionCategory;
-    category.name = transactionCategoryText;
     TransactionDomainObject *transaction = [[TransactionDomainObject alloc]init];
     int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
     latestTransactionId++;
     transaction.id = [NSNumber numberWithInt:latestTransactionId];
-    transaction.amount = [NSNumber numberWithFloat:[_amountTextField.text floatValue]];
+    transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
+    if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
+        [self showOverShotTransaction:[_category.limit stringValue]];
+        return;
+    }
+    NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue]];
+    double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
+    if(total > [_category.limit doubleValue]) {
+        [self showOverShotTransaction:[_category.limit stringValue]];
+        return;
+    }
     NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
     transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
-    transaction.currency = currencySelected;
     [self createNotificationObserver];
-    [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:category];
+    [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
     [transaction release];
-    [category release];
+
     [self showAlertSavedTransaction:transactionSave];
 }
 
@@ -122,6 +103,26 @@
                                             transactionSave = YES;
                                     }
                           }];
+}
+
+-(void) showOverShotTransaction:(NSString*) transactionLimit {
+    NSString* alertMessage;
+    
+    alertMessage = [NSString stringWithFormat:@"You can only spend up to $%@",transactionLimit];
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Save Transaction"
+                                  message: alertMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void) showAlertSavedTransaction:(BOOL) success {

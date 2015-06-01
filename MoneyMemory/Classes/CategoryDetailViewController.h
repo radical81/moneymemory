@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategoryDomainObject.h"
 
 @interface CategoryDetailViewController : UIViewController
 
-@property  (nonatomic, retain) NSNumber* transactionCategory;
-@property (nonatomic, retain) NSString* transactionCategoryText;
+@property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UILabel *totalExpenses;
+@property (retain, nonatomic) IBOutlet UILabel *categoryLimit;
 - (IBAction)didPressNewExpense:(id)sender;
 
 @end

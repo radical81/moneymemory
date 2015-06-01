@@ -12,17 +12,21 @@
 
 @interface TransactionsLogicManager : NSObject
 
--(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp currency: (NSString*) _currency is_a:(CategoryDomainObject*) _is_a;
+-(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp is_a:(CategoryDomainObject*) _is_a;
 -(CategoryDomainObject*) fetchCategoryWithId: (int) _id;
 -(NSArray*) fetchAllCategories;
 -(NSArray*) fetchCategoryNames;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
 -(NSArray*) fetchAllTransactions;
 -(NSNumber*) calculateTotalForCategory: (int) categoryId;
+-(NSNumber*) calculateTotalOfCategories;
 -(NSArray*)fetchTransactionIsA: (int) categoryId;
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject;
+-(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;
 -(int) retrieveLatestTransactionId;
 -(int) retrieveLatestCategoryId;
+-(void) updateIncomeMonthly: (double) amount;
+-(double) retrieveIncomeMonthly;
 
 @end
