@@ -14,6 +14,7 @@
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UILabel *totalExpenses;
+@property (retain, nonatomic) IBOutlet UILabel *categoryLimit;
 - (IBAction)didPressNewExpense:(id)sender;
 
 @end

@@ -69,6 +69,12 @@
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
     }
+    NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue]];
+    double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
+    if(total > [_category.limit doubleValue]) {
+        [self showOverShotTransaction:[_category.limit stringValue]];
+        return;
+    }
     NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
     transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
     [self createNotificationObserver];

@@ -17,6 +17,7 @@
 @implementation CategoryDetailViewController 
 
 @synthesize category = _category;
+@synthesize categoryLimit = _categoryLimit;
 @synthesize transactionType = _transactionType;
 @synthesize totalExpenses = _totalExpenses;
 
@@ -27,6 +28,7 @@
     [self calculateAndDisplayTotalExpenses];
 }
 - (void)viewWillAppear:(BOOL)animated {
+    _categoryLimit.text = [_category.limit stringValue];
     [self calculateAndDisplayTotalExpenses];    
 }
 
@@ -56,6 +58,7 @@
     [_category release];
     [_transactionType release];
     [_totalExpenses release];
+    [_categoryLimit release];
     [super dealloc];
 }
 - (IBAction)didPressNewExpense:(id)sender {
