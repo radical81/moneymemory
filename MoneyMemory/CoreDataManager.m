@@ -175,5 +175,45 @@
     return category;
 }
 
+-(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount {
+    Income*  income = [NSEntityDescription insertNewObjectForEntityForName:@"Income" inManagedObjectContext:moc];
+    income.monthly = [NSNumber numberWithDouble:_amount];
+    NSError* error = nil;
+    if (![moc save:&error]){
+        NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+    }
+}
+
+-(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount {
+    Income* income = [self retrieveIncomeWithMaxId:moc];
+    if(income == nil) {
+        NSLog(@"Setting income for the first time...");
+        [self insertIncomeMonthly:moc amount:_amount];
+    }
+    else {
+        NSLog(@"Updating income...");
+        income.monthly = [NSNumber numberWithDouble:_amount];
+        NSError* error = nil;
+        if (![moc save:&error]){
+            NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
+        }
+    }
+}
+
+-(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
+    
+    request.fetchLimit = 1;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO]];
+    
+    NSError *error = nil;
+    
+    Income* income = [moc executeFetchRequest:request error:&error].lastObject;
+    
+    return income;
+}
+
+
+
 
 @end

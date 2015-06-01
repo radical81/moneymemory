@@ -10,4 +10,7 @@
 
 @interface IncomeViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UITextField *incomeAmount;
+- (IBAction)didTapSaveIncome:(id)sender;
+
 @end

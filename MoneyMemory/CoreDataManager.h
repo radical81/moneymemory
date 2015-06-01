@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Category.h"
 #import "Transaction.h"
+#import "Income.h"
 
 @interface CoreDataManager : NSObject
 
@@ -25,4 +26,7 @@
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(Transaction*) retrieveTransactionWithMaxId: (NSManagedObjectContext*) moc;
 -(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc;
+-(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount;
+-(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc;
+
 @end

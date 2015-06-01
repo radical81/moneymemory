@@ -25,5 +25,7 @@
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;
 -(int) retrieveLatestTransactionId;
 -(int) retrieveLatestCategoryId;
+-(void) updateIncomeMonthly: (double) amount;
+-(double) retrieveIncomeMonthly;
 
 @end

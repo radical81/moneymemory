@@ -7,21 +7,92 @@
 //
 
 #import "IncomeViewController.h"
+#import "TransactionsLogicManager.h"
 
 @interface IncomeViewController ()
 
 @end
 
-@implementation IncomeViewController
+@implementation IncomeViewController {
+    TransactionsLogicManager* transactionsLogicManager;
+    BOOL incomeSave;
+}
+
+@synthesize incomeAmount = _incomeAmount;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        transactionsLogicManager = [[TransactionsLogicManager alloc]init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _incomeAmount.text = [NSString stringWithFormat:@"%.0f",[transactionsLogicManager retrieveIncomeMonthly]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)didTapSaveIncome:(id)sender {
+    double amount = [_incomeAmount.text doubleValue];
+    [self createNotificationObserver];
+    [transactionsLogicManager updateIncomeMonthly:amount];
+    [self showAlertSavedIncome:incomeSave];
+}
+
+-(void) createNotificationObserver {
+    incomeSave = NO;
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserverForName:nil
+                              object:nil
+                               queue:nil
+                          usingBlock:^(NSNotification* notification){
+                              // Explore notification
+                              //                              NSLog(@"Notification found with:"
+                              //                                    "\r\n     name:     %@"
+                              //                                    "\r\n     object:   %@"
+                              //                                    "\r\n     userInfo: %@",
+                              //                                    [notification name],
+                              //                                    [notification object],
+                              //                                    [notification userInfo]);
+                              if([[notification name] isEqualToString:@"NSManagingContextDidSaveChangesNotification"]) {
+                                  incomeSave = YES;
+                              }
+                          }];
+}
+
+-(void) showAlertSavedIncome:(BOOL) success {
+    NSString* alertMessage;
+    
+    if(success == YES) {
+        alertMessage = @"Your income has been updated.";
+    }
+    else {
+        alertMessage = @"Failed to update your income. Please try again.";
+    }
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Save Income"
+                                  message: alertMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [self.navigationController popViewControllerAnimated:YES];
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*
@@ -34,4 +105,9 @@
 }
 */
 
+- (void)dealloc {
+    [_incomeAmount release];
+    [transactionsLogicManager release];
+    [super dealloc];
+}
 @end

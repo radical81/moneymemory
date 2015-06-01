@@ -10,6 +10,7 @@
 #import "CoreDataManager.h"
 #import "Transaction.h"
 #import "Category.h"
+#import "Income.h"
 
 @implementation TransactionsLogicManager {
     NSManagedObjectContext *managedObjectContext;
@@ -207,6 +208,21 @@
     Category* lastCategory = [coreDataManager retrieveCategoryWithMaxId:managedObjectContext];
     NSLog(@"retrieveLatestCategoryId, %d", [lastCategory.id intValue]);
     return [lastCategory.id intValue];
+}
+
+-(void) updateIncomeMonthly: (double) amount {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    [coreDataManager updateIncomeMonthly:managedObjectContext amount:amount];
+    NSLog(@"updateIncomeMonthly %f",amount);
+}
+
+-(double) retrieveIncomeMonthly {
+    NSLog(@"retrieveIncomeMonthly...");
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    Income* income = [coreDataManager retrieveIncomeWithMaxId:managedObjectContext];
+    return [income.monthly doubleValue];
 }
 
 @end
