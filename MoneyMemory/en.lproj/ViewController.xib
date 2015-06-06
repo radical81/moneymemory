@@ -15,26 +15,61 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNK-uB-V47">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNK-uB-V47">
                     <rect key="frame" x="56" y="61" width="194" height="41"/>
+                    <color key="backgroundColor" red="0.074509803921568626" green="0.792156862745098" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="X2a-ij-SXp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <state key="normal" title="Income">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.78011543729999999" green="1" blue="0.47799485110000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="loadIncomeView:" destination="-1" eventType="touchUpInside" id="MOF-mW-3C9"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFG-f2-B1C">
-                    <rect key="frame" x="101" y="153" width="104" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFG-f2-B1C">
+                    <rect key="frame" x="56" y="153" width="194" height="44"/>
+                    <color key="backgroundColor" red="0.90588241815567017" green="0.5215686559677124" blue="0.53333336114883423" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="n65-4N-C1t"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <state key="normal" title="Spend">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="loadCategoriesTableView:" destination="-1" eventType="touchUpInside" id="F2v-xA-eUd"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaI-sL-xHV">
+                    <rect key="frame" x="56" y="263" width="194" height="41"/>
+                    <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Q5w-89-hxX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <state key="normal" title="Stats">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.84778990740000004" green="1" blue="0.93914334700000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="SaI-sL-xHV" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="495-RP-0vl"/>
+                <constraint firstAttribute="trailing" secondItem="TNK-uB-V47" secondAttribute="trailing" constant="10" id="AEG-BV-tqV"/>
+                <constraint firstAttribute="trailing" secondItem="fFG-f2-B1C" secondAttribute="trailing" constant="10" id="KIC-1I-OBp"/>
+                <constraint firstItem="TNK-uB-V47" firstAttribute="top" secondItem="6" secondAttribute="top" constant="80" id="TZH-Dx-Uak"/>
+                <constraint firstItem="SaI-sL-xHV" firstAttribute="top" secondItem="fFG-f2-B1C" secondAttribute="bottom" constant="10" id="Wmg-I9-eiP"/>
+                <constraint firstItem="TNK-uB-V47" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="erU-Va-ZAs"/>
+                <constraint firstItem="fFG-f2-B1C" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="f7k-i2-R2L"/>
+                <constraint firstItem="fFG-f2-B1C" firstAttribute="top" secondItem="TNK-uB-V47" secondAttribute="bottom" constant="10" id="iyw-kx-hLT"/>
+                <constraint firstAttribute="trailing" secondItem="SaI-sL-xHV" secondAttribute="trailing" constant="10" id="xmu-7R-H4A"/>
+            </constraints>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

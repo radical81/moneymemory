@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IncomeViewController">
@@ -17,34 +16,62 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Income" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSh-tB-AG5">
-                    <rect key="frame" x="84" y="53" width="86" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monthly Income" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSh-tB-AG5">
+                    <rect key="frame" x="209" y="64" width="164" height="21"/>
+                    <color key="backgroundColor" red="0.074509803921568626" green="0.792156862745098" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="oSh-tB-AG5" secondAttribute="height" multiplier="2:1" id="zdh-kE-2SR"/>
+                        <constraint firstAttribute="height" constant="50" id="c9b-wS-Bb4"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJu-L8-Zj1">
-                    <rect key="frame" x="73" y="135" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJu-L8-Zj1">
+                    <rect key="frame" x="244" y="131" width="97" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="MJu-L8-Zj1" secondAttribute="height" multiplier="97:30" id="tpG-Qf-ufK"/>
+                        <constraint firstAttribute="width" constant="150" id="HuF-WI-Tjh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORE-I7-Q1m">
-                    <rect key="frame" x="98" y="193" width="34" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORE-I7-Q1m">
+                    <rect key="frame" x="275" y="186" width="34" height="30"/>
+                    <color key="backgroundColor" red="0.074509803921568626" green="0.792156862745098" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4gm-Pm-Mau"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Save">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didTapSaveIncome:" destination="-1" eventType="touchUpInside" id="HJO-qW-SND"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOF-FL-q4H">
+                    <rect key="frame" x="226" y="135" width="10" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oSh-tB-AG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="0UF-9O-qVU"/>
+                <constraint firstItem="OOF-FL-q4H" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="25" id="Av4-i4-yRZ"/>
+                <constraint firstItem="ORE-I7-Q1m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="B2Z-ew-UMH"/>
+                <constraint firstItem="MJu-L8-Zj1" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="20" id="DTs-gP-2Ms"/>
+                <constraint firstAttribute="centerX" secondItem="oSh-tB-AG5" secondAttribute="centerX" id="RLP-h7-xMh"/>
+                <constraint firstItem="MJu-L8-Zj1" firstAttribute="leading" secondItem="OOF-FL-q4H" secondAttribute="trailing" constant="10" id="Tks-Zq-7Cq"/>
+                <constraint firstAttribute="centerX" secondItem="MJu-L8-Zj1" secondAttribute="centerX" id="WRM-KJ-mcS"/>
+                <constraint firstAttribute="trailing" secondItem="oSh-tB-AG5" secondAttribute="trailing" constant="10" id="XmE-Cw-vPW"/>
+                <constraint firstItem="oSh-tB-AG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="gxf-ek-t54"/>
+                <constraint firstItem="ORE-I7-Q1m" firstAttribute="top" secondItem="MJu-L8-Zj1" secondAttribute="bottom" constant="20" id="hav-k9-W3R"/>
+                <constraint firstAttribute="trailing" secondItem="ORE-I7-Q1m" secondAttribute="trailing" constant="80" id="j09-ih-g9c"/>
+                <constraint firstItem="MJu-L8-Zj1" firstAttribute="leading" secondItem="OOF-FL-q4H" secondAttribute="trailing" constant="80" id="sT5-Yb-WNh"/>
+                <constraint firstAttribute="centerX" secondItem="ORE-I7-Q1m" secondAttribute="centerX" id="xuI-cp-fNQ"/>
+            </constraints>
         </view>
     </objects>
 </document>
