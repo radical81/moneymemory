@@ -34,6 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _incomeAmount.text = [NSString stringWithFormat:@"%.0f",[transactionsLogicManager retrieveIncomeMonthly]];
+    self.navigationItem.title = @"My Income";
 }
 
 - (void)didReceiveMemoryWarning {

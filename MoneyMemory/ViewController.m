@@ -33,6 +33,7 @@
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
     
     [super viewDidLoad];
+    self.navigationItem.title = @"Money Memory";
 }
 
 -(IBAction)loadIncomeView:(id)sender {

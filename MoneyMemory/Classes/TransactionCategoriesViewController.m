@@ -62,6 +62,7 @@ TransactionsLogicManager* logicManager;
     self.navigationItem.rightBarButtonItem = rightButton;
 
     [rightButton release];
+    self.navigationItem.title = @"Categories";
 }
 
 - (void)didReceiveMemoryWarning
