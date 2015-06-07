@@ -21,6 +21,7 @@
 
 @synthesize category = _category;
 @synthesize transactionType = _transactionType;
+@synthesize transactionDate = _transactionDate;
 @synthesize amountTextField = _amountTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,6 +54,7 @@
 - (void)dealloc {
     [_category release];
     [_transactionType release];
+    [_transactionDate release];
     [_amountTextField release];
     [transactionsLogicManager release];
     [super dealloc];
@@ -74,8 +76,9 @@
     if(total > [_category.limit doubleValue]) {
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
-    }
-    NSString* timeStamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+    }    
+    NSString* timeStamp = [NSString stringWithFormat:@"%.0f",[_transactionDate.date timeIntervalSince1970] * 1000];
+    NSLog(@"Timestamp: %@", timeStamp);
     transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
     [self createNotificationObserver];
     [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];

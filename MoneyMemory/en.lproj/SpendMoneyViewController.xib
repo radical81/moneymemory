@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpendMoneyViewController">
             <connections>
                 <outlet property="amountTextField" destination="9yJ-xg-Xl9" id="fD6-eH-jE1"/>
+                <outlet property="transactionDate" destination="go1-Gr-Q7G" id="Duy-wC-Sod"/>
                 <outlet property="transactionType" destination="4sb-3u-hbg" id="STt-2s-5sv"/>
                 <outlet property="view" destination="1" id="cwv-em-P6V"/>
             </connections>
@@ -51,7 +52,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr4-ji-EQa">
-                    <rect key="frame" x="119" y="177" width="124" height="30"/>
+                    <rect key="frame" x="106" y="351" width="124" height="30"/>
                     <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Save Transaction">
@@ -67,6 +68,12 @@
                         <action selector="didButtonPressSaveTransaction:" destination="-1" eventType="touchUpInside" id="qIP-sm-QEj"/>
                     </connections>
                 </button>
+                <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="go1-Gr-Q7G">
+                    <rect key="frame" x="0.0" y="168" width="320" height="162"/>
+                    <date key="date" timeIntervalSinceReferenceDate="455377197.308092">
+                        <!--2015-06-07 13:39:57 +0000-->
+                    </date>
+                </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -74,13 +81,13 @@
                 <constraint firstAttribute="trailing" secondItem="lr4-ji-EQa" secondAttribute="trailing" constant="80" id="C99-IN-L8k"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="top" secondItem="4sb-3u-hbg" secondAttribute="bottom" constant="20" id="GVC-f6-PpJ"/>
                 <constraint firstAttribute="trailing" secondItem="4sb-3u-hbg" secondAttribute="trailing" constant="10" id="KFb-R2-UxT"/>
-                <constraint firstAttribute="centerX" secondItem="lr4-ji-EQa" secondAttribute="centerX" id="L8G-DV-EFg"/>
+                <constraint firstItem="go1-Gr-Q7G" firstAttribute="top" secondItem="9yJ-xg-Xl9" secondAttribute="bottom" constant="20" id="PcG-Mc-rkE"/>
                 <constraint firstItem="L9I-Wx-MYq" firstAttribute="top" secondItem="4sb-3u-hbg" secondAttribute="bottom" constant="25" id="RPe-Ye-3s6"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="leading" secondItem="L9I-Wx-MYq" secondAttribute="trailing" constant="10" id="S59-x4-6JY"/>
                 <constraint firstItem="lr4-ji-EQa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="70" id="WmL-pw-If6"/>
                 <constraint firstItem="4sb-3u-hbg" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="a8g-GJ-bp3"/>
                 <constraint firstItem="4sb-3u-hbg" firstAttribute="top" secondItem="1" secondAttribute="top" constant="80" id="cqE-II-qJ3"/>
-                <constraint firstItem="lr4-ji-EQa" firstAttribute="top" secondItem="9yJ-xg-Xl9" secondAttribute="bottom" constant="20" id="kta-qF-Ze5"/>
+                <constraint firstItem="lr4-ji-EQa" firstAttribute="top" secondItem="go1-Gr-Q7G" secondAttribute="bottom" constant="20" id="dLI-Up-Ndr"/>
                 <constraint firstAttribute="centerX" secondItem="4sb-3u-hbg" secondAttribute="centerX" id="qCk-ob-e8G"/>
             </constraints>
         </view>
