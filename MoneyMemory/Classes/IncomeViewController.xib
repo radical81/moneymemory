@@ -64,15 +64,12 @@
                 <constraint firstItem="OOF-FL-q4H" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="25" id="Av4-i4-yRZ"/>
                 <constraint firstItem="ORE-I7-Q1m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="B2Z-ew-UMH"/>
                 <constraint firstItem="MJu-L8-Zj1" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="20" id="DTs-gP-2Ms"/>
-                <constraint firstAttribute="centerX" secondItem="oSh-tB-AG5" secondAttribute="centerX" id="RLP-h7-xMh"/>
                 <constraint firstItem="MJu-L8-Zj1" firstAttribute="leading" secondItem="OOF-FL-q4H" secondAttribute="trailing" constant="10" id="Tks-Zq-7Cq"/>
                 <constraint firstAttribute="centerX" secondItem="MJu-L8-Zj1" secondAttribute="centerX" id="WRM-KJ-mcS"/>
                 <constraint firstAttribute="trailing" secondItem="oSh-tB-AG5" secondAttribute="trailing" constant="10" id="XmE-Cw-vPW"/>
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="gxf-ek-t54"/>
                 <constraint firstItem="ORE-I7-Q1m" firstAttribute="top" secondItem="MJu-L8-Zj1" secondAttribute="bottom" constant="20" id="hav-k9-W3R"/>
                 <constraint firstAttribute="trailing" secondItem="ORE-I7-Q1m" secondAttribute="trailing" constant="80" id="j09-ih-g9c"/>
-                <constraint firstItem="MJu-L8-Zj1" firstAttribute="leading" secondItem="OOF-FL-q4H" secondAttribute="trailing" constant="80" id="sT5-Yb-WNh"/>
-                <constraint firstAttribute="centerX" secondItem="ORE-I7-Q1m" secondAttribute="centerX" id="xuI-cp-fNQ"/>
             </constraints>
         </view>
     </objects>
