@@ -38,6 +38,8 @@
 		17FC251D181042510067282D /* CategoryDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251C181042510067282D /* CategoryDomainObject.m */; };
 		17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251F1810426D0067282D /* TransactionDomainObject.m */; };
 		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
+		86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
@@ -106,6 +108,9 @@
 		17FC251F1810426D0067282D /* TransactionDomainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDomainObject.m; path = DomainObjects/TransactionDomainObject.m; sourceTree = "<group>"; };
 		17FC25211810429E0067282D /* TransactionsLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsLogicManager.h; path = Classes/TransactionsLogicManager.h; sourceTree = "<group>"; };
 		17FC25221810429E0067282D /* TransactionsLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsLogicManager.m; path = Classes/TransactionsLogicManager.m; sourceTree = "<group>"; };
+		86013D3F1BB6928E005F51B4 /* ExpensesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesTableViewController.h; path = Classes/ExpensesTableViewController.h; sourceTree = "<group>"; };
+		86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesTableViewController.m; path = Classes/ExpensesTableViewController.m; sourceTree = "<group>"; };
+		86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpensesTableViewController.xib; path = Classes/ExpensesTableViewController.xib; sourceTree = "<group>"; };
 		8626C9661B1C2535002782DA /* Income.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = SOURCE_ROOT; };
 		8626C9671B1C2535002782DA /* Income.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Income.m; sourceTree = SOURCE_ROOT; };
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
@@ -149,6 +154,7 @@
 			children = (
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
 				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
+				86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */,
 				17ED423317E756E700C7080A /* ViewController.xib */,
 				86918B221B13770600AAA530 /* IncomeViewController.xib */,
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
@@ -203,6 +209,8 @@
 				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
 				86918B201B13770600AAA530 /* IncomeViewController.h */,
 				86918B211B13770600AAA530 /* IncomeViewController.m */,
+				86013D3F1BB6928E005F51B4 /* ExpensesTableViewController.h */,
+				86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -389,6 +397,7 @@
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
 				179EEF6718AA7FBE0070B834 /* TransactionCategoriesViewController.xib in Resources */,
 				178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */,
+				86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */,
 				17ED423517E756E700C7080A /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +475,7 @@
 				17139F00192C80D30051794A /* AddCategoryViewController.m in Sources */,
 				86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */,
 				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
+				86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 				17FC250F18103AFA0067282D /* Transaction.m in Sources */,
 				17FC251D181042510067282D /* CategoryDomainObject.m in Sources */,

@@ -53,6 +53,9 @@
                     <state key="normal" title="View Expenses">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="didPressViewExpenses:" destination="-1" eventType="touchUpInside" id="KOW-Sv-LIy"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5d-HZ-wDc">
                     <rect key="frame" x="31" y="80" width="258" height="21"/>
