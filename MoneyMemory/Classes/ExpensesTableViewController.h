@@ -11,5 +11,5 @@
 
 @interface ExpensesTableViewController : UITableViewController
 
--(id) initWithCategory:(CategoryDomainObject*) category;
+-(id) initWithCategory:(CategoryDomainObject*) _category;
 @end

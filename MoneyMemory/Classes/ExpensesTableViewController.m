@@ -16,27 +16,34 @@
 
 @property(nonatomic, retain)  NSDictionary* expensesByDay;
 @property (strong, nonatomic) NSArray *sortedDays;
+@property (strong, nonatomic) NSDateFormatter *sectionDateFormatter;
 
 @end
 
 @implementation ExpensesTableViewController
 
-@synthesize category = _category;
-@synthesize expensesByDay = _expensesByDay;
-@synthesize sortedDays = _sortedDays;
-
+@synthesize category;
+@synthesize expensesByDay;
+@synthesize sortedDays;
+@synthesize sectionDateFormatter;
 
 TransactionsLogicManager* logicManager;
 
--(id) initWithCategory:(CategoryDomainObject*) category {
+-(id) initWithCategory:(CategoryDomainObject*) _category {
     self = [super initWithNibName:@"ExpensesTableViewController" bundle:nil];
     if(self) {
-        _category = category;
-        NSArray* expenses = [[logicManager fetchTransactionIsA:[_category.id intValue]] retain];
-        _expensesByDay = [self groupExpensesByDate:expenses];
-        NSArray *unsortedDays = [_expensesByDay allKeys];
-        _sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
-        NSLog(@"Sort by date: %@", _sortedDays);
+        self.category = _category;
+        NSArray* expenses = [logicManager fetchTransactionIsA:[self.category.id intValue]];
+        NSLog(@"Expenses: %@", expenses);
+        self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
+        NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);
+        
+        NSArray *unsortedDays = [self.expensesByDay allKeys];
+        self.sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
+        NSLog(@"Sort by date: %@", self.sortedDays);
+        self.sectionDateFormatter = [[NSDateFormatter alloc] init];
+        self.sectionDateFormatter.timeStyle = NSDateFormatterNoStyle;
+        self.sectionDateFormatter.dateStyle = NSDateFormatterMediumStyle;
         
     }
     return self;
@@ -58,10 +65,6 @@ TransactionsLogicManager* logicManager;
 
 - (NSDate*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.timeStyle = NSDateFormatterNoStyle;
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    
     
     // Use the user's current calendar and time zone
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -80,7 +83,6 @@ TransactionsLogicManager* logicManager;
     NSDate *beginningOfDay = [calendar dateFromComponents:dateComps];
 
     return beginningOfDay;
-    //return [dateFormatter stringFromDate:beginningOfDay];
 }
 
 - (NSDictionary*) groupExpensesByDate:(NSArray*) expenses {
@@ -96,13 +98,12 @@ TransactionsLogicManager* logicManager;
         // Add the event to the list for this day
         [a addObject:t];
     }
-    NSLog(@"Expenses by date: %@", dict);
     return dict;
 }
 
 - (void)addExpense {
     SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
-    spendMoneyViewController.category = _category;
+    spendMoneyViewController.category = self.category;
     [self.navigationController pushViewController:spendMoneyViewController animated:YES];
 }
 
@@ -112,32 +113,40 @@ TransactionsLogicManager* logicManager;
 }
 
 -(void) dealloc {
-    [_expensesByDay release];
-    [_sortedDays release];
     [super dealloc];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return [self.expensesByDay count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
+    NSArray *expensesOnThisDay = [self.expensesByDay objectForKey:dateRepresentingThisDay];
+    return [expensesOnThisDay count];
 }
 
-/*
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
+    return [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:indexPath.section];
+    NSArray *expensesThisDay = [self.expensesByDay objectForKey:dateRepresentingThisDay];
+    TransactionDomainObject *transaction = [expensesThisDay objectAtIndex:indexPath.row];
+    static NSString *reuseIdentifier = @"ExpenseCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"$ %@", [transaction.amount stringValue]];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
