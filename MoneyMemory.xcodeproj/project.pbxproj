@@ -195,22 +195,22 @@
 		17D8B6871801636000D90AF6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				17ED423017E756E700C7080A /* ViewController.h */,
-				17ED423117E756E700C7080A /* ViewController.m */,
+				17139EFD192C80D30051794A /* AddCategoryViewController.h */,
+				17139EFE192C80D30051794A /* AddCategoryViewController.m */,
+				86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */,
+				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
+				86013D3F1BB6928E005F51B4 /* ExpensesTableViewController.h */,
+				86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */,
+				86918B201B13770600AAA530 /* IncomeViewController.h */,
+				86918B211B13770600AAA530 /* IncomeViewController.m */,
 				17D8B688180163D100D90AF6 /* RunTestCoreData.h */,
 				17D8B689180163D100D90AF6 /* RunTestCoreData.m */,
 				178475B51868901B00F5ED1F /* SpendMoneyViewController.h */,
 				178475B61868901B00F5ED1F /* SpendMoneyViewController.m */,
 				179EEF6218AA789B0070B834 /* TransactionCategoriesViewController.h */,
 				179EEF6318AA789B0070B834 /* TransactionCategoriesViewController.m */,
-				17139EFD192C80D30051794A /* AddCategoryViewController.h */,
-				17139EFE192C80D30051794A /* AddCategoryViewController.m */,
-				86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */,
-				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
-				86918B201B13770600AAA530 /* IncomeViewController.h */,
-				86918B211B13770600AAA530 /* IncomeViewController.m */,
-				86013D3F1BB6928E005F51B4 /* ExpensesTableViewController.h */,
-				86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */,
+				17ED423017E756E700C7080A /* ViewController.h */,
+				17ED423117E756E700C7080A /* ViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

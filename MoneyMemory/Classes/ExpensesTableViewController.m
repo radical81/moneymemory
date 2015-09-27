@@ -8,19 +8,29 @@
 
 #import "ExpensesTableViewController.h"
 #import "SpendMoneyViewController.h"
+#import "TransactionsLogicManager.h"
 
 @interface ExpensesTableViewController ()
+
+@property (nonatomic, retain) CategoryDomainObject* category;
+
+@property(nonatomic, retain)  NSDictionary* expensesByDay;
 
 @end
 
 @implementation ExpensesTableViewController
 
 @synthesize category = _category;
+@synthesize expensesByDay = _expensesByDay;
+
+TransactionsLogicManager* logicManager;
 
 -(id) initWithCategory:(CategoryDomainObject*) category {
     self = [super initWithNibName:@"ExpensesTableViewController" bundle:nil];
     if(self) {
         _category = category;
+        NSArray* expenses = [[logicManager fetchTransactionIsA:[_category.id intValue]] retain];
+        _expensesByDay = [self groupExpensesByDate:expenses];
     }
     return self;
 }
@@ -39,6 +49,49 @@
     self.navigationItem.title = @"Expenses";    
 }
 
+- (NSString*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    
+    
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:inputDate];
+    
+    // Set the time components manually
+    [dateComps setHour:0];
+    [dateComps setMinute:0];
+    [dateComps setSecond:0];
+    
+    // Convert back
+    NSDate *beginningOfDay = [calendar dateFromComponents:dateComps];
+    
+    return [dateFormatter stringFromDate:beginningOfDay];
+}
+
+- (NSDictionary*) groupExpensesByDate:(NSArray*) expenses {
+    NSMutableDictionary* dict = [[[NSMutableDictionary alloc]init]autorelease];
+    for(TransactionDomainObject* t in expenses) {
+        NSMutableArray *a = [dict objectForKey:[self dateAtBeginningOfDayForDate:[NSDate dateWithTimeIntervalSince1970:[t.timestamp doubleValue]]]];
+        if (a == nil) {
+            a = [NSMutableArray array];
+            // Use the reduced date as dictionary key to later retrieve the expense list this day
+            [dict setObject:a forKey:[self dateAtBeginningOfDayForDate:[NSDate dateWithTimeIntervalSince1970:[t.timestamp doubleValue]]]];
+        }
+        
+        // Add the event to the list for this day
+        [a addObject:t];
+    }
+    NSLog(@"Expenses by date: %@", dict);
+    return dict;
+}
+
 - (void)addExpense {
     SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
     spendMoneyViewController.category = _category;
@@ -51,7 +104,7 @@
 }
 
 -(void) dealloc {
-    [_category release];
+    [_expensesByDay release];
     [super dealloc];
 }
 

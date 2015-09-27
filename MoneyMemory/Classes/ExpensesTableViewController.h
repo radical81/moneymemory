@@ -11,6 +11,5 @@
 
 @interface ExpensesTableViewController : UITableViewController
 
-@property (nonatomic, retain) CategoryDomainObject* category;
 -(id) initWithCategory:(CategoryDomainObject*) category;
 @end
