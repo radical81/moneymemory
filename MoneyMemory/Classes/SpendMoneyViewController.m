@@ -77,9 +77,12 @@
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
     }    
-    NSString* timeStamp = [NSString stringWithFormat:@"%.0f",[_transactionDate.date timeIntervalSince1970] * 1000];
-    NSLog(@"Timestamp: %@", timeStamp);
-    transaction.timestamp = [NSNumber numberWithFloat:[timeStamp floatValue]];
+    NSNumber* timeStamp = [NSNumber numberWithDouble:[_transactionDate.date timeIntervalSince1970]];
+    
+    transaction.timestamp = timeStamp;
+    
+    NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
+    
     [self createNotificationObserver];
     [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
     [transaction release];

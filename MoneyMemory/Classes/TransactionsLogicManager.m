@@ -168,7 +168,7 @@
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
-        NSLog(@"Fetched transaction with id %@ amount %@", transactionDomainObject.id, transactionDomainObject.amount);
+        NSLog(@"Fetched transaction with id %@ amount %@ and date %@", transactionDomainObject.id, transactionDomainObject.amount, transactionDomainObject.timestamp);
         [allTransactions addObject:transactionDomainObject];
         [transactionDomainObject release];
     }
@@ -202,8 +202,9 @@
     [self initCoreData];
     int categoryId = [categoryDomainObject.id intValue];
     int transactionId = [transactionDomainObject.id intValue];
+    int timeStamp = [transactionDomainObject.timestamp intValue];
     double transactionAmount = [transactionDomainObject.amount doubleValue];
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId timeStamp:timeStamp];
     [coreDataManager release];
 }
 
