@@ -15,6 +15,7 @@
 @property (nonatomic, retain) CategoryDomainObject* category;
 
 @property(nonatomic, retain)  NSDictionary* expensesByDay;
+@property (strong, nonatomic) NSArray *sortedDays;
 
 @end
 
@@ -22,6 +23,8 @@
 
 @synthesize category = _category;
 @synthesize expensesByDay = _expensesByDay;
+@synthesize sortedDays = _sortedDays;
+
 
 TransactionsLogicManager* logicManager;
 
@@ -31,6 +34,10 @@ TransactionsLogicManager* logicManager;
         _category = category;
         NSArray* expenses = [[logicManager fetchTransactionIsA:[_category.id intValue]] retain];
         _expensesByDay = [self groupExpensesByDate:expenses];
+        NSArray *unsortedDays = [_expensesByDay allKeys];
+        _sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
+        NSLog(@"Sort by date: %@", _sortedDays);
+        
     }
     return self;
 }
@@ -49,7 +56,7 @@ TransactionsLogicManager* logicManager;
     self.navigationItem.title = @"Expenses";    
 }
 
-- (NSString*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
+- (NSDate*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.timeStyle = NSDateFormatterNoStyle;
@@ -71,8 +78,9 @@ TransactionsLogicManager* logicManager;
     
     // Convert back
     NSDate *beginningOfDay = [calendar dateFromComponents:dateComps];
-    
-    return [dateFormatter stringFromDate:beginningOfDay];
+
+    return beginningOfDay;
+    //return [dateFormatter stringFromDate:beginningOfDay];
 }
 
 - (NSDictionary*) groupExpensesByDate:(NSArray*) expenses {
@@ -105,6 +113,7 @@ TransactionsLogicManager* logicManager;
 
 -(void) dealloc {
     [_expensesByDay release];
+    [_sortedDays release];
     [super dealloc];
 }
 
