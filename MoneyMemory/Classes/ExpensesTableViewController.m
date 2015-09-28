@@ -172,6 +172,25 @@ TransactionsLogicManager* logicManager;
     return cell;
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    NSArray* expenses;
+    if(self.byCategory == YES) {
+        expenses = [logicManager fetchTransactionIsA:[self.category.id intValue]];
+    }
+    else {
+        expenses = [logicManager fetchAllTransactions];
+    }
+
+    NSLog(@"Expenses: %@", expenses);
+    self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
+    NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);    
+    NSArray *unsortedDays = [self.expensesByDay allKeys];
+    self.sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
+    NSLog(@"Sort by date: %@", self.sortedDays);
+    
+    [self.tableView reloadData];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
