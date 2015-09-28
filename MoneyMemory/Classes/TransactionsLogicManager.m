@@ -117,17 +117,17 @@
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
     NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext];
     for(Transaction* transaction in transactions) {
+        TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
         [transactionDomainObject resetValues];
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         [allTransactions addObject:transactionDomainObject];
+        [transactionDomainObject release];
     }
-    [transactionDomainObject release];
     [coreDataManager release];
     return allTransactions;
 }

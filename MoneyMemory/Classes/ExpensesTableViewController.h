@@ -10,6 +10,6 @@
 #import "CategoryDomainObject.h"
 
 @interface ExpensesTableViewController : UITableViewController
-
+-(id) initWithAll;
 -(id) initWithCategory:(CategoryDomainObject*) _category;
 @end

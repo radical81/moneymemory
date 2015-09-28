@@ -31,7 +31,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFG-f2-B1C">
-                    <rect key="frame" x="56" y="153" width="194" height="44"/>
+                    <rect key="frame" x="56" y="213" width="194" height="44"/>
                     <color key="backgroundColor" red="0.90588235294117647" green="0.52156862745098043" blue="0.53333333333333333" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="n65-4N-C1t"/>
@@ -46,7 +46,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaI-sL-xHV">
-                    <rect key="frame" x="56" y="263" width="194" height="41"/>
+                    <rect key="frame" x="56" y="308" width="194" height="41"/>
                     <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="Q5w-89-hxX"/>
@@ -57,17 +57,34 @@
                         <color key="titleShadowColor" red="0.84778990740000004" green="1" blue="0.93914334700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-1U-X8m">
+                    <rect key="frame" x="56" y="142" width="194" height="42"/>
+                    <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.61568627450980395" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="b5u-wl-07o"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <state key="normal" title="Expenses">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loadExpenses:" destination="-1" eventType="touchUpInside" id="XSi-C5-5H1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="SaI-sL-xHV" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="495-RP-0vl"/>
                 <constraint firstAttribute="trailing" secondItem="TNK-uB-V47" secondAttribute="trailing" constant="10" id="AEG-BV-tqV"/>
                 <constraint firstAttribute="trailing" secondItem="fFG-f2-B1C" secondAttribute="trailing" constant="10" id="KIC-1I-OBp"/>
+                <constraint firstItem="cuV-1U-X8m" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="M0s-9G-XJK"/>
+                <constraint firstItem="fFG-f2-B1C" firstAttribute="top" secondItem="cuV-1U-X8m" secondAttribute="bottom" constant="10" id="Mks-4d-pgS"/>
                 <constraint firstItem="TNK-uB-V47" firstAttribute="top" secondItem="6" secondAttribute="top" constant="80" id="TZH-Dx-Uak"/>
-                <constraint firstItem="SaI-sL-xHV" firstAttribute="top" secondItem="fFG-f2-B1C" secondAttribute="bottom" constant="10" id="Wmg-I9-eiP"/>
                 <constraint firstItem="TNK-uB-V47" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="erU-Va-ZAs"/>
                 <constraint firstItem="fFG-f2-B1C" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="f7k-i2-R2L"/>
-                <constraint firstItem="fFG-f2-B1C" firstAttribute="top" secondItem="TNK-uB-V47" secondAttribute="bottom" constant="10" id="iyw-kx-hLT"/>
+                <constraint firstItem="SaI-sL-xHV" firstAttribute="top" secondItem="fFG-f2-B1C" secondAttribute="bottom" constant="10" id="fNJ-W0-ZhL"/>
+                <constraint firstItem="cuV-1U-X8m" firstAttribute="top" secondItem="TNK-uB-V47" secondAttribute="bottom" constant="10" id="iP8-CV-21z"/>
+                <constraint firstAttribute="trailing" secondItem="cuV-1U-X8m" secondAttribute="trailing" constant="10" id="oXc-vK-f9q"/>
                 <constraint firstAttribute="trailing" secondItem="SaI-sL-xHV" secondAttribute="trailing" constant="10" id="xmu-7R-H4A"/>
             </constraints>
         </view>

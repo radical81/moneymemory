@@ -10,8 +10,11 @@
 #import "RunTestCoreData.h"
 #import "SpendMoneyViewController.h"
 #import "TransactionCategoriesViewController.h"
+#import "ExpensesTableViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic, retain) ExpensesTableViewController* expensesTableView;
 
 @end
 
@@ -19,6 +22,7 @@
 
 @synthesize incomeView = _incomeView;
 @synthesize categoriesTableView = _categoriesTableView;
+@synthesize expensesTableView = _expensesTableView;
 
 - (void)viewDidLoad
 {
@@ -31,7 +35,7 @@
     [rc release];
     _categoriesTableView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
-    
+    _expensesTableView = [[ExpensesTableViewController alloc] initWithAll];
     [super viewDidLoad];
     self.navigationItem.title = @"Money Memory";
 }
@@ -40,6 +44,11 @@
     NSLog(@"loadIncomeView");
     [self.navigationController pushViewController:_incomeView animated:YES];
 }
+
+-(IBAction)loadExpenses:(id)sender {
+    [self.navigationController pushViewController:_expensesTableView animated:YES];
+}
+
 
 -(IBAction)loadCategoriesTableView:(id)sender {
     NSLog(@"loadCategoriesTableView");
@@ -56,6 +65,7 @@
     [_incomeView release];
     [_transactionCategoriesButton release];
     [_categoriesTableView release];
+    [_expensesTableView release];
     [super dealloc];
 }
 @end

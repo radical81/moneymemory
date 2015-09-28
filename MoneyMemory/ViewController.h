@@ -17,6 +17,7 @@
 @property (nonatomic, retain) IncomeViewController *incomeView;
 
 -(IBAction)loadIncomeView:(id)sender;
+-(IBAction)loadExpenses:(id)sender;
 -(IBAction)loadCategoriesTableView:(id)sender;
 
 @end

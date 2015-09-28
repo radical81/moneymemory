@@ -13,7 +13,8 @@
 @interface ExpensesTableViewController ()
 
 @property (nonatomic, retain) CategoryDomainObject* category;
-
+@property BOOL byCategory;
+@property (strong, nonatomic) NSString *tableTitle;
 @property(nonatomic, retain)  NSDictionary* expensesByDay;
 @property (strong, nonatomic) NSArray *sortedDays;
 @property (strong, nonatomic) NSDateFormatter *sectionDateFormatter;
@@ -23,16 +24,41 @@
 @implementation ExpensesTableViewController
 
 @synthesize category;
+@synthesize byCategory;
+@synthesize tableTitle;
 @synthesize expensesByDay;
 @synthesize sortedDays;
 @synthesize sectionDateFormatter;
 
 TransactionsLogicManager* logicManager;
 
+-(id) initWithAll {
+    self = [super initWithNibName:@"ExpensesTableViewController" bundle:nil];
+    if(self) {
+        self.byCategory = NO;
+        self.tableTitle = @"Expenses";
+        NSArray* expenses = [logicManager fetchAllTransactions];
+        NSLog(@"Expenses All: %@", expenses);
+        self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
+        NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);
+        
+        NSArray *unsortedDays = [self.expensesByDay allKeys];
+        self.sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
+        NSLog(@"Sort by date: %@", self.sortedDays);
+        self.sectionDateFormatter = [[NSDateFormatter alloc] init];
+        self.sectionDateFormatter.timeStyle = NSDateFormatterNoStyle;
+        self.sectionDateFormatter.dateStyle = NSDateFormatterMediumStyle;        
+
+    }
+    return self;
+}
+
 -(id) initWithCategory:(CategoryDomainObject*) _category {
     self = [super initWithNibName:@"ExpensesTableViewController" bundle:nil];
     if(self) {
+        self.byCategory = YES;
         self.category = _category;
+        self.tableTitle = [NSString stringWithFormat:@"Expenses: %@", self.category.name];
         NSArray* expenses = [logicManager fetchTransactionIsA:[self.category.id intValue]];
         NSLog(@"Expenses: %@", expenses);
         self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
@@ -54,13 +80,12 @@ TransactionsLogicManager* logicManager;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addExpense)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
-    [rightButton release];
-    
-    self.navigationItem.title = @"Expenses";    
+    if(self.byCategory == YES) {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addExpense)];
+        self.navigationItem.rightBarButtonItem = rightButton;    
+        [rightButton release];
+    }
+    self.navigationItem.title = self.tableTitle;
 }
 
 - (NSDate*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
