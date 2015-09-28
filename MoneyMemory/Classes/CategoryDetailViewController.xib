@@ -43,20 +43,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bw-0U-ayo">
-                    <rect key="frame" x="94" y="303" width="149" height="36"/>
-                    <color key="backgroundColor" red="0.90588235289999997" green="0.52156862749999999" blue="0.53333333329999999" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="ykX-0A-eD5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="View Expenses">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="didPressViewExpenses:" destination="-1" eventType="touchUpInside" id="KOW-Sv-LIy"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5d-HZ-wDc">
                     <rect key="frame" x="31" y="80" width="258" height="21"/>
                     <constraints>
@@ -66,19 +52,47 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7R7-cU-tW6">
+                    <rect key="frame" x="119" y="280" width="127" height="30"/>
+                    <color key="backgroundColor" red="0.90588235294117647" green="0.52156862745098043" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="mR2-Ro-lJ5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="New Expense">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bw-0U-ayo">
+                    <rect key="frame" x="108" y="338" width="149" height="36"/>
+                    <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.61568627450980395" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1TN-xt-Iuz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="View Expenses">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressViewExpenses:" destination="-1" eventType="touchUpInside" id="KOW-Sv-LIy"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="hfa-YM-ey4" firstAttribute="top" secondItem="YeX-HT-Y3A" secondAttribute="bottom" constant="30" id="1Iz-Xd-4Ap"/>
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="top" secondItem="hfa-YM-ey4" secondAttribute="bottom" constant="10" id="1Kf-WZ-3Rp"/>
                 <constraint firstItem="hfa-YM-ey4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="2jM-TY-14G"/>
-                <constraint firstItem="8bw-0U-ayo" firstAttribute="top" secondItem="4kI-nD-TXI" secondAttribute="bottom" constant="30" id="6eo-oB-7Wh"/>
+                <constraint firstItem="8bw-0U-ayo" firstAttribute="top" secondItem="7R7-cU-tW6" secondAttribute="bottom" constant="30" id="7lU-cn-hMS"/>
                 <constraint firstAttribute="trailing" secondItem="paU-h4-Zkf" secondAttribute="trailing" constant="30" id="D7O-Ga-atB"/>
                 <constraint firstItem="8bw-0U-ayo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="L8X-pr-fc4"/>
+                <constraint firstAttribute="trailing" secondItem="7R7-cU-tW6" secondAttribute="trailing" constant="80" id="Mk8-fx-324"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="MuF-kR-t5k"/>
                 <constraint firstAttribute="trailing" secondItem="d5d-HZ-wDc" secondAttribute="trailing" constant="30" id="Pji-a7-14F"/>
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="RBe-1V-hEn"/>
                 <constraint firstAttribute="trailing" secondItem="hfa-YM-ey4" secondAttribute="trailing" constant="30" id="RgF-aF-ZfC"/>
+                <constraint firstItem="7R7-cU-tW6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="S88-HW-Uzn"/>
+                <constraint firstItem="7R7-cU-tW6" firstAttribute="top" secondItem="4kI-nD-TXI" secondAttribute="bottom" constant="30" id="SPA-wn-HB0"/>
                 <constraint firstAttribute="trailing" secondItem="4kI-nD-TXI" secondAttribute="trailing" constant="30" id="Wao-by-gNL"/>
                 <constraint firstItem="paU-h4-Zkf" firstAttribute="top" secondItem="d5d-HZ-wDc" secondAttribute="bottom" constant="30" id="X0j-1U-f1a"/>
                 <constraint firstItem="paU-h4-Zkf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="cPz-fz-wkf"/>
