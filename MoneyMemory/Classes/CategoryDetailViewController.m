@@ -67,6 +67,13 @@
     [super dealloc];
 }
 
+- (IBAction)didPressNewExpense:(id)sender {
+    SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
+    spendMoneyViewController.category = _category;
+    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
+    
+}
+
 - (IBAction)didPressViewExpenses:(id)sender {
     [self.navigationController pushViewController:_expensesTable animated:YES];
 }

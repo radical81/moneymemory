@@ -17,6 +17,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UILabel *totalExpenses;
 @property (retain, nonatomic) IBOutlet UILabel *categoryLimit;
+- (IBAction)didPressNewExpense:(id)sender;
 - (IBAction)didPressViewExpenses:(id)sender;
 
 @end
