@@ -113,11 +113,11 @@
     return transactionDomainObject;
 }
 
--(NSArray*) fetchAllTransactions {
+-(NSArray*) fetchAllTransactions:(int) limit {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext];
+    NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext limit:limit];
     for(Transaction* transaction in transactions) {
         TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
         [transactionDomainObject resetValues];
@@ -135,7 +135,7 @@
 -(NSNumber*) calculateTotalForCategory: (int) categoryId {
     NSLog(@"calculateTotalForCategory %d", categoryId);
     double total = 0;
-    NSArray* transactions = [self fetchTransactionIsA:categoryId];
+    NSArray* transactions = [self fetchTransactionIsA:categoryId limit:0];
     for(TransactionDomainObject* transaction in transactions) {
         NSLog(@"Add %@ with id %@", transaction.amount, transaction.id);
         total += [transaction.amount doubleValue];
@@ -156,11 +156,11 @@
 }
 
 
--(NSArray*)fetchTransactionIsA: (int) categoryId {
+-(NSArray*)fetchTransactionIsA: (int) categoryId limit: (int) limit {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    NSArray* transactions = [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext];
+    NSArray* transactions = [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext limit:limit];
     for(Transaction* transaction in transactions) {
         TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
         [transactionDomainObject resetValues];

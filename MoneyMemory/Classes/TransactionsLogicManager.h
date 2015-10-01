@@ -17,10 +17,10 @@
 -(NSArray*) fetchAllCategories;
 -(NSArray*) fetchCategoryNames;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
--(NSArray*) fetchAllTransactions;
+-(NSArray*) fetchAllTransactions:(int) limit;
 -(NSNumber*) calculateTotalForCategory: (int) categoryId;
 -(NSNumber*) calculateTotalOfCategories;
--(NSArray*)fetchTransactionIsA: (int) categoryId;
+-(NSArray*)fetchTransactionIsA: (int) categoryId limit: (int) limit;
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;

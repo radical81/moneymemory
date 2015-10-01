@@ -49,8 +49,11 @@
     return resultSingle;
 }
 
--(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc {
+-(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc limit: (int) limit{
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    if(limit > 0) {
+        [request setFetchLimit: limit];
+    }
     NSEntityDescription* transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
     [request setEntity:transactionEntity];
     [request setPredicate:[NSPredicate predicateWithFormat:@"is_a.id = %@", [NSNumber numberWithInt:categoryId]]];
@@ -85,8 +88,14 @@
     return resultsArray;
 }
 
--(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc{
+-(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc limit: (int) limit {
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"timestamp" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [sortDescriptor release];
+    [request setSortDescriptors:sortDescriptors];
+    [request setFetchLimit:limit];
+    
     NSEntityDescription *transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
     [request setEntity:transactionEntity];
     

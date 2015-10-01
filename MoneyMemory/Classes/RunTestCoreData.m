@@ -37,9 +37,9 @@
     [self initCoreData];
     
     
-    NSArray* firstResult = [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"First Result Count: %lu", (unsigned long)[firstResult count]);
-        
+//    NSArray* firstResult = [coreDataManager fetchAllTransactions:managedObjectContext];
+//    NSLog(@"First Result Count: %lu", (unsigned long)[firstResult count]);
+    
     ////Saving
     int categoryId = 9;
     double limit = 100;
@@ -49,7 +49,7 @@
     
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
     
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
+//    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId];
     
     [coreDataManager deleteCategoryWithId:categoryId context:managedObjectContext];
     
@@ -59,16 +59,16 @@
     }
     
     ////Results after saving
-    NSArray* secondResults= [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"Seconds Result Count: %lu", (unsigned long)[secondResults count]);
+//    NSArray* secondResults= [coreDataManager fetchAllTransactions:managedObjectContext];
+//    NSLog(@"Seconds Result Count: %lu", (unsigned long)[secondResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
     //Update transaction with Peso
     [coreDataManager updateTransactionWithId:transactionId newAmount:400 context:managedObjectContext];
     
     //Results after deleting
-    NSArray* thirdResults= [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"Third Result Count: %lu", (unsigned long)[thirdResults count]);
+//    NSArray* thirdResults= [coreDataManager fetchAllTransactions:managedObjectContext];
+//    NSLog(@"Third Result Count: %lu", (unsigned long)[thirdResults count]);
     NSLog(@"Transactions with category %d: %@", categoryId, [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext]);
     
     [coreDataManager release];
@@ -78,8 +78,8 @@
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
     
-    NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext];
-    NSLog(@"TransactionsCount: %lu", (unsigned long)[transactions count]);
+//    NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext];
+//    NSLog(@"TransactionsCount: %lu", (unsigned long)[transactions count]);
     
     [coreDataManager release];
     

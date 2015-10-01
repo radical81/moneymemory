@@ -16,8 +16,8 @@
 -(void) insertCategory: (NSManagedObjectContext*)moc id: (int) _id limit: (double)_limit name: (NSString*) _name;
 -(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId timeStamp: (int) _timeStamp;
 -(NSArray*) fetchAllCategories: (NSManagedObjectContext*)moc;
--(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc;
--(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc;
+-(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc limit: (int) limit;
+-(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc limit: (int) limit;
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(Transaction*)fetchTransactionWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc;

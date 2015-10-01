@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property BOOL byCategory;
+@property int limit;
 @property (strong, nonatomic) NSString *tableTitle;
 @property(nonatomic, retain)  NSDictionary* expensesByDay;
 @property (strong, nonatomic) NSArray *sortedDays;
@@ -25,6 +26,7 @@
 
 @synthesize category;
 @synthesize byCategory;
+@synthesize limit;
 @synthesize tableTitle;
 @synthesize expensesByDay;
 @synthesize sortedDays;
@@ -35,9 +37,12 @@ TransactionsLogicManager* logicManager;
 -(id) initWithAll {
     self = [super initWithNibName:@"ExpensesTableViewController" bundle:nil];
     if(self) {
+        self.tableView.delegate = self;
         self.byCategory = NO;
         self.tableTitle = @"Expenses";
-        NSArray* expenses = [logicManager fetchAllTransactions];
+        self.limit = 15;
+        
+        NSArray* expenses = [logicManager fetchAllTransactions: self.limit];
         NSLog(@"Expenses All: %@", expenses);
         self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
         NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);
@@ -59,7 +64,8 @@ TransactionsLogicManager* logicManager;
         self.byCategory = YES;
         self.category = _category;
         self.tableTitle = [NSString stringWithFormat:@"Expenses: %@", self.category.name];
-        NSArray* expenses = [logicManager fetchTransactionIsA:[self.category.id intValue]];
+        self.limit = 15;
+        NSArray* expenses = [logicManager fetchTransactionIsA:[self.category.id intValue] limit:self.limit];
         NSLog(@"Expenses: %@", expenses);
         self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
         NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);
@@ -141,6 +147,16 @@ TransactionsLogicManager* logicManager;
     [super dealloc];
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
+    if (bottomEdge >= scrollView.contentSize.height) {
+        NSLog(@"we are at the end");
+        self.limit = self.limit + 15;
+        [self launchReload];
+    }
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -172,23 +188,30 @@ TransactionsLogicManager* logicManager;
     return cell;
 }
 
--(void) viewWillAppear:(BOOL)animated {
+-(void) launchReload {
     NSArray* expenses;
+    
     if(self.byCategory == YES) {
-        expenses = [logicManager fetchTransactionIsA:[self.category.id intValue]];
+        expenses = [logicManager fetchTransactionIsA:[self.category.id intValue] limit:self.limit];
     }
     else {
-        expenses = [logicManager fetchAllTransactions];
+        expenses = [logicManager fetchAllTransactions: self.limit];
     }
-
-    NSLog(@"Expenses: %@", expenses);
-    self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
-    NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);    
-    NSArray *unsortedDays = [self.expensesByDay allKeys];
-    self.sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
-    NSLog(@"Sort by date: %@", self.sortedDays);
+    if([expenses count] > 0) {
+        NSLog(@"Expenses: %@", expenses);
+        self.expensesByDay = [[self groupExpensesByDate:expenses]retain];
+        NSLog(@"%lu Expenses by Day: %@", (unsigned long)[self.expensesByDay count], self.expensesByDay);
+        NSArray *unsortedDays = [self.expensesByDay allKeys];
+        self.sortedDays = [[[unsortedDays sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
+        NSLog(@"Sort by date: %@", self.sortedDays);
     
-    [self.tableView reloadData];
+        [self.tableView reloadData];
+    }
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [self launchReload];
 }
 
 
