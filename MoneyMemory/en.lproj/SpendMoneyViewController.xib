@@ -74,6 +74,13 @@
                         <!--2015-06-07 13:39:57 +0000-->
                     </date>
                 </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-0k-Rb9">
+                    <rect key="frame" x="116" y="419" width="89" height="30"/>
+                    <state key="normal" title="Take a photo"/>
+                    <connections>
+                        <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="y3J-re-qnP"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

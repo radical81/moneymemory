@@ -16,5 +16,6 @@
 @property (retain, nonatomic) IBOutlet UIDatePicker *transactionDate;
 @property (retain, nonatomic) IBOutlet UITextField *amountTextField;
 - (IBAction)didButtonPressSaveTransaction:(id)sender;
+- (IBAction)takePhoto:(id)sender;
 
 @end

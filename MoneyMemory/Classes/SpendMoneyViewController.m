@@ -9,6 +9,7 @@
 #import "SpendMoneyViewController.h"
 #import "TransactionDomainObject.h"
 #import "TransactionsLogicManager.h"
+#import "CameraViewController.h"
 
 @interface SpendMoneyViewController ()
 
@@ -88,6 +89,11 @@
     [transaction release];
 
     [self showAlertSavedTransaction:transactionSave];
+}
+
+- (IBAction)takePhoto:(id)sender {
+    CameraViewController* cameraViewController = [[[CameraViewController alloc]initWithNibName:@"CameraViewController" bundle:nil]autorelease];
+    [self.navigationController pushViewController:cameraViewController animated:YES];
 }
 
 -(void) createNotificationObserver {
