@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "CategoryDomainObject.h"
 
-@interface SpendMoneyViewController : UIViewController 
+@interface SpendMoneyViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UIDatePicker *transactionDate;
 @property (retain, nonatomic) IBOutlet UITextField *amountTextField;
 - (IBAction)didButtonPressSaveTransaction:(id)sender;
-- (IBAction)takePhoto:(id)sender;
+- (IBAction)takePicture:(id)sender;
+- (IBAction)pictureFromLibrary:(id)sender;
+@property (retain, nonatomic) IBOutlet UIImageView *testImage;
 
 @end

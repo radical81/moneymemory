@@ -46,6 +46,7 @@
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
+		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
 		86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D592951B0B8930008748DE /* LaunchScreen.xib */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
@@ -123,6 +124,7 @@
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
+		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		86D592951B0B8930008748DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Classes/LaunchScreen.xib; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */,
 				8614CCFE1BBD82B900B4C996 /* MobileCoreServices.framework in Frameworks */,
 				17ED421917E756E600C7080A /* UIKit.framework in Frameworks */,
 				17ED421B17E756E600C7080A /* Foundation.framework in Frameworks */,
@@ -249,6 +252,7 @@
 		17ED421717E756E600C7080A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86C44D361BBEC48800354C0E /* AssetsLibrary.framework */,
 				8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */,
 				17D8B68118014CB400D90AF6 /* CoreData.framework */,
 				17ED421817E756E600C7080A /* UIKit.framework */,

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpendMoneyViewController">
             <connections>
                 <outlet property="amountTextField" destination="9yJ-xg-Xl9" id="fD6-eH-jE1"/>
+                <outlet property="testImage" destination="Epy-sE-chN" id="Ckw-fB-yAf"/>
                 <outlet property="transactionDate" destination="go1-Gr-Q7G" id="Duy-wC-Sod"/>
                 <outlet property="transactionType" destination="4sb-3u-hbg" id="STt-2s-5sv"/>
                 <outlet property="view" destination="1" id="cwv-em-P6V"/>
@@ -52,7 +53,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr4-ji-EQa">
-                    <rect key="frame" x="106" y="351" width="124" height="30"/>
+                    <rect key="frame" x="106" y="412" width="124" height="30"/>
                     <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Save Transaction">
@@ -74,28 +75,47 @@
                         <!--2015-06-07 13:39:57 +0000-->
                     </date>
                 </datePicker>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-0k-Rb9">
-                    <rect key="frame" x="116" y="419" width="89" height="30"/>
-                    <state key="normal" title="Take a photo"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-jA-n6X">
+                    <rect key="frame" x="15" y="349" width="97" height="30"/>
+                    <state key="normal" title="Take a Picture"/>
                     <connections>
-                        <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="y3J-re-qnP"/>
+                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="YIb-iC-Gdx"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QED-Fg-CKS">
+                    <rect key="frame" x="176" y="349" width="136" height="30"/>
+                    <state key="normal" title="Picture from Library"/>
+                    <connections>
+                        <action selector="pictureFromLibrary:" destination="-1" eventType="touchUpInside" id="aPa-SE-dXl"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epy-sE-chN">
+                    <rect key="frame" x="40" y="453" width="240" height="107"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="YCQ-Vh-Htw"/>
+                        <constraint firstAttribute="height" constant="100" id="ZIf-hR-mzg"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="9yJ-xg-Xl9" secondAttribute="centerX" id="9AD-HX-iUu"/>
                 <constraint firstAttribute="trailing" secondItem="lr4-ji-EQa" secondAttribute="trailing" constant="80" id="C99-IN-L8k"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="top" secondItem="4sb-3u-hbg" secondAttribute="bottom" constant="20" id="GVC-f6-PpJ"/>
+                <constraint firstItem="lr4-ji-EQa" firstAttribute="top" secondItem="QED-Fg-CKS" secondAttribute="bottom" constant="10" id="JNA-be-e1X"/>
                 <constraint firstAttribute="trailing" secondItem="4sb-3u-hbg" secondAttribute="trailing" constant="10" id="KFb-R2-UxT"/>
+                <constraint firstItem="yWf-jA-n6X" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="PVH-9T-AsU"/>
                 <constraint firstItem="go1-Gr-Q7G" firstAttribute="top" secondItem="9yJ-xg-Xl9" secondAttribute="bottom" constant="20" id="PcG-Mc-rkE"/>
                 <constraint firstItem="L9I-Wx-MYq" firstAttribute="top" secondItem="4sb-3u-hbg" secondAttribute="bottom" constant="25" id="RPe-Ye-3s6"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="leading" secondItem="L9I-Wx-MYq" secondAttribute="trailing" constant="10" id="S59-x4-6JY"/>
                 <constraint firstItem="lr4-ji-EQa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="70" id="WmL-pw-If6"/>
                 <constraint firstItem="4sb-3u-hbg" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="a8g-GJ-bp3"/>
                 <constraint firstItem="4sb-3u-hbg" firstAttribute="top" secondItem="1" secondAttribute="top" constant="80" id="cqE-II-qJ3"/>
-                <constraint firstItem="lr4-ji-EQa" firstAttribute="top" secondItem="go1-Gr-Q7G" secondAttribute="bottom" constant="20" id="dLI-Up-Ndr"/>
+                <constraint firstAttribute="trailing" secondItem="QED-Fg-CKS" secondAttribute="trailing" constant="10" id="eKh-WW-tAK"/>
+                <constraint firstItem="QED-Fg-CKS" firstAttribute="top" secondItem="go1-Gr-Q7G" secondAttribute="bottom" constant="10" id="ldx-lb-KXf"/>
                 <constraint firstAttribute="centerX" secondItem="4sb-3u-hbg" secondAttribute="centerX" id="qCk-ob-e8G"/>
+                <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="lr4-ji-EQa" secondAttribute="bottom" constant="10" id="rGh-hI-rbg"/>
+                <constraint firstItem="yWf-jA-n6X" firstAttribute="top" secondItem="go1-Gr-Q7G" secondAttribute="bottom" constant="10" id="sVU-ZW-yM3"/>
             </constraints>
         </view>
     </objects>

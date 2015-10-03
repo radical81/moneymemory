@@ -9,9 +9,13 @@
 #import "SpendMoneyViewController.h"
 #import "TransactionDomainObject.h"
 #import "TransactionsLogicManager.h"
-#import "CameraViewController.h"
+#import "AssetsLibrary/AssetsLibrary.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface SpendMoneyViewController ()
+
+@property BOOL newMedia;
+@property (nonatomic, retain) NSURL* imgUrl;
 
 @end
 
@@ -24,6 +28,10 @@
 @synthesize transactionType = _transactionType;
 @synthesize transactionDate = _transactionDate;
 @synthesize amountTextField = _amountTextField;
+@synthesize testImage = _testImage;
+@synthesize newMedia = _newMedia;
+@synthesize imgUrl = _imgUrl;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,11 +43,39 @@
     return self;
 }
 
+- (void) loadDefaultImage {
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *rep = [myasset defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        if (iref) {
+            _testImage.image = [UIImage imageWithCGImage:iref];
+            [_testImage.image retain];
+        }
+    };
+    
+    //
+    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+    {
+        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
+    };
+    NSString *mediaurl = @"assets-library://asset/asset.JPG?id=ECE6189E-341E-479C-A4D6-03EDD5F2D31B&ext=JPG";
+    if(mediaurl && [mediaurl length]) {
+        [_testImage.image release];
+        NSURL *asseturl = [NSURL URLWithString:mediaurl];
+        ALAssetsLibrary* assetslibrary = [[[ALAssetsLibrary alloc] init] autorelease];
+        [assetslibrary assetForURL:asseturl
+                       resultBlock:resultblock
+                      failureBlock:failureblock];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [_transactionType setText:_category.name];
+    [self loadDefaultImage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +94,7 @@
     [_transactionDate release];
     [_amountTextField release];
     [transactionsLogicManager release];
+    [_testImage release];
     [super dealloc];
 }
 
@@ -91,10 +128,40 @@
     [self showAlertSavedTransaction:transactionSave];
 }
 
-- (IBAction)takePhoto:(id)sender {
-    CameraViewController* cameraViewController = [[[CameraViewController alloc]initWithNibName:@"CameraViewController" bundle:nil]autorelease];
-    [self.navigationController pushViewController:cameraViewController animated:YES];
+- (IBAction)takePicture:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+        imagePicker.allowsEditing = NO;
+        [self presentViewController:imagePicker
+                           animated:YES completion:nil];
+        _newMedia = YES;
+    }
+
 }
+- (IBAction)pictureFromLibrary:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+    {
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+        imagePicker.allowsEditing = NO;
+        [self presentViewController:imagePicker
+                           animated:YES completion:nil];
+        _newMedia = NO;
+    }
+}
+
 
 -(void) createNotificationObserver {
     transactionSave = NO;
@@ -162,5 +229,65 @@
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSString *mediaType = info[UIImagePickerControllerMediaType];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        
+        _testImage.image = image;
+        if (_newMedia) {
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+            // Request to save the image to camera roll
+            [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+                if (error) {
+                    NSLog(@"error");
+                } else {
+                    NSLog(@"url %@", assetURL);
+                    _imgUrl = assetURL;
+                }
+            }];
+            [library release];
+        }
+        else {
+            NSURL *imageUrl = [info objectForKey:UIImagePickerControllerReferenceURL];
+            NSLog(@"image url: %@", imageUrl);
+        }
+    }
+    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
+    {
+        // Code here to support video if enabled
+    }
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end
