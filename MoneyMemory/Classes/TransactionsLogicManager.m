@@ -203,8 +203,9 @@
     int categoryId = [categoryDomainObject.id intValue];
     int transactionId = [transactionDomainObject.id intValue];
     int timeStamp = [transactionDomainObject.timestamp intValue];
+    NSString* imagepath = transactionDomainObject.imagepath;
     double transactionAmount = [transactionDomainObject.amount doubleValue];
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId timeStamp:timeStamp];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId timeStamp:timeStamp imagepath:imagepath];
     [coreDataManager release];
 }
 

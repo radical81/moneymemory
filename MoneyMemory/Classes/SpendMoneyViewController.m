@@ -15,7 +15,8 @@
 @interface SpendMoneyViewController ()
 
 @property BOOL newMedia;
-@property (nonatomic, retain) NSURL* imgUrl;
+@property (nonatomic, retain) NSString* imageSavedPath;
+
 
 @end
 
@@ -30,7 +31,8 @@
 @synthesize amountTextField = _amountTextField;
 @synthesize testImage = _testImage;
 @synthesize newMedia = _newMedia;
-@synthesize imgUrl = _imgUrl;
+@synthesize imageSavedPath;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,30 +46,8 @@
 }
 
 - (void) loadDefaultImage {
-    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
-    {
-        ALAssetRepresentation *rep = [myasset defaultRepresentation];
-        CGImageRef iref = [rep fullResolutionImage];
-        if (iref) {
-            _testImage.image = [UIImage imageWithCGImage:iref];
-            [_testImage.image retain];
-        }
-    };
-    
-    //
-    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
-    {
-        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
-    };
-    NSString *mediaurl = @"assets-library://asset/asset.JPG?id=ECE6189E-341E-479C-A4D6-03EDD5F2D31B&ext=JPG";
-    if(mediaurl && [mediaurl length]) {
-        [_testImage.image release];
-        NSURL *asseturl = [NSURL URLWithString:mediaurl];
-        ALAssetsLibrary* assetslibrary = [[[ALAssetsLibrary alloc] init] autorelease];
-        [assetslibrary assetForURL:asseturl
-                       resultBlock:resultblock
-                      failureBlock:failureblock];
-    }
+    [_testImage.image release];
+    _testImage.image = [UIImage imageNamed:@"budget_icon.png"];
 }
 
 - (void)viewDidLoad
@@ -95,6 +75,7 @@
     [_amountTextField release];
     [transactionsLogicManager release];
     [_testImage release];
+    [self.imageSavedPath release];
     [super dealloc];
 }
 
@@ -121,6 +102,9 @@
     
     NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
     
+    transaction.imagepath = self.imageSavedPath;
+    NSLog(@"Path to image: %@", self.imageSavedPath);
+
     [self createNotificationObserver];
     [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
     [transaction release];
@@ -230,6 +214,25 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+-(void) retrieveImageFilePath:(UIImage*) newImage {
+    NSData *imageData = UIImagePNGRepresentation(newImage);
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", timestamp]];
+    
+    NSLog((@"pre writing to file"));
+    if (![imageData writeToFile:imagePath atomically:NO])
+    {
+        NSLog(@"Failed to cache image data to disk");
+
+    }
+
+    self.imageSavedPath = imagePath;
+    NSLog(@"Path to image: %@",self.imageSavedPath);
+}
+
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate
 
@@ -243,6 +246,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         
+        //Image file path
+        [self retrieveImageFilePath:image];
         _testImage.image = image;
         if (_newMedia) {
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
@@ -252,19 +257,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                     NSLog(@"error");
                 } else {
                     NSLog(@"url %@", assetURL);
-                    _imgUrl = assetURL;
+
                 }
             }];
             [library release];
         }
-        else {
-            NSURL *imageUrl = [info objectForKey:UIImagePickerControllerReferenceURL];
-            NSLog(@"image url: %@", imageUrl);
-        }
-    }
-    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
-    {
-        // Code here to support video if enabled
     }
 }
 

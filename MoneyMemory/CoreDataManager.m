@@ -22,13 +22,14 @@
     }
 }
 
--(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId timeStamp: (int) _timeStamp {
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId timeStamp: (int) _timeStamp imagepath: (NSString*) imagepath {
     Transaction* newTransaction = [NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:moc];
     newTransaction.id = [NSNumber numberWithInt:_id];
     newTransaction.amount = [NSNumber numberWithDouble:_amount];
     Category* whichCategory = [self fetchCategoryWithId:_categoryId context:moc];
     newTransaction.is_a = whichCategory;
     newTransaction.timestamp = [NSNumber numberWithInt:_timeStamp];
+    newTransaction.imagepath = imagepath;
     
     
     NSError* error = nil;
@@ -102,7 +103,7 @@
     NSArray* resultsArray = [moc executeFetchRequest:request error:nil];
     [request release];
     for (Transaction* transaction in resultsArray){
-        NSLog(@"Transaction with id %@ saved on %@ under category %@ is %@:",transaction.id,transaction.timestamp,transaction.is_a.id,transaction.amount);
+        NSLog(@"Transaction with id %@ saved on %@ under category %@ is %@ with image %@:",transaction.id,transaction.timestamp,transaction.is_a.id,transaction.amount, transaction.imagepath);
     }
     
     return resultsArray;

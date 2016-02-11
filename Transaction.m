@@ -15,6 +15,7 @@
 @dynamic amount;
 @dynamic id;
 @dynamic timestamp;
+@dynamic imagepath;
 @dynamic is_a;
 
 @end
