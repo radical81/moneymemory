@@ -22,12 +22,13 @@
 
 @implementation SpendMoneyViewController {
     TransactionsLogicManager* transactionsLogicManager;
+    UIDatePicker *transactionDatePicker;
     BOOL transactionSave;
 }
 
 @synthesize category = _category;
 @synthesize transactionType = _transactionType;
-@synthesize transactionDate = _transactionDate;
+@synthesize transactionDateText = _transactionDateText;
 @synthesize amountTextField = _amountTextField;
 @synthesize testImage = _testImage;
 @synthesize newMedia = _newMedia;
@@ -55,7 +56,28 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [_transactionType setText:_category.name];
+    [self datePickerSetup];
     [self loadDefaultImage];
+}
+
+-(void) datePickerSetup {
+    transactionDatePicker = [[UIDatePicker alloc] init];
+    transactionDatePicker.datePickerMode = UIDatePickerModeDate;
+    [transactionDatePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [_transactionDateText setInputView:transactionDatePicker];
+    
+    UIToolbar* dateToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, 320, 44)];
+    [dateToolBar setTintColor:[UIColor grayColor]];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                   style:UIBarButtonItemStyleDone target:self
+                                                                  action:@selector(dismissDatePicker:)];
+    [dateToolBar setItems:[NSArray arrayWithObjects:doneButton, nil]];
+    [_transactionDateText setInputAccessoryView:dateToolBar];
+}
+
+-(void) dismissDatePicker:(id) sender {
+    [_transactionDateText resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,12 +93,24 @@
 - (void)dealloc {
     [_category release];
     [_transactionType release];
-    [_transactionDate release];
     [_amountTextField release];
     [transactionsLogicManager release];
     [_testImage release];
     [self.imageSavedPath release];
+    [transactionDatePicker release];
+    [_transactionDateText release];
     [super dealloc];
+}
+
+
+-(void) datePickerValueChanged:(id) sender {
+    UIDatePicker *picker = (UIDatePicker*)_transactionDateText.inputView;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *eventDate = picker.date;
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    [dateFormat release];
+    _transactionDateText.text = [NSString stringWithFormat:@"%@",dateString];
 }
 
 
@@ -95,8 +129,12 @@
     if(total > [_category.limit doubleValue]) {
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
-    }    
-    NSNumber* timeStamp = [NSNumber numberWithDouble:[_transactionDate.date timeIntervalSince1970]];
+    }
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    NSDate* transactionDate = [dateFormat dateFromString:_transactionDateText.text];
+    [dateFormat release];
+    NSNumber* timeStamp = [NSNumber numberWithDouble:[transactionDate timeIntervalSince1970]];
     
     transaction.timestamp = timeStamp;
     
