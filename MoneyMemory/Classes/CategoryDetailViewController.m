@@ -19,14 +19,12 @@
 @synthesize category = _category;
 @synthesize expensesTable = _expensesTable;
 @synthesize categoryLimit = _categoryLimit;
-@synthesize transactionType = _transactionType;
 @synthesize totalExpenses = _totalExpenses;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = _category.name;
-    [_transactionType setText:_category.name];
     _expensesTable = [[ExpensesTableViewController alloc] initWithCategory:_category];
     
     [self calculateAndDisplayTotalExpenses];
@@ -61,7 +59,6 @@
 - (void)dealloc {
     [_category release];
     [_expensesTable release];
-    [_transactionType release];
     [_totalExpenses release];
     [_categoryLimit release];
     [super dealloc];

@@ -3,14 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryDetailViewController">
             <connections>
                 <outlet property="categoryLimit" destination="YeX-HT-Y3A" id="wkv-fr-obd"/>
                 <outlet property="totalExpenses" destination="4kI-nD-TXI" id="SH9-C6-R1b"/>
-                <outlet property="transactionType" destination="d5d-HZ-wDc" id="oP2-uk-YY5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,15 +38,6 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total Expenses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfa-YM-ey4">
                     <rect key="frame" x="31" y="211" width="258" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5d-HZ-wDc">
-                    <rect key="frame" x="31" y="80" width="258" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="d5d-HZ-wDc" secondAttribute="height" multiplier="86:7" id="5VB-F0-BWH"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -101,18 +90,15 @@
                 <constraint firstItem="8bw-0U-ayo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="L8X-pr-fc4"/>
                 <constraint firstAttribute="trailing" secondItem="7R7-cU-tW6" secondAttribute="trailing" constant="80" id="Mk8-fx-324"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="MuF-kR-t5k"/>
-                <constraint firstAttribute="trailing" secondItem="d5d-HZ-wDc" secondAttribute="trailing" constant="30" id="Pji-a7-14F"/>
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="RBe-1V-hEn"/>
                 <constraint firstAttribute="trailing" secondItem="hfa-YM-ey4" secondAttribute="trailing" constant="30" id="RgF-aF-ZfC"/>
                 <constraint firstItem="7R7-cU-tW6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="S88-HW-Uzn"/>
                 <constraint firstItem="7R7-cU-tW6" firstAttribute="top" secondItem="4kI-nD-TXI" secondAttribute="bottom" constant="30" id="SPA-wn-HB0"/>
                 <constraint firstAttribute="trailing" secondItem="4kI-nD-TXI" secondAttribute="trailing" constant="30" id="Wao-by-gNL"/>
-                <constraint firstItem="paU-h4-Zkf" firstAttribute="top" secondItem="d5d-HZ-wDc" secondAttribute="bottom" constant="30" id="X0j-1U-f1a"/>
                 <constraint firstItem="paU-h4-Zkf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="cPz-fz-wkf"/>
                 <constraint firstAttribute="trailing" secondItem="YeX-HT-Y3A" secondAttribute="trailing" constant="30" id="ckM-du-cK8"/>
-                <constraint firstItem="d5d-HZ-wDc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="dTZ-s6-AXy"/>
+                <constraint firstItem="paU-h4-Zkf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="dxR-hW-Wxz"/>
                 <constraint firstAttribute="trailing" secondItem="8bw-0U-ayo" secondAttribute="trailing" constant="80" id="j7E-Sx-p0y"/>
-                <constraint firstItem="d5d-HZ-wDc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="oFs-zL-Lum"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="top" secondItem="paU-h4-Zkf" secondAttribute="bottom" constant="10" id="qD3-kr-MFq"/>
             </constraints>
             <point key="canvasLocation" x="119" y="193"/>
