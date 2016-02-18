@@ -33,6 +33,7 @@
 @synthesize testImage = _testImage;
 @synthesize newMedia = _newMedia;
 @synthesize imageSavedPath;
+@synthesize trashbutton = _trashbutton;
 
 
 
@@ -46,9 +47,11 @@
     return self;
 }
 
-- (void) loadDefaultImage {
-    [_testImage.image release];
-    _testImage.image = [UIImage imageNamed:@"budget_icon.png"];
+- (void) imageViewTapEventSetup {
+    UITapGestureRecognizer *singleTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doSingleTapImage)] autorelease];
+    singleTap.numberOfTapsRequired = 1;
+    [_testImage setUserInteractionEnabled:YES];
+    [_testImage addGestureRecognizer:singleTap];
 }
 
 - (void)viewDidLoad
@@ -57,7 +60,8 @@
 	// Do any additional setup after loading the view.
     [_transactionType setText:_category.name];
     [self datePickerSetup];
-    [self loadDefaultImage];
+    [self imageViewTapEventSetup];
+    _trashbutton.hidden = YES;
 }
 
 -(void) datePickerSetup {
@@ -80,6 +84,10 @@
     [_transactionDateText resignFirstResponder];
 }
 
+-(void) doSingleTapImage {
+    [self pictureFromLibrary:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -99,6 +107,7 @@
     [self.imageSavedPath release];
     [transactionDatePicker release];
     [_transactionDateText release];
+    [_trashbutton release];
     [super dealloc];
 }
 
@@ -184,6 +193,12 @@
     }
 }
 
+- (IBAction)trashPicture:(id)sender {
+    NSLog(@"trashPicture");
+    _testImage.image = nil;
+    self.imageSavedPath = nil;
+    _trashbutton.hidden = YES;
+}
 
 -(void) createNotificationObserver {
     transactionSave = NO;
@@ -271,8 +286,10 @@
     NSLog(@"Path to image: %@",self.imageSavedPath);
 }
 
+
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate
+
 
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -287,6 +304,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         //Image file path
         [self retrieveImageFilePath:image];
         _testImage.image = image;
+        _trashbutton.hidden = NO;
+
         if (_newMedia) {
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
             // Request to save the image to camera roll

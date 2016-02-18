@@ -19,5 +19,8 @@
 - (IBAction)takePicture:(id)sender;
 - (IBAction)pictureFromLibrary:(id)sender;
 @property (retain, nonatomic) IBOutlet UIImageView *testImage;
+- (IBAction)trashPicture:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *trashbutton;
+
 
 @end
