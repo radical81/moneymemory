@@ -60,7 +60,6 @@
 	// Do any additional setup after loading the view.
     [_transactionType setText:_category.name];
     [self datePickerSetup];
-    [self imageViewTapEventSetup];
     _trashbutton.hidden = YES;
 }
 
@@ -208,6 +207,7 @@
 - (IBAction)trashPicture:(id)sender {
     NSLog(@"trashPicture");
     _testImage.image = nil;
+    [_testImage setUserInteractionEnabled:NO];
     self.imageSavedPath = nil;
     _trashbutton.hidden = YES;
 }
@@ -316,6 +316,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         //Image file path
         [self retrieveImageFilePath:image];
         _testImage.image = image;
+        [self imageViewTapEventSetup];
         _trashbutton.hidden = NO;
 
         if (_newMedia) {
