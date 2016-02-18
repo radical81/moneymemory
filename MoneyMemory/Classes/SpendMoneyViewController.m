@@ -206,6 +206,10 @@
 
 - (IBAction)trashPicture:(id)sender {
     NSLog(@"trashPicture");
+    if(_testImage.image == nil) {
+        return;
+    }
+    NSLog(@"Test image not nil, delete...");
     _testImage.image = nil;
     [_testImage setUserInteractionEnabled:NO];
     self.imageSavedPath = nil;
