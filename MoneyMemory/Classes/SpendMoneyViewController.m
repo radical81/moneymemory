@@ -80,7 +80,19 @@
     [_transactionDateText setInputAccessoryView:dateToolBar];
 }
 
+-(void) fillDefaultDate {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *dateNow = [NSDate date];
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:dateNow];
+    [dateFormat release];
+    _transactionDateText.text = [NSString stringWithFormat:@"%@",dateString];
+}
+
 -(void) dismissDatePicker:(id) sender {
+    if(_transactionDateText.text.length < 1) {
+        [self fillDefaultDate];
+    }
     [_transactionDateText resignFirstResponder];
 }
 
