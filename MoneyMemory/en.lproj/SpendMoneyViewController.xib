@@ -70,10 +70,6 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epy-sE-chN">
                     <rect key="frame" x="40" y="440" width="240" height="107"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="mjj-Bb-c3u"/>
-                        <constraint firstAttribute="width" constant="200" id="wL1-pF-4gC"/>
-                    </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHV-5y-vjq" userLabel="Date Text Field">
                     <rect key="frame" x="127" y="187" width="97" height="30"/>
@@ -121,9 +117,13 @@
                         <action selector="pictureFromLibrary:" destination="-1" eventType="touchUpInside" id="aPa-SE-dXl"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
-                    <rect key="frame" x="118" y="408" width="55" height="30"/>
-                    <state key="normal" title="Remove"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
+                    <rect key="frame" x="40" y="417" width="28" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="0iw-E4-6Ej"/>
+                        <constraint firstAttribute="height" constant="25" id="LTd-FX-p0V"/>
+                    </constraints>
+                    <state key="normal" title="Remove" image="icon_close.png"/>
                     <connections>
                         <action selector="trashPicture:" destination="-2" eventType="touchUpInside" id="Zca-8P-PUW"/>
                     </connections>
@@ -133,26 +133,31 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="GHV-5y-vjq" secondAttribute="trailing" constant="10" id="2VK-ma-gZk"/>
                 <constraint firstItem="QED-Fg-CKS" firstAttribute="top" secondItem="GHV-5y-vjq" secondAttribute="bottom" constant="20" id="AE0-GZ-CCP"/>
-                <constraint firstItem="Epy-sE-chN" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="Bfh-CA-J7Q"/>
-                <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="Jda-ci-LCd" secondAttribute="bottom" constant="5" id="G6H-k0-uGW"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="top" secondItem="4sb-3u-hbg" secondAttribute="bottom" constant="20" id="GVC-f6-PpJ"/>
                 <constraint firstItem="4sb-3u-hbg" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="H1z-FF-B6g"/>
                 <constraint firstItem="GHV-5y-vjq" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="La5-hZ-dfm"/>
-                <constraint firstItem="Jda-ci-LCd" firstAttribute="top" secondItem="lr4-ji-EQa" secondAttribute="bottom" constant="5" id="NJq-Is-Acn"/>
+                <constraint firstItem="Jda-ci-LCd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="MFt-SZ-eSP"/>
                 <constraint firstItem="lr4-ji-EQa" firstAttribute="top" secondItem="QED-Fg-CKS" secondAttribute="bottom" constant="10" id="Oso-9w-S8K"/>
                 <constraint firstItem="4sb-3u-hbg" firstAttribute="top" secondItem="1" secondAttribute="top" constant="64" id="Sp9-Zj-A5r"/>
                 <constraint firstAttribute="trailing" secondItem="9yJ-xg-Xl9" secondAttribute="trailing" constant="10" id="URt-T8-ve3"/>
                 <constraint firstAttribute="trailing" secondItem="QED-Fg-CKS" secondAttribute="trailing" constant="10" id="WO5-ny-EdI"/>
                 <constraint firstItem="lr4-ji-EQa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="biY-k1-ilf"/>
+                <constraint firstAttribute="bottom" secondItem="Epy-sE-chN" secondAttribute="bottom" constant="20" id="dr7-vG-DwK"/>
                 <constraint firstAttribute="trailing" secondItem="lr4-ji-EQa" secondAttribute="trailing" constant="10" id="g2T-JO-Wzd"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="gFM-Oo-8vw"/>
-                <constraint firstItem="Jda-ci-LCd" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="k4O-NI-NCj"/>
                 <constraint firstItem="yWf-jA-n6X" firstAttribute="top" secondItem="GHV-5y-vjq" secondAttribute="bottom" constant="20" id="lcS-MM-U5p"/>
+                <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="Jda-ci-LCd" secondAttribute="bottom" constant="-20" id="n87-A9-VHe"/>
+                <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="lr4-ji-EQa" secondAttribute="bottom" constant="20" id="nEd-Nc-UkT"/>
                 <constraint firstItem="yWf-jA-n6X" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="pq1-Kf-O3h"/>
+                <constraint firstAttribute="trailing" secondItem="Epy-sE-chN" secondAttribute="trailing" constant="20" id="qyQ-dR-ivk"/>
                 <constraint firstAttribute="trailing" secondItem="4sb-3u-hbg" secondAttribute="trailing" id="r8V-Ao-qru"/>
                 <constraint firstItem="QED-Fg-CKS" firstAttribute="leading" secondItem="yWf-jA-n6X" secondAttribute="trailing" constant="10" id="rfz-ne-E4K"/>
+                <constraint firstItem="Epy-sE-chN" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="tiK-vm-QZv"/>
                 <constraint firstItem="GHV-5y-vjq" firstAttribute="top" secondItem="9yJ-xg-Xl9" secondAttribute="bottom" constant="10" id="uNk-ks-ZtI"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="icon_close.png" width="512" height="512"/>
+    </resources>
 </document>

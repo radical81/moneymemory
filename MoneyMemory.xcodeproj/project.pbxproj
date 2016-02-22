@@ -38,14 +38,15 @@
 		17FC251D181042510067282D /* CategoryDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251C181042510067282D /* CategoryDomainObject.m */; };
 		17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC251F1810426D0067282D /* TransactionDomainObject.m */; };
 		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
-		86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		8614CCFC1BBD7EE000B4C996 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8614CCFA1BBD7EE000B4C996 /* CameraViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */; };
+		86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */; };
+		8614CCFC1BBD7EE000B4C996 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8614CCFA1BBD7EE000B4C996 /* CameraViewController.xib */; };
 		8614CCFE1BBD82B900B4C996 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */; };
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
-		86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5BDEA1BC41C930042148B /* budget_icon.png */; settings = {ASSET_TAGS = (); }; };
+		86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5BDEA1BC41C930042148B /* budget_icon.png */; };
+		86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCD1181C7B615000FF9D1F /* icon_close.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
 		86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D592951B0B8930008748DE /* LaunchScreen.xib */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
@@ -123,6 +124,7 @@
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
 		86A5BDEA1BC41C930042148B /* budget_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = budget_icon.png; path = /Users/rexjason/Desktop/budget_icon.png; sourceTree = "<absolute>"; };
+		86BCD1181C7B615000FF9D1F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = ../../../Users/rexjason/Desktop/icon_close.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		86D592951B0B8930008748DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Classes/LaunchScreen.xib; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		86A5BDEC1BC41C9F0042148B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86BCD1181C7B615000FF9D1F /* icon_close.png */,
 				86A5BDEA1BC41C930042148B /* budget_icon.png */,
 			);
 			name = Images;
@@ -417,6 +420,7 @@
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
+				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
 				8614CCFC1BBD7EE000B4C996 /* CameraViewController.xib in Resources */,
 				179EEF6718AA7FBE0070B834 /* TransactionCategoriesViewController.xib in Resources */,
