@@ -212,6 +212,16 @@
     NSLog(@"Test image not nil, delete...");
     _testImage.image = nil;
     [_testImage setUserInteractionEnabled:NO];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    BOOL success = [fileManager removeItemAtPath:self.imageSavedPath error:&error];
+    if (success) {
+        NSLog(@"Deleted %@", self.imageSavedPath);
+    }
+    else {
+        NSLog(@"Could not delete file - %@", [error localizedDescription]);
+    }
     self.imageSavedPath = nil;
     _trashbutton.hidden = YES;
 }
