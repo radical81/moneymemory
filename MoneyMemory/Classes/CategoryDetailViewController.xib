@@ -84,21 +84,21 @@
             <constraints>
                 <constraint firstItem="hfa-YM-ey4" firstAttribute="top" secondItem="YeX-HT-Y3A" secondAttribute="bottom" constant="30" id="1Iz-Xd-4Ap"/>
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="top" secondItem="hfa-YM-ey4" secondAttribute="bottom" constant="10" id="1Kf-WZ-3Rp"/>
+                <constraint firstAttribute="trailing" secondItem="8bw-0U-ayo" secondAttribute="trailing" constant="10" id="1dT-AK-SiM"/>
                 <constraint firstItem="hfa-YM-ey4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="2jM-TY-14G"/>
                 <constraint firstItem="8bw-0U-ayo" firstAttribute="top" secondItem="7R7-cU-tW6" secondAttribute="bottom" constant="30" id="7lU-cn-hMS"/>
                 <constraint firstAttribute="trailing" secondItem="paU-h4-Zkf" secondAttribute="trailing" constant="30" id="D7O-Ga-atB"/>
-                <constraint firstItem="8bw-0U-ayo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="L8X-pr-fc4"/>
-                <constraint firstAttribute="trailing" secondItem="7R7-cU-tW6" secondAttribute="trailing" constant="80" id="Mk8-fx-324"/>
+                <constraint firstAttribute="trailing" secondItem="7R7-cU-tW6" secondAttribute="trailing" constant="10" id="E5h-N6-SNY"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="MuF-kR-t5k"/>
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="RBe-1V-hEn"/>
                 <constraint firstAttribute="trailing" secondItem="hfa-YM-ey4" secondAttribute="trailing" constant="30" id="RgF-aF-ZfC"/>
-                <constraint firstItem="7R7-cU-tW6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="S88-HW-Uzn"/>
                 <constraint firstItem="7R7-cU-tW6" firstAttribute="top" secondItem="4kI-nD-TXI" secondAttribute="bottom" constant="30" id="SPA-wn-HB0"/>
+                <constraint firstItem="8bw-0U-ayo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Toc-dg-sMd"/>
                 <constraint firstAttribute="trailing" secondItem="4kI-nD-TXI" secondAttribute="trailing" constant="30" id="Wao-by-gNL"/>
+                <constraint firstItem="7R7-cU-tW6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="aLc-cu-kjM"/>
                 <constraint firstItem="paU-h4-Zkf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="cPz-fz-wkf"/>
                 <constraint firstAttribute="trailing" secondItem="YeX-HT-Y3A" secondAttribute="trailing" constant="30" id="ckM-du-cK8"/>
                 <constraint firstItem="paU-h4-Zkf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="dxR-hW-Wxz"/>
-                <constraint firstAttribute="trailing" secondItem="8bw-0U-ayo" secondAttribute="trailing" constant="80" id="j7E-Sx-p0y"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="top" secondItem="paU-h4-Zkf" secondAttribute="bottom" constant="10" id="qD3-kr-MFq"/>
             </constraints>
             <point key="canvasLocation" x="119" y="193"/>
