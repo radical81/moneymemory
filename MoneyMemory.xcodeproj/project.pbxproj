@@ -40,7 +40,6 @@
 		17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC25221810429E0067282D /* TransactionsLogicManager.m */; };
 		86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */; };
 		86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */; };
-		8614CCFC1BBD7EE000B4C996 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8614CCFA1BBD7EE000B4C996 /* CameraViewController.xib */; };
 		8614CCFE1BBD82B900B4C996 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */; };
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
@@ -116,7 +115,6 @@
 		86013D3F1BB6928E005F51B4 /* ExpensesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesTableViewController.h; path = Classes/ExpensesTableViewController.h; sourceTree = "<group>"; };
 		86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesTableViewController.m; path = Classes/ExpensesTableViewController.m; sourceTree = "<group>"; };
 		86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpensesTableViewController.xib; path = Classes/ExpensesTableViewController.xib; sourceTree = "<group>"; };
-		8614CCFA1BBD7EE000B4C996 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraViewController.xib; path = Classes/CameraViewController.xib; sourceTree = "<group>"; };
 		8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8626C9661B1C2535002782DA /* Income.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = SOURCE_ROOT; };
 		8626C9671B1C2535002782DA /* Income.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Income.m; sourceTree = SOURCE_ROOT; };
@@ -164,7 +162,6 @@
 		178475AD18688E7B00F5ED1F /* XIB */ = {
 			isa = PBXGroup;
 			children = (
-				8614CCFA1BBD7EE000B4C996 /* CameraViewController.xib */,
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
 				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
 				86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */,
@@ -422,7 +419,6 @@
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
 				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
-				8614CCFC1BBD7EE000B4C996 /* CameraViewController.xib in Resources */,
 				179EEF6718AA7FBE0070B834 /* TransactionCategoriesViewController.xib in Resources */,
 				178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */,
 				86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */,
