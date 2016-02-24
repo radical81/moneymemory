@@ -19,6 +19,7 @@
 - (IBAction)takePicture:(id)sender;
 - (IBAction)pictureFromLibrary:(id)sender;
 @property (retain, nonatomic) IBOutlet UIImageView *testImage;
+@property (retain, nonatomic) IBOutlet UITextField *transactionComment;
 - (IBAction)trashPicture:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *trashbutton;
 

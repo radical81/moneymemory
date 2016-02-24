@@ -31,6 +31,7 @@
 @synthesize transactionDateText = _transactionDateText;
 @synthesize amountTextField = _amountTextField;
 @synthesize testImage = _testImage;
+@synthesize transactionComment = _transactionComment;
 @synthesize newMedia = _newMedia;
 @synthesize imageSavedPath;
 @synthesize trashbutton = _trashbutton;
@@ -119,6 +120,7 @@
     [transactionDatePicker release];
     [_transactionDateText release];
     [_trashbutton release];
+    [_transactionComment release];
     [super dealloc];
 }
 
@@ -161,8 +163,13 @@
     NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
     
     transaction.imagepath = self.imageSavedPath;
-    NSLog(@"Path to image: %@", self.imageSavedPath);
+    
+    NSLog(@"Path to image: %@", transaction.imagepath);
 
+    transaction.comment = _transactionComment.text;
+    
+    NSLog(@"Remarks: %@", transaction.comment);
+    
     [self createNotificationObserver];
     [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
     [transaction release];
@@ -330,6 +337,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         //Image file path
         [self retrieveImageFilePath:image];
         _testImage.image = image;
+        _testImage.contentMode = UIViewContentModeScaleAspectFit;
         [self imageViewTapEventSetup];
         _trashbutton.hidden = NO;
 

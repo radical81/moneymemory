@@ -176,7 +176,7 @@
         transactionDomainObject.imagepath = [transaction valueForKey:@"imagepath"];
         transactionDomainObject.comment = [transaction valueForKey:@"comment"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
-        NSLog(@"Fetched transaction with id %@ amount %@ and date %@", transactionDomainObject.id, transactionDomainObject.amount, transactionDomainObject.timestamp);
+        NSLog(@"Fetched transaction with id %@ amount %@ and date %@ and comment %@", transactionDomainObject.id, transactionDomainObject.amount, transactionDomainObject.timestamp, transactionDomainObject.comment);
         [allTransactions addObject:transactionDomainObject];
         [transactionDomainObject release];
     }
