@@ -13,7 +13,6 @@
 		178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */; };
 		179EEF6418AA789B0070B834 /* TransactionCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179EEF6318AA789B0070B834 /* TransactionCategoriesViewController.m */; };
 		179EEF6718AA7FBE0070B834 /* TransactionCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */; };
-		17D8B64B180149D000D90AF6 /* Remark.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64A180149D000D90AF6 /* Remark.m */; };
 		17D8B64E180149E100D90AF6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B64D180149E100D90AF6 /* Category.m */; };
 		17D8B68218014CB400D90AF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D8B68118014CB400D90AF6 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8B68418014D0100D90AF6 /* CoreDataManager.m */; };
@@ -73,8 +72,6 @@
 		179EEF6218AA789B0070B834 /* TransactionCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionCategoriesViewController.h; path = Classes/TransactionCategoriesViewController.h; sourceTree = "<group>"; };
 		179EEF6318AA789B0070B834 /* TransactionCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionCategoriesViewController.m; path = Classes/TransactionCategoriesViewController.m; sourceTree = "<group>"; };
 		179EEF6618AA7FBE0070B834 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TransactionCategoriesViewController.xib; sourceTree = "<group>"; };
-		17D8B649180149D000D90AF6 /* Remark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Remark.h; path = ../Remark.h; sourceTree = "<group>"; };
-		17D8B64A180149D000D90AF6 /* Remark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Remark.m; path = ../Remark.m; sourceTree = "<group>"; };
 		17D8B64C180149E100D90AF6 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = ../Category.h; sourceTree = "<group>"; };
 		17D8B64D180149E100D90AF6 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = ../Category.m; sourceTree = "<group>"; };
 		17D8B68118014CB400D90AF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -181,8 +178,6 @@
 				8626C9671B1C2535002782DA /* Income.m */,
 				17D8B64C180149E100D90AF6 /* Category.h */,
 				17D8B64D180149E100D90AF6 /* Category.m */,
-				17D8B649180149D000D90AF6 /* Remark.h */,
-				17D8B64A180149D000D90AF6 /* Remark.m */,
 				17F8ADE717F07F00007F7C9E /* Model.xcdatamodeld */,
 				17FC250D18103AFA0067282D /* Transaction.h */,
 				17FC250E18103AFA0067282D /* Transaction.m */,
@@ -492,7 +487,6 @@
 				17ED423217E756E700C7080A /* ViewController.m in Sources */,
 				179EEF6418AA789B0070B834 /* TransactionCategoriesViewController.m in Sources */,
 				17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */,
-				17D8B64B180149D000D90AF6 /* Remark.m in Sources */,
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				86918B231B13770600AAA530 /* IncomeViewController.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,

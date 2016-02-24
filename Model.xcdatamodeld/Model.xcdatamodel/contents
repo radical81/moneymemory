@@ -9,13 +9,9 @@
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="monthly" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Remark" representedClassName="Remark" syncable="YES">
-        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="is_about" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" syncable="YES"/>
-    </entity>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="imagepath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -24,7 +20,6 @@
     <elements>
         <element name="Category" positionX="-180" positionY="258" width="128" height="90"/>
         <element name="Income" positionX="27" positionY="198" width="128" height="75"/>
-        <element name="Remark" positionX="-63" positionY="90" width="128" height="90"/>
-        <element name="Transaction" positionX="295" positionY="162" width="128" height="120"/>
+        <element name="Transaction" positionX="295" positionY="162" width="128" height="133"/>
     </elements>
 </model>

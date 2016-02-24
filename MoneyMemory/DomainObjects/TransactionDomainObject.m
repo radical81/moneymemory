@@ -14,6 +14,7 @@
 @synthesize amount;
 @synthesize timestamp;
 @synthesize imagepath;
+@synthesize comment;
 @synthesize is_a;
 
 -(void) resetValues {
@@ -21,6 +22,7 @@
     self.amount = nil;
     self.timestamp = nil;
     self.imagepath = nil;
+    self.comment = nil;
     self.is_a = nil;
 }
 

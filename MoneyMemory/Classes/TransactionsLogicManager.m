@@ -46,11 +46,13 @@
     return categoryDomainObject;
 }
 
--(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp is_a:(CategoryDomainObject*) _is_a {
+-(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp imagepath: (NSString*) _imagepath comment: (NSString*) _comment is_a:(CategoryDomainObject*) _is_a {
     TransactionDomainObject* transaction = [[[TransactionDomainObject alloc]init]autorelease];
     transaction.id = [NSNumber numberWithInt:_id];
     transaction.amount = [NSNumber numberWithDouble:_amount];
     transaction.timestamp = [NSNumber numberWithInt:_timestamp];
+    transaction.imagepath = _imagepath;
+    transaction.comment = _comment;
     transaction.is_a = _is_a;
     return  transaction;
 }
@@ -108,6 +110,8 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
+        transactionDomainObject.imagepath = [transaction valueForKey:@"imagepath"];
+        transactionDomainObject.comment = [transaction valueForKey:@"comment"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
     }
     return transactionDomainObject;
@@ -124,6 +128,8 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
+        transactionDomainObject.imagepath = [transaction valueForKey:@"imagepath"];
+        transactionDomainObject.comment = [transaction valueForKey:@"comment"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         [allTransactions addObject:transactionDomainObject];
         [transactionDomainObject release];
@@ -167,6 +173,8 @@
         transactionDomainObject.id = [transaction valueForKey:@"id"];
         transactionDomainObject.amount = [transaction valueForKey:@"amount"];
         transactionDomainObject.timestamp = [transaction valueForKey:@"timestamp"];
+        transactionDomainObject.imagepath = [transaction valueForKey:@"imagepath"];
+        transactionDomainObject.comment = [transaction valueForKey:@"comment"];
         transactionDomainObject.is_a = [transaction valueForKey:@"is_a"];
         NSLog(@"Fetched transaction with id %@ amount %@ and date %@", transactionDomainObject.id, transactionDomainObject.amount, transactionDomainObject.timestamp);
         [allTransactions addObject:transactionDomainObject];
@@ -204,8 +212,9 @@
     int transactionId = [transactionDomainObject.id intValue];
     int timeStamp = [transactionDomainObject.timestamp intValue];
     NSString* imagepath = transactionDomainObject.imagepath;
+    NSString* comment = transactionDomainObject.comment;
     double transactionAmount = [transactionDomainObject.amount doubleValue];
-    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId timeStamp:timeStamp imagepath:imagepath];
+    [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId timeStamp:timeStamp imagepath:imagepath comment:comment];
     [coreDataManager release];
 }
 

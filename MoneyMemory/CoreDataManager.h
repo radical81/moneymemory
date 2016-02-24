@@ -14,7 +14,7 @@
 @interface CoreDataManager : NSObject
 
 -(void) insertCategory: (NSManagedObjectContext*)moc id: (int) _id limit: (double)_limit name: (NSString*) _name;
--(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId timeStamp: (int) _timeStamp imagepath: (NSString*) imagepath;
+-(void) insertTransaction: (NSManagedObjectContext*) moc id: (int) _id amount: (double) _amount categoryId: (int) _categoryId timeStamp: (int) _timeStamp imagepath: (NSString*) _imagepath comment: (NSString*) _comment;
 -(NSArray*) fetchAllCategories: (NSManagedObjectContext*)moc;
 -(NSArray*) fetchAllTransactions: (NSManagedObjectContext*) moc limit: (int) limit;
 -(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc limit: (int) limit;

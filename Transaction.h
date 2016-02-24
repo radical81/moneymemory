@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSNumber * timestamp;
+@property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSString * imagepath;
 @property (nonatomic, retain) Category *is_a;
 

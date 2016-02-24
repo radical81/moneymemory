@@ -12,7 +12,7 @@
 
 @interface TransactionsLogicManager : NSObject
 
--(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp is_a:(CategoryDomainObject*) _is_a;
+-(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp imagepath: (NSString*) _imagepath comment: (NSString*) _comment is_a:(CategoryDomainObject*) _is_a;
 -(CategoryDomainObject*) fetchCategoryWithId: (int) _id;
 -(NSArray*) fetchAllCategories;
 -(NSArray*) fetchCategoryNames;

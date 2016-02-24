@@ -15,6 +15,7 @@
 @dynamic amount;
 @dynamic id;
 @dynamic timestamp;
+@dynamic comment;
 @dynamic imagepath;
 @dynamic is_a;
 
