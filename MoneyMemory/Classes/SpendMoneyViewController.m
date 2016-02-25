@@ -142,6 +142,19 @@
     int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
     latestTransactionId++;
     transaction.id = [NSNumber numberWithInt:latestTransactionId];
+    BOOL isAmountNil = NO;
+    BOOL isDateNil = NO;
+    if([_amountTextField.text doubleValue] == 0) {
+        isAmountNil = YES;
+    }
+    if([_transactionDateText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length == 0) {
+        isDateNil = YES;
+    }
+    if(isAmountNil == YES || isDateNil == YES) {
+        [self showAlertMissingDetails:isAmountNil _dateMissing:isDateNil];
+        return;
+    }
+    
     transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
     if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
         [self showOverShotTransaction:[_category.limit stringValue]];
@@ -275,6 +288,34 @@
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+-(void) showAlertMissingDetails:(BOOL) amountMissing _dateMissing: (BOOL) dateMissing {
+    
+    NSString* errorMessage = @"";
+    
+    if(amountMissing) {
+        errorMessage = [errorMessage stringByAppendingString:@"Amount is missing.\n"];
+    }
+    if(dateMissing) {
+        errorMessage = [errorMessage stringByAppendingString:@"Date is blank.\n"];
+    }
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Cannot Save Transaction"
+                                  message: errorMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 -(void) showAlertSavedTransaction:(BOOL) success {
     NSString* alertMessage;
