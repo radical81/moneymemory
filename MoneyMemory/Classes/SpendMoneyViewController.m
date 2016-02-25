@@ -61,6 +61,7 @@
 	// Do any additional setup after loading the view.
     [_transactionType setText:_category.name];
     [self datePickerSetup];
+    _testImage.hidden = YES;
     _trashbutton.hidden = YES;
 }
 
@@ -218,6 +219,7 @@
     }
     NSLog(@"Test image not nil, delete...");
     _testImage.image = nil;
+    _testImage.hidden = YES;
     [_testImage setUserInteractionEnabled:NO];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -336,10 +338,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         //Image file path
         [self retrieveImageFilePath:image];
+        _testImage.hidden = NO;
         _testImage.image = image;
-        _testImage.contentMode = UIViewContentModeScaleAspectFit;
+        [_testImage setContentMode:UIViewContentModeScaleAspectFit];
+        _testImage.layer.zPosition = -1;
         [self imageViewTapEventSetup];
         _trashbutton.hidden = NO;
+        
 
         if (_newMedia) {
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
