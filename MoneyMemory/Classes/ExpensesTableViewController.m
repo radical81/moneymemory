@@ -184,7 +184,7 @@ TransactionsLogicManager* logicManager;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"$ %@", [transaction.amount stringValue]];
+    cell.textLabel.text = [NSString stringWithFormat:@"$ %@ - %@", [transaction.amount stringValue], transaction.comment];
     return cell;
 }
 
