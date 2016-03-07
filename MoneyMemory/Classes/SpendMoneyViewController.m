@@ -63,6 +63,7 @@
     [self datePickerSetup];
     _testImage.hidden = YES;
     _trashbutton.hidden = YES;
+    _transactionComment.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 }
 
 -(void) datePickerSetup {
