@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CategoryDomainObject.h"
+#import "TransactionDomainObject.h"
 
 @interface SpendMoneyViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -23,5 +24,6 @@
 - (IBAction)trashPicture:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *trashbutton;
 
+- (id) initWithTransaction:(TransactionDomainObject*) transactionDomainObject;
 
 @end

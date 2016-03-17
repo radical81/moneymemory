@@ -7,16 +7,17 @@
 //
 
 #import "SpendMoneyViewController.h"
-#import "TransactionDomainObject.h"
 #import "TransactionsLogicManager.h"
 #import "AssetsLibrary/AssetsLibrary.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface SpendMoneyViewController ()
 
+@property (nonatomic, retain) TransactionDomainObject* transaction;
+@property BOOL newTransaction;
 @property BOOL newMedia;
-@property (nonatomic, retain) NSString* imageSavedPath;
 
+@property (nonatomic, retain) NSString* imageSavedPath;
 
 @end
 
@@ -27,15 +28,16 @@
 }
 
 @synthesize category = _category;
+@synthesize transaction = _transaction;
 @synthesize transactionType = _transactionType;
 @synthesize transactionDateText = _transactionDateText;
 @synthesize amountTextField = _amountTextField;
 @synthesize testImage = _testImage;
 @synthesize transactionComment = _transactionComment;
+@synthesize newTransaction = _newTransaction;
 @synthesize newMedia = _newMedia;
 @synthesize imageSavedPath;
 @synthesize trashbutton = _trashbutton;
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,6 +46,18 @@
     if (self) {
         // Custom initialization
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
+        _newTransaction = YES;
+    }
+    return self;
+}
+
+- (id) initWithTransaction:(TransactionDomainObject*) transactionDomainObject {
+    self = [super initWithNibName:@"SpendMoneyViewController" bundle:nil];
+    if (self) {
+        // Custom initialization
+        transactionsLogicManager = [[TransactionsLogicManager alloc]init];
+        _transaction = transactionDomainObject;
+        _newTransaction = NO;
     }
     return self;
 }
@@ -113,6 +127,7 @@
 }
 
 - (void)dealloc {
+    [_transaction release];
     [_category release];
     [_transactionType release];
     [_amountTextField release];
@@ -139,10 +154,7 @@
 
 
 - (IBAction)didButtonPressSaveTransaction:(id)sender {
-    TransactionDomainObject *transaction = [[TransactionDomainObject alloc]init];
-    int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
-    latestTransactionId++;
-    transaction.id = [NSNumber numberWithInt:latestTransactionId];
+
     BOOL isAmountNil = NO;
     BOOL isDateNil = NO;
     if([_amountTextField.text doubleValue] == 0) {
@@ -155,41 +167,49 @@
         [self showAlertMissingDetails:isAmountNil _dateMissing:isDateNil];
         return;
     }
-    
-    transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
-    if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
-        [self showOverShotTransaction:[_category.limit stringValue]];
-        return;
-    }
     NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue]];
     double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
     if(total > [_category.limit doubleValue]) {
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
     }
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd/MM/yyyy"];
     NSDate* transactionDate = [dateFormat dateFromString:_transactionDateText.text];
     [dateFormat release];
     NSNumber* timeStamp = [NSNumber numberWithDouble:[transactionDate timeIntervalSince1970]];
     
-    transaction.timestamp = timeStamp;
+    if(_newTransaction == YES) {
+        TransactionDomainObject* transaction = [[TransactionDomainObject alloc]init];
+        int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
+        latestTransactionId++;
+        transaction.id = [NSNumber numberWithInt:latestTransactionId];
     
-    NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
+        transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
+        if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
+            [self showOverShotTransaction:[_category.limit stringValue]];
+            return;
+        }
     
-    transaction.imagepath = self.imageSavedPath;
+        transaction.timestamp = timeStamp;
     
-    NSLog(@"Path to image: %@", transaction.imagepath);
+        NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
+    
+        transaction.imagepath = self.imageSavedPath;
+    
+        NSLog(@"Path to image: %@", transaction.imagepath);
 
-    transaction.comment = _transactionComment.text;
+        transaction.comment = _transactionComment.text;
     
-    NSLog(@"Remarks: %@", transaction.comment);
+        NSLog(@"Remarks: %@", transaction.comment);
     
-    [self createNotificationObserver];
-    [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
-    [transaction release];
+        [self createNotificationObserver];
+        [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
+        [transaction release];
 
-    [self showAlertSavedTransaction:transactionSave];
+        [self showAlertSavedTransaction:transactionSave];
+    }
 }
 
 - (IBAction)takePicture:(id)sender {
