@@ -249,21 +249,20 @@ TransactionsLogicManager* logicManager;
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:indexPath.section];
+    NSArray *expensesThisDay = [self.expensesByDay objectForKey:dateRepresentingThisDay];
+    TransactionDomainObject *transaction = [expensesThisDay objectAtIndex:indexPath.row];
     
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithTransaction:transaction]autorelease];
+    CategoryDomainObject* expenseCategory = transaction.is_a;
+    spendMoneyViewController.category = expenseCategory;
+    [self.navigationController pushViewController:spendMoneyViewController animated:YES];
 }
-*/
 
 /*
 #pragma mark - Navigation

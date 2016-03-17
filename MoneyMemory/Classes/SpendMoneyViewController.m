@@ -69,14 +69,36 @@
     [_testImage addGestureRecognizer:singleTap];
 }
 
+- (void) showTransactionDetails {
+    _amountTextField.text = [_transaction.amount stringValue];
+    _transactionComment.text = _transaction.comment;
+    if(_transaction.imagepath != NULL) {
+        _testImage.hidden = NO;
+        _trashbutton.hidden = NO;
+        _testImage.image = [UIImage imageWithContentsOfFile:_transaction.imagepath];
+    }
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *transactionDate = [NSDate dateWithTimeIntervalSince1970:[_transaction.timestamp doubleValue]];
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:transactionDate];
+    [dateFormat release];
+    _transactionDateText.text = [NSString stringWithFormat:@"%@",dateString];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [_transactionType setText:_category.name];
-    [self datePickerSetup];
+
     _testImage.hidden = YES;
     _trashbutton.hidden = YES;
+    
+    if(_newTransaction == NO) {
+        [self showTransactionDetails];
+    }
+    [self datePickerSetup];
     _transactionComment.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 }
 
@@ -152,6 +174,62 @@
     _transactionDateText.text = [NSString stringWithFormat:@"%@",dateString];
 }
 
+-(void) saveNewTransaction:(NSNumber*) timeStamp {
+    TransactionDomainObject* transaction = [[TransactionDomainObject alloc]init];
+    int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
+    latestTransactionId++;
+    transaction.id = [NSNumber numberWithInt:latestTransactionId];
+    
+    transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
+    if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
+        [self showOverShotTransaction:[_category.limit stringValue]];
+        return;
+    }
+    
+    transaction.timestamp = timeStamp;
+    
+    NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
+    
+    transaction.imagepath = self.imageSavedPath;
+    
+    NSLog(@"Path to image: %@", transaction.imagepath);
+    
+    transaction.comment = _transactionComment.text;
+    
+    NSLog(@"Remarks: %@", transaction.comment);
+    
+    [self createNotificationObserver];
+    [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
+    [transaction release];
+    
+    [self showAlertSavedTransaction:transactionSave];
+}
+
+-(void) updateTransaction:(NSNumber*) timeStamp {
+    _transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
+    if([_transaction.amount doubleValue] > [_category.limit doubleValue]) {
+        [self showOverShotTransaction:[_category.limit stringValue]];
+        return;
+    }
+    
+    _transaction.timestamp = timeStamp;
+    
+    NSLog(@"Saved with Timestamp: %@", _transaction.timestamp);
+    
+    _transaction.imagepath = self.imageSavedPath;
+    
+    NSLog(@"Path to image: %@", _transaction.imagepath);
+    
+    _transaction.comment = _transactionComment.text;
+    
+    NSLog(@"Remarks: %@", _transaction.comment);
+    
+    [self createNotificationObserver];
+    [transactionsLogicManager updateTransaction:_transaction];
+    
+    [self showAlertSavedTransaction:transactionSave];
+    
+}
 
 - (IBAction)didButtonPressSaveTransaction:(id)sender {
 
@@ -181,34 +259,10 @@
     NSNumber* timeStamp = [NSNumber numberWithDouble:[transactionDate timeIntervalSince1970]];
     
     if(_newTransaction == YES) {
-        TransactionDomainObject* transaction = [[TransactionDomainObject alloc]init];
-        int latestTransactionId = [transactionsLogicManager retrieveLatestTransactionId];
-        latestTransactionId++;
-        transaction.id = [NSNumber numberWithInt:latestTransactionId];
-    
-        transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
-        if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
-            [self showOverShotTransaction:[_category.limit stringValue]];
-            return;
-        }
-    
-        transaction.timestamp = timeStamp;
-    
-        NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
-    
-        transaction.imagepath = self.imageSavedPath;
-    
-        NSLog(@"Path to image: %@", transaction.imagepath);
-
-        transaction.comment = _transactionComment.text;
-    
-        NSLog(@"Remarks: %@", transaction.comment);
-    
-        [self createNotificationObserver];
-        [transactionsLogicManager saveTransactionToCoreData:transaction withCategory:_category];
-        [transaction release];
-
-        [self showAlertSavedTransaction:transactionSave];
+        [self saveNewTransaction: timeStamp];
+    }
+    else {
+        [self updateTransaction:timeStamp];
     }
 }
 
