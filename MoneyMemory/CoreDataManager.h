@@ -21,7 +21,7 @@
 -(Category*)fetchCategoryWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(Transaction*)fetchTransactionWithId: (int) _id context: (NSManagedObjectContext*) moc;
 -(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc;
--(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc;
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount newTimeStamp: (int) _newTimeStamp newImagePath: (NSString*) _newImagePath newComment: (NSString*) _newComment context: (NSManagedObjectContext*) moc;
 -(void) deleteTransactionWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(Transaction*) retrieveTransactionWithMaxId: (NSManagedObjectContext*) moc;

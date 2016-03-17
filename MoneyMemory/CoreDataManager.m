@@ -120,9 +120,13 @@
     }
 }
 
--(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount context: (NSManagedObjectContext*) moc {
+-(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount newTimeStamp: (int) _newTimeStamp newImagePath: (NSString*) _newImagePath newComment: (NSString*) _newComment context: (NSManagedObjectContext*) moc {
     Transaction* transactionToUpdate = [self fetchTransactionWithId:_id context:moc];
     transactionToUpdate.amount = [NSNumber numberWithDouble:_newAmount];
+    transactionToUpdate.timestamp = [NSNumber numberWithInt:_newTimeStamp];
+    transactionToUpdate.imagepath = _newImagePath;
+    transactionToUpdate.comment = _newComment;
+    
     NSError* error = nil;
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);

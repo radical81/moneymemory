@@ -218,6 +218,19 @@
     [coreDataManager release];
 }
 
+-(void) updateTransaction:(TransactionDomainObject*) transactionDomainObject {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    int transactionId = [transactionDomainObject.id intValue];
+    int timeStamp = [transactionDomainObject.timestamp intValue];
+    NSString* imagepath = transactionDomainObject.imagepath;
+    NSString* comment = transactionDomainObject.comment;
+    double transactionAmount = [transactionDomainObject.amount doubleValue];
+
+    [coreDataManager updateTransactionWithId: transactionId newAmount: transactionAmount newTimeStamp: timeStamp newImagePath: imagepath newComment: comment context: managedObjectContext];
+    [coreDataManager release];
+}
+
 -(int) retrieveLatestTransactionId {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];

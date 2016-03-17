@@ -22,6 +22,7 @@
 -(NSNumber*) calculateTotalOfCategories;
 -(NSArray*)fetchTransactionIsA: (int) categoryId limit: (int) limit;
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject;
+-(void) updateTransaction:(TransactionDomainObject*) transactionDomainObject;
 -(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;
 -(int) retrieveLatestTransactionId;
