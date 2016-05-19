@@ -231,6 +231,16 @@
     [coreDataManager release];
 }
 
+-(void) deleteTransaction:(TransactionDomainObject*) transactionDomainObject {
+    NSLog(@"deleteTransaction...");
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    int transactionId = [transactionDomainObject.id intValue];
+    NSLog(@"Deleting Transaction with id %d", transactionId);
+    [coreDataManager deleteTransactionWithId:transactionId context: managedObjectContext];
+    [coreDataManager release];
+}
+
 -(int) retrieveLatestTransactionId {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
