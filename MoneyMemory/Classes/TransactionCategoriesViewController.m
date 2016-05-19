@@ -78,10 +78,15 @@ TransactionsLogicManager* logicManager;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
-    
+
     cell.textLabel.text = cat.name;
+    
+    NSNumber* totalExpensesAmount = [logicManager calculateTotalForCategory:[cat.id intValue]];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Max: $%@, Total: $%.2f", cat.limit, [totalExpensesAmount floatValue]];
+
     return cell;
 }
 
