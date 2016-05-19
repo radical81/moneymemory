@@ -182,9 +182,24 @@ TransactionsLogicManager* logicManager;
     static NSString *reuseIdentifier = @"ExpenseCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"$ %@ - %@", [transaction.amount stringValue], transaction.comment];
+    cell.textLabel.text = [NSString stringWithFormat:@"$ %@", [transaction.amount stringValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", transaction.comment];
+    
+    UIImage *theImage = [UIImage imageNamed:@"budget_icon.png"];
+    if(transaction.imagepath != NULL) {
+        NSLog(@"Found image: %@", transaction.imagepath);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *basePath = paths.firstObject;
+        NSString *pathToImage = [basePath stringByAppendingPathComponent:transaction.imagepath];
+        NSLog(@"Path to Image: %@", pathToImage);
+        if([UIImage imageWithContentsOfFile: pathToImage] != nil) {
+            theImage = [UIImage imageWithContentsOfFile: pathToImage];
+        }
+    }
+    cell.imageView.image = theImage;
+    
     return cell;
 }
 
