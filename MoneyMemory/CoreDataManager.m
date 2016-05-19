@@ -158,7 +158,7 @@
 
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc {
     NSLog(@"Coredata deleteCategoryWithId...");
-    NSArray* transactionsInCategory = [self fetchTransactionIsA:_id context:moc];
+    NSArray* transactionsInCategory = [self fetchTransactionIsA:_id context:moc limit:0];
     for(Transaction* transaction in transactionsInCategory) {
         NSLog(@"Found deletable transaction");
         [self deleteTransactionWithId:[transaction.id intValue]  context:moc];
