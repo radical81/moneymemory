@@ -17,7 +17,7 @@
 @property BOOL newTransaction;
 @property BOOL newMedia;
 
-@property (nonatomic, retain) NSString* imageSavedPath;
+@property (nonatomic, retain) NSString* imageFilename;
 
 @end
 
@@ -36,7 +36,7 @@
 @synthesize transactionComment = _transactionComment;
 @synthesize newTransaction = _newTransaction;
 @synthesize newMedia = _newMedia;
-@synthesize imageSavedPath;
+@synthesize imageFilename;
 @synthesize trashbutton = _trashbutton;
 
 
@@ -75,7 +75,12 @@
     if(_transaction.imagepath != NULL) {
         _testImage.hidden = NO;
         _trashbutton.hidden = NO;
-        _testImage.image = [UIImage imageWithContentsOfFile:_transaction.imagepath];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *basePath = paths.firstObject;
+        NSString *imageSavedPath = [basePath stringByAppendingPathComponent:_transaction.imagepath];
+        
+        _testImage.image = [UIImage imageWithContentsOfFile:imageSavedPath];
+        self.imageFilename = _transaction.imagepath;
     }
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     NSDate *transactionDate = [NSDate dateWithTimeIntervalSince1970:[_transaction.timestamp doubleValue]];
@@ -155,7 +160,7 @@
     [_amountTextField release];
     [transactionsLogicManager release];
     [_testImage release];
-    [self.imageSavedPath release];
+    [self.imageFilename release];
     [transactionDatePicker release];
     [_transactionDateText release];
     [_trashbutton release];
@@ -190,9 +195,9 @@
     
     NSLog(@"Saved with Timestamp: %@", transaction.timestamp);
     
-    transaction.imagepath = self.imageSavedPath;
+    transaction.imagepath = self.imageFilename;
     
-    NSLog(@"Path to image: %@", transaction.imagepath);
+    NSLog(@"Filename of image: %@", transaction.imagepath);
     
     transaction.comment = _transactionComment.text;
     
@@ -216,9 +221,9 @@
     
     NSLog(@"Saved with Timestamp: %@", _transaction.timestamp);
     
-    _transaction.imagepath = self.imageSavedPath;
+    _transaction.imagepath = self.imageFilename;
     
-    NSLog(@"Path to image: %@", _transaction.imagepath);
+    NSLog(@"Updated filename of image: %@", _transaction.imagepath);
     
     _transaction.comment = _transactionComment.text;
     
@@ -312,14 +317,22 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
-    BOOL success = [fileManager removeItemAtPath:self.imageSavedPath error:&error];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = paths.firstObject;
+    
+    NSString *imageSavedPath = [basePath stringByAppendingPathComponent:self.imageFilename];
+
+    NSLog(@"About to delete %@ ...", imageSavedPath);
+    
+    BOOL success = [fileManager removeItemAtPath:imageSavedPath error:&error];
     if (success) {
-        NSLog(@"Deleted %@", self.imageSavedPath);
+        NSLog(@"Deleted %@", imageSavedPath);
     }
     else {
         NSLog(@"Could not delete file - %@", [error localizedDescription]);
     }
-    self.imageSavedPath = nil;
+    self.imageFilename = nil;
     _trashbutton.hidden = YES;
 }
 
@@ -418,13 +431,14 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
--(void) retrieveImageFilePath:(UIImage*) newImage {
+-(void) storeImageFilename:(UIImage*) newImage {
     NSData *imageData = UIImagePNGRepresentation(newImage);
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
-    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", timestamp]];
+    NSString *imageFile = [NSString stringWithFormat:@"%@.png", timestamp];
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:imageFile];
     
     NSLog((@"pre writing to file"));
     if (![imageData writeToFile:imagePath atomically:NO])
@@ -433,8 +447,8 @@
 
     }
 
-    self.imageSavedPath = imagePath;
-    NSLog(@"Path to image: %@",self.imageSavedPath);
+    self.imageFilename = imageFile;
+    NSLog(@"Filename of image: %@",self.imageFilename);
 }
 
 
@@ -453,7 +467,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         
         //Image file path
-        [self retrieveImageFilePath:image];
+        [self storeImageFilename:image];
         _testImage.hidden = NO;
         _testImage.image = image;
         [_testImage setContentMode:UIViewContentModeScaleAspectFit];
