@@ -231,7 +231,7 @@
         NSString *basePath = paths.firstObject;
         NSString *imageSavedPath = [basePath stringByAppendingPathComponent:_transaction.imagepath];
     
-        if([fileManager fileExistsAtPath:imageSavedPath] == YES) {
+        if(_transaction.imagepath != nil && [fileManager fileExistsAtPath:imageSavedPath] == YES) {
             NSLog(@"About to delete %@ ...", imageSavedPath);
             BOOL success = [fileManager removeItemAtPath:imageSavedPath error:&error];
             if (success) {
