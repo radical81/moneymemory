@@ -221,8 +221,28 @@
     
     NSLog(@"Saved with Timestamp: %@", _transaction.timestamp);
     
-    _transaction.imagepath = self.imageFilename;
+    if([_transaction.imagepath isEqualToString:self.imageFilename] == NO) {
+        NSLog(@"Old image file name: %@", _transaction.imagepath);
+
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
     
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *basePath = paths.firstObject;
+        NSString *imageSavedPath = [basePath stringByAppendingPathComponent:_transaction.imagepath];
+    
+        if([fileManager fileExistsAtPath:imageSavedPath] == YES) {
+            NSLog(@"About to delete %@ ...", imageSavedPath);
+            BOOL success = [fileManager removeItemAtPath:imageSavedPath error:&error];
+            if (success) {
+                NSLog(@"Deleted %@", imageSavedPath);
+            }
+            else {
+                NSLog(@"Could not delete file - %@", [error localizedDescription]);
+            }
+        }
+        _transaction.imagepath = self.imageFilename;
+    }
     NSLog(@"Updated filename of image: %@", _transaction.imagepath);
     
     _transaction.comment = _transactionComment.text;
