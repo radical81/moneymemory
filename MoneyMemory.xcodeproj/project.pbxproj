@@ -378,8 +378,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0600;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Rex Jason Alobba";
+				TargetAttributes = {
+					17ED421417E756E600C7080A = {
+						DevelopmentTeam = 98NZEPCGG6;
+					};
+				};
 			};
 			buildConfigurationList = 17ED421017E756E600C7080A /* Build configuration list for PBXProject "MoneyMemory" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -578,6 +583,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -624,10 +630,13 @@
 			baseConfigurationReference = F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemory/MoneyMemory-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "RJ.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -637,10 +646,13 @@
 			baseConfigurationReference = F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemory/MoneyMemory-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "RJ.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -657,6 +669,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "RJ.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -674,6 +687,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoneyMemory/MoneyMemory-Prefix.pch";
 				INFOPLIST_FILE = "MoneyMemoryTests/MoneyMemoryTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "RJ.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
