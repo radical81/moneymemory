@@ -7,6 +7,7 @@
 //
 
 #import "CategoryDetailViewController.h"
+#import "AddCategoryViewController.h"
 #import "SpendMoneyViewController.h"
 #import "TransactionsLogicManager.h"
 
@@ -25,6 +26,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = _category.name;
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editCategoryDetails)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     _expensesTable = [[ExpensesTableViewController alloc] initWithCategory:_category];
     
     [self calculateAndDisplayTotalExpenses];
@@ -45,6 +49,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) editCategoryDetails {
+    NSLog(@"Edit category...");
+    AddCategoryViewController* addCategoryViewController = [[[AddCategoryViewController alloc]initWithCategory: _category]autorelease];
+    [self.navigationController pushViewController:addCategoryViewController animated:YES];
+}
+
 
 /*
 #pragma mark - Navigation

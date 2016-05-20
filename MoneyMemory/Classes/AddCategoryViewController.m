@@ -8,9 +8,10 @@
 
 #import "AddCategoryViewController.h"
 #import "TransactionsLogicManager.h"
-#import "CategoryDomainObject.h"
 
 @interface AddCategoryViewController ()
+
+@property (nonatomic, retain) CategoryDomainObject* category;
 
 @end
 
@@ -18,7 +19,9 @@
 
 TransactionsLogicManager* transactionsLogicManager;
 BOOL categorySave;
-
+BOOL isAddCategory;
+@synthesize category = _category;
+@synthesize pageLabel = _pageLabel;
 @synthesize categoryNew = _categoryNew;
 @synthesize amountLimit = _amountLimit;
 
@@ -30,13 +33,27 @@ BOOL categorySave;
         _categoryNew = [[UITextField alloc]init];
         _amountLimit = [[UITextField alloc] init];
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
-        
+        isAddCategory = YES;
     }
     return self;
 }
 
-- (IBAction)didTapSave:(id)sender {
-    NSLog(@"Save tapped %@", _categoryNew.text);
+- (id) initWithCategory: (CategoryDomainObject*) category {
+    self = [super initWithNibName:@"AddCategoryViewController" bundle:nil];
+    if (self) {
+        // Custom initialization
+        _category = category;
+        _categoryNew = [[UITextField alloc]init];
+        _amountLimit = [[UITextField alloc] init];
+        transactionsLogicManager = [[TransactionsLogicManager alloc]init];
+        isAddCategory = NO;
+    }
+    return self;
+    
+}
+
+- (void) addNewCategory {
+    NSLog(@"Add New Category");
     CategoryDomainObject* category = [[CategoryDomainObject alloc]init];
     int latestCategoryId = [transactionsLogicManager retrieveLatestCategoryId];
     latestCategoryId++;
@@ -54,6 +71,34 @@ BOOL categorySave;
     [transactionsLogicManager saveCategoryToCoreData:category];
     [category release];
     [self showAlertSavedCategory:categorySave];
+}
+
+-(void) updateCategory {
+    NSLog(@"Update Category");
+    _category.name = _categoryNew.text;
+    _category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
+    NSNumber* totalOfCategories = [transactionsLogicManager calculateTotalOfCategories];
+    double totalCategoriesInDouble = [totalOfCategories doubleValue];
+    totalCategoriesInDouble = totalCategoriesInDouble - [_category.limit doubleValue];
+    double total = totalCategoriesInDouble + [_amountLimit.text doubleValue];
+    double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];
+    if(total > monthlyIncome) {
+        [self showOverShotBudget:[NSString stringWithFormat:@"%.0f", monthlyIncome]];
+        return;
+    }
+    [self createNotificationObserver];
+    [transactionsLogicManager updateCategory:_category];
+    [self showAlertSavedCategory:categorySave];    
+}
+
+- (IBAction)didTapSave:(id)sender {
+    NSLog(@"Save tapped %@", _categoryNew.text);
+    if(isAddCategory == YES) {
+        [self addNewCategory];
+    }
+    else {
+        [self updateCategory];
+    }
 }
 
 -(void) createNotificationObserver {
@@ -97,6 +142,10 @@ BOOL categorySave;
                          {
                              //Do some thing here
                              [self.navigationController popViewControllerAnimated:YES];
+                             NSUInteger indices = [self.navigationController.viewControllers count];                             
+                             indices--;
+                             [[self.navigationController.viewControllers objectAtIndex:indices] setTitle: _category.name];
+                             
                              
                          }];
     [alert addAction:ok];
@@ -123,11 +172,19 @@ BOOL categorySave;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+-(void) showCategoryDetails {
+    _categoryNew.text = _category.name;
+    _amountLimit.text = [_category.limit stringValue];
+}
 
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if(isAddCategory == NO) {
+        [self showCategoryDetails];
+        _pageLabel.text = @"Update Category";
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -140,6 +197,7 @@ BOOL categorySave;
     [_categoryNew release];
     [_amountLimit release];
     [transactionsLogicManager release];
+    [_pageLabel release];
     [super dealloc];
 }
 @end

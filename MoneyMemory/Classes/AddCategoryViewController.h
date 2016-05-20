@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategoryDomainObject.h"
 
 @interface AddCategoryViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UILabel *pageLabel;
 @property (retain, nonatomic) IBOutlet UITextField *categoryNew;
 @property (retain, nonatomic) IBOutlet UITextField *amountLimit;
+
+- (id) initWithCategory: (CategoryDomainObject*) category;
 
 @end

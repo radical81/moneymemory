@@ -195,6 +195,17 @@
     [coreDataManager release];
 }
 
+-(void) updateCategory:(CategoryDomainObject*) categoryDomainObject {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    int categoryId = [categoryDomainObject.id intValue];
+    double limit = [categoryDomainObject.limit doubleValue];
+    NSString* categoryName = categoryDomainObject.name;
+    
+    [coreDataManager updateCategoryWithId:categoryId newLimit:limit newName:categoryName context:managedObjectContext];
+    [coreDataManager release];
+}
+
 -(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject {
     NSLog(@"deleteCategoryInCoreData...");
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];

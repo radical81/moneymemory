@@ -24,6 +24,7 @@
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) updateTransaction:(TransactionDomainObject*) transactionDomainObject;
 -(void) deleteTransaction:(TransactionDomainObject*) transactionDomainObject;
+-(void) updateCategory:(CategoryDomainObject*) categoryDomainObject;
 -(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject;
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;
 -(int) retrieveLatestTransactionId;
