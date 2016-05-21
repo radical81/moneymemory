@@ -37,7 +37,7 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
-    NSString* categoryMax = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:_category.limit]];
+    NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [formatter stringFromNumber:_category.limit]];
     _categoryLimit.text = categoryMax;
     [self calculateAndDisplayTotalExpenses];
 }
@@ -48,7 +48,7 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
-    NSString* totalExpensesNow = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:totalExpensesAmount]];
+    NSString* totalExpensesNow = [NSString stringWithFormat:@"Total: $ %@", [formatter stringFromNumber:totalExpensesAmount]];
     [_totalExpenses setText: totalExpensesNow];
     [transactionLogic release];
 }
