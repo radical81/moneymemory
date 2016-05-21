@@ -34,14 +34,22 @@
     [self calculateAndDisplayTotalExpenses];
 }
 - (void)viewWillAppear:(BOOL)animated {
-    _categoryLimit.text = [_category.limit stringValue];
-    [self calculateAndDisplayTotalExpenses];    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setAllowsFloats:YES];
+    [formatter setMaximumFractionDigits:2];
+    NSString* categoryMax = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:_category.limit]];
+    _categoryLimit.text = categoryMax;
+    [self calculateAndDisplayTotalExpenses];
 }
 
 -(void) calculateAndDisplayTotalExpenses {
     TransactionsLogicManager* transactionLogic = [[TransactionsLogicManager alloc]init];
     NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[_category.id intValue]];
-    [_totalExpenses setText: [totalExpensesAmount stringValue]];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setAllowsFloats:YES];
+    [formatter setMaximumFractionDigits:2];
+    NSString* totalExpensesNow = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:totalExpensesAmount]];
+    [_totalExpenses setText: totalExpensesNow];
     [transactionLogic release];
 }
 

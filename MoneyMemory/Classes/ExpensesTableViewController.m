@@ -184,7 +184,11 @@ TransactionsLogicManager* logicManager;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"$ %@", [transaction.amount stringValue]];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setAllowsFloats:YES];
+    [formatter setMaximumFractionDigits:2];
+    NSString* transactionAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber: transaction.amount]];
+    cell.textLabel.text = transactionAmount;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", transaction.comment];
     
     UIImage *theImage = [UIImage imageNamed:@"budget_icon.png"];

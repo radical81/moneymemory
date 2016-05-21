@@ -86,7 +86,6 @@
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="top" secondItem="hfa-YM-ey4" secondAttribute="bottom" constant="10" id="1Kf-WZ-3Rp"/>
                 <constraint firstAttribute="trailing" secondItem="8bw-0U-ayo" secondAttribute="trailing" constant="10" id="1dT-AK-SiM"/>
                 <constraint firstItem="hfa-YM-ey4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="2jM-TY-14G"/>
-                <constraint firstItem="8bw-0U-ayo" firstAttribute="top" secondItem="7R7-cU-tW6" secondAttribute="bottom" constant="30" id="7lU-cn-hMS"/>
                 <constraint firstAttribute="trailing" secondItem="paU-h4-Zkf" secondAttribute="trailing" constant="30" id="D7O-Ga-atB"/>
                 <constraint firstAttribute="trailing" secondItem="7R7-cU-tW6" secondAttribute="trailing" constant="10" id="E5h-N6-SNY"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="MuF-kR-t5k"/>
@@ -100,6 +99,7 @@
                 <constraint firstAttribute="trailing" secondItem="YeX-HT-Y3A" secondAttribute="trailing" constant="30" id="ckM-du-cK8"/>
                 <constraint firstItem="paU-h4-Zkf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="dxR-hW-Wxz"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="top" secondItem="paU-h4-Zkf" secondAttribute="bottom" constant="10" id="qD3-kr-MFq"/>
+                <constraint firstItem="8bw-0U-ayo" firstAttribute="top" secondItem="7R7-cU-tW6" secondAttribute="bottom" constant="14" id="sej-yd-rYY"/>
             </constraints>
             <point key="canvasLocation" x="119" y="193"/>
         </view>

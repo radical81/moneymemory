@@ -83,9 +83,13 @@ TransactionsLogicManager* logicManager;
 
     cell.textLabel.text = cat.name;
     
-    NSNumber* totalExpensesAmount = [logicManager calculateTotalForCategory:[cat.id intValue]];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setAllowsFloats:YES];
+    [formatter setMaximumFractionDigits:2];
+    NSString* categoryLimit = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:cat.limit]];
+    NSString* totalExpensesAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:[logicManager calculateTotalForCategory:[cat.id intValue]]]];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Max: $%@, Total: $%.2f", cat.limit, [totalExpensesAmount floatValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Limit: %@, Total: %@", categoryLimit, totalExpensesAmount];
 
     return cell;
 }
