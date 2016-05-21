@@ -88,7 +88,7 @@
 -(void) showBelowCurrentExpenses:(NSString*) income {
     NSString* alertMessage;
     
-    alertMessage = [NSString stringWithFormat:@"You already spent over $%@",income];
+    alertMessage = [NSString stringWithFormat:@"Your budget is already over $%@",income];
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Income Too Low"
                                   message: alertMessage
