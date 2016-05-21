@@ -35,6 +35,8 @@
     // Do any additional setup after loading the view from its nib.
     _incomeAmount.text = [NSString stringWithFormat:@"%.0f",[transactionsLogicManager retrieveIncomeMonthly]];
     self.navigationItem.title = @"My Income";
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSaveIncome)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,11 +44,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)didTapSaveIncome:(id)sender {
+- (void)didTapSaveIncome {
     double amount = [_incomeAmount.text doubleValue];
+    if(amount == 0) {
+        [self showAlertMissingDetails:YES];
+        return;
+    }
+    
     [self createNotificationObserver];
     [transactionsLogicManager updateIncomeMonthly:amount];
     [self showAlertSavedIncome:incomeSave];
+}
+
+-(void) showAlertMissingDetails:(BOOL) amountMissing {
+    
+    NSString* errorMessage = @"";
+    
+    if(amountMissing) {
+        errorMessage = [errorMessage stringByAppendingString:@"Amount is missing.\n"];
+    }
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Cannot Save Income"
+                                  message: errorMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void) createNotificationObserver {
