@@ -30,13 +30,24 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9yJ-xg-Xl9">
-                    <rect key="frame" x="127" y="125" width="97" height="30"/>
+                    <rect key="frame" x="125" y="70" width="97" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="gk6-XL-mQv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
+                    <rect key="frame" x="40" y="346" width="28" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="0iw-E4-6Ej"/>
+                        <constraint firstAttribute="height" constant="25" id="LTd-FX-p0V"/>
+                    </constraints>
+                    <state key="normal" title="Remove" image="icon_close.png"/>
+                    <connections>
+                        <action selector="trashPicture:" destination="-2" eventType="touchUpInside" id="Zca-8P-PUW"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epy-sE-chN">
                     <rect key="frame" x="73" y="346" width="200" height="200"/>
                     <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,7 +95,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHV-5y-vjq" userLabel="Date Text Field">
-                    <rect key="frame" x="127" y="176" width="97" height="30"/>
+                    <rect key="frame" x="125" y="121" width="97" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="4Pc-CE-93G"/>
                     </constraints>
@@ -92,24 +103,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8SY-t3-TUW">
-                    <rect key="frame" x="125" y="222" width="97" height="30"/>
+                    <rect key="frame" x="125" y="180" width="97" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="UWW-lE-u3h"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
-                    <rect key="frame" x="40" y="346" width="28" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="0iw-E4-6Ej"/>
-                        <constraint firstAttribute="height" constant="25" id="LTd-FX-p0V"/>
-                    </constraints>
-                    <state key="normal" title="Remove" image="icon_close.png"/>
-                    <connections>
-                        <action selector="trashPicture:" destination="-2" eventType="touchUpInside" id="Zca-8P-PUW"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
