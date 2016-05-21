@@ -31,34 +31,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORE-I7-Q1m">
-                    <rect key="frame" x="275" y="186" width="54" height="30"/>
-                    <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Save">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="didTapSaveIncome:" destination="-1" eventType="touchUpInside" id="HJO-qW-SND"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="MJu-L8-Zj1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="5Pp-hg-xtD"/>
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5kk-oM-Gh6"/>
                 <constraint firstItem="MJu-L8-Zj1" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="20" id="DTs-gP-2Ms"/>
-                <constraint firstAttribute="trailing" secondItem="ORE-I7-Q1m" secondAttribute="trailing" constant="10" id="FRz-SB-csa"/>
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="GXF-CJ-mH1"/>
-                <constraint firstItem="ORE-I7-Q1m" firstAttribute="top" secondItem="MJu-L8-Zj1" secondAttribute="bottom" constant="20" id="hav-k9-W3R"/>
                 <constraint firstAttribute="trailing" secondItem="MJu-L8-Zj1" secondAttribute="trailing" constant="10" id="jGb-5p-7Is"/>
-                <constraint firstItem="ORE-I7-Q1m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="kmz-9R-T0R"/>
                 <constraint firstAttribute="trailing" secondItem="oSh-tB-AG5" secondAttribute="trailing" id="vrW-ja-3ez"/>
             </constraints>
         </view>
