@@ -50,6 +50,11 @@
         [self showAlertMissingDetails:YES];
         return;
     }
+    NSNumber* totalOfCategories = [transactionsLogicManager calculateTotalOfCategories];
+    if([totalOfCategories doubleValue] > amount) {
+        [self showBelowCurrentExpenses:[NSString stringWithFormat:@"%.0f", amount]];
+        return;
+    }
     
     [self createNotificationObserver];
     [transactionsLogicManager updateIncomeMonthly:amount];
@@ -67,6 +72,26 @@
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Cannot Save Income"
                                   message: errorMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void) showBelowCurrentExpenses:(NSString*) income {
+    NSString* alertMessage;
+    
+    alertMessage = [NSString stringWithFormat:@"You already spent over $%@",income];
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Income Too Low"
+                                  message: alertMessage
                                   preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction
                          actionWithTitle:@"OK"
