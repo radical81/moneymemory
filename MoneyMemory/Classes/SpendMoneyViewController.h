@@ -13,7 +13,6 @@
 @interface SpendMoneyViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, retain) CategoryDomainObject* category;
-@property (retain, nonatomic) IBOutlet UILabel *transactionType;
 @property (retain, nonatomic) IBOutlet UITextField *transactionDateText;
 @property (retain, nonatomic) IBOutlet UITextField *amountTextField;
 - (IBAction)didButtonPressSaveTransaction:(id)sender;

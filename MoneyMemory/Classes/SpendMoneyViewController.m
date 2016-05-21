@@ -29,7 +29,6 @@
 
 @synthesize category = _category;
 @synthesize transaction = _transaction;
-@synthesize transactionType = _transactionType;
 @synthesize transactionDateText = _transactionDateText;
 @synthesize amountTextField = _amountTextField;
 @synthesize testImage = _testImage;
@@ -95,7 +94,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [_transactionType setText:_category.name];
 
     _testImage.hidden = YES;
     _trashbutton.hidden = YES;
@@ -156,7 +154,6 @@
 - (void)dealloc {
     [_transaction release];
     [_category release];
-    [_transactionType release];
     [_amountTextField release];
     [transactionsLogicManager release];
     [_testImage release];
