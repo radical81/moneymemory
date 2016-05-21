@@ -37,19 +37,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
-                    <rect key="frame" x="40" y="417" width="28" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="0iw-E4-6Ej"/>
-                        <constraint firstAttribute="height" constant="25" id="LTd-FX-p0V"/>
-                    </constraints>
-                    <state key="normal" title="Remove" image="icon_close.png"/>
-                    <connections>
-                        <action selector="trashPicture:" destination="-2" eventType="touchUpInside" id="Zca-8P-PUW"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epy-sE-chN">
-                    <rect key="frame" x="85" y="397" width="200" height="200"/>
+                    <rect key="frame" x="73" y="346" width="200" height="200"/>
                     <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="Egk-6e-8rs"/>
@@ -110,6 +99,17 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
+                    <rect key="frame" x="40" y="346" width="28" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="0iw-E4-6Ej"/>
+                        <constraint firstAttribute="height" constant="25" id="LTd-FX-p0V"/>
+                    </constraints>
+                    <state key="normal" title="Remove" image="icon_close.png"/>
+                    <connections>
+                        <action selector="trashPicture:" destination="-2" eventType="touchUpInside" id="Zca-8P-PUW"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
