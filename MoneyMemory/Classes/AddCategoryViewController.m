@@ -128,7 +128,7 @@ BOOL isAddCategory;
     }
     
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Cannot Save Transaction"
+                                  alertControllerWithTitle:@"Cannot Save Category"
                                   message: errorMessage
                                   preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction
