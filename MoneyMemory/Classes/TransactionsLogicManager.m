@@ -138,15 +138,39 @@
     return allTransactions;
 }
 
--(NSNumber*) calculateTotalForCategory: (int) categoryId {
+-(NSNumber*) calculateTotalForCategory: (int) categoryId _givenDate:(NSDate*) givenDate {
     NSLog(@"calculateTotalForCategory %d", categoryId);
     double total = 0;
     NSArray* transactions = [self fetchTransactionIsA:categoryId limit:0];
     for(TransactionDomainObject* transaction in transactions) {
-        NSLog(@"Add %@ with id %@", transaction.amount, transaction.id);
-        total += [transaction.amount doubleValue];
+        if([self isTransactionWithinMonth:transaction.timestamp _givenDate:givenDate]) {
+            NSLog(@"Add %@ with id %@", transaction.amount, transaction.id);
+            total += [transaction.amount doubleValue];
+        }
     }
     return [NSNumber numberWithDouble:total];
+}
+
+-(BOOL) isTransactionWithinMonth: (NSNumber*) timeStamp _givenDate:(NSDate*) givenDate {
+    NSCalendar* cal = [NSCalendar currentCalendar];
+    NSDateComponents* comps = [cal components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:givenDate];
+    NSInteger givenMonth = [comps month];
+    NSInteger givenYear = [comps year];
+    NSLog(@"The given month is: %ld", givenMonth);
+    NSLog(@"The given year is: %ld", givenYear);
+    
+    
+    NSDate* transactionDate = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]];
+    comps = [cal components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:transactionDate];
+    NSInteger transactionMonth = [comps month];
+    NSInteger transactionYear = [comps year];
+    NSLog(@"The transaction month is: %ld", transactionMonth);
+    NSLog(@"The transaction year is: %ld", transactionYear);
+    //---test compare here --
+    if(givenMonth == transactionMonth && givenYear == transactionYear) {
+        return YES;
+    }
+    return NO;
 }
 
 -(NSNumber*) calculateTotalOfCategories {

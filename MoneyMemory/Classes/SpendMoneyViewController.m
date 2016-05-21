@@ -275,18 +275,19 @@
         [self showAlertMissingDetails:isAmountNil _dateMissing:isDateNil];
         return;
     }
-    NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    NSDate* transactionDate = [dateFormat dateFromString:_transactionDateText.text];
+    [dateFormat release];
+    NSNumber* timeStamp = [NSNumber numberWithDouble:[transactionDate timeIntervalSince1970]];
+    
+    NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue] _givenDate:transactionDate];
     double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
     if(total > [_category.limit doubleValue]) {
         [self showOverShotTransaction:[_category.limit stringValue]];
         return;
     }
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd/MM/yyyy"];
-    NSDate* transactionDate = [dateFormat dateFromString:_transactionDateText.text];
-    [dateFormat release];
-    NSNumber* timeStamp = [NSNumber numberWithDouble:[transactionDate timeIntervalSince1970]];
     
     if(_newTransaction == YES) {
         [self saveNewTransaction: timeStamp];

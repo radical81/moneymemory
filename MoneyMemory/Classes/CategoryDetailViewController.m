@@ -44,7 +44,7 @@
 
 -(void) calculateAndDisplayTotalExpenses {
     TransactionsLogicManager* transactionLogic = [[TransactionsLogicManager alloc]init];
-    NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[_category.id intValue]];
+    NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[_category.id intValue] _givenDate:[NSDate date]];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];

@@ -18,7 +18,7 @@
 -(NSArray*) fetchCategoryNames;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
 -(NSArray*) fetchAllTransactions:(int) limit;
--(NSNumber*) calculateTotalForCategory: (int) categoryId;
+-(NSNumber*) calculateTotalForCategory: (int) categoryId _givenDate:(NSDate*) givenDate;
 -(NSNumber*) calculateTotalOfCategories;
 -(NSArray*)fetchTransactionIsA: (int) categoryId limit: (int) limit;
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject;
