@@ -76,29 +76,71 @@ BOOL isAddCategory;
 -(void) updateCategory {
     NSLog(@"Update Category");
     _category.name = _categoryNew.text;
-    _category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
     NSNumber* totalOfCategories = [transactionsLogicManager calculateTotalOfCategories];
     double totalCategoriesInDouble = [totalOfCategories doubleValue];
     totalCategoriesInDouble = totalCategoriesInDouble - [_category.limit doubleValue];
     double total = totalCategoriesInDouble + [_amountLimit.text doubleValue];
     double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];
+    NSLog(@"Monthly income: %f", monthlyIncome);
+    NSLog(@"Total: %f", total);
     if(total > monthlyIncome) {
         [self showOverShotBudget:[NSString stringWithFormat:@"%.0f", monthlyIncome]];
         return;
     }
+    _category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
     [self createNotificationObserver];
     [transactionsLogicManager updateCategory:_category];
     [self showAlertSavedCategory:categorySave];    
 }
 
-- (IBAction)didTapSave:(id)sender {
+- (void)didTapSave {
     NSLog(@"Save tapped %@", _categoryNew.text);
+    BOOL isNameNil = NO;
+    BOOL isLimitNil = NO;
+    if([_categoryNew.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length == 0) {
+        isNameNil = YES;
+    }
+    if([_amountLimit.text doubleValue] == 0) {
+        isLimitNil = YES;
+    }
+    if(isNameNil == YES || isLimitNil == YES) {
+        [self showAlertMissingDetails:isNameNil _limitMissing:isLimitNil];
+        return;
+    }
+
     if(isAddCategory == YES) {
         [self addNewCategory];
     }
     else {
         [self updateCategory];
     }
+}
+
+-(void) showAlertMissingDetails:(BOOL) nameMissing _limitMissing: (BOOL) isLimitMissing {
+    
+    NSString* errorMessage = @"";
+    
+    if(nameMissing) {
+        errorMessage = [errorMessage stringByAppendingString:@"Category name is blank.\n"];
+    }
+    if(isLimitMissing) {
+        errorMessage = [errorMessage stringByAppendingString:@"Limit is blank.\n"];
+    }
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Cannot Save Transaction"
+                                  message: errorMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void) createNotificationObserver {
@@ -185,6 +227,8 @@ BOOL isAddCategory;
         [self showCategoryDetails];
         _pageLabel.text = @"Update Category";
     }
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave)];
+    self.navigationItem.rightBarButtonItem = rightButton;    
 }
 
 - (void)didReceiveMemoryWarning
