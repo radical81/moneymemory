@@ -37,26 +37,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr4-ji-EQa">
-                    <rect key="frame" x="98" y="344" width="124" height="30"/>
-                    <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="eK9-vz-XHE"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Save Transaction">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="didButtonPressSaveTransaction:" destination="-1" eventType="touchUpInside" id="qIP-sm-QEj"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-ci-LCd">
                     <rect key="frame" x="40" y="417" width="28" height="23"/>
                     <constraints>
@@ -137,16 +117,13 @@
                 <constraint firstAttribute="trailing" secondItem="GHV-5y-vjq" secondAttribute="trailing" constant="10" id="2VK-ma-gZk"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="top" secondItem="1" secondAttribute="top" constant="77" id="4rf-4u-bft"/>
                 <constraint firstItem="8SY-t3-TUW" firstAttribute="top" secondItem="GHV-5y-vjq" secondAttribute="bottom" constant="10" id="9ds-AB-YEi"/>
-                <constraint firstItem="lr4-ji-EQa" firstAttribute="top" secondItem="QED-Fg-CKS" secondAttribute="bottom" constant="10" id="DJX-BL-3So"/>
                 <constraint firstAttribute="trailing" secondItem="8SY-t3-TUW" secondAttribute="trailing" constant="10" id="FBF-Ru-lqy"/>
                 <constraint firstItem="GHV-5y-vjq" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="La5-hZ-dfm"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="leading" secondItem="Jda-ci-LCd" secondAttribute="trailing" constant="-10" id="MuE-OI-nmd"/>
                 <constraint firstItem="QED-Fg-CKS" firstAttribute="top" secondItem="8SY-t3-TUW" secondAttribute="bottom" constant="10" id="Mwk-aQ-4Xg"/>
-                <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="lr4-ji-EQa" secondAttribute="bottom" constant="10" id="S1a-fv-jL0"/>
                 <constraint firstAttribute="trailing" secondItem="9yJ-xg-Xl9" secondAttribute="trailing" constant="10" id="URt-T8-ve3"/>
                 <constraint firstAttribute="trailing" secondItem="QED-Fg-CKS" secondAttribute="trailing" constant="10" id="WO5-ny-EdI"/>
-                <constraint firstItem="lr4-ji-EQa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="biY-k1-ilf"/>
-                <constraint firstAttribute="trailing" secondItem="lr4-ji-EQa" secondAttribute="trailing" constant="10" id="g2T-JO-Wzd"/>
+                <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="QED-Fg-CKS" secondAttribute="bottom" constant="25" id="eri-30-339"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="gFM-Oo-8vw"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="Jda-ci-LCd" secondAttribute="bottom" constant="-20" id="n87-A9-VHe"/>
                 <constraint firstItem="yWf-jA-n6X" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="pq1-Kf-O3h"/>

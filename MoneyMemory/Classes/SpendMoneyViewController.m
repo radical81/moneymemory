@@ -104,6 +104,8 @@
     [self datePickerSetup];
     _transactionComment.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _transactionComment.delegate = self;
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didButtonPressSaveTransaction)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -259,7 +261,7 @@
     
 }
 
-- (IBAction)didButtonPressSaveTransaction:(id)sender {
+- (void)didButtonPressSaveTransaction {
 
     BOOL isAmountNil = NO;
     BOOL isDateNil = NO;

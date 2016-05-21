@@ -15,7 +15,7 @@
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UITextField *transactionDateText;
 @property (retain, nonatomic) IBOutlet UITextField *amountTextField;
-- (IBAction)didButtonPressSaveTransaction:(id)sender;
+- (void)didButtonPressSaveTransaction;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)pictureFromLibrary:(id)sender;
 @property (retain, nonatomic) IBOutlet UIImageView *testImage;
