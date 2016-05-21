@@ -103,6 +103,12 @@
     }
     [self datePickerSetup];
     _transactionComment.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    _transactionComment.delegate = self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(void) datePickerSetup {
@@ -148,7 +154,7 @@
 }
 
 -(IBAction) hideKeyboard:(id)sender {
-    [_amountTextField resignFirstResponder];
+    [_transactionComment resignFirstResponder];
 }
 
 - (void)dealloc {

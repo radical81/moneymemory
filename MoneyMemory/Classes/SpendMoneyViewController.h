@@ -10,7 +10,7 @@
 #import "CategoryDomainObject.h"
 #import "TransactionDomainObject.h"
 
-@interface SpendMoneyViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SpendMoneyViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UITextField *transactionDateText;
