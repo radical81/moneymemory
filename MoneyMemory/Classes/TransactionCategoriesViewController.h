@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategoryTableViewCell.h"
 
 @interface TransactionCategoriesViewController : UITableViewController
+@property (retain, nonatomic) IBOutlet CategoryTableViewCell *categoryCell;
 
 
 @end

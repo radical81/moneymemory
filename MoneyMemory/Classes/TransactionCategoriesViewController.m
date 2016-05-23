@@ -24,8 +24,9 @@
 
 
 @synthesize transactionCategories;
+@synthesize categoryCell = _categoryCell;
 
-int const CELL_HEIGHT = 50;
+int const CELL_HEIGHT = 120;
 
 TransactionsLogicManager* logicManager;
 
@@ -45,6 +46,7 @@ TransactionsLogicManager* logicManager;
         [logicManager release];
         logicManager = nil;
     }
+    [_categoryCell release];
     [super dealloc];
 }
 
@@ -73,24 +75,30 @@ TransactionsLogicManager* logicManager;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+    CategoryTableViewCell *cell = (CategoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[CategoryTableViewCell reuseIdentifier]];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
-    }
+        [[NSBundle mainBundle] loadNibNamed:@"CategoryTableViewCell" owner:self options:nil];
+        cell = _categoryCell;
+        _categoryCell = nil;
+    }    
 
-    cell.textLabel.text = cat.name;
+    
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
     NSString* categoryLimit = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:cat.limit]];
-    NSString* totalExpensesAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:[logicManager calculateTotalForCategory:[cat.id intValue] _givenDate:[NSDate date]]]];
+    NSNumber* totalForCategory = [logicManager calculateTotalForCategory:[cat.id intValue] _givenDate:[NSDate date]];
+    NSString* totalExpensesAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:totalForCategory]];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Limit: %@, Total: %@", categoryLimit, totalExpensesAmount];
-
+    
+    double percentage = ([totalForCategory doubleValue] / [cat.limit doubleValue]) * 100;
+    
+    cell.nameLabel.text = cat.name;
+    cell.limitLabel.text = [NSString stringWithFormat:@"Limit: %@", categoryLimit];
+    cell.totalLabel.text = [NSString stringWithFormat:@"Total: %@", totalExpensesAmount];
+    cell.percentLabel.text = [NSString stringWithFormat:@"%.0f%%", percentage];
+    
     return cell;
 }
 

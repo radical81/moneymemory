@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionCategoriesViewController">
+            <connections>
+                <outlet property="categoryCell" destination="Iy6-bf-VVj" id="Xiq-Ts-XLn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCellIdentifier" rowHeight="120" id="Iy6-bf-VVj" customClass="CategoryTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iy6-bf-VVj" id="Cxu-qg-JdW">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WV-QW-J1q">
+                        <rect key="frame" x="13" y="20" width="252" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Limit Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZ9-Us-ph2">
+                        <rect key="frame" x="13" y="49" width="102" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-NH-nkR">
+                        <rect key="frame" x="287" y="8" width="90" height="45"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total this Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQh-vL-ZhM">
+                        <rect key="frame" x="13" y="78" width="124" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bFT-NH-nkR" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="10" id="0eH-bb-sz5"/>
+                    <constraint firstItem="JQh-vL-ZhM" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="FVA-eZ-giy"/>
+                    <constraint firstItem="wZ9-Us-ph2" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="G8c-Df-w0l"/>
+                    <constraint firstItem="5WV-QW-J1q" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="10" id="IFy-cy-0ah"/>
+                    <constraint firstItem="JQh-vL-ZhM" firstAttribute="top" secondItem="wZ9-Us-ph2" secondAttribute="bottom" constant="10" id="YSt-xq-Qmf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bFT-NH-nkR" secondAttribute="trailing" constant="10" id="j6b-6a-Iqr"/>
+                    <constraint firstItem="wZ9-Us-ph2" firstAttribute="top" secondItem="5WV-QW-J1q" secondAttribute="bottom" constant="10" id="kPL-EZ-Fa3"/>
+                    <constraint firstItem="5WV-QW-J1q" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="wlm-Kl-AwK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="limitLabel" destination="wZ9-Us-ph2" id="UNq-cs-n3B"/>
+                <outlet property="nameLabel" destination="5WV-QW-J1q" id="ewg-VJ-ol0"/>
+                <outlet property="percentLabel" destination="bFT-NH-nkR" id="ZD4-lb-vdB"/>
+                <outlet property="totalLabel" destination="JQh-vL-ZhM" id="MQA-ya-74l"/>
+            </connections>
+            <point key="canvasLocation" x="448" y="207"/>
+        </tableViewCell>
+    </objects>
+</document>

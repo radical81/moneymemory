@@ -47,6 +47,8 @@
 		86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCD1181C7B615000FF9D1F /* icon_close.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
 		86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D592951B0B8930008748DE /* LaunchScreen.xib */; };
+		86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */; };
+		86D61C5F1CF2F63400D75695 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
@@ -122,6 +124,9 @@
 		86BCD1181C7B615000FF9D1F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = ../../../Users/rexjason/Desktop/icon_close.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		86D592951B0B8930008748DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Classes/LaunchScreen.xib; sourceTree = "<group>"; };
+		86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = Classes/CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		86D61C5D1CF2F63400D75695 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = Classes/CategoryTableViewCell.h; sourceTree = "<group>"; };
+		86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = Classes/CategoryTableViewCell.m; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
 				179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */,
 				86D592951B0B8930008748DE /* LaunchScreen.xib */,
+				86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 		17D8B6861801635500D90AF6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				86D61C5C1CF2CE6A00D75695 /* Views */,
 				17FC2517181041A10067282D /* Logic */,
 				17D8B65218014A1C00D90AF6 /* CoreData */,
 				17D8B6871801636000D90AF6 /* Controllers */,
@@ -330,6 +337,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		86D61C5C1CF2CE6A00D75695 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86D61C5D1CF2F63400D75695 /* CategoryTableViewCell.h */,
+				86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,6 +432,7 @@
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
+				86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
 				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
@@ -500,6 +517,7 @@
 				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
 				86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
+				86D61C5F1CF2F63400D75695 /* CategoryTableViewCell.m in Sources */,
 				17FC250F18103AFA0067282D /* Transaction.m in Sources */,
 				17FC251D181042510067282D /* CategoryDomainObject.m in Sources */,
 				17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */,
