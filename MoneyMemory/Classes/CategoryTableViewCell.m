@@ -10,6 +10,7 @@
 
 @implementation CategoryTableViewCell
 
+@synthesize backgroundLabel = _backgroundLabel;
 @synthesize nameLabel = _nameLabel;
 @synthesize  limitLabel = _limitLabel;
 @synthesize totalLabel = _totalLabel;
@@ -31,6 +32,7 @@
 }
 
 - (void)dealloc {
+    [_backgroundLabel release];
     [_nameLabel release];
     [_limitLabel release];
     [_totalLabel release];

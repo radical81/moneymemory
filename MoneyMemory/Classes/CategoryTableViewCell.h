@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CategoryTableViewCell : UITableViewCell
+@property (retain, nonatomic) IBOutlet UILabel *backgroundLabel;
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *limitLabel;
 @property (retain, nonatomic) IBOutlet UILabel *totalLabel;

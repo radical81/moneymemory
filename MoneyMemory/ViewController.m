@@ -33,7 +33,7 @@
     //[rc runTestData];
     [rc viewTransactions];
     [rc release];
-    _categoriesTableView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];
+    _categoriesTableView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];    
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
     _expensesTableView = [[ExpensesTableViewController alloc] initWithAll];
     [super viewDidLoad];

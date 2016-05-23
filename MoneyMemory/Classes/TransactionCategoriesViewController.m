@@ -65,12 +65,26 @@ TransactionsLogicManager* logicManager;
 
     [rightButton release];
     self.navigationItem.title = @"Categories";
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIColor*) percentageColor:(double) percent {
+    if(percent > 90) {
+        NSLog(@"red");
+        return [UIColor redColor];
+    }
+    if(percent > 50) {
+        NSLog(@"orange");
+        return [UIColor orangeColor];
+    }
+    NSLog(@"Green");
+    return [UIColor colorWithRed:(85/255.f) green:(107/255.f) blue:(47/255.f) alpha:1];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,12 +107,11 @@ TransactionsLogicManager* logicManager;
     
     
     double percentage = ([totalForCategory doubleValue] / [cat.limit doubleValue]) * 100;
-    
     cell.nameLabel.text = cat.name;
     cell.limitLabel.text = [NSString stringWithFormat:@"Limit: %@", categoryLimit];
     cell.totalLabel.text = [NSString stringWithFormat:@"Total: %@", totalExpensesAmount];
     cell.percentLabel.text = [NSString stringWithFormat:@"%.0f%%", percentage];
-    
+    cell.percentLabel.textColor = [self percentageColor:percentage];
     return cell;
 }
 
