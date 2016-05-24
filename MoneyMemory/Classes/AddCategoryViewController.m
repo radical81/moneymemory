@@ -227,8 +227,23 @@ BOOL isAddCategory;
         [self showCategoryDetails];
         _pageLabel.text = @"Update Category";
     }
+    _categoryNew.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    _categoryNew.delegate = self;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave)];
     self.navigationItem.rightBarButtonItem = rightButton;    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSRange lowercaseCharRange = [string rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]];
+    
+    if (lowercaseCharRange.location != NSNotFound) {
+        textField.text = [textField.text stringByReplacingCharactersInRange:range
+                                                                 withString:[string uppercaseString]];
+        return NO;
+    }
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
