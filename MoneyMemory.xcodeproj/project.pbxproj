@@ -49,6 +49,8 @@
 		86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D592951B0B8930008748DE /* LaunchScreen.xib */; };
 		86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */; };
 		86D61C5F1CF2F63400D75695 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */; };
+		86D61C631CF4254200D75695 /* ExpensesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C611CF4254200D75695 /* ExpensesTableViewCell.m */; };
+		86D61C641CF4254200D75695 /* ExpensesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C621CF4254200D75695 /* ExpensesTableViewCell.xib */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
@@ -127,6 +129,9 @@
 		86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = Classes/CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		86D61C5D1CF2F63400D75695 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = Classes/CategoryTableViewCell.h; sourceTree = "<group>"; };
 		86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = Classes/CategoryTableViewCell.m; sourceTree = "<group>"; };
+		86D61C601CF4254200D75695 /* ExpensesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesTableViewCell.h; path = Classes/ExpensesTableViewCell.h; sourceTree = "<group>"; };
+		86D61C611CF4254200D75695 /* ExpensesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesTableViewCell.m; path = Classes/ExpensesTableViewCell.m; sourceTree = "<group>"; };
+		86D61C621CF4254200D75695 /* ExpensesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpensesTableViewCell.xib; path = Classes/ExpensesTableViewCell.xib; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
 				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
 				86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */,
+				86D61C621CF4254200D75695 /* ExpensesTableViewCell.xib */,
 				17ED423317E756E700C7080A /* ViewController.xib */,
 				86918B221B13770600AAA530 /* IncomeViewController.xib */,
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
@@ -342,6 +348,8 @@
 			children = (
 				86D61C5D1CF2F63400D75695 /* CategoryTableViewCell.h */,
 				86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */,
+				86D61C601CF4254200D75695 /* ExpensesTableViewCell.h */,
+				86D61C611CF4254200D75695 /* ExpensesTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -433,6 +441,7 @@
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */,
+				86D61C641CF4254200D75695 /* ExpensesTableViewCell.xib in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
 				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
@@ -508,6 +517,7 @@
 				17ED422917E756E700C7080A /* AppDelegate.m in Sources */,
 				17ED423217E756E700C7080A /* ViewController.m in Sources */,
 				179EEF6418AA789B0070B834 /* TransactionCategoriesViewController.m in Sources */,
+				86D61C631CF4254200D75695 /* ExpensesTableViewCell.m in Sources */,
 				17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */,
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				86918B231B13770600AAA530 /* IncomeViewController.m in Sources */,

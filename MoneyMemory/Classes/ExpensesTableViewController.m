@@ -31,6 +31,9 @@
 @synthesize expensesByDay;
 @synthesize sortedDays;
 @synthesize sectionDateFormatter;
+@synthesize expensesTableViewCell = _expensesTableViewCell;
+
+int const EXPENSE_CELL_HEIGHT = 90;
 
 TransactionsLogicManager* logicManager;
 
@@ -144,6 +147,7 @@ TransactionsLogicManager* logicManager;
 }
 
 -(void) dealloc {
+    [_expensesTableViewCell release];
     [super dealloc];
 }
 
@@ -179,17 +183,21 @@ TransactionsLogicManager* logicManager;
     NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:indexPath.section];
     NSArray *expensesThisDay = [self.expensesByDay objectForKey:dateRepresentingThisDay];
     TransactionDomainObject *transaction = [expensesThisDay objectAtIndex:indexPath.row];
-    static NSString *reuseIdentifier = @"ExpenseCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    
+    ExpensesTableViewCell *cell = (ExpensesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[ExpensesTableViewCell reuseIdentifier]];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+        [[NSBundle mainBundle] loadNibNamed:@"ExpensesTableViewCell" owner:self options:nil];
+        cell = _expensesTableViewCell;
+        _expensesTableViewCell = nil;
     }
+    
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
     NSString* transactionAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber: transaction.amount]];
-    cell.textLabel.text = transactionAmount;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", transaction.comment];
+    
+    cell.amountLabel.text = transactionAmount;
+    cell.descriptionLabel.text = [NSString stringWithFormat:@"%@", transaction.comment];
     
     UIImage *theImage = [UIImage imageNamed:@"budget_icon.png"];
     if(transaction.imagepath != NULL) {
@@ -202,7 +210,8 @@ TransactionsLogicManager* logicManager;
             theImage = [UIImage imageWithContentsOfFile: pathToImage];
         }
     }
-    cell.imageView.image = theImage;
+    cell.photoView.contentMode = UIViewContentModeCenter;
+    [cell.photoView setImage:theImage];
     
     return cell;
 }
@@ -276,6 +285,11 @@ TransactionsLogicManager* logicManager;
 
 
 #pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return EXPENSE_CELL_HEIGHT;
+}
+
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
