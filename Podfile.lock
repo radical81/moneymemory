@@ -1,10 +1,16 @@
 PODS:
+  - PNChart (0.8.8):
+    - UICountingLabel (~> 1.2.0)
   - Reachability (3.0.0)
+  - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
+  - PNChart
   - Reachability (~> 3.0.0)
 
 SPEC CHECKSUMS:
-  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  PNChart: 25f91e9c4688af49c3647489760624d037f5383f
+  Reachability: 31e4272bd8378e094beaf6609dc182c85c4e6574
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.33.1

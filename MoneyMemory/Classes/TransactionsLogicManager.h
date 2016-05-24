@@ -18,6 +18,8 @@
 -(NSArray*) fetchCategoryNames;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
 -(NSArray*) fetchAllTransactions:(int) limit;
+-(NSArray*) retrieveTotalsForEachCategory: (NSDate*) givenDate;
+-(NSNumber*) calculateTotalForMonth: (NSDate*) givenDate;
 -(NSNumber*) calculateTotalForCategory: (int) categoryId _givenDate:(NSDate*) givenDate;
 -(NSNumber*) calculateTotalOfCategories;
 -(NSArray*)fetchTransactionIsA: (int) categoryId limit: (int) limit;

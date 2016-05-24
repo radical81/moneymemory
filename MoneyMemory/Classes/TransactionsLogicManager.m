@@ -138,6 +138,32 @@
     return allTransactions;
 }
 
+-(NSArray*) retrieveTotalsForEachCategory: (NSDate*) givenDate {
+    NSMutableArray* totalData = [[NSMutableArray alloc]init];
+    NSArray* categories = [self fetchAllCategories];
+    NSNumber* totalForMonth = [self calculateTotalForMonth: [NSDate date]];
+    for(CategoryDomainObject* category in categories) {
+        NSNumber* totalForCategory = [self calculateTotalForCategory:[category.id intValue] _givenDate:givenDate];
+        double percentage = [totalForCategory doubleValue] / [totalForMonth doubleValue];
+        NSDictionary* dict;
+        dict = @{@"id": category.id, @"name": category.name, @"percent": [NSNumber numberWithDouble: percentage] };
+        [totalData addObject:dict];
+    }
+    NSArray* returnArray = [totalData copy];
+    [totalData release];
+    return returnArray;
+}
+
+-(NSNumber*) calculateTotalForMonth: (NSDate*) givenDate {
+    double total = 0;
+    NSArray* categories = [self fetchAllCategories];
+    for(CategoryDomainObject* category in categories) {
+        NSNumber* totalForCategory = [self calculateTotalForCategory:[category.id intValue] _givenDate:givenDate];
+        total += [totalForCategory doubleValue];
+    }
+    return [NSNumber numberWithDouble:total];
+}
+
 -(NSNumber*) calculateTotalForCategory: (int) categoryId _givenDate:(NSDate*) givenDate {
     NSLog(@"calculateTotalForCategory %d", categoryId);
     double total = 0;

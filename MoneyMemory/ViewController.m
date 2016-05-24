@@ -24,7 +24,7 @@
 @synthesize incomeView = _incomeView;
 @synthesize categoriesTableView = _categoriesTableView;
 @synthesize expensesTableView = _expensesTableView;
-
+@synthesize graphView = _graphView;
 
 - (void)viewDidLoad
 {
@@ -38,6 +38,7 @@
     _categoriesTableView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];    
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
     _expensesTableView = [[ExpensesTableViewController alloc] initWithAll];
+    _graphView = [[GraphViewController alloc]init];
     [super viewDidLoad];
     self.navigationItem.title = @"Money Memory";
 }
@@ -85,6 +86,11 @@
     [self.navigationController pushViewController:_categoriesTableView animated:YES];
 }
 
+- (IBAction)loadGraphView:(id)sender {
+    [self.navigationController pushViewController:_graphView animated:YES];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -96,6 +102,7 @@
     [_transactionCategoriesButton release];
     [_categoriesTableView release];
     [_expensesTableView release];
+    [_graphView release];
     [super dealloc];
 }
 @end
