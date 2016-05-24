@@ -11,6 +11,7 @@
 #import "SpendMoneyViewController.h"
 #import "TransactionCategoriesViewController.h"
 #import "ExpensesTableViewController.h"
+#import "TransactionsLogicManager.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,7 @@
 @synthesize incomeView = _incomeView;
 @synthesize categoriesTableView = _categoriesTableView;
 @synthesize expensesTableView = _expensesTableView;
+
 
 - (void)viewDidLoad
 {
@@ -49,9 +51,37 @@
     [self.navigationController pushViewController:_expensesTableView animated:YES];
 }
 
+-(void) showAlertMissingIncome {
+    
+    NSString* errorMessage = @"Please provide your income first.";
+    
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Income needed"
+                                  message: errorMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self.navigationController pushViewController:_incomeView animated:YES];
+                             
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 -(IBAction)loadCategoriesTableView:(id)sender {
     NSLog(@"loadCategoriesTableView");
+    TransactionsLogicManager* logicManager = [[[TransactionsLogicManager alloc]init]autorelease];
+    double amount = [logicManager retrieveIncomeMonthly];
+    if(amount == 0) {
+        [self showAlertMissingIncome];
+        return;
+    }
+    
     [self.navigationController pushViewController:_categoriesTableView animated:YES];
 }
 
