@@ -29,8 +29,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WV-QW-J1q">
-                        <rect key="frame" x="13" y="20" width="252" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WV-QW-J1q">
+                        <rect key="frame" x="13" y="20" width="270" height="21"/>
                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
                         <color key="textColor" red="0.33333333333333331" green="0.41960784313725491" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -47,8 +47,11 @@
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-NH-nkR">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Percentage" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-NH-nkR">
                         <rect key="frame" x="287" y="8" width="90" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="fQY-MK-BPN"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -62,7 +65,8 @@
                     <constraint firstItem="5WV-QW-J1q" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="2" id="IFy-cy-0ah"/>
                     <constraint firstAttribute="trailingMargin" secondItem="17q-Z3-pzv" secondAttribute="trailing" constant="-8" id="Wbt-Xd-kgb"/>
                     <constraint firstItem="JQh-vL-ZhM" firstAttribute="top" secondItem="wZ9-Us-ph2" secondAttribute="bottom" constant="10" id="YSt-xq-Qmf"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="bFT-NH-nkR" secondAttribute="trailing" constant="10" id="j6b-6a-Iqr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bFT-NH-nkR" secondAttribute="trailing" constant="10" id="eNw-YE-Bjh"/>
+                    <constraint firstItem="bFT-NH-nkR" firstAttribute="leading" secondItem="5WV-QW-J1q" secondAttribute="trailing" constant="10" id="lAA-1t-XMz"/>
                     <constraint firstItem="5WV-QW-J1q" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="wlm-Kl-AwK"/>
                     <constraint firstItem="wZ9-Us-ph2" firstAttribute="top" secondItem="5WV-QW-J1q" secondAttribute="bottom" constant="20" id="xPT-6x-dFJ"/>
                 </constraints>
