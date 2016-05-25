@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PNChart.h"
 
-@interface GraphViewController : UIViewController
+@interface GraphViewController : UIViewController <PNChartDelegate>
 @property (retain, nonatomic) IBOutlet UILabel *headerLabel;
 @property (retain, nonatomic) IBOutlet UILabel *monthTotal;
 @property (retain, nonatomic) IBOutlet UILabel *categoryPercent;
+@property (retain, nonatomic) IBOutlet UILabel *clickedLabel;
 
 @end

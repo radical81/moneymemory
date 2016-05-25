@@ -7,7 +7,6 @@
 //
 
 #import "GraphViewController.h"
-#import "PNChart.h"
 #import "TransactionsLogicManager.h"
 
 @interface GraphViewController ()
@@ -19,6 +18,7 @@
 @synthesize headerLabel = _headerLabel;
 @synthesize monthTotal = _monthTotal;
 @synthesize categoryPercent = _categoryPercent;
+@synthesize clickedLabel = _clickedLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,17 +43,20 @@
     formatter.usesGroupingSeparator = YES;
     formatter.groupingSeparator = @",";
     _monthTotal.text = [NSString stringWithFormat:@"Total Expenses: $ %@", [formatter stringFromNumber:totalThisMonth]];
+
+    double monthlyIncome = [logicManager retrieveIncomeMonthly];
+    double remaining = monthlyIncome - [totalThisMonth doubleValue];
+    _categoryPercent.text = [NSString stringWithFormat:@"Savings: $ %@", [formatter stringFromNumber:[NSNumber numberWithDouble:remaining]]];
+    _clickedLabel.text = @"";
+    
     //For Pie Chart
     NSArray* expensesData = [logicManager retrieveTotalsForEachCategory: [NSDate date]];
     NSMutableArray *items = [[NSMutableArray alloc]init];
     int counter = 0;
     for(NSDictionary* dict in expensesData) {
         counter++;
-        double expenseValue = [[dict objectForKey:@"percent" ] doubleValue];
+        double expenseValue = [[dict objectForKey:@"percent"] doubleValue];
         NSString* categoryName = [dict objectForKey:@"name"];
-        if([categoryName isEqualToString:@"SAVINGS"]) {
-            _categoryPercent.text = [NSString stringWithFormat:@"Savings: %.2f %%", expenseValue];
-        }
         UIColor* color = [self generatePieColor:counter];
         NSLog(@"Color %@", color);
         [items addObject:[PNPieChartDataItem dataItemWithValue:expenseValue color:color description: categoryName]];
@@ -64,7 +67,9 @@
     pieChart.descriptionTextColor = [UIColor whiteColor];
     pieChart.descriptionTextFont  = [UIFont fontWithName:@"Gill Sans" size:12.0];
     pieChart.hideValues = YES;
+    pieChart.delegate = self;
     [pieChart strokeChart];
+    pieChart.tag = 100;
     [self.view addSubview:pieChart];
     [logicManager release];
 }
@@ -107,20 +112,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (void)dealloc {
     [_monthTotal release];
     [_headerLabel release];
     [_categoryPercent release];
+    [_clickedLabel release];
     [super dealloc];
 }
+
+- (void)userClickedOnPieIndexItem:(NSInteger)pieIndex {
+    NSLog(@"pie index: %ld", (long)pieIndex);
+    PNPieChart* pieChart = [self.view viewWithTag:100];
+    PNPieChartDataItem* item = [pieChart.items objectAtIndex: pieIndex];
+    NSLog(@"Clicked: %@", item.textDescription);
+    NSLog(@"Value: %.2f", item.value);
+    _clickedLabel.text = [NSString stringWithFormat:@"%@: %.2f%%", item.textDescription, item.value];
+    [_clickedLabel setTextColor:item.color];
+}
+
 @end
