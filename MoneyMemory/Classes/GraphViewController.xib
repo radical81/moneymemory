@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GraphViewController">
             <connections>
+                <outlet property="categoryPercent" destination="Cu2-Uc-WMX" id="LPp-9f-KN5"/>
                 <outlet property="headerLabel" destination="mh0-St-tL0" id="a8K-Uf-pQC"/>
                 <outlet property="monthTotal" destination="YwT-Wc-wyT" id="li3-pG-ZWb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,6 +30,15 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwT-Wc-wyT">
                     <rect key="frame" x="260" y="198" width="38" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DTz-PF-TJU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu2-Uc-WMX">
+                    <rect key="frame" x="207" y="236" width="162" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -37,6 +47,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="mh0-St-tL0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8YD-aP-4nf"/>
+                <constraint firstItem="Cu2-Uc-WMX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ADL-06-xIB"/>
+                <constraint firstItem="Cu2-Uc-WMX" firstAttribute="top" secondItem="YwT-Wc-wyT" secondAttribute="bottom" constant="10" id="YAh-GU-DbZ"/>
                 <constraint firstItem="mh0-St-tL0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="aaA-1L-adu"/>
                 <constraint firstItem="YwT-Wc-wyT" firstAttribute="top" secondItem="mh0-St-tL0" secondAttribute="bottom" constant="300" id="hjG-Kg-Ex9"/>
                 <constraint firstAttribute="trailing" secondItem="mh0-St-tL0" secondAttribute="trailing" id="mlh-wc-11k"/>

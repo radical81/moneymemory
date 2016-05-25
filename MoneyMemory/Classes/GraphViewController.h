@@ -11,5 +11,6 @@
 @interface GraphViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UILabel *headerLabel;
 @property (retain, nonatomic) IBOutlet UILabel *monthTotal;
+@property (retain, nonatomic) IBOutlet UILabel *categoryPercent;
 
 @end

@@ -18,6 +18,7 @@
 
 @synthesize headerLabel = _headerLabel;
 @synthesize monthTotal = _monthTotal;
+@synthesize categoryPercent = _categoryPercent;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,8 +26,15 @@
     [dateFormatter setDateFormat:@"MMM YYYY"];
     NSString* currentMonth = [dateFormatter stringFromDate:[NSDate date]];
     [dateFormatter release];
-    
     _headerLabel.text = currentMonth;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self generatePieGraph];
+}
+
+
+-(void) generatePieGraph {
     TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
     NSNumber* totalThisMonth = [logicManager calculateTotalForMonth:[NSDate date]];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -41,35 +49,57 @@
     int counter = 0;
     for(NSDictionary* dict in expensesData) {
         counter++;
-        UIColor* color;
-        if(counter % 2 == 0) {
-            color = PNRed;
-        }
-        else if(counter % 3 == 0) {
-            color = PNBlue;
-        }
-        else {
-            color = PNGreen;
-        }
-        
         double expenseValue = [[dict objectForKey:@"percent" ] doubleValue];
         NSString* categoryName = [dict objectForKey:@"name"];
+        if([categoryName isEqualToString:@"SAVINGS"]) {
+            _categoryPercent.text = [NSString stringWithFormat:@"Savings: %.2f %%", expenseValue];
+        }
+        UIColor* color = [self generatePieColor:counter];
+        NSLog(@"Color %@", color);
         [items addObject:[PNPieChartDataItem dataItemWithValue:expenseValue color:color description: categoryName]];
-        
+        color = nil;
     }
-//    NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNRed],
-//                       [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@"WWDC"],
-//                       [PNPieChartDataItem dataItemWithValue:40 color:PNGreen description:@"GOOL I/O"],
-//                       ];
-    
     
     PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:[items copy]];
-    pieChart.descriptionTextColor = [UIColor grayColor];
-    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:12.0];
+    pieChart.descriptionTextColor = [UIColor whiteColor];
+    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Gill Sans" size:12.0];
     pieChart.hideValues = YES;
     [pieChart strokeChart];
     [self.view addSubview:pieChart];
     [logicManager release];
+}
+
+- (UIColor*) generatePieColor:(int)i {
+    NSLog(@"generatePieColor for %d", i);
+
+    if(i % 10 == 0) {
+        return PNBlue;
+    }
+    if(i % 9 == 0) {
+        return PNYellow;
+    }
+    if(i % 8 == 0) {
+        return PNMauve;
+    }
+    if(i % 7 == 0) {
+        return PNDarkBlue;
+    }
+    if(i % 6 == 0) {
+        return PNPinkGrey;
+    }
+    if(i % 5 == 0) {
+        return PNBrown;
+    }
+    if(i % 4 == 0) {
+        return PNLightYellow;
+    }
+    if(i % 3 == 0) {
+        return PNPinkDark;
+    }
+    if(i % 2 == 0) {
+        return PNLightBlue;
+    }
+    return PNLightGreen;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,6 +120,7 @@
 - (void)dealloc {
     [_monthTotal release];
     [_headerLabel release];
+    [_categoryPercent release];
     [super dealloc];
 }
 @end

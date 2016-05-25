@@ -142,13 +142,19 @@
     NSMutableArray* totalData = [[NSMutableArray alloc]init];
     NSArray* categories = [self fetchAllCategories];
     NSNumber* totalForMonth = [self calculateTotalForMonth: [NSDate date]];
+    double monthlyIncome = [self retrieveIncomeMonthly];
+    NSLog(@"monthly: %f", monthlyIncome);
     for(CategoryDomainObject* category in categories) {
         NSNumber* totalForCategory = [self calculateTotalForCategory:[category.id intValue] _givenDate:givenDate];
-        double percentage = [totalForCategory doubleValue] / [totalForMonth doubleValue];
+        double percentage = ([totalForCategory doubleValue] / monthlyIncome) * 100;
         NSDictionary* dict;
-        dict = @{@"id": category.id, @"name": category.name, @"percent": [NSNumber numberWithDouble: percentage] };
+        dict = @{@"name": category.name, @"percent": [NSNumber numberWithDouble: percentage] };
         [totalData addObject:dict];
     }
+    double remaining = ((monthlyIncome - [totalForMonth doubleValue]) / monthlyIncome)*100;
+    
+    NSLog(@"Savings: %f", remaining);
+    [totalData addObject:@{@"name": @"SAVINGS", @"percent":  [NSNumber numberWithDouble:remaining]}];
     NSArray* returnArray = [totalData copy];
     [totalData release];
     return returnArray;
