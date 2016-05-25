@@ -225,6 +225,8 @@
 				86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */,
 				86013D3F1BB6928E005F51B4 /* ExpensesTableViewController.h */,
 				86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */,
+				86D61C6A1CF48E2800D75695 /* GraphViewController.h */,
+				86D61C6B1CF48E2800D75695 /* GraphViewController.m */,
 				86918B201B13770600AAA530 /* IncomeViewController.h */,
 				86918B211B13770600AAA530 /* IncomeViewController.m */,
 				17D8B688180163D100D90AF6 /* RunTestCoreData.h */,
@@ -356,8 +358,6 @@
 				86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */,
 				86D61C601CF4254200D75695 /* ExpensesTableViewCell.h */,
 				86D61C611CF4254200D75695 /* ExpensesTableViewCell.m */,
-				86D61C6A1CF48E2800D75695 /* GraphViewController.h */,
-				86D61C6B1CF48E2800D75695 /* GraphViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
