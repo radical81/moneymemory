@@ -73,6 +73,10 @@
         double expenseValue = [[dict objectForKey:@"percent"] doubleValue];
         NSString* categoryName = [dict objectForKey:@"name"];
         UIColor* color = [self generatePieColor:counter];
+        if([categoryName isEqualToString:@"SAVINGS"]) {
+            color = PNLightGreen;
+        }
+        NSLog(@"Name: %@",categoryName);
         NSLog(@"Color %@", color);
         [items addObject:[PNPieChartDataItem dataItemWithValue:expenseValue color:color description: categoryName]];
         color = nil;
@@ -93,33 +97,33 @@
     NSLog(@"generatePieColor for %d", i);
 
     if(i % 10 == 0) {
-        return PNBlue;
+        return PNDeepGrey;
     }
     if(i % 9 == 0) {
-        return PNYellow;
+        return PNFreshGreen;
     }
     if(i % 8 == 0) {
-        return PNMauve;
-    }
-    if(i % 7 == 0) {
         return PNDarkBlue;
     }
+    if(i % 7 == 0) {
+        return PNDarkYellow;
+    }
     if(i % 6 == 0) {
-        return PNPinkGrey;
+        return PNBlue;
     }
     if(i % 5 == 0) {
-        return PNBrown;
+        return PNPinkDark;
     }
     if(i % 4 == 0) {
-        return PNLightYellow;
+        return PNMauve;
     }
     if(i % 3 == 0) {
-        return PNPinkDark;
+        return PNYellow;
     }
     if(i % 2 == 0) {
         return PNLightBlue;
     }
-    return PNLightGreen;
+    return PNStarYellow;
 }
 
 - (void)didReceiveMemoryWarning {
