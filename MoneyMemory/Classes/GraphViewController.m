@@ -11,6 +11,7 @@
 
 @interface GraphViewController ()
 
+@property(nonatomic, retain) NSDate* currentDate;
 @end
 
 @implementation GraphViewController
@@ -19,24 +20,38 @@
 @synthesize monthTotal = _monthTotal;
 @synthesize categoryPercent = _categoryPercent;
 @synthesize clickedLabel = _clickedLabel;
+@synthesize monthYearTable = _monthYearTable;
+@synthesize currentDate = _currentDate;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM YYYY"];
-    NSString* currentMonth = [dateFormatter stringFromDate:[NSDate date]];
-    [dateFormatter release];
-    _headerLabel.text = currentMonth;
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Month" style:UIBarButtonItemStylePlain target:self action:@selector(didTapChange)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    _monthYearTable = [[StatsMonthYearTableViewController alloc]initWithAll];
+    _monthYearTable.graphDisplay = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM YYYY"];
+    if(_currentDate == nil) {
+        _currentDate = [NSDate date];
+    }
+    NSString* currentMonth = [dateFormatter stringFromDate:_currentDate];
+    [dateFormatter release];
+    _headerLabel.text = currentMonth;
+
     [self generatePieGraph];
 }
 
+-(void) didTapChange {
+    [self.navigationController pushViewController:_monthYearTable animated:YES];
+}
 
 -(void) generatePieGraph {
     TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
-    NSNumber* totalThisMonth = [logicManager calculateTotalForMonth:[NSDate date]];
+    NSNumber* totalThisMonth = [logicManager calculateTotalForMonth:_currentDate];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
@@ -50,7 +65,7 @@
     _clickedLabel.text = @"";
     
     //For Pie Chart
-    NSArray* expensesData = [logicManager retrieveTotalsForEachCategory: [NSDate date]];
+    NSArray* expensesData = [logicManager retrieveTotalsForEachCategory:_currentDate];
     NSMutableArray *items = [[NSMutableArray alloc]init];
     int counter = 0;
     for(NSDictionary* dict in expensesData) {
@@ -117,6 +132,8 @@
     [_headerLabel release];
     [_categoryPercent release];
     [_clickedLabel release];
+    [_monthYearTable release];
+    [_currentDate release];
     [super dealloc];
 }
 
@@ -128,6 +145,16 @@
     NSLog(@"Value: %.2f", item.value);
     _clickedLabel.text = [NSString stringWithFormat:@"%@: %.2f%%", item.textDescription, item.value];
     [_clickedLabel setTextColor:item.color];
+}
+
+-(void) setMonthYear: (NSString*) monthYear {
+    NSLog(@"setMonthYear: %@", monthYear);
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d MMM yyyy"];
+    NSLog(@"Use %@",[NSString stringWithFormat:@"2 %@",monthYear]);
+    NSDate* newDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"2 %@",monthYear]];
+    NSLog(@"The new date is %@", [dateFormatter stringFromDate:newDate]);
+    _currentDate = newDate;
 }
 
 @end

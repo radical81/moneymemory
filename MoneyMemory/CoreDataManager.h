@@ -28,5 +28,6 @@
 -(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc;
 -(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount;
 -(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc;
+-(NSArray*) fetchTimeStamps: (NSManagedObjectContext*) moc;
 
 @end

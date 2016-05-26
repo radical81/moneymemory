@@ -226,7 +226,26 @@
     return income;
 }
 
-
+-(NSArray*) fetchTimeStamps: (NSManagedObjectContext*) moc  {
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"timestamp" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [sortDescriptor release];
+    [request setSortDescriptors:sortDescriptors];
+    
+    NSEntityDescription *transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
+    [request setEntity:transactionEntity];
+    
+    NSArray* resultsArray = [moc executeFetchRequest:request error:nil];
+    [request release];
+    NSMutableArray* timeStampArray = [[[NSMutableArray alloc]init]autorelease];
+    for (Transaction* transaction in resultsArray){
+        NSLog(@"Transaction with id %@ saved on %@", transaction.id, transaction.timestamp);
+        [timeStampArray addObject:transaction.timestamp];
+    }
+    
+    return [timeStampArray copy];
+}
 
 
 @end

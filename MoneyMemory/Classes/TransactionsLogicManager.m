@@ -339,4 +339,12 @@
     return [income.monthly doubleValue];
 }
 
+-(NSArray*) fetchTimeStamps {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    NSArray* timeStamps = [coreDataManager fetchTimeStamps:managedObjectContext];
+    [coreDataManager release];
+    return timeStamps;
+}
+
 @end

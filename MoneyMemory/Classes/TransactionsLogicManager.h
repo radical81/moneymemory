@@ -33,5 +33,6 @@
 -(int) retrieveLatestCategoryId;
 -(void) updateIncomeMonthly: (double) amount;
 -(double) retrieveIncomeMonthly;
+-(NSArray*) fetchTimeStamps;
 
 @end

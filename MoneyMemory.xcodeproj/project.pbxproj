@@ -53,6 +53,8 @@
 		86D61C641CF4254200D75695 /* ExpensesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C621CF4254200D75695 /* ExpensesTableViewCell.xib */; };
 		86D61C6D1CF48E2800D75695 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C6B1CF48E2800D75695 /* GraphViewController.m */; };
 		86D61C6E1CF48E2800D75695 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C6C1CF48E2800D75695 /* GraphViewController.xib */; };
+		86D61C771CF66BB000D75695 /* StatsMonthYearTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */; };
+		86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
@@ -137,6 +139,10 @@
 		86D61C6A1CF48E2800D75695 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphViewController.h; path = Classes/GraphViewController.h; sourceTree = "<group>"; };
 		86D61C6B1CF48E2800D75695 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphViewController.m; path = Classes/GraphViewController.m; sourceTree = "<group>"; };
 		86D61C6C1CF48E2800D75695 /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphViewController.xib; path = Classes/GraphViewController.xib; sourceTree = "<group>"; };
+		86D61C741CF66BB000D75695 /* StatsMonthYearTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsMonthYearTableViewController.h; path = Classes/StatsMonthYearTableViewController.h; sourceTree = "<group>"; };
+		86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsMonthYearTableViewController.m; path = Classes/StatsMonthYearTableViewController.m; sourceTree = "<group>"; };
+		86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsMonthYearTableViewController.xib; path = Classes/StatsMonthYearTableViewController.xib; sourceTree = "<group>"; };
+		86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsMonthYearDelegate.h; path = Classes/StatsMonthYearDelegate.h; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */,
 				86D592951B0B8930008748DE /* LaunchScreen.xib */,
 				86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */,
+				86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 		17D8B6861801635500D90AF6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				86D61C791CF6A50C00D75695 /* Delegates */,
 				86D61C5C1CF2CE6A00D75695 /* Views */,
 				17FC2517181041A10067282D /* Logic */,
 				17D8B65218014A1C00D90AF6 /* CoreData */,
@@ -237,6 +245,8 @@
 				179EEF6318AA789B0070B834 /* TransactionCategoriesViewController.m */,
 				17ED423017E756E700C7080A /* ViewController.h */,
 				17ED423117E756E700C7080A /* ViewController.m */,
+				86D61C741CF66BB000D75695 /* StatsMonthYearTableViewController.h */,
+				86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +372,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		86D61C791CF6A50C00D75695 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -442,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */,
+				86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */,
 				86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */,
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
@@ -531,6 +550,7 @@
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				86918B231B13770600AAA530 /* IncomeViewController.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
+				86D61C771CF66BB000D75695 /* StatsMonthYearTableViewController.m in Sources */,
 				17139F00192C80D30051794A /* AddCategoryViewController.m in Sources */,
 				86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */,
 				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
