@@ -155,8 +155,8 @@
     NSLog(@"setMonthYear: %@", monthYear);
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSLog(@"Use %@",[NSString stringWithFormat:@"2 %@",monthYear]);
-    NSDate* newDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"2 %@",monthYear]];
+    NSLog(@"Use %@",[NSString stringWithFormat:@"1 %@",monthYear]);
+    NSDate* newDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",monthYear]];
     NSLog(@"The new date is %@", [dateFormatter stringFromDate:newDate]);
     _currentDate = newDate;
 }
