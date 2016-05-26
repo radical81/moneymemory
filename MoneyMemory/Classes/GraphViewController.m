@@ -36,7 +36,7 @@
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM YYYY"];
     if(_currentDate == nil) {
-        _currentDate = [NSDate date];
+        _currentDate = [[NSDate date]retain];
     }
     NSString* currentMonth = [dateFormatter stringFromDate:_currentDate];
     [dateFormatter release];
