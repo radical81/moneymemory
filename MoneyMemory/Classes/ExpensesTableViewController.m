@@ -194,6 +194,8 @@ TransactionsLogicManager* logicManager;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
+    formatter.usesGroupingSeparator = YES;
+    formatter.groupingSeparator = @",";
     NSString* transactionAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber: transaction.amount]];
     
     cell.amountLabel.text = transactionAmount;

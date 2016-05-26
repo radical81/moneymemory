@@ -101,6 +101,8 @@ TransactionsLogicManager* logicManager;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];
     [formatter setMaximumFractionDigits:2];
+    formatter.usesGroupingSeparator = YES;
+    formatter.groupingSeparator = @",";
     NSString* categoryLimit = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:cat.limit]];
     NSNumber* totalForCategory = [logicManager calculateTotalForCategory:[cat.id intValue] _givenDate:[NSDate date]];
     NSString* totalExpensesAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:totalForCategory]];
