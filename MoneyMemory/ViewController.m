@@ -75,6 +75,12 @@
 }
 
 -(IBAction)loadExpenses:(id)sender {
+    TransactionsLogicManager* logicManager = [[[TransactionsLogicManager alloc]init]autorelease];
+    NSArray* expenses = [logicManager fetchAllTransactions:1];
+    if([expenses count] == 0) {
+        [self showAlertNoTransactions];
+        return;
+    }
     [self.navigationController pushViewController:_expensesTableView animated:YES];
 }
 
@@ -84,7 +90,7 @@
     
     
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Income needed"
+                                  alertControllerWithTitle:@"Income Needed"
                                   message: errorMessage
                                   preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction
@@ -99,6 +105,24 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+-(void) showAlertNoTransactions {
+    NSString* errorMessage = @"You have no expenses yet.";
+    
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"No Expenses"
+                                  message: errorMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
 
 -(IBAction)loadCategoriesTableView:(id)sender {
     NSLog(@"loadCategoriesTableView");
@@ -113,6 +137,13 @@
 }
 
 - (IBAction)loadGraphView:(id)sender {
+    TransactionsLogicManager* logicManager = [[[TransactionsLogicManager alloc]init]autorelease];
+    NSArray* expenses = [logicManager fetchAllTransactions:1];
+    if([expenses count] == 0) {
+        [self showAlertNoTransactions];
+        return;
+    }
+    
     [self.navigationController pushViewController:_graphView animated:YES];
 }
 
