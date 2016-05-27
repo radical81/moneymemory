@@ -33,7 +33,7 @@
 @synthesize sectionDateFormatter;
 @synthesize expensesTableViewCell = _expensesTableViewCell;
 
-int const EXPENSE_CELL_HEIGHT = 90;
+int const EXPENSE_CELL_HEIGHT = 120;
 
 TransactionsLogicManager* logicManager;
 
@@ -95,6 +95,7 @@ TransactionsLogicManager* logicManager;
         [rightButton release];
     }
     self.navigationItem.title = self.tableTitle;
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (NSDate*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
@@ -173,11 +174,22 @@ TransactionsLogicManager* logicManager;
     return [expensesOnThisDay count];
 }
 
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *label = [[UILabel alloc] init];
     NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
-    return [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
+    label.text = [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
+    label.backgroundColor = [UIColor colorWithRed:204/255.f green:204/255.f blue:204/255.f alpha:1];
+    label.textColor = [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:1];
+    label.font = [UIFont fontWithName:@"Gill Sans" size:22];
+    label.textAlignment = NSTextAlignmentCenter;
+    return label;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:indexPath.section];

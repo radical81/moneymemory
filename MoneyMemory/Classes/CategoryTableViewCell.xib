@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="392" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17q-Z3-pzv">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17q-Z3-pzv">
+                        <rect key="frame" x="0.0" y="-2" width="392" height="44"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="y2P-0V-HVC"/>
@@ -66,6 +66,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="17q-Z3-pzv" secondAttribute="trailing" constant="-8" id="Wbt-Xd-kgb"/>
                     <constraint firstItem="JQh-vL-ZhM" firstAttribute="top" secondItem="wZ9-Us-ph2" secondAttribute="bottom" constant="10" id="YSt-xq-Qmf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bFT-NH-nkR" secondAttribute="trailing" constant="10" id="eNw-YE-Bjh"/>
+                    <constraint firstItem="17q-Z3-pzv" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="-10" id="gD2-8r-22D"/>
                     <constraint firstItem="bFT-NH-nkR" firstAttribute="leading" secondItem="5WV-QW-J1q" secondAttribute="trailing" constant="10" id="lAA-1t-XMz"/>
                     <constraint firstItem="5WV-QW-J1q" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="wlm-Kl-AwK"/>
                     <constraint firstItem="wZ9-Us-ph2" firstAttribute="top" secondItem="5WV-QW-J1q" secondAttribute="bottom" constant="20" id="xPT-6x-dFJ"/>
