@@ -46,7 +46,6 @@
 		86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5BDEA1BC41C930042148B /* budget_icon.png */; };
 		86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCD1181C7B615000FF9D1F /* icon_close.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
-		86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D592951B0B8930008748DE /* LaunchScreen.xib */; };
 		86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */; };
 		86D61C5F1CF2F63400D75695 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */; };
 		86D61C631CF4254200D75695 /* ExpensesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C611CF4254200D75695 /* ExpensesTableViewCell.m */; };
@@ -55,6 +54,14 @@
 		86D61C6E1CF48E2800D75695 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C6C1CF48E2800D75695 /* GraphViewController.xib */; };
 		86D61C771CF66BB000D75695 /* StatsMonthYearTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */; };
 		86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */; };
+		86D61C7C1CF7374200D75695 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7B1CF7374100D75695 /* Media.xcassets */; };
+		86D61C821CF740C700D75695 /* background320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7D1CF740C700D75695 /* background320x480.png */; };
+		86D61C831CF740C700D75695 /* background640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7E1CF740C700D75695 /* background640x960.png */; };
+		86D61C841CF740C700D75695 /* background640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7F1CF740C700D75695 /* background640x1136.png */; };
+		86D61C851CF740C700D75695 /* background750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C801CF740C700D75695 /* background750x1334.png */; };
+		86D61C861CF740C700D75695 /* background1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C811CF740C700D75695 /* background1242x2208.png */; };
+		86D61C891CF7CD5800D75695 /* appTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C871CF7CD5800D75695 /* appTitle@2x.png */; };
+		86D61C8A1CF7CD5800D75695 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C881CF7CD5800D75695 /* appTitle.png */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
@@ -129,7 +136,6 @@
 		86A5BDEA1BC41C930042148B /* budget_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = budget_icon.png; path = /Users/rexjason/Desktop/budget_icon.png; sourceTree = "<absolute>"; };
 		86BCD1181C7B615000FF9D1F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = ../../../Users/rexjason/Desktop/icon_close.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		86D592951B0B8930008748DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Classes/LaunchScreen.xib; sourceTree = "<group>"; };
 		86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = Classes/CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		86D61C5D1CF2F63400D75695 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = Classes/CategoryTableViewCell.h; sourceTree = "<group>"; };
 		86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = Classes/CategoryTableViewCell.m; sourceTree = "<group>"; };
@@ -143,6 +149,14 @@
 		86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsMonthYearTableViewController.m; path = Classes/StatsMonthYearTableViewController.m; sourceTree = "<group>"; };
 		86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsMonthYearTableViewController.xib; path = Classes/StatsMonthYearTableViewController.xib; sourceTree = "<group>"; };
 		86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsMonthYearDelegate.h; path = Classes/StatsMonthYearDelegate.h; sourceTree = "<group>"; };
+		86D61C7B1CF7374100D75695 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		86D61C7D1CF740C700D75695 /* background320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background320x480.png; path = ../../../Users/rexjason/Downloads/appimages/background320x480.png; sourceTree = "<group>"; };
+		86D61C7E1CF740C700D75695 /* background640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background640x960.png; path = ../../../Users/rexjason/Downloads/appimages/background640x960.png; sourceTree = "<group>"; };
+		86D61C7F1CF740C700D75695 /* background640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background640x1136.png; path = ../../../Users/rexjason/Downloads/appimages/background640x1136.png; sourceTree = "<group>"; };
+		86D61C801CF740C700D75695 /* background750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background750x1334.png; path = ../../../Users/rexjason/Downloads/appimages/background750x1334.png; sourceTree = "<group>"; };
+		86D61C811CF740C700D75695 /* background1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background1242x2208.png; path = ../../../Users/rexjason/Downloads/appimages/background1242x2208.png; sourceTree = "<group>"; };
+		86D61C871CF7CD5800D75695 /* appTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appTitle@2x.png"; path = "../../../Users/rexjason/Downloads/appimages/appTitle@2x.png"; sourceTree = "<group>"; };
+		86D61C881CF7CD5800D75695 /* appTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appTitle.png; path = ../../../Users/rexjason/Downloads/appimages/appTitle.png; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -189,7 +203,6 @@
 				86918B221B13770600AAA530 /* IncomeViewController.xib */,
 				178475BB1868960C00F5ED1F /* SpendMoneyViewController.xib */,
 				179EEF6518AA7FBE0070B834 /* TransactionCategoriesViewController.xib */,
-				86D592951B0B8930008748DE /* LaunchScreen.xib */,
 				86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */,
 				86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */,
 			);
@@ -294,6 +307,7 @@
 				86A5BDEC1BC41C9F0042148B /* Images */,
 				17ED422717E756E700C7080A /* AppDelegate.h */,
 				17ED422817E756E700C7080A /* AppDelegate.m */,
+				86D61C7B1CF7374100D75695 /* Media.xcassets */,
 				17ED421F17E756E700C7080A /* Supporting Files */,
 			);
 			path = MoneyMemory;
@@ -355,6 +369,13 @@
 		86A5BDEC1BC41C9F0042148B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86D61C871CF7CD5800D75695 /* appTitle@2x.png */,
+				86D61C881CF7CD5800D75695 /* appTitle.png */,
+				86D61C7D1CF740C700D75695 /* background320x480.png */,
+				86D61C7E1CF740C700D75695 /* background640x960.png */,
+				86D61C7F1CF740C700D75695 /* background640x1136.png */,
+				86D61C801CF740C700D75695 /* background750x1334.png */,
+				86D61C811CF740C700D75695 /* background1242x2208.png */,
 				86BCD1181C7B615000FF9D1F /* icon_close.png */,
 				86A5BDEA1BC41C930042148B /* budget_icon.png */,
 			);
@@ -459,13 +480,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86D592961B0B8930008748DE /* LaunchScreen.xib in Resources */,
 				86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */,
+				86D61C831CF740C700D75695 /* background640x960.png in Resources */,
 				86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */,
+				86D61C841CF740C700D75695 /* background640x1136.png in Resources */,
+				86D61C851CF740C700D75695 /* background750x1334.png in Resources */,
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
+				86D61C861CF740C700D75695 /* background1242x2208.png in Resources */,
+				86D61C891CF7CD5800D75695 /* appTitle@2x.png in Resources */,
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
+				86D61C821CF740C700D75695 /* background320x480.png in Resources */,
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
+				86D61C7C1CF7374200D75695 /* Media.xcassets in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */,
 				86D61C641CF4254200D75695 /* ExpensesTableViewCell.xib in Resources */,
@@ -473,6 +500,7 @@
 				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
 				179EEF6718AA7FBE0070B834 /* TransactionCategoriesViewController.xib in Resources */,
+				86D61C8A1CF7CD5800D75695 /* appTitle.png in Resources */,
 				178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */,
 				86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */,
 				86D61C6E1CF48E2800D75695 /* GraphViewController.xib in Resources */,
@@ -687,6 +715,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -703,6 +733,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9F60B2BD95F46A1A79A2A01 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

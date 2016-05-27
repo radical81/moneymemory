@@ -25,6 +25,7 @@
 @synthesize categoriesTableView = _categoriesTableView;
 @synthesize expensesTableView = _expensesTableView;
 @synthesize graphView = _graphView;
+@synthesize backgroundImage = _backgroundImage;
 
 - (void)viewDidLoad
 {
@@ -39,8 +40,33 @@
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
     _expensesTableView = [[ExpensesTableViewController alloc] initWithAll];
     _graphView = [[GraphViewController alloc]init];
+    [self addBackgroundByScreenSize];
     [super viewDidLoad];
-    self.navigationItem.title = @"Money Memory";
+}
+
+-(void)addBackgroundByScreenSize {
+    if([UIScreen mainScreen].bounds.size.height == 480) {
+        NSLog(@"iPhone 4");
+        _backgroundImage.image = [UIImage imageNamed:@"background640x960.png"];
+        return;
+    }
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        NSLog(@"iPhone 5");
+        _backgroundImage.image = [UIImage imageNamed:@"background640x1136.png"];
+        return;
+    }
+    if([UIScreen mainScreen].bounds.size.height == 667) {
+        NSLog(@"iPhone 6");
+        _backgroundImage.image = [UIImage imageNamed:@"background750x1334.png"];
+        return;
+    }
+    if([UIScreen mainScreen].bounds.size.height == 736) {
+        NSLog(@"iPhone 6 Plus");
+        _backgroundImage.image = [UIImage imageNamed:@"background1242x2208.png"];
+        return;
+    }
+    NSLog(@"iPhone");
+    _backgroundImage.image = [UIImage imageNamed:@"background320x480"];
 }
 
 -(IBAction)loadIncomeView:(id)sender {
@@ -103,6 +129,7 @@
     [_categoriesTableView release];
     [_expensesTableView release];
     [_graphView release];
+    [_backgroundImage release];
     [super dealloc];
 }
 @end

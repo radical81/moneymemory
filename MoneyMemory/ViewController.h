@@ -13,6 +13,8 @@
 
 @interface ViewController : UIViewController 
 
+@property (retain, nonatomic) IBOutlet UIImageView *backgroundImage;
+
 @property (retain, nonatomic) IBOutlet UIButton *transactionCategoriesButton;
 @property (nonatomic, retain) TransactionCategoriesViewController * categoriesTableView;
 @property (nonatomic, retain) IncomeViewController *incomeView;
