@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IncomeViewController">
             <connections>
+                <outlet property="background" destination="NEk-NA-hfO" id="86f-N5-pJ3"/>
                 <outlet property="incomeAmount" destination="MJu-L8-Zj1" id="0gj-4Z-dsu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,14 +17,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NEk-NA-hfO">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monthly Income" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSh-tB-AG5">
                     <rect key="frame" x="209" y="64" width="164" height="21"/>
-                    <color key="backgroundColor" red="0.074509803921568626" green="0.792156862745098" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="c9b-wS-Bb4"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.41960784313725491" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJu-L8-Zj1">
@@ -38,7 +42,11 @@
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5kk-oM-Gh6"/>
                 <constraint firstItem="MJu-L8-Zj1" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="20" id="DTs-gP-2Ms"/>
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="GXF-CJ-mH1"/>
+                <constraint firstAttribute="bottom" secondItem="NEk-NA-hfO" secondAttribute="bottom" id="PhF-LL-geg"/>
                 <constraint firstAttribute="trailing" secondItem="MJu-L8-Zj1" secondAttribute="trailing" constant="10" id="jGb-5p-7Is"/>
+                <constraint firstItem="NEk-NA-hfO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n3u-kK-Xxd"/>
+                <constraint firstAttribute="trailing" secondItem="NEk-NA-hfO" secondAttribute="trailing" id="qtn-P9-voH"/>
+                <constraint firstItem="NEk-NA-hfO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ul6-oT-byO"/>
                 <constraint firstAttribute="trailing" secondItem="oSh-tB-AG5" secondAttribute="trailing" id="vrW-ja-3ez"/>
             </constraints>
         </view>

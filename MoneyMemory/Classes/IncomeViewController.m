@@ -19,6 +19,7 @@
 }
 
 @synthesize incomeAmount = _incomeAmount;
+@synthesize background = _background;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,9 +35,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _incomeAmount.text = [NSString stringWithFormat:@"%.0f",[transactionsLogicManager retrieveIncomeMonthly]];
-    self.navigationItem.title = @"My Income";
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSaveIncome)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    [self addBackgroundByScreenSize];
+}
+
+-(void)addBackgroundByScreenSize {
+    if([UIScreen mainScreen].bounds.size.height == 480) {
+        NSLog(@"iPhone 4");
+        _background.image = [UIImage imageNamed:@"background640x960.png"];
+        return;
+    }
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        NSLog(@"iPhone 5");
+        _background.image = [UIImage imageNamed:@"background640x1136.png"];
+        return;
+    }
+    if([UIScreen mainScreen].bounds.size.height == 667) {
+        NSLog(@"iPhone 6");
+        _background.image = [UIImage imageNamed:@"background750x1334.png"];
+        return;
+    }
+    if([UIScreen mainScreen].bounds.size.height == 736) {
+        NSLog(@"iPhone 6 Plus");
+        _background.image = [UIImage imageNamed:@"background1242x2208.png"];
+        return;
+    }
+    NSLog(@"iPhone");
+    _background.image = [UIImage imageNamed:@"background320x480"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -165,6 +191,7 @@
 - (void)dealloc {
     [_incomeAmount release];
     [transactionsLogicManager release];
+    [_background release];
     [super dealloc];
 }
 @end

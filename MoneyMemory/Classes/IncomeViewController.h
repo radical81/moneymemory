@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface IncomeViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UIImageView *background;
 
 @property (retain, nonatomic) IBOutlet UITextField *incomeAmount;
 
