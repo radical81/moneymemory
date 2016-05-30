@@ -458,12 +458,12 @@
 }
 
 -(void) storeImageFilename:(UIImage*) newImage {
-    NSData *imageData = UIImagePNGRepresentation(newImage);
+    NSData *imageData = UIImageJPEGRepresentation(newImage, 1);
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
-    NSString *imageFile = [NSString stringWithFormat:@"%@.png", timestamp];
+    NSString *imageFile = [NSString stringWithFormat:@"%@.jpg", timestamp];
     NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:imageFile];
     
     NSLog((@"pre writing to file"));
