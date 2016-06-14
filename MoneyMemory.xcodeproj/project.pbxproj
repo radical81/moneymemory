@@ -43,6 +43,10 @@
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
+		869D92BA1D103A95001B1548 /* buttonExpenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B61D103A95001B1548 /* buttonExpenses.png */; };
+		869D92BB1D103A95001B1548 /* buttonIncome.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B71D103A95001B1548 /* buttonIncome.png */; };
+		869D92BC1D103A95001B1548 /* buttonSpend.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B81D103A95001B1548 /* buttonSpend.png */; };
+		869D92BD1D103A95001B1548 /* buttonStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B91D103A95001B1548 /* buttonStats.png */; };
 		86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5BDEA1BC41C930042148B /* budget_icon.png */; };
 		86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCD1181C7B615000FF9D1F /* icon_close.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
@@ -133,6 +137,10 @@
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
+		869D92B61D103A95001B1548 /* buttonExpenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonExpenses.png; path = ../../../Users/rexjason/Downloads/appimages/buttonExpenses.png; sourceTree = "<group>"; };
+		869D92B71D103A95001B1548 /* buttonIncome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonIncome.png; path = ../../../Users/rexjason/Downloads/appimages/buttonIncome.png; sourceTree = "<group>"; };
+		869D92B81D103A95001B1548 /* buttonSpend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonSpend.png; path = ../../../Users/rexjason/Downloads/appimages/buttonSpend.png; sourceTree = "<group>"; };
+		869D92B91D103A95001B1548 /* buttonStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonStats.png; path = ../../../Users/rexjason/Downloads/appimages/buttonStats.png; sourceTree = "<group>"; };
 		86A5BDEA1BC41C930042148B /* budget_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = budget_icon.png; path = /Users/rexjason/Desktop/budget_icon.png; sourceTree = "<absolute>"; };
 		86BCD1181C7B615000FF9D1F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = ../../../Users/rexjason/Desktop/icon_close.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -369,6 +377,10 @@
 		86A5BDEC1BC41C9F0042148B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				869D92B61D103A95001B1548 /* buttonExpenses.png */,
+				869D92B71D103A95001B1548 /* buttonIncome.png */,
+				869D92B81D103A95001B1548 /* buttonSpend.png */,
+				869D92B91D103A95001B1548 /* buttonStats.png */,
 				86D61C871CF7CD5800D75695 /* appTitle@2x.png */,
 				86D61C881CF7CD5800D75695 /* appTitle.png */,
 				86D61C7D1CF740C700D75695 /* background320x480.png */,
@@ -484,10 +496,12 @@
 				86D61C831CF740C700D75695 /* background640x960.png in Resources */,
 				86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */,
 				86D61C841CF740C700D75695 /* background640x1136.png in Resources */,
+				869D92BD1D103A95001B1548 /* buttonStats.png in Resources */,
 				86D61C851CF740C700D75695 /* background750x1334.png in Resources */,
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
 				86D61C861CF740C700D75695 /* background1242x2208.png in Resources */,
 				86D61C891CF7CD5800D75695 /* appTitle@2x.png in Resources */,
+				869D92BC1D103A95001B1548 /* buttonSpend.png in Resources */,
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
 				86D61C821CF740C700D75695 /* background320x480.png in Resources */,
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
@@ -496,6 +510,7 @@
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */,
 				86D61C641CF4254200D75695 /* ExpensesTableViewCell.xib in Resources */,
+				869D92BA1D103A95001B1548 /* buttonExpenses.png in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
 				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
@@ -503,6 +518,7 @@
 				86D61C8A1CF7CD5800D75695 /* appTitle.png in Resources */,
 				178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */,
 				86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */,
+				869D92BB1D103A95001B1548 /* buttonIncome.png in Resources */,
 				86D61C6E1CF48E2800D75695 /* GraphViewController.xib in Resources */,
 				17ED423517E756E700C7080A /* ViewController.xib in Resources */,
 			);

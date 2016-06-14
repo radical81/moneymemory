@@ -26,9 +26,24 @@
 @synthesize expensesTableView = _expensesTableView;
 @synthesize graphView = _graphView;
 @synthesize backgroundImage = _backgroundImage;
+@synthesize incomeTop = _incomeTop;
+@synthesize incomeLeading = _incomeLeading;
+@synthesize incomeWidth = _incomeWidth;
+@synthesize incomeHeight = _incomeHeight;
+@synthesize expensesTop = _expensesTop;
+@synthesize expensesTrailing = _expensesTrailing;
+@synthesize expensesWidth = _expensesWidth;
+@synthesize expensesHeight = _expensesHeight;
+@synthesize spendTop = _spendTop;
+@synthesize spendLeading = _spendLeading;
+@synthesize spendWidth = _spendWidth;
+@synthesize spendHeight = _spendHeight;
+@synthesize statsTop = _statsTop;
+@synthesize statsTrailing = _statsTrailing;
+@synthesize statsWidth = _statsWidth;
+@synthesize statsHeight = _statsHeight;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
 
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"This is money memory");
@@ -40,8 +55,31 @@
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
     _expensesTableView = [[ExpensesTableViewController alloc] initWithAll];
     _graphView = [[GraphViewController alloc]init];
+    [self resetButtonSizes];
     [self addBackgroundByScreenSize];
     [super viewDidLoad];
+}
+
+-(void) resetButtonSizes {
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height + 20;
+    _incomeTop.constant = navBarHeight + screenHeight * 0.07;
+    _incomeLeading.constant = screenWidth * 0.07;
+    _incomeWidth.constant = screenWidth * 0.4;
+    _incomeHeight.constant = screenWidth * 0.4;
+    _expensesTop.constant = navBarHeight + screenHeight * 0.07;
+    _expensesTrailing.constant = screenWidth * 0.07;
+    _expensesWidth.constant = screenWidth * 0.4;
+    _expensesHeight.constant = screenWidth * 0.4;
+    _spendTop.constant = screenHeight * 0.07;
+    _spendLeading.constant = screenWidth * 0.07;
+    _spendWidth.constant = screenWidth * 0.4;
+    _spendHeight.constant = screenWidth * 0.4;
+    _statsTop.constant = screenHeight * 0.07;
+    _statsTrailing.constant = screenWidth * 0.07;
+    _statsWidth.constant = screenWidth * 0.4;
+    _statsHeight.constant = screenWidth * 0.4;
 }
 
 -(void)addBackgroundByScreenSize {
@@ -161,6 +199,22 @@
     [_expensesTableView release];
     [_graphView release];
     [_backgroundImage release];
+    [_incomeTop release];
+    [_incomeLeading release];
+    [_incomeWidth release];
+    [_incomeHeight release];
+    [_expensesTop release];
+    [_expensesTrailing release];
+    [_expensesWidth release];
+    [_expensesHeight release];
+    [_spendTop release];
+    [_spendLeading release];
+    [_spendWidth release];
+    [_spendHeight release];
+    [_statsTop release];
+    [_statsTrailing release];
+    [_statsWidth release];
+    [_statsHeight release];
     [super dealloc];
 }
 @end
