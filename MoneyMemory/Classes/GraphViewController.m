@@ -85,7 +85,7 @@
     PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:[items copy]];
     pieChart.descriptionTextColor = [UIColor whiteColor];
     pieChart.descriptionTextFont  = [UIFont fontWithName:@"Gill Sans" size:12.0];
-    pieChart.hideValues = YES;
+    pieChart.showOnlyValues = YES;
     pieChart.delegate = self;
     [pieChart strokeChart];
     pieChart.tag = 100;
