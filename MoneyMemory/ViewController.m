@@ -12,6 +12,7 @@
 #import "TransactionCategoriesViewController.h"
 #import "ExpensesTableViewController.h"
 #import "TransactionsLogicManager.h"
+#import "DesignHelper.h"
 
 @interface ViewController ()
 
@@ -56,7 +57,9 @@
     _expensesTableView = [[ExpensesTableViewController alloc] initWithAll];
     _graphView = [[GraphViewController alloc]init];
     [self resetButtonSizes];
-    [self addBackgroundByScreenSize];
+    DesignHelper* designHelper = [[DesignHelper alloc]init];
+    _backgroundImage.image = [designHelper addBackgroundByScreenSize];
+    [designHelper release];
     [super viewDidLoad];
 }
 
@@ -80,31 +83,6 @@
     _statsTrailing.constant = screenWidth * 0.07;
     _statsWidth.constant = screenWidth * 0.4;
     _statsHeight.constant = screenWidth * 0.4;
-}
-
--(void)addBackgroundByScreenSize {
-    if([UIScreen mainScreen].bounds.size.height == 480) {
-        NSLog(@"iPhone 4");
-        _backgroundImage.image = [UIImage imageNamed:@"background640x960.png"];
-        return;
-    }
-    if([UIScreen mainScreen].bounds.size.height == 568) {
-        NSLog(@"iPhone 5");
-        _backgroundImage.image = [UIImage imageNamed:@"background640x1136.png"];
-        return;
-    }
-    if([UIScreen mainScreen].bounds.size.height == 667) {
-        NSLog(@"iPhone 6");
-        _backgroundImage.image = [UIImage imageNamed:@"background750x1334.png"];
-        return;
-    }
-    if([UIScreen mainScreen].bounds.size.height == 736) {
-        NSLog(@"iPhone 6 Plus");
-        _backgroundImage.image = [UIImage imageNamed:@"background1242x2208.png"];
-        return;
-    }
-    NSLog(@"iPhone");
-    _backgroundImage.image = [UIImage imageNamed:@"background320x480"];
 }
 
 -(IBAction)loadIncomeView:(id)sender {

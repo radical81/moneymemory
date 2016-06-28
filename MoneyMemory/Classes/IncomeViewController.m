@@ -8,6 +8,7 @@
 
 #import "IncomeViewController.h"
 #import "TransactionsLogicManager.h"
+#import "DesignHelper.h"
 
 @interface IncomeViewController ()
 
@@ -37,33 +38,11 @@
     _incomeAmount.text = [NSString stringWithFormat:@"%.0f",[transactionsLogicManager retrieveIncomeMonthly]];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSaveIncome)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    [self addBackgroundByScreenSize];
+    DesignHelper* designHelper = [[DesignHelper alloc]init];
+    _background.image = [designHelper addBackgroundByScreenSize];
+    [designHelper release];
 }
 
--(void)addBackgroundByScreenSize {
-    if([UIScreen mainScreen].bounds.size.height == 480) {
-        NSLog(@"iPhone 4");
-        _background.image = [UIImage imageNamed:@"background640x960.png"];
-        return;
-    }
-    if([UIScreen mainScreen].bounds.size.height == 568) {
-        NSLog(@"iPhone 5");
-        _background.image = [UIImage imageNamed:@"background640x1136.png"];
-        return;
-    }
-    if([UIScreen mainScreen].bounds.size.height == 667) {
-        NSLog(@"iPhone 6");
-        _background.image = [UIImage imageNamed:@"background750x1334.png"];
-        return;
-    }
-    if([UIScreen mainScreen].bounds.size.height == 736) {
-        NSLog(@"iPhone 6 Plus");
-        _background.image = [UIImage imageNamed:@"background1242x2208.png"];
-        return;
-    }
-    NSLog(@"iPhone");
-    _background.image = [UIImage imageNamed:@"background320x480"];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

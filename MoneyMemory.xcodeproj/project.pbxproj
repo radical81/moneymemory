@@ -50,6 +50,7 @@
 		86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5BDEA1BC41C930042148B /* budget_icon.png */; };
 		86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCD1181C7B615000FF9D1F /* icon_close.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
+		86C4A5D21D22AB56007DE487 /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C4A5D11D22AB56007DE487 /* DesignHelper.m */; };
 		86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */; };
 		86D61C5F1CF2F63400D75695 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */; };
 		86D61C631CF4254200D75695 /* ExpensesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C611CF4254200D75695 /* ExpensesTableViewCell.m */; };
@@ -144,6 +145,8 @@
 		86A5BDEA1BC41C930042148B /* budget_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = budget_icon.png; path = /Users/rexjason/Desktop/budget_icon.png; sourceTree = "<absolute>"; };
 		86BCD1181C7B615000FF9D1F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = ../../../Users/rexjason/Desktop/icon_close.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		86C4A5D01D22AB56007DE487 /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = Classes/DesignHelper.h; sourceTree = "<group>"; };
+		86C4A5D11D22AB56007DE487 /* DesignHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesignHelper.m; path = Classes/DesignHelper.m; sourceTree = "<group>"; };
 		86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = Classes/CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		86D61C5D1CF2F63400D75695 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = Classes/CategoryTableViewCell.h; sourceTree = "<group>"; };
 		86D61C5E1CF2F63400D75695 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = Classes/CategoryTableViewCell.m; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		17D8B6861801635500D90AF6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				86C4A5CF1D22AAE8007DE487 /* Util */,
 				86D61C791CF6A50C00D75695 /* Delegates */,
 				86D61C5C1CF2CE6A00D75695 /* Views */,
 				17FC2517181041A10067282D /* Logic */,
@@ -392,6 +396,15 @@
 				86A5BDEA1BC41C930042148B /* budget_icon.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		86C4A5CF1D22AAE8007DE487 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				86C4A5D01D22AB56007DE487 /* DesignHelper.h */,
+				86C4A5D11D22AB56007DE487 /* DesignHelper.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		86D61C5C1CF2CE6A00D75695 /* Views */ = {
@@ -606,6 +619,7 @@
 				86D61C6D1CF48E2800D75695 /* GraphViewController.m in Sources */,
 				17FC25201810426D0067282D /* TransactionDomainObject.m in Sources */,
 				8626C9681B1C2535002782DA /* Income.m in Sources */,
+				86C4A5D21D22AB56007DE487 /* DesignHelper.m in Sources */,
 				17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
