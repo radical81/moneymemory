@@ -10,6 +10,7 @@
 #import "AddCategoryViewController.h"
 #import "SpendMoneyViewController.h"
 #import "TransactionsLogicManager.h"
+#import "DesignHelper.h"
 
 @interface CategoryDetailViewController ()
 
@@ -21,6 +22,7 @@
 @synthesize expensesTable = _expensesTable;
 @synthesize categoryLimit = _categoryLimit;
 @synthesize totalExpenses = _totalExpenses;
+@synthesize background = _background;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +32,9 @@
     self.navigationItem.rightBarButtonItem = rightButton;
     
     _expensesTable = [[ExpensesTableViewController alloc] initWithCategory:_category];
-    
+    DesignHelper* designHelper = [[DesignHelper alloc] init];
+    _background.image = [designHelper addBackgroundByScreenSize];
+    [designHelper release];
     [self calculateAndDisplayTotalExpenses];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,6 +88,7 @@
     [_expensesTable release];
     [_totalExpenses release];
     [_categoryLimit release];
+    [_background release];
     [super dealloc];
 }
 

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryDetailViewController">
             <connections>
+                <outlet property="background" destination="fy0-Vr-Tll" id="mcW-di-T0q"/>
                 <outlet property="categoryLimit" destination="YeX-HT-Y3A" id="wkv-fr-obd"/>
                 <outlet property="totalExpenses" destination="4kI-nD-TXI" id="SH9-C6-R1b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -17,6 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fy0-Vr-Tll">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kI-nD-TXI">
                     <rect key="frame" x="31" y="240" width="258" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -31,7 +35,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7R7-cU-tW6">
                     <rect key="frame" x="119" y="280" width="127" height="30"/>
-                    <color key="backgroundColor" red="0.90588235294117647" green="0.52156862745098043" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.41960784313725491" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="39j-ZM-xxs"/>
                     </constraints>
@@ -50,13 +54,13 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bw-0U-ayo">
                     <rect key="frame" x="108" y="338" width="149" height="36"/>
-                    <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.61568627450980395" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="e91-ws-bDw"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="View Expenses">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.33333333333333331" green="0.41960784313725491" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -70,8 +74,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="fy0-Vr-Tll" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0f4-01-k4M"/>
                 <constraint firstAttribute="trailing" secondItem="8bw-0U-ayo" secondAttribute="trailing" constant="10" id="1dT-AK-SiM"/>
+                <constraint firstAttribute="bottom" secondItem="fy0-Vr-Tll" secondAttribute="bottom" id="8aY-YN-lJa"/>
                 <constraint firstAttribute="trailing" secondItem="7R7-cU-tW6" secondAttribute="trailing" constant="10" id="E5h-N6-SNY"/>
+                <constraint firstItem="fy0-Vr-Tll" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IA2-2S-aBd"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="MuF-kR-t5k"/>
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="RBe-1V-hEn"/>
                 <constraint firstItem="7R7-cU-tW6" firstAttribute="top" secondItem="4kI-nD-TXI" secondAttribute="bottom" constant="30" id="SPA-wn-HB0"/>
@@ -82,6 +89,7 @@
                 <constraint firstItem="4kI-nD-TXI" firstAttribute="top" secondItem="YeX-HT-Y3A" secondAttribute="bottom" constant="15" id="bZL-CQ-Lrf"/>
                 <constraint firstAttribute="trailing" secondItem="YeX-HT-Y3A" secondAttribute="trailing" constant="30" id="ckM-du-cK8"/>
                 <constraint firstItem="YeX-HT-Y3A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="sId-Un-GGZ"/>
+                <constraint firstAttribute="trailing" secondItem="fy0-Vr-Tll" secondAttribute="trailing" id="z8e-7t-iby"/>
             </constraints>
             <point key="canvasLocation" x="119" y="193"/>
         </view>
