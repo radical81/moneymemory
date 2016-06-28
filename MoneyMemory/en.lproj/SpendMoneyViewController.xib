@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpendMoneyViewController">
             <connections>
                 <outlet property="amountTextField" destination="9yJ-xg-Xl9" id="fD6-eH-jE1"/>
+                <outlet property="background" destination="mwr-lS-Luq" id="ewv-kB-P6C"/>
                 <outlet property="testImage" destination="Epy-sE-chN" id="Ckw-fB-yAf"/>
                 <outlet property="transactionComment" destination="8SY-t3-TUW" id="DGq-zn-qNO"/>
                 <outlet property="transactionDateText" destination="GHV-5y-vjq" id="jWM-Ta-Mpd"/>
@@ -20,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwr-lS-Luq">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obj-WD-Rjj">
                     <rect key="frame" x="0.0" y="0.0" width="640" height="960"/>
                     <state key="normal">
@@ -117,11 +121,14 @@
                 <constraint firstAttribute="trailing" secondItem="GHV-5y-vjq" secondAttribute="trailing" constant="10" id="2VK-ma-gZk"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="top" secondItem="1" secondAttribute="top" constant="77" id="4rf-4u-bft"/>
                 <constraint firstItem="8SY-t3-TUW" firstAttribute="top" secondItem="GHV-5y-vjq" secondAttribute="bottom" constant="10" id="9ds-AB-YEi"/>
+                <constraint firstItem="mwr-lS-Luq" firstAttribute="top" secondItem="1" secondAttribute="top" id="BER-YS-Xch"/>
                 <constraint firstAttribute="trailing" secondItem="8SY-t3-TUW" secondAttribute="trailing" constant="10" id="FBF-Ru-lqy"/>
+                <constraint firstAttribute="bottom" secondItem="mwr-lS-Luq" secondAttribute="bottom" id="GcK-Fb-4MW"/>
                 <constraint firstItem="GHV-5y-vjq" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="La5-hZ-dfm"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="leading" secondItem="Jda-ci-LCd" secondAttribute="trailing" constant="-10" id="MuE-OI-nmd"/>
                 <constraint firstItem="QED-Fg-CKS" firstAttribute="top" secondItem="8SY-t3-TUW" secondAttribute="bottom" constant="10" id="Mwk-aQ-4Xg"/>
                 <constraint firstAttribute="trailing" secondItem="9yJ-xg-Xl9" secondAttribute="trailing" constant="10" id="URt-T8-ve3"/>
+                <constraint firstAttribute="trailing" secondItem="mwr-lS-Luq" secondAttribute="trailing" id="Udh-hb-s0l"/>
                 <constraint firstAttribute="trailing" secondItem="QED-Fg-CKS" secondAttribute="trailing" constant="10" id="WO5-ny-EdI"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="QED-Fg-CKS" secondAttribute="bottom" constant="25" id="eri-30-339"/>
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="gFM-Oo-8vw"/>
@@ -130,6 +137,7 @@
                 <constraint firstItem="QED-Fg-CKS" firstAttribute="leading" secondItem="yWf-jA-n6X" secondAttribute="trailing" constant="10" id="rfz-ne-E4K"/>
                 <constraint firstItem="GHV-5y-vjq" firstAttribute="top" secondItem="9yJ-xg-Xl9" secondAttribute="bottom" constant="10" id="uNk-ks-ZtI"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="vn9-sm-XfM"/>
+                <constraint firstItem="mwr-lS-Luq" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="xRk-Cm-QI3"/>
                 <constraint firstItem="8SY-t3-TUW" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="xkg-jU-AXg"/>
             </constraints>
         </view>

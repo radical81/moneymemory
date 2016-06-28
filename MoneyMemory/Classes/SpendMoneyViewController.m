@@ -10,6 +10,7 @@
 #import "TransactionsLogicManager.h"
 #import "AssetsLibrary/AssetsLibrary.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "DesignHelper.h"
 
 @interface SpendMoneyViewController ()
 
@@ -37,7 +38,7 @@
 @synthesize newMedia = _newMedia;
 @synthesize imageFilename;
 @synthesize trashbutton = _trashbutton;
-
+@synthesize background = _background;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -102,6 +103,9 @@
         [self showTransactionDetails];
     }
     [self datePickerSetup];
+    DesignHelper* designHelper = [[DesignHelper alloc]init];
+    _background.image = [designHelper addBackgroundByScreenSize];
+    [designHelper release];
     _transactionComment.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _transactionComment.delegate = self;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didButtonPressSaveTransaction)];
@@ -170,6 +174,7 @@
     [_transactionDateText release];
     [_trashbutton release];
     [_transactionComment release];
+    [_background release];
     [super dealloc];
 }
 
