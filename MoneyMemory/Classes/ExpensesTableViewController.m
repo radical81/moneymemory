@@ -224,7 +224,7 @@ TransactionsLogicManager* logicManager;
             theImage = [UIImage imageWithContentsOfFile: pathToImage];
         }
     }
-    cell.photoView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.photoView.contentMode = UIViewContentModeScaleAspectFill;
     [cell.photoView setImage:theImage];
     
     return cell;
