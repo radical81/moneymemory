@@ -33,7 +33,7 @@
     
     _expensesTable = [[ExpensesTableViewController alloc] initWithCategory:_category];
     DesignHelper* designHelper = [[DesignHelper alloc] init];
-    _background.image = [designHelper addBackgroundByScreenSize];
+    _background.image = [designHelper addBackgroundByScreenSize:@"background"];
     [designHelper release];
     [self calculateAndDisplayTotalExpenses];
 }

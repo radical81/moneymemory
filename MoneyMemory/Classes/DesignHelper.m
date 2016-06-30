@@ -10,26 +10,26 @@
 
 @implementation DesignHelper
 
--(UIImage*)addBackgroundByScreenSize {
+-(UIImage*)addBackgroundByScreenSize:(NSString*)imageName {
     if([UIScreen mainScreen].bounds.size.height == 480) {
         NSLog(@"iPhone 4");
-        return [UIImage imageNamed:@"background640x960.png"];
+        return [UIImage imageNamed:[NSString stringWithFormat: @"%@640x960.png", imageName]];
     }
     if([UIScreen mainScreen].bounds.size.height == 568) {
         NSLog(@"iPhone 5");
-        return [UIImage imageNamed:@"background640x1136.png"];
+        return [UIImage imageNamed: [NSString stringWithFormat: @"%@640x1136.png", imageName]];
         
     }
     if([UIScreen mainScreen].bounds.size.height == 667) {
         NSLog(@"iPhone 6");
-        return [UIImage imageNamed:@"background750x1334.png"];
+        return [UIImage imageNamed: [NSString stringWithFormat: @"%@750x1334.png", imageName]];
     }
     if([UIScreen mainScreen].bounds.size.height == 736) {
         NSLog(@"iPhone 6 Plus");
-        return [UIImage imageNamed:@"background1242x2208.png"];
+        return [UIImage imageNamed: [NSString stringWithFormat: @"%@1242x2208.png", imageName]];
     }
     NSLog(@"iPhone");
-    return [UIImage imageNamed:@"background320x480"];
+    return [UIImage imageNamed: [NSString stringWithFormat: @"%@320x480", imageName]];
 }
 
 

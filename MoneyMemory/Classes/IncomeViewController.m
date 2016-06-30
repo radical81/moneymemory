@@ -39,7 +39,7 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSaveIncome)];
     self.navigationItem.rightBarButtonItem = rightButton;
     DesignHelper* designHelper = [[DesignHelper alloc]init];
-    _background.image = [designHelper addBackgroundByScreenSize];
+    _background.image = [designHelper addBackgroundByScreenSize:@"background"];
     [designHelper release];
 }
 

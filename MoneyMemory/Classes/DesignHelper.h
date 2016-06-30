@@ -10,6 +10,6 @@
 
 @interface DesignHelper : NSObject
 
--(UIImage*)addBackgroundByScreenSize;
+-(UIImage*)addBackgroundByScreenSize:(NSString*)imageName;
 
 @end

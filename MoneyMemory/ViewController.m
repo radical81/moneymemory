@@ -58,7 +58,7 @@
     _graphView = [[GraphViewController alloc]init];
     [self resetButtonSizes];
     DesignHelper* designHelper = [[DesignHelper alloc]init];
-    _backgroundImage.image = [designHelper addBackgroundByScreenSize];
+    _backgroundImage.image = [designHelper addBackgroundByScreenSize:@"backgroundLogo"];
     [designHelper release];
     [super viewDidLoad];
 }

@@ -104,7 +104,7 @@
     }
     [self datePickerSetup];
     DesignHelper* designHelper = [[DesignHelper alloc]init];
-    _background.image = [designHelper addBackgroundByScreenSize];
+    _background.image = [designHelper addBackgroundByScreenSize:@"background"];
     [designHelper release];
     _transactionComment.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _transactionComment.delegate = self;
