@@ -41,14 +41,26 @@
 		86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */; };
 		8614CCFE1BBD82B900B4C996 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */; };
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
+		862D6C101D25357E00823284 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6BFE1D25357E00823284 /* appTitle.png */; };
+		862D6C111D25357E00823284 /* appTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6BFF1D25357E00823284 /* appTitle@2x.png */; };
+		862D6C121D25357E00823284 /* background320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C001D25357E00823284 /* background320x480.png */; };
+		862D6C131D25357E00823284 /* background640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C011D25357E00823284 /* background640x960.png */; };
+		862D6C141D25357E00823284 /* background640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C021D25357E00823284 /* background640x1136.png */; };
+		862D6C151D25357E00823284 /* background750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C031D25357E00823284 /* background750x1334.png */; };
+		862D6C161D25357E00823284 /* background1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C041D25357E00823284 /* background1242x2208.png */; };
+		862D6C171D25357E00823284 /* backgroundLogo320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C051D25357E00823284 /* backgroundLogo320x480.png */; };
+		862D6C181D25357E00823284 /* backgroundLogo640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C061D25357E00823284 /* backgroundLogo640x960.png */; };
+		862D6C191D25357E00823284 /* backgroundLogo640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C071D25357E00823284 /* backgroundLogo640x1136.png */; };
+		862D6C1A1D25357E00823284 /* backgroundLogo750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C081D25357E00823284 /* backgroundLogo750x1334.png */; };
+		862D6C1B1D25357E00823284 /* backgroundLogo1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C091D25357E00823284 /* backgroundLogo1242x2208.png */; };
+		862D6C1C1D25357E00823284 /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0A1D25357E00823284 /* budget_icon.png */; };
+		862D6C1D1D25357E00823284 /* buttonExpenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0B1D25357E00823284 /* buttonExpenses.png */; };
+		862D6C1E1D25357E00823284 /* buttonIncome.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0C1D25357E00823284 /* buttonIncome.png */; };
+		862D6C1F1D25357E00823284 /* buttonSpend.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0D1D25357E00823284 /* buttonSpend.png */; };
+		862D6C201D25357E00823284 /* buttonStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0E1D25357E00823284 /* buttonStats.png */; };
+		862D6C211D25357E00823284 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0F1D25357E00823284 /* icon_close.png */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
-		869D92BA1D103A95001B1548 /* buttonExpenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B61D103A95001B1548 /* buttonExpenses.png */; };
-		869D92BB1D103A95001B1548 /* buttonIncome.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B71D103A95001B1548 /* buttonIncome.png */; };
-		869D92BC1D103A95001B1548 /* buttonSpend.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B81D103A95001B1548 /* buttonSpend.png */; };
-		869D92BD1D103A95001B1548 /* buttonStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D92B91D103A95001B1548 /* buttonStats.png */; };
-		86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5BDEA1BC41C930042148B /* budget_icon.png */; };
-		86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCD1181C7B615000FF9D1F /* icon_close.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
 		86C4A5D21D22AB56007DE487 /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C4A5D11D22AB56007DE487 /* DesignHelper.m */; };
 		86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */; };
@@ -60,13 +72,6 @@
 		86D61C771CF66BB000D75695 /* StatsMonthYearTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */; };
 		86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */; };
 		86D61C7C1CF7374200D75695 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7B1CF7374100D75695 /* Media.xcassets */; };
-		86D61C821CF740C700D75695 /* background320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7D1CF740C700D75695 /* background320x480.png */; };
-		86D61C831CF740C700D75695 /* background640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7E1CF740C700D75695 /* background640x960.png */; };
-		86D61C841CF740C700D75695 /* background640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7F1CF740C700D75695 /* background640x1136.png */; };
-		86D61C851CF740C700D75695 /* background750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C801CF740C700D75695 /* background750x1334.png */; };
-		86D61C861CF740C700D75695 /* background1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C811CF740C700D75695 /* background1242x2208.png */; };
-		86D61C891CF7CD5800D75695 /* appTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C871CF7CD5800D75695 /* appTitle@2x.png */; };
-		86D61C8A1CF7CD5800D75695 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C881CF7CD5800D75695 /* appTitle.png */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
@@ -135,15 +140,27 @@
 		8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8626C9661B1C2535002782DA /* Income.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = SOURCE_ROOT; };
 		8626C9671B1C2535002782DA /* Income.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Income.m; sourceTree = SOURCE_ROOT; };
+		862D6BFE1D25357E00823284 /* appTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appTitle.png; path = Images/appTitle.png; sourceTree = "<group>"; };
+		862D6BFF1D25357E00823284 /* appTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appTitle@2x.png"; path = "Images/appTitle@2x.png"; sourceTree = "<group>"; };
+		862D6C001D25357E00823284 /* background320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background320x480.png; path = Images/background320x480.png; sourceTree = "<group>"; };
+		862D6C011D25357E00823284 /* background640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background640x960.png; path = Images/background640x960.png; sourceTree = "<group>"; };
+		862D6C021D25357E00823284 /* background640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background640x1136.png; path = Images/background640x1136.png; sourceTree = "<group>"; };
+		862D6C031D25357E00823284 /* background750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background750x1334.png; path = Images/background750x1334.png; sourceTree = "<group>"; };
+		862D6C041D25357E00823284 /* background1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background1242x2208.png; path = Images/background1242x2208.png; sourceTree = "<group>"; };
+		862D6C051D25357E00823284 /* backgroundLogo320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundLogo320x480.png; path = Images/backgroundLogo320x480.png; sourceTree = "<group>"; };
+		862D6C061D25357E00823284 /* backgroundLogo640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundLogo640x960.png; path = Images/backgroundLogo640x960.png; sourceTree = "<group>"; };
+		862D6C071D25357E00823284 /* backgroundLogo640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundLogo640x1136.png; path = Images/backgroundLogo640x1136.png; sourceTree = "<group>"; };
+		862D6C081D25357E00823284 /* backgroundLogo750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundLogo750x1334.png; path = Images/backgroundLogo750x1334.png; sourceTree = "<group>"; };
+		862D6C091D25357E00823284 /* backgroundLogo1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundLogo1242x2208.png; path = Images/backgroundLogo1242x2208.png; sourceTree = "<group>"; };
+		862D6C0A1D25357E00823284 /* budget_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = budget_icon.png; path = Images/budget_icon.png; sourceTree = "<group>"; };
+		862D6C0B1D25357E00823284 /* buttonExpenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonExpenses.png; path = Images/buttonExpenses.png; sourceTree = "<group>"; };
+		862D6C0C1D25357E00823284 /* buttonIncome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonIncome.png; path = Images/buttonIncome.png; sourceTree = "<group>"; };
+		862D6C0D1D25357E00823284 /* buttonSpend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonSpend.png; path = Images/buttonSpend.png; sourceTree = "<group>"; };
+		862D6C0E1D25357E00823284 /* buttonStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonStats.png; path = Images/buttonStats.png; sourceTree = "<group>"; };
+		862D6C0F1D25357E00823284 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = Images/icon_close.png; sourceTree = "<group>"; };
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
-		869D92B61D103A95001B1548 /* buttonExpenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonExpenses.png; path = ../../../Users/rexjason/Downloads/appimages/buttonExpenses.png; sourceTree = "<group>"; };
-		869D92B71D103A95001B1548 /* buttonIncome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonIncome.png; path = ../../../Users/rexjason/Downloads/appimages/buttonIncome.png; sourceTree = "<group>"; };
-		869D92B81D103A95001B1548 /* buttonSpend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonSpend.png; path = ../../../Users/rexjason/Downloads/appimages/buttonSpend.png; sourceTree = "<group>"; };
-		869D92B91D103A95001B1548 /* buttonStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonStats.png; path = ../../../Users/rexjason/Downloads/appimages/buttonStats.png; sourceTree = "<group>"; };
-		86A5BDEA1BC41C930042148B /* budget_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = budget_icon.png; path = /Users/rexjason/Desktop/budget_icon.png; sourceTree = "<absolute>"; };
-		86BCD1181C7B615000FF9D1F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = ../../../Users/rexjason/Desktop/icon_close.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		86C4A5D01D22AB56007DE487 /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = Classes/DesignHelper.h; sourceTree = "<group>"; };
 		86C4A5D11D22AB56007DE487 /* DesignHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesignHelper.m; path = Classes/DesignHelper.m; sourceTree = "<group>"; };
@@ -161,13 +178,6 @@
 		86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsMonthYearTableViewController.xib; path = Classes/StatsMonthYearTableViewController.xib; sourceTree = "<group>"; };
 		86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsMonthYearDelegate.h; path = Classes/StatsMonthYearDelegate.h; sourceTree = "<group>"; };
 		86D61C7B1CF7374100D75695 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		86D61C7D1CF740C700D75695 /* background320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background320x480.png; path = ../../../Users/rexjason/Downloads/appimages/background320x480.png; sourceTree = "<group>"; };
-		86D61C7E1CF740C700D75695 /* background640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background640x960.png; path = ../../../Users/rexjason/Downloads/appimages/background640x960.png; sourceTree = "<group>"; };
-		86D61C7F1CF740C700D75695 /* background640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background640x1136.png; path = ../../../Users/rexjason/Downloads/appimages/background640x1136.png; sourceTree = "<group>"; };
-		86D61C801CF740C700D75695 /* background750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background750x1334.png; path = ../../../Users/rexjason/Downloads/appimages/background750x1334.png; sourceTree = "<group>"; };
-		86D61C811CF740C700D75695 /* background1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background1242x2208.png; path = ../../../Users/rexjason/Downloads/appimages/background1242x2208.png; sourceTree = "<group>"; };
-		86D61C871CF7CD5800D75695 /* appTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appTitle@2x.png"; path = "../../../Users/rexjason/Downloads/appimages/appTitle@2x.png"; sourceTree = "<group>"; };
-		86D61C881CF7CD5800D75695 /* appTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appTitle.png; path = ../../../Users/rexjason/Downloads/appimages/appTitle.png; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -381,19 +391,24 @@
 		86A5BDEC1BC41C9F0042148B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				869D92B61D103A95001B1548 /* buttonExpenses.png */,
-				869D92B71D103A95001B1548 /* buttonIncome.png */,
-				869D92B81D103A95001B1548 /* buttonSpend.png */,
-				869D92B91D103A95001B1548 /* buttonStats.png */,
-				86D61C871CF7CD5800D75695 /* appTitle@2x.png */,
-				86D61C881CF7CD5800D75695 /* appTitle.png */,
-				86D61C7D1CF740C700D75695 /* background320x480.png */,
-				86D61C7E1CF740C700D75695 /* background640x960.png */,
-				86D61C7F1CF740C700D75695 /* background640x1136.png */,
-				86D61C801CF740C700D75695 /* background750x1334.png */,
-				86D61C811CF740C700D75695 /* background1242x2208.png */,
-				86BCD1181C7B615000FF9D1F /* icon_close.png */,
-				86A5BDEA1BC41C930042148B /* budget_icon.png */,
+				862D6BFE1D25357E00823284 /* appTitle.png */,
+				862D6BFF1D25357E00823284 /* appTitle@2x.png */,
+				862D6C001D25357E00823284 /* background320x480.png */,
+				862D6C011D25357E00823284 /* background640x960.png */,
+				862D6C021D25357E00823284 /* background640x1136.png */,
+				862D6C031D25357E00823284 /* background750x1334.png */,
+				862D6C041D25357E00823284 /* background1242x2208.png */,
+				862D6C051D25357E00823284 /* backgroundLogo320x480.png */,
+				862D6C061D25357E00823284 /* backgroundLogo640x960.png */,
+				862D6C071D25357E00823284 /* backgroundLogo640x1136.png */,
+				862D6C081D25357E00823284 /* backgroundLogo750x1334.png */,
+				862D6C091D25357E00823284 /* backgroundLogo1242x2208.png */,
+				862D6C0A1D25357E00823284 /* budget_icon.png */,
+				862D6C0B1D25357E00823284 /* buttonExpenses.png */,
+				862D6C0C1D25357E00823284 /* buttonIncome.png */,
+				862D6C0D1D25357E00823284 /* buttonSpend.png */,
+				862D6C0E1D25357E00823284 /* buttonStats.png */,
+				862D6C0F1D25357E00823284 /* icon_close.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -505,33 +520,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862D6C1B1D25357E00823284 /* backgroundLogo1242x2208.png in Resources */,
 				86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */,
-				86D61C831CF740C700D75695 /* background640x960.png in Resources */,
-				86A5BDEB1BC41C930042148B /* budget_icon.png in Resources */,
-				86D61C841CF740C700D75695 /* background640x1136.png in Resources */,
-				869D92BD1D103A95001B1548 /* buttonStats.png in Resources */,
-				86D61C851CF740C700D75695 /* background750x1334.png in Resources */,
+				862D6C1C1D25357E00823284 /* budget_icon.png in Resources */,
+				862D6C131D25357E00823284 /* background640x960.png in Resources */,
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
-				86D61C861CF740C700D75695 /* background1242x2208.png in Resources */,
-				86D61C891CF7CD5800D75695 /* appTitle@2x.png in Resources */,
-				869D92BC1D103A95001B1548 /* buttonSpend.png in Resources */,
+				862D6C191D25357E00823284 /* backgroundLogo640x1136.png in Resources */,
+				862D6C141D25357E00823284 /* background640x1136.png in Resources */,
+				862D6C1E1D25357E00823284 /* buttonIncome.png in Resources */,
+				862D6C181D25357E00823284 /* backgroundLogo640x960.png in Resources */,
+				862D6C1A1D25357E00823284 /* backgroundLogo750x1334.png in Resources */,
+				862D6C151D25357E00823284 /* background750x1334.png in Resources */,
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
-				86D61C821CF740C700D75695 /* background320x480.png in Resources */,
+				862D6C161D25357E00823284 /* background1242x2208.png in Resources */,
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
+				862D6C121D25357E00823284 /* background320x480.png in Resources */,
+				862D6C101D25357E00823284 /* appTitle.png in Resources */,
 				17ED422B17E756E700C7080A /* Default.png in Resources */,
 				86D61C7C1CF7374200D75695 /* Media.xcassets in Resources */,
 				17ED422D17E756E700C7080A /* Default@2x.png in Resources */,
 				86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */,
+				862D6C201D25357E00823284 /* buttonStats.png in Resources */,
+				862D6C171D25357E00823284 /* backgroundLogo320x480.png in Resources */,
 				86D61C641CF4254200D75695 /* ExpensesTableViewCell.xib in Resources */,
-				869D92BA1D103A95001B1548 /* buttonExpenses.png in Resources */,
 				17ED422F17E756E700C7080A /* Default-568h@2x.png in Resources */,
-				86BCD1191C7B615000FF9D1F /* icon_close.png in Resources */,
 				17139F01192C80D30051794A /* AddCategoryViewController.xib in Resources */,
+				862D6C211D25357E00823284 /* icon_close.png in Resources */,
+				862D6C1F1D25357E00823284 /* buttonSpend.png in Resources */,
 				179EEF6718AA7FBE0070B834 /* TransactionCategoriesViewController.xib in Resources */,
-				86D61C8A1CF7CD5800D75695 /* appTitle.png in Resources */,
+				862D6C1D1D25357E00823284 /* buttonExpenses.png in Resources */,
 				178475BD1868960C00F5ED1F /* SpendMoneyViewController.xib in Resources */,
 				86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */,
-				869D92BB1D103A95001B1548 /* buttonIncome.png in Resources */,
+				862D6C111D25357E00823284 /* appTitle@2x.png in Resources */,
 				86D61C6E1CF48E2800D75695 /* GraphViewController.xib in Resources */,
 				17ED423517E756E700C7080A /* ViewController.xib in Resources */,
 			);
