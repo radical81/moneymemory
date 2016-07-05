@@ -502,7 +502,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         _testImage.hidden = NO;
         _testImage.image = image;
         [_testImage setContentMode:UIViewContentModeScaleAspectFit];
-        _testImage.layer.zPosition = -1;
         [self imageViewTapEventSetup];
         _trashbutton.hidden = NO;
         
