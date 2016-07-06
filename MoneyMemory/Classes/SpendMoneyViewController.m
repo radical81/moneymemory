@@ -39,6 +39,8 @@
 @synthesize imageFilename;
 @synthesize trashbutton = _trashbutton;
 @synthesize background = _background;
+@synthesize btnTakePictureWidth = _btnTakePictureWidth;
+@synthesize btnPhotoLibraryWidth = _btnPhotoLibraryWidth;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -110,6 +112,13 @@
     _transactionComment.delegate = self;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didButtonPressSaveTransaction)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    [self adjustPhotoButtonsWidth];
+}
+
+-(void)adjustPhotoButtonsWidth {
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    _btnTakePictureWidth.constant = screenWidth * 0.45;
+    _btnPhotoLibraryWidth.constant = screenWidth * 0.45;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -175,6 +184,8 @@
     [_trashbutton release];
     [_transactionComment release];
     [_background release];
+    [_btnTakePictureWidth release];
+    [_btnPhotoLibraryWidth release];
     [super dealloc];
 }
 

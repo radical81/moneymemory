@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="amountTextField" destination="9yJ-xg-Xl9" id="fD6-eH-jE1"/>
                 <outlet property="background" destination="mwr-lS-Luq" id="ewv-kB-P6C"/>
+                <outlet property="btnPhotoLibraryWidth" destination="3Vr-LQ-1cB" id="vGc-qT-bOP"/>
+                <outlet property="btnTakePictureWidth" destination="rD2-nW-puA" id="rJB-vh-3C6"/>
                 <outlet property="testImage" destination="Epy-sE-chN" id="Ckw-fB-yAf"/>
                 <outlet property="transactionComment" destination="8SY-t3-TUW" id="DGq-zn-qNO"/>
                 <outlet property="transactionDateText" destination="GHV-5y-vjq" id="jWM-Ta-Mpd"/>
@@ -70,10 +72,11 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-jA-n6X">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-jA-n6X">
                     <rect key="frame" x="40" y="278" width="97" height="30"/>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="97" id="rD2-nW-puA"/>
                         <constraint firstAttribute="height" constant="30" id="uGF-kg-kvm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -89,10 +92,11 @@
                         <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="YIb-iC-Gdx"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QED-Fg-CKS">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QED-Fg-CKS">
                     <rect key="frame" x="176" y="276" width="136" height="33"/>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="136" id="3Vr-LQ-1cB"/>
                         <constraint firstAttribute="height" constant="30" id="fwI-zp-vte"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -144,7 +148,6 @@
                 <constraint firstItem="9yJ-xg-Xl9" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="gFM-Oo-8vw"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="top" secondItem="Jda-ci-LCd" secondAttribute="bottom" constant="-20" id="n87-A9-VHe"/>
                 <constraint firstItem="yWf-jA-n6X" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="pq1-Kf-O3h"/>
-                <constraint firstItem="QED-Fg-CKS" firstAttribute="leading" secondItem="yWf-jA-n6X" secondAttribute="trailing" constant="10" id="rfz-ne-E4K"/>
                 <constraint firstItem="GHV-5y-vjq" firstAttribute="top" secondItem="9yJ-xg-Xl9" secondAttribute="bottom" constant="10" id="uNk-ks-ZtI"/>
                 <constraint firstItem="Epy-sE-chN" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="vn9-sm-XfM"/>
                 <constraint firstItem="mwr-lS-Luq" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="xRk-Cm-QI3"/>
