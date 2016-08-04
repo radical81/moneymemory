@@ -44,6 +44,16 @@
 @synthesize statsWidth = _statsWidth;
 @synthesize statsHeight = _statsHeight;
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad {
 
 	// Do any additional setup after loading the view, typically from a nib.
@@ -67,11 +77,11 @@
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height + 20;
-    _incomeTop.constant = navBarHeight + screenHeight * 0.07;
+    _incomeTop.constant = navBarHeight + screenHeight * 0.15;
     _incomeLeading.constant = screenWidth * 0.07;
     _incomeWidth.constant = screenWidth * 0.4;
     _incomeHeight.constant = screenWidth * 0.4;
-    _expensesTop.constant = navBarHeight + screenHeight * 0.07;
+    _expensesTop.constant = navBarHeight + screenHeight * 0.15;
     _expensesTrailing.constant = screenWidth * 0.07;
     _expensesWidth.constant = screenWidth * 0.4;
     _expensesHeight.constant = screenWidth * 0.4;
