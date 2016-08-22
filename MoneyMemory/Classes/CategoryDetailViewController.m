@@ -100,6 +100,7 @@
 }
 
 - (IBAction)didPressViewExpenses:(id)sender {
+    NSLog(@"View Expenses in Category...");
     [self.navigationController pushViewController:_expensesTable animated:YES];
 }
 

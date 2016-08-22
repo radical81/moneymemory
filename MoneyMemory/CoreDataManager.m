@@ -59,6 +59,9 @@
     NSEntityDescription* transactionEntity = [NSEntityDescription entityForName:@"Transaction" inManagedObjectContext:moc];
     [request setEntity:transactionEntity];
     [request setPredicate:[NSPredicate predicateWithFormat:@"is_a.id = %@", [NSNumber numberWithInt:categoryId]]];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [request setSortDescriptors:sortDescriptors];
     NSArray* resultTransaction = [moc executeFetchRequest:request error:nil];
     [request release];
     return resultTransaction;
