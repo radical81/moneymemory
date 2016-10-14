@@ -61,6 +61,7 @@
 		862D6C211D25357E00823284 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0F1D25357E00823284 /* icon_close.png */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
+		86BD3B121DA3CED300C4527C /* appLogoWhiteBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
 		86C4A5D21D22AB56007DE487 /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C4A5D11D22AB56007DE487 /* DesignHelper.m */; };
 		86D61C5B1CF2CD5A00D75695 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C5A1CF2CD5A00D75695 /* CategoryTableViewCell.xib */; };
@@ -161,6 +162,7 @@
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
+		86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appLogoWhiteBG.png; path = Images/appLogoWhiteBG.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		86C4A5D01D22AB56007DE487 /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = Classes/DesignHelper.h; sourceTree = "<group>"; };
 		86C4A5D11D22AB56007DE487 /* DesignHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesignHelper.m; path = Classes/DesignHelper.m; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 		86A5BDEC1BC41C9F0042148B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */,
 				862D6BFE1D25357E00823284 /* appTitle.png */,
 				862D6BFF1D25357E00823284 /* appTitle@2x.png */,
 				862D6C001D25357E00823284 /* background320x480.png */,
@@ -522,6 +525,7 @@
 			files = (
 				862D6C1B1D25357E00823284 /* backgroundLogo1242x2208.png in Resources */,
 				86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */,
+				86BD3B121DA3CED300C4527C /* appLogoWhiteBG.png in Resources */,
 				862D6C1C1D25357E00823284 /* budget_icon.png in Resources */,
 				862D6C131D25357E00823284 /* background640x960.png in Resources */,
 				17ED422317E756E700C7080A /* InfoPlist.strings in Resources */,
