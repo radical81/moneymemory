@@ -20,6 +20,7 @@
 @synthesize monthTotal = _monthTotal;
 @synthesize categoryPercent = _categoryPercent;
 @synthesize clickedLabel = _clickedLabel;
+@synthesize tipLabel = _tipLabel;
 @synthesize monthYearTable = _monthYearTable;
 @synthesize currentDate = _currentDate;
 
@@ -63,6 +64,7 @@
     double remaining = monthlyIncome - [totalThisMonth doubleValue];
     _categoryPercent.text = [NSString stringWithFormat:@"Savings: $ %@", [formatter stringFromNumber:[NSNumber numberWithDouble:remaining]]];
     _clickedLabel.text = @"";
+    _tipLabel.text = @"Tap on the pie slices to show details.";
     
     //For Pie Chart
     NSArray* expensesData = [logicManager retrieveTotalsForEachCategory:_currentDate];
@@ -84,7 +86,7 @@
     
     PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:[items copy]];
     pieChart.descriptionTextColor = [UIColor whiteColor];
-    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Gill Sans" size:12.0];
+    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:16.0];
     pieChart.showOnlyValues = YES;
     pieChart.delegate = self;
     [pieChart strokeChart];
@@ -138,6 +140,7 @@
     [_clickedLabel release];
     [_monthYearTable release];
     [_currentDate release];
+    [_tipLabel release];
     [super dealloc];
 }
 

@@ -16,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *monthTotal;
 @property (retain, nonatomic) IBOutlet UILabel *categoryPercent;
 @property (retain, nonatomic) IBOutlet UILabel *clickedLabel;
+@property (retain, nonatomic) IBOutlet UILabel *tipLabel;
 @property (retain, nonatomic) StatsMonthYearTableViewController* monthYearTable;
 
 @end
