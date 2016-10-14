@@ -213,7 +213,7 @@ TransactionsLogicManager* logicManager;
     cell.amountLabel.text = transactionAmount;
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%@", transaction.comment];
     
-    UIImage *theImage = [UIImage imageNamed:@"budget_icon.png"];
+    UIImage *theImage = [UIImage imageNamed:@"appNoPhoto.png"];
     if(transaction.imagepath != NULL) {
         NSLog(@"Found image: %@", transaction.imagepath);
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
