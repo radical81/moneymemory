@@ -136,7 +136,7 @@ BOOL isAddCategory;
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             //Do some thing here
+                             //Do nothing
                              
                          }];
     [alert addAction:ok];
@@ -150,14 +150,6 @@ BOOL isAddCategory;
                               object:nil
                                queue:nil
                           usingBlock:^(NSNotification* notification){
-                              // Explore notification
-                              //                              NSLog(@"Notification found with:"
-                              //                                    "\r\n     name:     %@"
-                              //                                    "\r\n     object:   %@"
-                              //                                    "\r\n     userInfo: %@",
-                              //                                    [notification name],
-                              //                                    [notification object],
-                              //                                    [notification userInfo]);
                               if([[notification name] isEqualToString:@"NSManagingContextDidSaveChangesNotification"]) {
                                   categorySave = YES;
                               }
@@ -207,7 +199,7 @@ BOOL isAddCategory;
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             //Do some thing here
+                             //Do nothing
                              
                          }];
     [alert addAction:ok];

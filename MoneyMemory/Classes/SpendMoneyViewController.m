@@ -464,8 +464,7 @@
                          actionWithTitle:@"OK"
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
-                         {
-                             //Do some thing here
+                         {                             
                              [self.navigationController popViewControllerAnimated:YES];
                              
                          }];
