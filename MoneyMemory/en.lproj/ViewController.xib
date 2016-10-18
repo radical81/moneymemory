@@ -9,21 +9,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
                 <outlet property="backgroundImage" destination="W68-sm-Me5" id="LF7-n3-PTq"/>
-                <outlet property="expensesHeight" destination="aFk-7U-yDg" id="IxG-6q-ZF8"/>
-                <outlet property="expensesTop" destination="GRf-hY-mBy" id="sfk-dr-v1o"/>
-                <outlet property="expensesTrailing" destination="jOU-IQ-m3c" id="b5f-UC-eCs"/>
-                <outlet property="expensesWidth" destination="EkA-i4-Ej5" id="ZWP-9e-sp3"/>
+                <outlet property="historyHeight" destination="f1D-ks-MsJ" id="JgY-bV-Ueq"/>
+                <outlet property="historyLeading" destination="SIc-dG-hOd" id="tlm-fS-caF"/>
+                <outlet property="historyTop" destination="bS2-yi-jma" id="AFg-RK-q68"/>
+                <outlet property="historyWidth" destination="hNK-o1-Xxa" id="juh-nc-PV7"/>
                 <outlet property="incomeHeight" destination="l6Z-G5-B0o" id="Ipg-Qw-fde"/>
                 <outlet property="incomeLeading" destination="0yX-Ek-OWi" id="wa0-Dm-jX3"/>
                 <outlet property="incomeTop" destination="xTP-3f-gco" id="ejo-rK-Som"/>
                 <outlet property="incomeWidth" destination="GfV-kG-L6L" id="EIm-Om-nkc"/>
                 <outlet property="spendHeight" destination="n65-4N-C1t" id="AO9-gW-kz7"/>
-                <outlet property="spendLeading" destination="f7k-i2-R2L" id="X6s-El-pg8"/>
-                <outlet property="spendTop" destination="u4o-0N-o2q" id="rvn-d5-CHc"/>
+                <outlet property="spendTop" destination="MoO-ML-14a" id="97G-k9-xD5"/>
+                <outlet property="spendTrailing" destination="T8r-G7-f01" id="1QF-1u-II1"/>
                 <outlet property="spendWidth" destination="V12-rm-ssC" id="nW8-O4-1wE"/>
                 <outlet property="statsHeight" destination="Q5w-89-hxX" id="VFI-Z9-p7u"/>
-                <outlet property="statsTop" destination="zZ1-IJ-Teu" id="7LS-pS-vDs"/>
-                <outlet property="statsTrailing" destination="xmu-7R-H4A" id="Fn8-uq-gVg"/>
+                <outlet property="statsTop" destination="54G-Cd-733" id="z8d-ju-bdy"/>
+                <outlet property="statsTrailing" destination="hhf-Ae-55z" id="Rz3-sq-3cM"/>
                 <outlet property="statsWidth" destination="MWz-VM-Xfh" id="8KG-aM-ICN"/>
                 <outlet property="view" destination="6" id="ua2-7Y-P7B"/>
             </connections>
@@ -60,24 +60,11 @@
                         <action selector="loadGraphView:" destination="-1" eventType="touchUpInside" id="ssm-Ep-tng"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-1U-X8m">
-                    <frame key="frameInset" minX="164" minY="17" width="128" height="124"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="EkA-i4-Ej5"/>
-                        <constraint firstAttribute="height" constant="100" id="aFk-7U-yDg"/>
-                    </constraints>
-                    <state key="normal" image="buttonHistory.png">
-                        <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="loadExpenses:" destination="-1" eventType="touchUpInside" id="XSi-C5-5H1"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFG-f2-B1C">
-                    <frame key="frameInset" minX="15" minY="149" width="137" height="134"/>
+                    <frame key="frameInset" minX="167" minY="8" width="137" height="134"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="V12-rm-ssC"/>
-                        <constraint firstAttribute="height" constant="80" id="n65-4N-C1t"/>
+                        <constraint firstAttribute="width" constant="137" id="V12-rm-ssC"/>
+                        <constraint firstAttribute="height" constant="134" id="n65-4N-C1t"/>
                     </constraints>
                     <state key="normal" image="buttonSpend.png">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,21 +73,34 @@
                         <action selector="loadCategoriesTableView:" destination="-1" eventType="touchUpInside" id="F2v-xA-eUd"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-1U-X8m">
+                    <frame key="frameInset" minX="15" minY="154" width="128" height="124"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="124" id="f1D-ks-MsJ"/>
+                        <constraint firstAttribute="width" constant="128" id="hNK-o1-Xxa"/>
+                    </constraints>
+                    <state key="normal" image="buttonHistory.png">
+                        <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loadHistory:" destination="-1" eventType="touchUpInside" id="9R1-yh-NHR"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="TNK-uB-V47" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" id="0yX-Ek-OWi"/>
                 <constraint firstAttribute="trailing" secondItem="W68-sm-Me5" secondAttribute="trailing" id="2eU-gQ-cny"/>
-                <constraint firstItem="cuV-1U-X8m" firstAttribute="top" secondItem="6" secondAttribute="top" constant="80" id="GRf-hY-mBy"/>
+                <constraint firstItem="SaI-sL-xHV" firstAttribute="top" secondItem="fFG-f2-B1C" secondAttribute="bottom" constant="10" id="54G-Cd-733"/>
+                <constraint firstItem="fFG-f2-B1C" firstAttribute="top" secondItem="6" secondAttribute="top" constant="10" id="MoO-ML-14a"/>
                 <constraint firstAttribute="bottom" secondItem="W68-sm-Me5" secondAttribute="bottom" id="N5E-7c-8yi"/>
+                <constraint firstItem="cuV-1U-X8m" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="SIc-dG-hOd"/>
+                <constraint firstAttribute="trailing" secondItem="fFG-f2-B1C" secondAttribute="trailing" constant="10" id="T8r-G7-f01"/>
                 <constraint firstItem="W68-sm-Me5" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="a9x-BJ-WMB"/>
+                <constraint firstItem="cuV-1U-X8m" firstAttribute="top" secondItem="TNK-uB-V47" secondAttribute="bottom" constant="10" id="bS2-yi-jma"/>
                 <constraint firstItem="W68-sm-Me5" firstAttribute="top" secondItem="6" secondAttribute="top" id="f0z-pO-ZBo"/>
-                <constraint firstItem="fFG-f2-B1C" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="10" id="f7k-i2-R2L"/>
-                <constraint firstAttribute="trailing" secondItem="cuV-1U-X8m" secondAttribute="trailing" constant="20" id="jOU-IQ-m3c"/>
-                <constraint firstItem="fFG-f2-B1C" firstAttribute="top" secondItem="TNK-uB-V47" secondAttribute="bottom" constant="20" id="u4o-0N-o2q"/>
+                <constraint firstAttribute="trailing" secondItem="SaI-sL-xHV" secondAttribute="trailing" constant="10" id="hhf-Ae-55z"/>
                 <constraint firstItem="TNK-uB-V47" firstAttribute="top" secondItem="6" secondAttribute="top" constant="80" id="xTP-3f-gco"/>
-                <constraint firstAttribute="trailing" secondItem="SaI-sL-xHV" secondAttribute="trailing" constant="10" id="xmu-7R-H4A"/>
-                <constraint firstItem="SaI-sL-xHV" firstAttribute="top" secondItem="cuV-1U-X8m" secondAttribute="bottom" constant="20" id="zZ1-IJ-Teu"/>
             </constraints>
         </view>
     </objects>

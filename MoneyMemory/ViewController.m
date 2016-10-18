@@ -31,12 +31,12 @@
 @synthesize incomeLeading = _incomeLeading;
 @synthesize incomeWidth = _incomeWidth;
 @synthesize incomeHeight = _incomeHeight;
-@synthesize expensesTop = _expensesTop;
-@synthesize expensesTrailing = _expensesTrailing;
-@synthesize expensesWidth = _expensesWidth;
-@synthesize expensesHeight = _expensesHeight;
+@synthesize historyTop = _historyTop;
+@synthesize historyLeading = _historyLeading;
+@synthesize historyWidth = _historyWidth;
+@synthesize historyHeight = _historyHeight;
 @synthesize spendTop = _spendTop;
-@synthesize spendLeading = _spendLeading;
+@synthesize spendTrailing = _spendTrailing;
 @synthesize spendWidth = _spendWidth;
 @synthesize spendHeight = _spendHeight;
 @synthesize statsTop = _statsTop;
@@ -77,18 +77,22 @@
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height + 20;
+    
     _incomeTop.constant = navBarHeight + screenHeight * 0.15;
     _incomeLeading.constant = screenWidth * 0.07;
     _incomeWidth.constant = screenWidth * 0.4;
     _incomeHeight.constant = screenWidth * 0.4;
-    _expensesTop.constant = navBarHeight + screenHeight * 0.15;
-    _expensesTrailing.constant = screenWidth * 0.07;
-    _expensesWidth.constant = screenWidth * 0.4;
-    _expensesHeight.constant = screenWidth * 0.4;
-    _spendTop.constant = screenHeight * 0.07;
-    _spendLeading.constant = screenWidth * 0.07;
+    
+    _spendTop.constant = navBarHeight + screenHeight * 0.15;
+    _spendTrailing.constant = screenWidth * 0.07;
     _spendWidth.constant = screenWidth * 0.4;
     _spendHeight.constant = screenWidth * 0.4;
+    
+    _historyTop.constant = screenHeight * 0.07;
+    _historyLeading.constant = screenWidth * 0.07;
+    _historyWidth.constant = screenWidth * 0.4;
+    _historyHeight.constant = screenWidth * 0.4;
+    
     _statsTop.constant = screenHeight * 0.07;
     _statsTrailing.constant = screenWidth * 0.07;
     _statsWidth.constant = screenWidth * 0.4;
@@ -100,7 +104,7 @@
     [self.navigationController pushViewController:_incomeView animated:YES];
 }
 
--(IBAction)loadExpenses:(id)sender {
+-(IBAction)loadHistory:(id)sender {
     TransactionsLogicManager* logicManager = [[[TransactionsLogicManager alloc]init]autorelease];
     NSArray* expenses = [logicManager fetchAllTransactions:1];
     if([expenses count] == 0) {
@@ -173,7 +177,6 @@
     [self.navigationController pushViewController:_graphView animated:YES];
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -191,12 +194,12 @@
     [_incomeLeading release];
     [_incomeWidth release];
     [_incomeHeight release];
-    [_expensesTop release];
-    [_expensesTrailing release];
-    [_expensesWidth release];
-    [_expensesHeight release];
+    [_historyTop release];
+    [_historyLeading release];
+    [_historyWidth release];
+    [_historyHeight release];
     [_spendTop release];
-    [_spendLeading release];
+    [_spendTrailing release];
     [_spendWidth release];
     [_spendHeight release];
     [_statsTop release];
