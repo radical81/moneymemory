@@ -74,6 +74,7 @@
 		86D61C771CF66BB000D75695 /* StatsMonthYearTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */; };
 		86D61C781CF66BB000D75695 /* StatsMonthYearTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */; };
 		86D61C7C1CF7374200D75695 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86D61C7B1CF7374100D75695 /* Media.xcassets */; };
+		86DB98A91DB63F94009B2BF3 /* buttonHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = 86DB98A81DB63F94009B2BF3 /* buttonHistory.png */; };
 		86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */; };
 		86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */; };
 		9AAC237A89A840008DB51EE0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C432C4616D1D4605AA12CB2D /* libPods.a */; };
@@ -182,6 +183,7 @@
 		86D61C761CF66BB000D75695 /* StatsMonthYearTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsMonthYearTableViewController.xib; path = Classes/StatsMonthYearTableViewController.xib; sourceTree = "<group>"; };
 		86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsMonthYearDelegate.h; path = Classes/StatsMonthYearDelegate.h; sourceTree = "<group>"; };
 		86D61C7B1CF7374100D75695 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		86DB98A81DB63F94009B2BF3 /* buttonHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonHistory.png; path = Images/buttonHistory.png; sourceTree = "<group>"; };
 		86F5448C1A95FEC600EC9FB6 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = Classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		86F5448D1A95FEC600EC9FB6 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = Classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = Classes/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		86A5BDEC1BC41C9F0042148B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86DB98A81DB63F94009B2BF3 /* buttonHistory.png */,
 				869F194D1DB0FF37003629AC /* appNoPhoto.png */,
 				86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */,
 				862D6BFE1D25357E00823284 /* appTitle.png */,
@@ -539,6 +542,7 @@
 				862D6C1A1D25357E00823284 /* backgroundLogo750x1334.png in Resources */,
 				862D6C151D25357E00823284 /* background750x1334.png in Resources */,
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
+				86DB98A91DB63F94009B2BF3 /* buttonHistory.png in Resources */,
 				862D6C161D25357E00823284 /* background1242x2208.png in Resources */,
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				862D6C121D25357E00823284 /* background320x480.png in Resources */,
