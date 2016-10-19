@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CategoryDomainObject.h"
 #import "ExpensesTableViewController.h"
+#import "CategoryUpdateDelegate.h"
 
-@interface CategoryDetailViewController : UIViewController
+@interface CategoryDetailViewController : UIViewController <CategoryUpdateDelegate>
 
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property (nonatomic, retain) ExpensesTableViewController* expensesTable;

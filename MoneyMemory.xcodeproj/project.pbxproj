@@ -161,6 +161,7 @@
 		862D6C0D1D25357E00823284 /* buttonSpend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonSpend.png; path = Images/buttonSpend.png; sourceTree = "<group>"; };
 		862D6C0E1D25357E00823284 /* buttonStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonStats.png; path = Images/buttonStats.png; sourceTree = "<group>"; };
 		862D6C0F1D25357E00823284 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = Images/icon_close.png; sourceTree = "<group>"; };
+		868ACA7A1DB79E4500BCBC6A /* CategoryUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryUpdateDelegate.h; sourceTree = "<group>"; };
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
@@ -446,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */,
+				868ACA7A1DB79E4500BCBC6A /* CategoryUpdateDelegate.h */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";

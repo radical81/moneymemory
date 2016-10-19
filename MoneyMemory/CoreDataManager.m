@@ -52,6 +52,7 @@
 }
 
 -(NSArray*)fetchTransactionIsA: (int) categoryId context: (NSManagedObjectContext*) moc limit: (int) limit{
+    NSLog(@"fetchTransactionIsA");
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     if(limit > 0) {
         [request setFetchLimit: limit];

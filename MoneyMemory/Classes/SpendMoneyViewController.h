@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CategoryDomainObject.h"
 #import "TransactionDomainObject.h"
+#import "CategoryUpdateDelegate.h"
 
 @interface SpendMoneyViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
+@property(nonatomic, retain) id <CategoryUpdateDelegate> delegate;
 @property (nonatomic, retain) CategoryDomainObject* category;
 @property (retain, nonatomic) IBOutlet UIImageView *background;
 @property (retain, nonatomic) IBOutlet UITextField *transactionDateText;

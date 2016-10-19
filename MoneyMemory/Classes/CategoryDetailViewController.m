@@ -45,7 +45,6 @@
     formatter.groupingSeparator = @",";
     NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [formatter stringFromNumber:_category.limit]];
     _categoryLimit.text = categoryMax;
-    [self calculateAndDisplayTotalExpenses];
 }
 
 -(void) calculateAndDisplayTotalExpenses {
@@ -95,6 +94,7 @@
 - (IBAction)didPressNewExpense:(id)sender {
     SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
     spendMoneyViewController.category = _category;
+    spendMoneyViewController.delegate = self;
     [self.navigationController pushViewController:spendMoneyViewController animated:YES];
     
 }

@@ -41,6 +41,7 @@
 @synthesize background = _background;
 @synthesize btnTakePictureWidth = _btnTakePictureWidth;
 @synthesize btnPhotoLibraryWidth = _btnPhotoLibraryWidth;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -274,7 +275,6 @@
     [transactionsLogicManager updateTransaction:_transaction];
     
     [self showAlertSavedTransaction:transactionSave];
-    
 }
 
 - (void)didButtonPressSaveTransaction {
@@ -464,9 +464,9 @@
                          actionWithTitle:@"OK"
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
-                         {                             
-                             [self.navigationController popViewControllerAnimated:YES];
-                             
+                         {
+                             [_delegate calculateAndDisplayTotalExpenses];
+                             [self.navigationController popViewControllerAnimated:YES];                             
                          }];
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
