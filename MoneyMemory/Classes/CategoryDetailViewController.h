@@ -21,6 +21,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *categoryLimit;
 - (IBAction)didPressNewExpense:(id)sender;
 - (IBAction)didPressViewExpenses:(id)sender;
-@property (retain, nonatomic) IBOutlet NSLayoutConstraint *newExpenseTop;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *addExpenseTop;
 
 @end

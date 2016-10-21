@@ -23,7 +23,7 @@
 @synthesize categoryLimit = _categoryLimit;
 @synthesize totalExpenses = _totalExpenses;
 @synthesize background = _background;
-@synthesize newExpenseTop = _newExpenseTop;
+@synthesize addExpenseTop = _addExpenseTop;
 
 CGFloat const GRAPH_LEFT_MARGIN = 50;
 CGFloat const GRAPH_TOP_POSITION = 170;
@@ -59,9 +59,9 @@ int const GRAPH_LINE_WIDTH = 40;
     
     if([[self.view viewWithTag:200] isKindOfClass:[PNCircleChart class]]) {
         [[self.view viewWithTag:200] removeFromSuperview];
-        _newExpenseTop.constant -= graphWidth;
+        _addExpenseTop.constant -= graphWidth;
     }
-    _newExpenseTop.constant += graphWidth;
+    _addExpenseTop.constant += graphWidth;
     PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(GRAPH_LEFT_MARGIN, GRAPH_TOP_POSITION, graphWidth, graphWidth) total:_category.limit current:totalExpense clockwise:NO shadow: YES shadowColor: [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:0.5]];
     circleChart.backgroundColor = [UIColor clearColor];
     [circleChart setStrokeColor:[UIColor colorWithRed:205/255.f green:60/255.f blue:60/255.f alpha:0.5]];
@@ -114,7 +114,7 @@ int const GRAPH_LINE_WIDTH = 40;
     [_totalExpenses release];
     [_categoryLimit release];
     [_background release];
-    [_newExpenseTop release];
+    [_addExpenseTop release];
     [super dealloc];
 }
 

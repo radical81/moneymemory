@@ -8,9 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryDetailViewController">
             <connections>
+                <outlet property="addExpenseTop" destination="SPA-wn-HB0" id="Zwr-eq-PKJ"/>
                 <outlet property="background" destination="fy0-Vr-Tll" id="mcW-di-T0q"/>
                 <outlet property="categoryLimit" destination="YeX-HT-Y3A" id="wkv-fr-obd"/>
-                <outlet property="newExpenseTop" destination="SPA-wn-HB0" id="0Ev-UC-qZo"/>
                 <outlet property="totalExpenses" destination="4kI-nD-TXI" id="SH9-C6-R1b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
