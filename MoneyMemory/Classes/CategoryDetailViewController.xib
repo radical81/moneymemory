@@ -42,7 +42,7 @@
                         <constraint firstAttribute="height" constant="50" id="39j-ZM-xxs"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="New Expense">
+                    <state key="normal" title="Add New Expense">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
