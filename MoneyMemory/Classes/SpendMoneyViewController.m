@@ -41,7 +41,8 @@
 @synthesize background = _background;
 @synthesize btnTakePictureWidth = _btnTakePictureWidth;
 @synthesize btnPhotoLibraryWidth = _btnPhotoLibraryWidth;
-@synthesize delegate = _delegate;
+@synthesize categoryDelegate = _categoryDelegate;
+@synthesize expenseDelegate = _expenseDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +51,8 @@
         // Custom initialization
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
         _newTransaction = YES;
+        [_categoryDelegate retain];
+        [_expenseDelegate retain];
     }
     return self;
 }
@@ -61,6 +64,8 @@
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
         _transaction = transactionDomainObject;
         _newTransaction = NO;
+        [_categoryDelegate retain];
+        [_expenseDelegate retain];
     }
     return self;
 }
@@ -186,7 +191,7 @@
     [_transactionComment release];
     [_background release];
     [_btnTakePictureWidth release];
-    [_btnPhotoLibraryWidth release];
+    [_btnPhotoLibraryWidth release];    
     [super dealloc];
 }
 
@@ -465,7 +470,10 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             [_delegate calculateAndDisplayTotalExpenses];
+                             if(success == YES) {
+                                 [_categoryDelegate calculateAndDisplayTotalExpenses];
+                                 [_expenseDelegate expenseDidChange];
+                             }
                              [self.navigationController popViewControllerAnimated:YES];                             
                          }];
     [alert addAction:ok];

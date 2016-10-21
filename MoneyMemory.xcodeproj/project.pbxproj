@@ -166,6 +166,7 @@
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
 		869F194D1DB0FF37003629AC /* appNoPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appNoPhoto.png; path = Images/appNoPhoto.png; sourceTree = "<group>"; };
 		86A7A9361DBA3A9B00708F10 /* CategoryUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryUpdateDelegate.h; path = Classes/CategoryUpdateDelegate.h; sourceTree = "<group>"; };
+		86A7A9371DBA3B2700708F10 /* ExpenseUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExpenseUpdateDelegate.h; path = Classes/ExpenseUpdateDelegate.h; sourceTree = "<group>"; };
 		86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appLogoWhiteBG.png; path = Images/appLogoWhiteBG.png; sourceTree = "<group>"; };
 		86C44D361BBEC48800354C0E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		86C4A5D01D22AB56007DE487 /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = Classes/DesignHelper.h; sourceTree = "<group>"; };
@@ -448,6 +449,7 @@
 			children = (
 				86A7A9361DBA3A9B00708F10 /* CategoryUpdateDelegate.h */,
 				86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */,
+				86A7A9371DBA3B2700708F10 /* ExpenseUpdateDelegate.h */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";

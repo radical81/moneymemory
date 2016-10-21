@@ -139,6 +139,7 @@ TransactionsLogicManager* logicManager;
 - (void)addExpense {
     SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
     spendMoneyViewController.category = self.category;
+    spendMoneyViewController.expenseDelegate = self;
     [self.navigationController pushViewController:spendMoneyViewController animated:YES];
 }
 
@@ -161,6 +162,10 @@ TransactionsLogicManager* logicManager;
     }
 }
 
+-(void) expenseDidChange {
+    NSLog(@"Something spent");
+    [_categoryDelegate calculateAndDisplayTotalExpenses];
+}
 
 #pragma mark - Table view data source
 
@@ -275,6 +280,7 @@ TransactionsLogicManager* logicManager;
     NSLog(@"Expenses this day before delete: %@, total %lu", expensesThisDay, (unsigned long)[expensesThisDay count]);    
     [logicManager deleteTransaction:transaction];
     NSLog(@"Deleted row %d", (int)indexPath.row);
+    [self expenseDidChange];
     [self launchReload];
     expensesThisDay = [self.expensesByDay objectForKey:dateRepresentingThisDay];
     NSLog(@"Expenses this day after delete: %@, total %lu", expensesThisDay, (unsigned long)[expensesThisDay count]);
@@ -314,6 +320,7 @@ TransactionsLogicManager* logicManager;
     SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithTransaction:transaction]autorelease];
     CategoryDomainObject* expenseCategory = transaction.is_a;
     spendMoneyViewController.category = expenseCategory;
+    spendMoneyViewController.expenseDelegate = self;
     [self.navigationController pushViewController:spendMoneyViewController animated:YES];
 }
 

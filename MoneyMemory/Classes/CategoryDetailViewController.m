@@ -37,6 +37,7 @@ int const GRAPH_LINE_WIDTH = 40;
     self.navigationItem.rightBarButtonItem = rightButton;
     
     _expensesTable = [[ExpensesTableViewController alloc] initWithCategory:_category];
+    _expensesTable.categoryDelegate = self;
     DesignHelper* designHelper = [[DesignHelper alloc] init];
     _background.image = [designHelper addBackgroundByScreenSize:@"background"];
     [designHelper release];
@@ -120,7 +121,7 @@ int const GRAPH_LINE_WIDTH = 40;
 - (IBAction)didPressNewExpense:(id)sender {
     SpendMoneyViewController* spendMoneyViewController = [[[SpendMoneyViewController alloc]initWithNibName:@"SpendMoneyViewController" bundle:nil]autorelease];
     spendMoneyViewController.category = _category;
-    spendMoneyViewController.delegate = self;
+    spendMoneyViewController.categoryDelegate = self;
     [self.navigationController pushViewController:spendMoneyViewController animated:YES];
     
 }
