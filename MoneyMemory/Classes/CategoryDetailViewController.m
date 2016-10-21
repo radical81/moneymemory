@@ -23,6 +23,11 @@
 @synthesize categoryLimit = _categoryLimit;
 @synthesize totalExpenses = _totalExpenses;
 @synthesize background = _background;
+@synthesize newExpenseTop = _newExpenseTop;
+
+CGFloat const GRAPH_LEFT_MARGIN = 50;
+CGFloat const GRAPH_TOP_POSITION = 170;
+int const GRAPH_LINE_WIDTH = 40;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +52,25 @@
     _categoryLimit.text = categoryMax;
 }
 
+-(void) drawCircleChart:(NSNumber*) totalExpense {
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat graphWidth = screenWidth - (GRAPH_LEFT_MARGIN*2);
+    
+    if([[self.view viewWithTag:200] isKindOfClass:[PNCircleChart class]]) {
+        [[self.view viewWithTag:200] removeFromSuperview];
+        _newExpenseTop.constant -= graphWidth;
+    }
+    _newExpenseTop.constant += graphWidth;
+    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(GRAPH_LEFT_MARGIN, GRAPH_TOP_POSITION, graphWidth, graphWidth) total:_category.limit current:totalExpense clockwise:NO shadow: YES shadowColor: [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:0.5]];
+    circleChart.backgroundColor = [UIColor clearColor];
+    [circleChart setStrokeColor:[UIColor colorWithRed:205/255.f green:60/255.f blue:60/255.f alpha:0.5]];
+    [circleChart setLineWidth:[NSNumber numberWithInt:GRAPH_LINE_WIDTH]];
+    circleChart.countingLabel.font = [UIFont boldSystemFontOfSize:32.0f];
+    [circleChart strokeChart];
+    circleChart.tag = 200;
+    [self.view addSubview:circleChart];
+}
+
 -(void) calculateAndDisplayTotalExpenses {
     TransactionsLogicManager* transactionLogic = [[TransactionsLogicManager alloc]init];
     NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[_category.id intValue] _givenDate:[NSDate date]];
@@ -58,6 +82,7 @@
     NSString* totalExpensesNow = [NSString stringWithFormat:@"Total: $ %@", [formatter stringFromNumber:totalExpensesAmount]];
     [_totalExpenses setText: totalExpensesNow];
     [transactionLogic release];
+    [self drawCircleChart:totalExpensesAmount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +113,7 @@
     [_totalExpenses release];
     [_categoryLimit release];
     [_background release];
+    [_newExpenseTop release];
     [super dealloc];
 }
 

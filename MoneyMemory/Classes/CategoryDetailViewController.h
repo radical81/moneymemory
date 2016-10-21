@@ -10,6 +10,7 @@
 #import "CategoryDomainObject.h"
 #import "ExpensesTableViewController.h"
 #import "CategoryUpdateDelegate.h"
+#import "PNChart.h"
 
 @interface CategoryDetailViewController : UIViewController <CategoryUpdateDelegate>
 
@@ -20,5 +21,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *categoryLimit;
 - (IBAction)didPressNewExpense:(id)sender;
 - (IBAction)didPressViewExpenses:(id)sender;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *newExpenseTop;
 
 @end
