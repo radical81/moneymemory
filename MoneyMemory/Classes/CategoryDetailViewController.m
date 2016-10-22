@@ -62,9 +62,9 @@ int const GRAPH_LINE_WIDTH = 40;
         _addExpenseTop.constant -= graphWidth;
     }
     _addExpenseTop.constant += graphWidth;
-    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(GRAPH_LEFT_MARGIN, GRAPH_TOP_POSITION, graphWidth, graphWidth) total:_category.limit current:totalExpense clockwise:NO shadow: YES shadowColor: [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:0.5]];
+    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(GRAPH_LEFT_MARGIN, GRAPH_TOP_POSITION, graphWidth, graphWidth) total:_category.limit current:totalExpense clockwise:NO shadow: YES shadowColor: [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:0.5f]];
     circleChart.backgroundColor = [UIColor clearColor];
-    [circleChart setStrokeColor:[UIColor colorWithRed:205/255.f green:60/255.f blue:60/255.f alpha:0.5]];
+    [circleChart setStrokeColor:[UIColor colorWithRed:205/255.f green:60/255.f blue:60/255.f alpha:0.5f]];
     [circleChart setLineWidth:[NSNumber numberWithInt:GRAPH_LINE_WIDTH]];
     circleChart.countingLabel.font = [UIFont boldSystemFontOfSize:32.0f];
     [circleChart strokeChart];

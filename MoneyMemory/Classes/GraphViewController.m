@@ -42,7 +42,9 @@
     NSString* currentMonth = [dateFormatter stringFromDate:_currentDate];
     [dateFormatter release];
     _headerLabel.text = currentMonth;
-
+    if([[self.view viewWithTag:100] isKindOfClass:[PNPieChart class]]) {
+        [[self.view viewWithTag:100] removeFromSuperview];
+    }
     [self generatePieGraph];
 }
 
@@ -76,7 +78,7 @@
         NSString* categoryName = [dict objectForKey:@"name"];
         UIColor* color = [self generatePieColor:counter];
         if([categoryName isEqualToString:@"SAVINGS"]) {
-            color = PNLightGreen;
+            color = [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:0.5f];
         }
         NSLog(@"Name: %@",categoryName);
         NSLog(@"Color %@", color);
@@ -89,6 +91,7 @@
     pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:16.0];
     pieChart.showOnlyValues = YES;
     pieChart.delegate = self;
+    pieChart.labelPercentageCutoff = 0.05;
     [pieChart strokeChart];
     pieChart.tag = 100;
     [self.view addSubview:pieChart];
@@ -102,7 +105,7 @@
         return PNDeepGrey;
     }
     if(i % 9 == 0) {
-        return PNFreshGreen;
+        return [UIColor colorWithRed:111/255.f green:165/255.f blue:16/255.f alpha:1.0f];
     }
     if(i % 8 == 0) {
         return PNDarkBlue;
