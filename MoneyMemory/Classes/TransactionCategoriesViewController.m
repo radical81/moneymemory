@@ -150,17 +150,31 @@ TransactionsLogicManager* logicManager;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"transactionCategories before delete: %@",transactionCategories);
-    NSLog(@"number of transactionCategories before delete: %lu",(unsigned long)[transactionCategories count]);
-    CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
-    [logicManager deleteCategoryInCoreData:cat];
-    NSLog(@"transactionCategories after delete: %@",transactionCategories);
-    NSLog(@"Deleted row %d", (int)indexPath.row);
-    transactionCategories = [[logicManager fetchAllCategories] retain];
-    NSLog(@"number of transactionCategories after delete: %lu",(unsigned long)[transactionCategories count]);
-    
-    [tableView reloadData];
-    
+    UIAlertController* confirmDelete = [UIAlertController alertControllerWithTitle:@"Confirm Delete"
+                                                          message:@"All transactions in this category will be lost. Do you want to proceed?"
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+    [confirmDelete addAction:[UIAlertAction actionWithTitle:@"Delete"
+                                            style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * action) {
+                                                NSLog(@"transactionCategories before delete: %@",transactionCategories);
+                                                NSLog(@"number of transactionCategories before delete: %lu",(unsigned long)[transactionCategories count]);
+                                                CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
+                                                [logicManager deleteCategoryInCoreData:cat];
+                                                NSLog(@"transactionCategories after delete: %@",transactionCategories);
+                                                NSLog(@"Deleted row %d", (int)indexPath.row);
+                                                transactionCategories = [[logicManager fetchAllCategories] retain];
+                                                NSLog(@"number of transactionCategories after delete: %lu",(unsigned long)[transactionCategories count]);
+                                                [tableView reloadData];
+                                            }
+                              ]
+     ];
+    [confirmDelete addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                            style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * action) {}
+                              ]
+     ];
+
+    [self presentViewController:confirmDelete animated:YES completion:nil];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
