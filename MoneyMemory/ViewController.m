@@ -60,7 +60,7 @@
     NSLog(@"This is money memory");
     RunTestCoreData* rc = [[RunTestCoreData alloc]init];
     //[rc runTestData];
-    [rc viewTransactions];
+    //[rc viewTransactions];
     [rc release];
     _categoriesTableView = [[TransactionCategoriesViewController alloc]initWithNibName:@"TransactionCategoriesViewController" bundle:nil];    
     _incomeView = [[IncomeViewController alloc]initWithNibName:@"IncomeViewController" bundle:nil];
