@@ -68,6 +68,16 @@ TransactionsLogicManager* logicManager;
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
+-(void) addLabelForEmpty {
+    UILabel *tableEmpty = [[UILabel alloc] init];
+    [tableEmpty setTextColor:[UIColor lightGrayColor]];
+    [tableEmpty setText:@"Tap the + button to add a category."];
+    [tableEmpty sizeToFit];
+    [tableEmpty setTextAlignment:NSTextAlignmentCenter];
+    tableEmpty.frame = CGRectMake(0, 0, tableEmpty.bounds.size.width, tableEmpty.bounds.size.height);
+    self.tableView.backgroundView = tableEmpty;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -180,6 +190,12 @@ TransactionsLogicManager* logicManager;
 -(void) viewWillAppear:(BOOL)animated {
     transactionCategories = [[logicManager fetchAllCategories] retain];
     [self.tableView reloadData];
+    if([transactionCategories count] > 0) {
+        self.tableView.backgroundView = nil;
+    }
+    else {
+        [self addLabelForEmpty];
+    }
 }
 
 @end
