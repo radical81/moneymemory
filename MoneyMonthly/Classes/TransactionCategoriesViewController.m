@@ -104,9 +104,7 @@ TransactionsLogicManager* logicManager;
         [[NSBundle mainBundle] loadNibNamed:@"CategoryTableViewCell" owner:self options:nil];
         cell = _categoryCell;
         _categoryCell = nil;
-    }    
-
-    
+    }
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setAllowsFloats:YES];

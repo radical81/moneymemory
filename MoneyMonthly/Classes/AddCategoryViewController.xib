@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCategoryViewController">
             <connections>
                 <outlet property="amountLimit" destination="XTE-pj-AFd" id="a30-cW-OHh"/>
+                <outlet property="background" destination="nW3-F9-agy" id="hep-Ri-KVR"/>
                 <outlet property="categoryNew" destination="4cl-bD-YEZ" id="jgy-Xi-6QG"/>
                 <outlet property="pageLabel" destination="fmv-UT-Mkv" id="6G5-70-I38"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -15,21 +17,22 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nW3-F9-agy"/>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add New Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmv-UT-Mkv">
-                    <rect key="frame" x="3" y="100" width="314" height="21"/>
-                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
+                    <frame key="frameInset" minX="3" minY="100" width="314" height="21"/>
+                    <color key="backgroundColor" red="0.75559091567993164" green="0.75556838512420654" blue="0.75558114051818848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="d6C-dP-FTF"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
-                    <color key="textColor" red="0.33333333333333331" green="0.41960784313725491" blue="0.18431372549019609" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="textColor" red="0.26647907495498657" green="0.3513922393321991" blue="0.13912253081798553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cl-bD-YEZ">
-                    <rect key="frame" x="67" y="142" width="233" height="30"/>
+                    <frame key="frameInset" minX="67" minY="142" width="233" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="U8N-uF-53b"/>
                     </constraints>
@@ -37,7 +40,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Limit" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTE-pj-AFd">
-                    <rect key="frame" x="118" y="227" width="59" height="30"/>
+                    <frame key="frameInset" minX="118" minY="227" width="59" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="1ri-Oo-iNe"/>
                     </constraints>
@@ -45,10 +48,14 @@
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="nW3-F9-agy" secondAttribute="bottom" id="9FA-5f-Ddg"/>
                 <constraint firstAttribute="trailing" secondItem="4cl-bD-YEZ" secondAttribute="trailing" constant="10" id="AWQ-dT-9DH"/>
+                <constraint firstItem="nW3-F9-agy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EkE-FM-eOg"/>
+                <constraint firstAttribute="trailing" secondItem="nW3-F9-agy" secondAttribute="trailing" id="NR4-s8-0id"/>
                 <constraint firstItem="4cl-bD-YEZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="NrG-Vu-Zta"/>
+                <constraint firstItem="nW3-F9-agy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VOz-nu-5fm"/>
                 <constraint firstAttribute="trailing" secondItem="XTE-pj-AFd" secondAttribute="trailing" constant="10" id="Vf4-H7-V22"/>
                 <constraint firstItem="fmv-UT-Mkv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xeb-Cl-3wU"/>
                 <constraint firstItem="4cl-bD-YEZ" firstAttribute="top" secondItem="fmv-UT-Mkv" secondAttribute="bottom" constant="20" id="n3X-4E-A3j"/>
@@ -57,6 +64,12 @@
                 <constraint firstItem="fmv-UT-Mkv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="rxJ-rv-0im"/>
                 <constraint firstAttribute="trailing" secondItem="fmv-UT-Mkv" secondAttribute="trailing" id="vlQ-Jv-Bm0"/>
             </constraints>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

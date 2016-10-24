@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Month" style:UIBarButtonItemStylePlain target:self action:@selector(didTapChange)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Month" style:UIBarButtonItemStyleDone target:self action:@selector(didTapChange)];
     self.navigationItem.rightBarButtonItem = rightButton;
     _monthYearTable = [[StatsMonthYearTableViewController alloc]initWithAll];
     _monthYearTable.graphDisplay = self;

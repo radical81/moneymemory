@@ -56,10 +56,18 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow-right.png" translatesAutoresizingMaskIntoConstraints="NO" id="L0x-GV-mMJ">
+                        <frame key="frameInset" minX="317" minY="39" width="75" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="AJB-DF-OMh"/>
+                            <constraint firstAttribute="height" constant="20" id="v0G-y7-KLd"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bFT-NH-nkR" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="1" id="0eH-bb-sz5"/>
                     <constraint firstItem="17q-Z3-pzv" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="-8" id="2Ja-ry-Jj2"/>
+                    <constraint firstItem="L0x-GV-mMJ" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="top" constant="55" id="F0r-sE-sFL"/>
                     <constraint firstItem="JQh-vL-ZhM" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="FVA-eZ-giy"/>
                     <constraint firstItem="wZ9-Us-ph2" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="G8c-Df-w0l"/>
                     <constraint firstItem="5WV-QW-J1q" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="2" id="IFy-cy-0ah"/>
@@ -68,6 +76,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="bFT-NH-nkR" secondAttribute="trailing" constant="10" id="eNw-YE-Bjh"/>
                     <constraint firstItem="17q-Z3-pzv" firstAttribute="top" secondItem="Cxu-qg-JdW" secondAttribute="topMargin" constant="-10" id="gD2-8r-22D"/>
                     <constraint firstItem="bFT-NH-nkR" firstAttribute="leading" secondItem="5WV-QW-J1q" secondAttribute="trailing" constant="10" id="lAA-1t-XMz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="L0x-GV-mMJ" secondAttribute="trailing" constant="10" id="oXs-PD-60a"/>
                     <constraint firstItem="5WV-QW-J1q" firstAttribute="leading" secondItem="Cxu-qg-JdW" secondAttribute="leadingMargin" constant="10" id="wlm-Kl-AwK"/>
                     <constraint firstItem="wZ9-Us-ph2" firstAttribute="top" secondItem="5WV-QW-J1q" secondAttribute="bottom" constant="20" id="xPT-6x-dFJ"/>
                 </constraints>
@@ -82,4 +91,7 @@
             <point key="canvasLocation" x="448" y="207"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrow-right.png" width="90" height="120"/>
+    </resources>
 </document>

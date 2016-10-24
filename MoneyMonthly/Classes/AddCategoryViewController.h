@@ -13,6 +13,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *pageLabel;
 @property (retain, nonatomic) IBOutlet UITextField *categoryNew;
 @property (retain, nonatomic) IBOutlet UITextField *amountLimit;
+@property (retain, nonatomic) IBOutlet UIImageView *background;
 
 - (id) initWithCategory: (CategoryDomainObject*) category;
 

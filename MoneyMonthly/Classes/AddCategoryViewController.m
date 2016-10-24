@@ -8,6 +8,7 @@
 
 #import "AddCategoryViewController.h"
 #import "TransactionsLogicManager.h"
+#import "DesignHelper.h"
 
 @interface AddCategoryViewController ()
 
@@ -24,6 +25,7 @@ BOOL isAddCategory;
 @synthesize pageLabel = _pageLabel;
 @synthesize categoryNew = _categoryNew;
 @synthesize amountLimit = _amountLimit;
+@synthesize background = _background;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -222,7 +224,10 @@ BOOL isAddCategory;
     _categoryNew.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     _categoryNew.delegate = self;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave)];
-    self.navigationItem.rightBarButtonItem = rightButton;    
+    self.navigationItem.rightBarButtonItem = rightButton;
+    DesignHelper* designHelper = [[DesignHelper alloc]init];
+    _background.image = [designHelper addBackgroundByScreenSize:@"background"];
+    [designHelper release];    
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -249,6 +254,7 @@ BOOL isAddCategory;
     [_amountLimit release];
     [transactionsLogicManager release];
     [_pageLabel release];
+    [_background release];
     [super dealloc];
 }
 @end
