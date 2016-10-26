@@ -32,7 +32,9 @@
 -(int) retrieveLatestTransactionId;
 -(int) retrieveLatestCategoryId;
 -(void) updateIncomeMonthly: (double) amount;
+-(void) updateIncomeMonthly: (double) amount effective:(double) timeStamp;
 -(double) retrieveIncomeMonthly;
+-(double) retrieveIncomeMonthly :(double) timeStamp;
 -(NSArray*) fetchTimeStamps;
 
 @end

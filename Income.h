@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSNumber * monthly;
 @property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSNumber * effective;
 
 @end

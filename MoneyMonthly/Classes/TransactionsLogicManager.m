@@ -325,17 +325,27 @@
 }
 
 -(void) updateIncomeMonthly: (double) amount {
+    double timeStamp = [[NSDate date] timeIntervalSince1970];
+    [self updateIncomeMonthly:amount effective:timeStamp];
+}
+
+-(void) updateIncomeMonthly: (double) amount effective:(double) timeStamp {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    [coreDataManager updateIncomeMonthly:managedObjectContext amount:amount];
+    [coreDataManager updateIncomeMonthly:managedObjectContext amount:amount effective:timeStamp];
     NSLog(@"updateIncomeMonthly %f",amount);
 }
 
 -(double) retrieveIncomeMonthly {
+    double timeStamp = [[NSDate date] timeIntervalSince1970];
+    return [self retrieveIncomeMonthly:timeStamp];
+}
+
+-(double) retrieveIncomeMonthly :(double) timeStamp {
     NSLog(@"retrieveIncomeMonthly...");
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
-    Income* income = [coreDataManager retrieveIncomeWithMaxId:managedObjectContext];
+    Income* income = [coreDataManager retrieveIncome: managedObjectContext effective:timeStamp];
     return [income.monthly doubleValue];
 }
 

@@ -26,8 +26,8 @@
 -(void) deleteCategoryWithId:(int)_id context:(NSManagedObjectContext*)moc;
 -(Transaction*) retrieveTransactionWithMaxId: (NSManagedObjectContext*) moc;
 -(Category*) retrieveCategoryWithMaxId: (NSManagedObjectContext*) moc;
--(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount;
--(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc;
+-(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp;
+-(Income*) retrieveIncome: (NSManagedObjectContext*) moc effective: (double) timeStamp;
 -(NSArray*) fetchTimeStamps: (NSManagedObjectContext*) moc;
 
 @end

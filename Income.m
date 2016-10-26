@@ -13,5 +13,6 @@
 
 @dynamic monthly;
 @dynamic id;
+@dynamic effective;
 
 @end

@@ -192,24 +192,26 @@
     return category;
 }
 
--(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount {
+-(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
     Income*  income = [NSEntityDescription insertNewObjectForEntityForName:@"Income" inManagedObjectContext:moc];
     income.monthly = [NSNumber numberWithDouble:_amount];
+    income.effective = [NSNumber numberWithDouble: timeStamp];
     NSError* error = nil;
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
     }
 }
 
--(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount {
-    Income* income = [self retrieveIncomeWithMaxId:moc];
+-(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
+    Income* income = [self retrieveIncome:moc effective:timeStamp];
     if(income == nil) {
         NSLog(@"Setting income for the first time...");
-        [self insertIncomeMonthly:moc amount:_amount];
+        [self insertIncomeMonthly:moc amount:_amount effective:timeStamp];
     }
     else {
         NSLog(@"Updating income...");
         income.monthly = [NSNumber numberWithDouble:_amount];
+        income.effective = [NSNumber numberWithDouble:timeStamp];
         NSError* error = nil;
         if (![moc save:&error]){
             NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
@@ -217,12 +219,11 @@
     }
 }
 
--(Income*) retrieveIncomeWithMaxId: (NSManagedObjectContext*) moc {
+-(Income*) retrieveIncome: (NSManagedObjectContext*) moc effective: (double) timeStamp {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
-    
     request.fetchLimit = 1;
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO]];
-    
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"effective" ascending:NO]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"effective <= %@",[NSNumber numberWithDouble:timeStamp]]];
     NSError *error = nil;
     
     Income* income = [moc executeFetchRequest:request error:&error].lastObject;
