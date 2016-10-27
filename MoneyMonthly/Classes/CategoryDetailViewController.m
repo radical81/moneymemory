@@ -33,7 +33,7 @@ int const GRAPH_LINE_WIDTH = 40;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = _category.name;
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editCategoryDetails)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(editCategoryDetails)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
     _expensesTable = [[ExpensesTableViewController alloc] initWithCategory:_category];
