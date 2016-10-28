@@ -21,6 +21,7 @@
 
 @synthesize incomeAmount = _incomeAmount;
 @synthesize background = _background;
+@synthesize history = _history;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +29,7 @@
     if (self) {
         // Custom initialization
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
+        _history = [[IncomeHistoryTableViewController alloc]init];
     }
     return self;
 }
@@ -64,6 +66,11 @@
     [self createNotificationObserver];
     [transactionsLogicManager updateIncomeMonthly:amount];
     [self showAlertSavedIncome:incomeSave];
+}
+
+- (IBAction)didTapHistory:(id)sender {
+    [transactionsLogicManager retrieveIncomePerMonth];
+    [self.navigationController pushViewController:_history animated:YES];
 }
 
 -(void) showAlertMissingDetails:(BOOL) amountMissing {
@@ -171,6 +178,8 @@
     [_incomeAmount release];
     [transactionsLogicManager release];
     [_background release];
+    [_history release];
     [super dealloc];
 }
+
 @end

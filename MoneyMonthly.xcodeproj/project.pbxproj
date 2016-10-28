@@ -64,6 +64,8 @@
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
 		869F194E1DB0FF37003629AC /* appNoPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 869F194D1DB0FF37003629AC /* appNoPhoto.png */; };
+		86A437661DC22626006A12A5 /* IncomeHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A437641DC22626006A12A5 /* IncomeHistoryTableViewController.m */; };
+		86A437671DC22626006A12A5 /* IncomeHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A437651DC22626006A12A5 /* IncomeHistoryTableViewController.xib */; };
 		86BD3B121DA3CED300C4527C /* appLogoWhiteBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */; };
 		86C44D371BBEC48800354C0E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C44D361BBEC48800354C0E /* AssetsLibrary.framework */; };
 		86C4A5D21D22AB56007DE487 /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C4A5D11D22AB56007DE487 /* DesignHelper.m */; };
@@ -169,6 +171,9 @@
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
 		869F194D1DB0FF37003629AC /* appNoPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appNoPhoto.png; path = Images/appNoPhoto.png; sourceTree = "<group>"; };
+		86A437631DC22626006A12A5 /* IncomeHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeHistoryTableViewController.h; path = Classes/IncomeHistoryTableViewController.h; sourceTree = "<group>"; };
+		86A437641DC22626006A12A5 /* IncomeHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeHistoryTableViewController.m; path = Classes/IncomeHistoryTableViewController.m; sourceTree = "<group>"; };
+		86A437651DC22626006A12A5 /* IncomeHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeHistoryTableViewController.xib; path = Classes/IncomeHistoryTableViewController.xib; sourceTree = "<group>"; };
 		86A7A9361DBA3A9B00708F10 /* CategoryUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryUpdateDelegate.h; path = Classes/CategoryUpdateDelegate.h; sourceTree = "<group>"; };
 		86A7A9371DBA3B2700708F10 /* ExpenseUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExpenseUpdateDelegate.h; path = Classes/ExpenseUpdateDelegate.h; sourceTree = "<group>"; };
 		86BD3B111DA3CED300C4527C /* appLogoWhiteBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appLogoWhiteBG.png; path = Images/appLogoWhiteBG.png; sourceTree = "<group>"; };
@@ -226,6 +231,7 @@
 		178475AD18688E7B00F5ED1F /* XIB */ = {
 			isa = PBXGroup;
 			children = (
+				86A437651DC22626006A12A5 /* IncomeHistoryTableViewController.xib */,
 				17139EFF192C80D30051794A /* AddCategoryViewController.xib */,
 				86F5448E1A95FEC600EC9FB6 /* CategoryDetailViewController.xib */,
 				86D61C6C1CF48E2800D75695 /* GraphViewController.xib */,
@@ -293,6 +299,8 @@
 				17ED423117E756E700C7080A /* ViewController.m */,
 				86D61C741CF66BB000D75695 /* StatsMonthYearTableViewController.h */,
 				86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */,
+				86A437631DC22626006A12A5 /* IncomeHistoryTableViewController.h */,
+				86A437641DC22626006A12A5 /* IncomeHistoryTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -559,6 +567,7 @@
 				862D6C181D25357E00823284 /* backgroundLogo640x960.png in Resources */,
 				862D6C1A1D25357E00823284 /* backgroundLogo750x1334.png in Resources */,
 				862D6C151D25357E00823284 /* background750x1334.png in Resources */,
+				86A437671DC22626006A12A5 /* IncomeHistoryTableViewController.xib in Resources */,
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
 				86DB98A91DB63F94009B2BF3 /* buttonHistory.png in Resources */,
 				862D6C161D25357E00823284 /* background1242x2208.png in Resources */,
@@ -677,6 +686,7 @@
 				17139F00192C80D30051794A /* AddCategoryViewController.m in Sources */,
 				86F5448F1A95FEC600EC9FB6 /* CategoryDetailViewController.m in Sources */,
 				178475B71868901B00F5ED1F /* SpendMoneyViewController.m in Sources */,
+				86A437661DC22626006A12A5 /* IncomeHistoryTableViewController.m in Sources */,
 				86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */,
 				17D8B68A180163D100D90AF6 /* RunTestCoreData.m in Sources */,
 				86D61C5F1CF2F63400D75695 /* CategoryTableViewCell.m in Sources */,

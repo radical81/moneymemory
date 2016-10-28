@@ -192,8 +192,42 @@
     return category;
 }
 
+-(Income*) retrieveLatestIncome: (NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
+    request.fetchLimit = 1;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO]];
+    NSError *error = nil;
+    Income* income = [moc executeFetchRequest:request error:&error].lastObject;
+    NSLog(@"Latest Income: %@", income.monthly);
+    return income;
+}
+
+- (NSArray*) fetchIncomeMonthly: (NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"effective" ascending:NO]];
+    NSError *error = nil;
+    NSArray* resultsArray = [moc executeFetchRequest:request error:&error];
+    [request release];
+    NSMutableArray* incomeArray = [[[NSMutableArray alloc]init]autorelease];
+    for (Income* income in resultsArray){
+        NSLog(@"Income with id %@ amount %@ effective on %@", income.id, income.monthly, income.effective);
+        NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMM YYYY"];
+        NSString* monthYear = [dateFormatter stringFromDate:incomeDate];
+        [incomeArray addObject: [NSString stringWithFormat:@"$ %.2f (%@)", [income.monthly doubleValue], monthYear]];
+    }
+    NSLog(@"Monthly income history: %@", incomeArray);
+    return [incomeArray copy];
+}
+
 -(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
+    NSLog(@"insertIncomeMonthly...");
     Income*  income = [NSEntityDescription insertNewObjectForEntityForName:@"Income" inManagedObjectContext:moc];
+    int latestIncomeId = [[self retrieveLatestIncome: moc].id intValue];
+    latestIncomeId++;
+    income.id = [NSNumber numberWithInt:latestIncomeId];
     income.monthly = [NSNumber numberWithDouble:_amount];
     income.effective = [NSNumber numberWithDouble: timeStamp];
     NSError* error = nil;
@@ -202,13 +236,24 @@
     }
 }
 
+
+
 -(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
-    Income* income = [self retrieveIncome:moc effective:timeStamp];
+    NSLog(@"updateIncomeMonthly...");
+    Income* income = [self retrieveLatestIncome:moc];
     if(income == nil) {
         NSLog(@"Setting income for the first time...");
         [self insertIncomeMonthly:moc amount:_amount effective:timeStamp];
+        return;
     }
-    else {
+    NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:NSCalendarUnitYear fromDate:incomeDate];
+    NSInteger incomeYear = components.year;
+    NSInteger incomeMonth = components.month;
+    NSDateComponents* nowComponents = [calendar components:NSCalendarUnitYear fromDate:[NSDate date]];
+    
+    if(nowComponents.year == incomeYear && nowComponents.month == incomeMonth) {
         NSLog(@"Updating income...");
         income.monthly = [NSNumber numberWithDouble:_amount];
         income.effective = [NSNumber numberWithDouble:timeStamp];
@@ -216,7 +261,9 @@
         if (![moc save:&error]){
             NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
         }
+        return;
     }
+    [self insertIncomeMonthly:moc amount:_amount effective:timeStamp];
 }
 
 -(Income*) retrieveIncome: (NSManagedObjectContext*) moc effective: (double) timeStamp {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -36,6 +36,25 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3E-0W-pEi">
+                    <frame key="frameInset" minX="244" minY="209" width="97" height="33"/>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.41960784313725491" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="foN-bV-lWc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="View History">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapHistory:" destination="-1" eventType="touchUpInside" id="QuI-R2-f2j"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -43,12 +62,15 @@
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5kk-oM-Gh6"/>
                 <constraint firstItem="MJu-L8-Zj1" firstAttribute="top" secondItem="oSh-tB-AG5" secondAttribute="bottom" constant="20" id="DTs-gP-2Ms"/>
                 <constraint firstItem="oSh-tB-AG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="GXF-CJ-mH1"/>
+                <constraint firstItem="U3E-0W-pEi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="M73-zQ-jfV"/>
                 <constraint firstAttribute="bottom" secondItem="NEk-NA-hfO" secondAttribute="bottom" id="PhF-LL-geg"/>
+                <constraint firstAttribute="trailing" secondItem="U3E-0W-pEi" secondAttribute="trailing" constant="10" id="f3O-S1-Abq"/>
                 <constraint firstAttribute="trailing" secondItem="MJu-L8-Zj1" secondAttribute="trailing" constant="10" id="jGb-5p-7Is"/>
                 <constraint firstItem="NEk-NA-hfO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n3u-kK-Xxd"/>
                 <constraint firstAttribute="trailing" secondItem="NEk-NA-hfO" secondAttribute="trailing" id="qtn-P9-voH"/>
                 <constraint firstItem="NEk-NA-hfO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ul6-oT-byO"/>
                 <constraint firstAttribute="trailing" secondItem="oSh-tB-AG5" secondAttribute="trailing" id="vrW-ja-3ez"/>
+                <constraint firstItem="U3E-0W-pEi" firstAttribute="top" secondItem="MJu-L8-Zj1" secondAttribute="bottom" constant="20" id="yki-dU-C00"/>
             </constraints>
         </view>
     </objects>

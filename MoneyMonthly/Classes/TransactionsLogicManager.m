@@ -324,6 +324,12 @@
     return [lastCategory.id intValue];
 }
 
+-(NSArray*) retrieveIncomePerMonth {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    return [coreDataManager fetchIncomeMonthly: managedObjectContext];
+}
+
 -(void) updateIncomeMonthly: (double) amount {
     double timeStamp = [[NSDate date] timeIntervalSince1970];
     [self updateIncomeMonthly:amount effective:timeStamp];
