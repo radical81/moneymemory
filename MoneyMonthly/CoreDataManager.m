@@ -209,15 +209,21 @@
     NSArray* resultsArray = [moc executeFetchRequest:request error:&error];
     [request release];
     NSMutableArray* incomeArray = [[[NSMutableArray alloc]init]autorelease];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setAllowsFloats:YES];
+    [formatter setMaximumFractionDigits:2];
+    formatter.usesGroupingSeparator = YES;
+    formatter.groupingSeparator = @",";
+
     for (Income* income in resultsArray){
         NSLog(@"Income with id %@ amount %@ effective on %@", income.id, income.monthly, income.effective);
         NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
-        NSCalendar* calendar = [NSCalendar currentCalendar];
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MMM YYYY"];
         NSString* monthYear = [dateFormatter stringFromDate:incomeDate];
-        [incomeArray addObject: [NSString stringWithFormat:@"$ %.2f (%@)", [income.monthly doubleValue], monthYear]];
+        [incomeArray addObject: [NSString stringWithFormat:@"$ %@ (%@)", [formatter stringFromNumber: income.monthly], monthYear]];
     }
+    [formatter release];
     NSLog(@"Monthly income history: %@", incomeArray);
     return [incomeArray copy];
 }

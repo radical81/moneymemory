@@ -324,7 +324,7 @@
     return [lastCategory.id intValue];
 }
 
--(NSArray*) retrieveIncomePerMonth {
+-(NSArray*) retrieveIncomeHistory {
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
     return [coreDataManager fetchIncomeMonthly: managedObjectContext];

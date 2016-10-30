@@ -69,7 +69,8 @@
 }
 
 - (IBAction)didTapHistory:(id)sender {
-    [transactionsLogicManager retrieveIncomePerMonth];
+    NSArray* incomeHistory = [transactionsLogicManager retrieveIncomeHistory];
+    [_history setHistory:incomeHistory];
     [self.navigationController pushViewController:_history animated:YES];
 }
 

@@ -31,7 +31,7 @@
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject;
 -(int) retrieveLatestTransactionId;
 -(int) retrieveLatestCategoryId;
--(NSArray*) retrieveIncomePerMonth;
+-(NSArray*) retrieveIncomeHistory;
 -(void) updateIncomeMonthly: (double) amount;
 -(void) updateIncomeMonthly: (double) amount effective:(double) timeStamp;
 -(double) retrieveIncomeMonthly;

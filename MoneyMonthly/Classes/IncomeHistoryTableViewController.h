@@ -10,4 +10,6 @@
 
 @interface IncomeHistoryTableViewController : UITableViewController
 
+-(void) setHistory:(NSArray*) _history;
+
 @end
