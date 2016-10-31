@@ -139,10 +139,11 @@
 }
 
 -(NSArray*) retrieveTotalsForEachCategory: (NSDate*) givenDate {
+    NSLog(@"retrieveTotalsForEachCategory...");
     NSMutableArray* totalData = [[NSMutableArray alloc]init];
     NSArray* categories = [self fetchAllCategories];
-    NSNumber* totalForMonth = [self calculateTotalForMonth: [NSDate date]];
-    double monthlyIncome = [self retrieveIncomeMonthly];
+    NSNumber* totalForMonth = [self calculateTotalForMonth: givenDate];
+    double monthlyIncome = [self retrieveIncomeMonthly: [givenDate timeIntervalSince1970]];
     NSLog(@"monthly: %f", monthlyIncome);
     for(CategoryDomainObject* category in categories) {
         NSNumber* totalForCategory = [self calculateTotalForCategory:[category.id intValue] _givenDate:givenDate];
@@ -349,6 +350,7 @@
 
 -(double) retrieveIncomeMonthly :(double) timeStamp {
     NSLog(@"retrieveIncomeMonthly...");
+    NSLog(@"timeStamp, %f", timeStamp);
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
     Income* income = [coreDataManager retrieveIncome: managedObjectContext effective:timeStamp];

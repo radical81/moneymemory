@@ -53,6 +53,7 @@
 }
 
 -(void) generatePieGraph {
+    NSLog(@"generatePieGraph...");
     TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
     NSNumber* totalThisMonth = [logicManager calculateTotalForMonth:_currentDate];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -62,7 +63,8 @@
     formatter.groupingSeparator = @",";
     _monthTotal.text = [NSString stringWithFormat:@"Total Expenses: $ %@", [formatter stringFromNumber:totalThisMonth]];
 
-    double monthlyIncome = [logicManager retrieveIncomeMonthly];
+    double monthlyIncome = [logicManager retrieveIncomeMonthly: [_currentDate timeIntervalSince1970]];
+    NSLog(@"Monthly income %f", monthlyIncome);
     double remaining = monthlyIncome - [totalThisMonth doubleValue];
     _categoryPercent.text = [NSString stringWithFormat:@"Savings: $ %@", [formatter stringFromNumber:[NSNumber numberWithDouble:remaining]]];
     _clickedLabel.text = @"";
@@ -161,10 +163,10 @@
     NSLog(@"setMonthYear: %@", monthYear);
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSLog(@"Use %@",[NSString stringWithFormat:@"1 %@",monthYear]);
-    NSDate* newDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",monthYear]];
+    NSLog(@"Use %@",[NSString stringWithFormat:@"-1 %@",monthYear]);
+    NSDate* newDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"-1 %@",monthYear]];
     NSLog(@"The new date is %@", [dateFormatter stringFromDate:newDate]);
-    _currentDate = newDate;
+    _currentDate = [newDate retain];
 }
 
 @end
