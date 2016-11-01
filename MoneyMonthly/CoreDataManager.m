@@ -248,7 +248,7 @@
     NSLog(@"updateIncomeMonthly...");
 //    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
 //    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-//    NSDate* newDate = [dateFormatter dateFromString:@"01/01/2017"];
+//    NSDate* newDate = [dateFormatter dateFromString:@"31/10/2016"];
 //    timeStamp = [newDate timeIntervalSince1970];
     
     Income* income = [self retrieveLatestIncome:moc];
@@ -258,13 +258,13 @@
         return;
     }
     NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [calendar components:NSCalendarUnitYear fromDate:incomeDate];
-    NSInteger incomeYear = components.year;
-    NSInteger incomeMonth = components.month;
-    NSDateComponents* nowComponents = [calendar components:NSCalendarUnitYear fromDate:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
-    
-    if(nowComponents.year == incomeYear && nowComponents.month == incomeMonth) {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM YYYY"];
+    NSString* incomeMonthYear = [dateFormatter stringFromDate:incomeDate];
+    NSString* nowMonthYear = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
+    NSLog(@"Income Month Year: %@", incomeMonthYear);
+    NSLog(@"Now Month Year: %@", nowMonthYear);
+    if([incomeMonthYear isEqualToString:nowMonthYear]) {
         NSLog(@"Updating income...");
         income.monthly = [NSNumber numberWithDouble:_amount];
         income.effective = [NSNumber numberWithDouble:timeStamp];
