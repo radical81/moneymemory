@@ -246,6 +246,11 @@
 
 -(void) updateIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
     NSLog(@"updateIncomeMonthly...");
+//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+//    NSDate* newDate = [dateFormatter dateFromString:@"01/01/2017"];
+//    timeStamp = [newDate timeIntervalSince1970];
+    
     Income* income = [self retrieveLatestIncome:moc];
     if(income == nil) {
         NSLog(@"Setting income for the first time...");
@@ -257,7 +262,7 @@
     NSDateComponents* components = [calendar components:NSCalendarUnitYear fromDate:incomeDate];
     NSInteger incomeYear = components.year;
     NSInteger incomeMonth = components.month;
-    NSDateComponents* nowComponents = [calendar components:NSCalendarUnitYear fromDate:[NSDate date]];
+    NSDateComponents* nowComponents = [calendar components:NSCalendarUnitYear fromDate:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
     
     if(nowComponents.year == incomeYear && nowComponents.month == incomeMonth) {
         NSLog(@"Updating income...");
@@ -269,6 +274,7 @@
         }
         return;
     }
+    NSLog(@"Add new income for a new month...");
     [self insertIncomeMonthly:moc amount:_amount effective:timeStamp];
 }
 
