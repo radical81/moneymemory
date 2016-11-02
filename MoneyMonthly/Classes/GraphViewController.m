@@ -161,12 +161,22 @@
 
 -(void) setMonthYear: (NSString*) monthYear {
     NSLog(@"setMonthYear: %@", monthYear);
+    
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSLog(@"Use %@",[NSString stringWithFormat:@"-1 %@",monthYear]);
-    NSDate* newDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"-1 %@",monthYear]];
-    NSLog(@"The new date is %@", [dateFormatter stringFromDate:newDate]);
-    _currentDate = [newDate retain];
+    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",monthYear]];
+    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* componentOffset = [[NSDateComponents alloc]init];
+    [componentOffset setMonth:1];
+    [componentOffset setDay: -1];
+    
+    NSDate* monthEnd = [calendar dateByAddingComponents:componentOffset toDate:monthBegin options:NSCalendarMatchStrictly];
+    NSLog(@"The end of themonth is %@", [dateFormatter stringFromDate:monthEnd]);
+    
+    _currentDate = [monthEnd retain];
+    [componentOffset release];
 }
 
 @end
