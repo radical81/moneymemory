@@ -19,6 +19,7 @@
 @property(nonatomic, retain)  NSDictionary* expensesByDay;
 @property (strong, nonatomic) NSArray *sortedDays;
 @property (strong, nonatomic) NSDateFormatter *sectionDateFormatter;
+@property (strong, nonatomic) NSDate* dateFilter;
 
 @end
 
@@ -31,7 +32,9 @@
 @synthesize expensesByDay;
 @synthesize sortedDays;
 @synthesize sectionDateFormatter;
+@synthesize dateFilter = _dateFilter;
 @synthesize expensesTableViewCell = _expensesTableViewCell;
+@synthesize monthYearTable = _monthYearTable;
 
 int const EXPENSE_CELL_HEIGHT = 120;
 
@@ -94,9 +97,17 @@ TransactionsLogicManager* logicManager;
         self.navigationItem.rightBarButtonItem = rightButton;    
         [rightButton release];
     }
+    else {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Month" style:UIBarButtonItemStyleDone target:self action:@selector(filterByMonth)];
+        self.navigationItem.rightBarButtonItem = rightButton;
+        [rightButton release];
+        _monthYearTable = [[HistoryMonthYearTableViewController alloc]initWithAll];
+        _monthYearTable.historyTable = self;
+    }
     self.navigationItem.title = self.tableTitle;
     self.tableView.separatorColor = [UIColor clearColor];
 }
+
 
 - (NSDate*)dateAtBeginningOfDayForDate:(NSDate *)inputDate
 {
@@ -149,7 +160,9 @@ TransactionsLogicManager* logicManager;
 }
 
 -(void) dealloc {
+    [_dateFilter release];
     [_expensesTableViewCell release];
+    [_monthYearTable release];
     [super dealloc];
 }
 
@@ -235,6 +248,25 @@ TransactionsLogicManager* logicManager;
     return cell;
 }
 
+-(void) filterByMonth {
+    [self.navigationController pushViewController:_monthYearTable animated:YES];
+}
+
+-(void) setMonthYear:(NSString *)monthYear {
+    NSLog(@"setMonthYear: %@", monthYear);
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d MMM yyyy"];
+    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",monthYear]];
+    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
+    
+    _dateFilter = [monthBegin retain];
+}
+
+-(void) unsetMonthYear {
+    _dateFilter = nil;
+}
+
 -(void) launchReload {
     NSArray* expenses;
     
@@ -242,7 +274,12 @@ TransactionsLogicManager* logicManager;
         expenses = [logicManager fetchTransactionIsA:[self.category.id intValue] limit:self.limit];
     }
     else {
-        expenses = [logicManager fetchAllTransactions: self.limit];
+        if(_dateFilter == nil) {
+            expenses = [logicManager fetchAllTransactions: self.limit];
+        }
+        else {
+            expenses = [logicManager fetchTransactionsWithinMonth:_dateFilter limit:self.limit];
+        }
     }
     if([expenses count] > 0) {
         NSLog(@"Expenses: %@", expenses);
@@ -254,7 +291,6 @@ TransactionsLogicManager* logicManager;
     
         [self.tableView reloadData];
     }
-    
 }
 
 -(void) viewWillAppear:(BOOL)animated {

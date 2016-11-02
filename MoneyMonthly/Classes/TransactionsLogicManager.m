@@ -138,6 +138,17 @@
     return allTransactions;
 }
 
+-(NSArray*) fetchTransactionsWithinMonth: (NSDate*) givenDate limit: (int) limit{
+    NSArray* allTransactions = [self fetchAllTransactions:limit];
+    NSMutableArray* transactionsInMonth = [[[NSMutableArray alloc]init]autorelease];
+    for(TransactionDomainObject* transaction in allTransactions) {
+        if([self isTransactionWithinMonth:transaction.timestamp _givenDate:givenDate]) {
+            [transactionsInMonth addObject:transaction];
+        }
+    }
+    return transactionsInMonth;
+}
+
 -(NSArray*) retrieveTotalsForEachCategory: (NSDate*) givenDate {
     NSLog(@"retrieveTotalsForEachCategory...");
     NSMutableArray* totalData = [[NSMutableArray alloc]init];

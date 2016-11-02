@@ -41,6 +41,8 @@
 		86013D421BB6928E005F51B4 /* ExpensesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */; };
 		86013D431BB6928E005F51B4 /* ExpensesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */; };
 		860390651DBE33AF005DD4C8 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 860390641DBE33AF005DD4C8 /* arrow-right.png */; };
+		86065F171DCA13790048C8D5 /* HistoryMonthYearTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86065F151DCA13790048C8D5 /* HistoryMonthYearTableViewController.m */; };
+		86065F181DCA13790048C8D5 /* HistoryMonthYearTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86065F161DCA13790048C8D5 /* HistoryMonthYearTableViewController.xib */; };
 		8614CCFE1BBD82B900B4C996 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */; };
 		8626C9681B1C2535002782DA /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 8626C9671B1C2535002782DA /* Income.m */; };
 		862D6C101D25357E00823284 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6BFE1D25357E00823284 /* appTitle.png */; };
@@ -146,6 +148,10 @@
 		86013D401BB6928E005F51B4 /* ExpensesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesTableViewController.m; path = Classes/ExpensesTableViewController.m; sourceTree = "<group>"; };
 		86013D411BB6928E005F51B4 /* ExpensesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpensesTableViewController.xib; path = Classes/ExpensesTableViewController.xib; sourceTree = "<group>"; };
 		860390641DBE33AF005DD4C8 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-right.png"; path = "Images/arrow-right.png"; sourceTree = "<group>"; };
+		86065F131DCA10D70048C8D5 /* ExpenseDateFilterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExpenseDateFilterDelegate.h; path = Classes/ExpenseDateFilterDelegate.h; sourceTree = "<group>"; };
+		86065F141DCA13790048C8D5 /* HistoryMonthYearTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryMonthYearTableViewController.h; path = Classes/HistoryMonthYearTableViewController.h; sourceTree = "<group>"; };
+		86065F151DCA13790048C8D5 /* HistoryMonthYearTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryMonthYearTableViewController.m; path = Classes/HistoryMonthYearTableViewController.m; sourceTree = "<group>"; };
+		86065F161DCA13790048C8D5 /* HistoryMonthYearTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryMonthYearTableViewController.xib; path = Classes/HistoryMonthYearTableViewController.xib; sourceTree = "<group>"; };
 		8614CCFD1BBD82B900B4C996 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8626C9661B1C2535002782DA /* Income.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = SOURCE_ROOT; };
 		8626C9671B1C2535002782DA /* Income.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Income.m; sourceTree = SOURCE_ROOT; };
@@ -301,6 +307,9 @@
 				86D61C751CF66BB000D75695 /* StatsMonthYearTableViewController.m */,
 				86A437631DC22626006A12A5 /* IncomeHistoryTableViewController.h */,
 				86A437641DC22626006A12A5 /* IncomeHistoryTableViewController.m */,
+				86065F141DCA13790048C8D5 /* HistoryMonthYearTableViewController.h */,
+				86065F151DCA13790048C8D5 /* HistoryMonthYearTableViewController.m */,
+				86065F161DCA13790048C8D5 /* HistoryMonthYearTableViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -471,6 +480,7 @@
 				86A7A9361DBA3A9B00708F10 /* CategoryUpdateDelegate.h */,
 				86D61C7A1CF6A54500D75695 /* StatsMonthYearDelegate.h */,
 				86A7A9371DBA3B2700708F10 /* ExpenseUpdateDelegate.h */,
+				86065F131DCA10D70048C8D5 /* ExpenseDateFilterDelegate.h */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -571,6 +581,7 @@
 				86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */,
 				86DB98A91DB63F94009B2BF3 /* buttonHistory.png in Resources */,
 				862D6C161D25357E00823284 /* background1242x2208.png in Resources */,
+				86065F181DCA13790048C8D5 /* HistoryMonthYearTableViewController.xib in Resources */,
 				86F544901A95FEC600EC9FB6 /* CategoryDetailViewController.xib in Resources */,
 				862D6C121D25357E00823284 /* background320x480.png in Resources */,
 				862D6C101D25357E00823284 /* appTitle.png in Resources */,
@@ -697,6 +708,7 @@
 				8626C9681B1C2535002782DA /* Income.m in Sources */,
 				86C4A5D21D22AB56007DE487 /* DesignHelper.m in Sources */,
 				17FC25231810429E0067282D /* TransactionsLogicManager.m in Sources */,
+				86065F171DCA13790048C8D5 /* HistoryMonthYearTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

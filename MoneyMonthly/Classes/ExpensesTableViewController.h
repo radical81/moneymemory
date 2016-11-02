@@ -11,12 +11,15 @@
 #import "ExpensesTableViewCell.h"
 #import "CategoryUpdateDelegate.h"
 #import "ExpenseUpdateDelegate.h"
+#import "ExpenseDateFilterDelegate.h"
+#import "HistoryMonthYearTableViewController.h"
 
-@interface ExpensesTableViewController : UITableViewController <ExpenseUpdateDelegate>
+@interface ExpensesTableViewController : UITableViewController <ExpenseUpdateDelegate, ExpenseDateFilterDelegate>
 -(id) initWithAll;
 -(id) initWithCategory:(CategoryDomainObject*) _category;
 
 @property (retain, nonatomic) IBOutlet ExpensesTableViewCell *expensesTableViewCell;
 @property(nonatomic, retain) id <CategoryUpdateDelegate> categoryDelegate;
+@property (retain, nonatomic) HistoryMonthYearTableViewController* monthYearTable;
 
 @end
