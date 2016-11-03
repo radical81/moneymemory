@@ -297,6 +297,12 @@ TransactionsLogicManager* logicManager;
     [self launchReload];
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [self unsetMonthYear];
+    }
+    [super viewWillDisappear:animated];
+}
 
 /*
 // Override to support conditional editing of the table view.
