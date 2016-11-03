@@ -19,8 +19,8 @@
 @property (retain, nonatomic) IBOutlet UIImageView *background;
 @property (retain, nonatomic) IBOutlet UILabel *totalExpenses;
 @property (retain, nonatomic) IBOutlet UILabel *categoryLimit;
+@property (retain, nonatomic) IBOutlet UILabel *tipLabel;
 - (IBAction)didPressNewExpense:(id)sender;
-- (IBAction)didPressViewExpenses:(id)sender;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *addExpenseTop;
 
 @end

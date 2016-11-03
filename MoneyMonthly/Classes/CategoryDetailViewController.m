@@ -24,9 +24,10 @@
 @synthesize totalExpenses = _totalExpenses;
 @synthesize background = _background;
 @synthesize addExpenseTop = _addExpenseTop;
+@synthesize tipLabel = _tipLabel;
 
 CGFloat const GRAPH_LEFT_MARGIN = 50;
-CGFloat const GRAPH_TOP_POSITION = 170;
+CGFloat const GRAPH_TOP_POSITION = 210;
 int const GRAPH_LINE_WIDTH = 40;
 
 - (void)viewDidLoad {
@@ -51,6 +52,7 @@ int const GRAPH_LINE_WIDTH = 40;
     formatter.groupingSeparator = @",";
     NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [formatter stringFromNumber:_category.limit]];
     _categoryLimit.text = categoryMax;
+    _tipLabel.text = @"Tap on the chart for expense history.";
 }
 
 -(void) drawCircleChart:(NSNumber*) totalExpense {
@@ -70,6 +72,17 @@ int const GRAPH_LINE_WIDTH = 40;
     [circleChart strokeChart];
     circleChart.tag = 200;
     [self.view addSubview:circleChart];
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(chartSingleTap:)];
+    [circleChart addGestureRecognizer:singleFingerTap];
+    [singleFingerTap release];
+}
+
+-(void) chartSingleTap:(UITapGestureRecognizer *)recognizer {
+    NSLog(@"Tapped circle chart");
+    NSLog(@"View Expenses in Category...");
+    [self.navigationController pushViewController:_expensesTable animated:YES];
 }
 
 -(void) calculateAndDisplayTotalExpenses {
@@ -115,6 +128,7 @@ int const GRAPH_LINE_WIDTH = 40;
     [_categoryLimit release];
     [_background release];
     [_addExpenseTop release];
+    [_tipLabel release];
     [super dealloc];
 }
 
@@ -124,11 +138,6 @@ int const GRAPH_LINE_WIDTH = 40;
     spendMoneyViewController.categoryDelegate = self;
     [self.navigationController pushViewController:spendMoneyViewController animated:YES];
     
-}
-
-- (IBAction)didPressViewExpenses:(id)sender {
-    NSLog(@"View Expenses in Category...");
-    [self.navigationController pushViewController:_expensesTable animated:YES];
 }
 
 @end
