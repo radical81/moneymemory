@@ -119,7 +119,7 @@ TransactionsLogicManager* logicManager;
     double percentage = [totalForCategory floatValue]  / ([cat.limit floatValue] / 100.0);
     cell.nameLabel.text = cat.name;
     cell.limitLabel.text = [NSString stringWithFormat:@"Limit: %@", categoryLimit];
-    cell.totalLabel.text = [NSString stringWithFormat:@"Total: %@", totalExpensesAmount];
+    cell.totalLabel.text = [NSString stringWithFormat:@"Spent: %@", totalExpensesAmount];
     NSNumberFormatter *percentFormatter = [[NSNumberFormatter alloc] init];
     [percentFormatter setMaximumFractionDigits:0];
     [percentFormatter setRoundingMode: NSNumberFormatterRoundDown];
