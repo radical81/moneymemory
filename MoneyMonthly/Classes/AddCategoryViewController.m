@@ -205,7 +205,7 @@ BOOL isAddCategory;
     
     alertMessage = [NSString stringWithFormat:@"Your monthly budget exceeds $ %@. You can only budget up to $ %@.", incomeLimit, allowance];
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Save Category"
+                                  alertControllerWithTitle:@"Cannot Save Category"
                                   message: alertMessage
                                   preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction
