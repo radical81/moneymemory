@@ -213,10 +213,6 @@
     transaction.id = [NSNumber numberWithInt:latestTransactionId];
     
     transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
-    if([transaction.amount doubleValue] > [_category.limit doubleValue]) {
-        [self showOverShotTransaction:[_category.limit stringValue]];
-        return;
-    }
     
     transaction.timestamp = timeStamp;
     
@@ -239,11 +235,6 @@
 
 -(void) updateTransaction:(NSNumber*) timeStamp {
     _transaction.amount = [NSNumber numberWithDouble:[_amountTextField.text doubleValue]];
-    if([_transaction.amount doubleValue] > [_category.limit doubleValue]) {
-        [self showOverShotTransaction:[_category.limit stringValue]];
-        return;
-    }
-    
     _transaction.timestamp = timeStamp;
     
     NSLog(@"Saved with Timestamp: %@", _transaction.timestamp);
@@ -305,10 +296,14 @@
     NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue] _givenDate:transactionDate];
     double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
     if(total > [_category.limit doubleValue]) {
-        [self showOverShotTransaction:[_category.limit stringValue]];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setAllowsFloats:YES];
+        [formatter setMaximumFractionDigits:2];
+        formatter.usesGroupingSeparator = YES;
+        formatter.groupingSeparator = @",";
+        [self showOverShotTransaction:[formatter stringFromNumber:_category.limit]];
         return;
     }
-    
     
     if(_newTransaction == YES) {
         [self saveNewTransaction: timeStamp];
@@ -407,7 +402,7 @@
 -(void) showOverShotTransaction:(NSString*) transactionLimit {
     NSString* alertMessage;
     
-    alertMessage = [NSString stringWithFormat:@"You can only spend up to $%@",transactionLimit];
+    alertMessage = [NSString stringWithFormat:@"You can only spend up to $ %@",transactionLimit];
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Save Transaction"
                                   message: alertMessage
