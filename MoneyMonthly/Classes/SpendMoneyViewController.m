@@ -301,7 +301,8 @@
         [formatter setMaximumFractionDigits:2];
         formatter.usesGroupingSeparator = YES;
         formatter.groupingSeparator = @",";
-        [self showOverShotTransaction:[formatter stringFromNumber:_category.limit]];
+        double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue];
+        [self showOverShotTransaction:[formatter stringFromNumber:[NSNumber numberWithDouble: allowance]]];
         return;
     }
     
@@ -402,9 +403,9 @@
 -(void) showOverShotTransaction:(NSString*) transactionLimit {
     NSString* alertMessage;
     
-    alertMessage = [NSString stringWithFormat:@"You can only spend up to $ %@",transactionLimit];
+    alertMessage = [NSString stringWithFormat:@"You will exceed your $ %@ remaining.", transactionLimit];
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Save Transaction"
+                                  alertControllerWithTitle:@"Cannot Save Transaction"
                                   message: alertMessage
                                   preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction
