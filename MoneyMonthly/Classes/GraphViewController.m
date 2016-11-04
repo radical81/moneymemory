@@ -10,6 +10,7 @@
 #import "TransactionsLogicManager.h"
 
 @interface GraphViewController ()
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *sliceTap;
 
 @property(nonatomic, retain) NSDate* currentDate;
 @end
@@ -23,7 +24,10 @@
 @synthesize tipLabel = _tipLabel;
 @synthesize monthYearTable = _monthYearTable;
 @synthesize currentDate = _currentDate;
+@synthesize sliceTap = _sliceTap;
 
+CGFloat const PIE_GRAPH_LEFT_MARGIN = 40;
+CGFloat const PIE_GRAPH_TOP_POSITION = 220;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,8 +91,11 @@
         [items addObject:[PNPieChartDataItem dataItemWithValue:expenseValue color:color description: categoryName]];
         color = nil;
     }
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat graphWidth = screenWidth - (PIE_GRAPH_LEFT_MARGIN*2);
+    _sliceTap.constant += graphWidth;
     
-    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:[items copy]];
+    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(PIE_GRAPH_LEFT_MARGIN, PIE_GRAPH_TOP_POSITION, graphWidth, graphWidth) items:[items copy]];
     pieChart.descriptionTextColor = [UIColor whiteColor];
     pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:16.0];
     pieChart.showOnlyValues = YES;
@@ -146,6 +153,7 @@
     [_monthYearTable release];
     [_currentDate release];
     [_tipLabel release];
+    [_sliceTap release];
     [super dealloc];
 }
 
