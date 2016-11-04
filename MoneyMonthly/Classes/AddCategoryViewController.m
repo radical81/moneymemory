@@ -65,8 +65,14 @@ BOOL isAddCategory;
     NSNumber* totalOfCategories = [transactionsLogicManager calculateTotalOfCategories];
     double total = [totalOfCategories doubleValue] + [_amountLimit.text doubleValue];
     double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];
+    double allowance = monthlyIncome - [totalOfCategories doubleValue];
     if(total > monthlyIncome) {
-        [self showOverShotBudget:[NSString stringWithFormat:@"%.0f", monthlyIncome]];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setAllowsFloats:YES];
+        [formatter setMaximumFractionDigits:2];
+        formatter.usesGroupingSeparator = YES;
+        formatter.groupingSeparator = @",";
+        [self showOverShotBudget:[formatter stringFromNumber: [NSNumber numberWithDouble: monthlyIncome]] allowance:[formatter stringFromNumber: [NSNumber numberWithDouble: allowance]]];
         return;
     }
     [self createNotificationObserver];
@@ -83,10 +89,16 @@ BOOL isAddCategory;
     totalCategoriesInDouble = totalCategoriesInDouble - [_category.limit doubleValue];
     double total = totalCategoriesInDouble + [_amountLimit.text doubleValue];
     double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];
+    double allowance = monthlyIncome - totalCategoriesInDouble;
     NSLog(@"Monthly income: %f", monthlyIncome);
     NSLog(@"Total: %f", total);
     if(total > monthlyIncome) {
-        [self showOverShotBudget:[NSString stringWithFormat:@"%.0f", monthlyIncome]];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setAllowsFloats:YES];
+        [formatter setMaximumFractionDigits:2];
+        formatter.usesGroupingSeparator = YES;
+        formatter.groupingSeparator = @",";
+        [self showOverShotBudget: [formatter stringFromNumber: [NSNumber numberWithDouble: monthlyIncome]] allowance:[formatter stringFromNumber: [NSNumber numberWithDouble: allowance]]];
         return;
     }
     _category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
@@ -188,10 +200,10 @@ BOOL isAddCategory;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
--(void) showOverShotBudget:(NSString*) incomeLimit {
+-(void) showOverShotBudget:(NSString*) incomeLimit allowance: (NSString*) allowance {
     NSString* alertMessage;
     
-    alertMessage = [NSString stringWithFormat:@"Your monthly budget is over $%@",incomeLimit];
+    alertMessage = [NSString stringWithFormat:@"Your monthly budget exceeds $ %@. You can only budget up to $ %@.", incomeLimit, allowance];
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Save Category"
                                   message: alertMessage
