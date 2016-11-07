@@ -46,9 +46,6 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     NSString* currentMonth = [dateFormatter stringFromDate:_currentDate];
     [dateFormatter release];
     _headerLabel.text = currentMonth;
-    if([[self.view viewWithTag:100] isKindOfClass:[PNPieChart class]]) {
-        [[self.view viewWithTag:100] removeFromSuperview];
-    }
     [self generatePieGraph];
 }
 
@@ -93,6 +90,10 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     }
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat graphWidth = screenWidth - (PIE_GRAPH_LEFT_MARGIN*2);
+    if([[self.view viewWithTag:100] isKindOfClass:[PNPieChart class]]) {
+        [[self.view viewWithTag:100] removeFromSuperview];
+        _sliceTap.constant -= graphWidth;
+    }    
     _sliceTap.constant += graphWidth;
     
     PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(PIE_GRAPH_LEFT_MARGIN, PIE_GRAPH_TOP_POSITION, graphWidth, graphWidth) items:[items copy]];
