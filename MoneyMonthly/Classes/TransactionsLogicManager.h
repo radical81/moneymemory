@@ -38,5 +38,7 @@
 -(double) retrieveIncomeMonthly;
 -(double) retrieveIncomeMonthly :(double) timeStamp;
 -(NSArray*) fetchTimeStamps;
+-(NSDate*) fetchIncomeMinDate;
+-(NSDate*) fetchIncomeMaxDate;
 
 @end

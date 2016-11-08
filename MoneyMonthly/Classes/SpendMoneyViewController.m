@@ -135,6 +135,8 @@
 -(void) datePickerSetup {
     transactionDatePicker = [[UIDatePicker alloc] init];
     transactionDatePicker.datePickerMode = UIDatePickerModeDate;
+    [transactionDatePicker setMinimumDate:[transactionsLogicManager fetchIncomeMinDate]];
+    [transactionDatePicker setMaximumDate:[transactionsLogicManager fetchIncomeMaxDate]];
     [transactionDatePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     [_transactionDateText setInputView:transactionDatePicker];
     

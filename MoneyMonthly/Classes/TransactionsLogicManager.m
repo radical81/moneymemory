@@ -377,4 +377,35 @@
     return timeStamps;
 }
 
+-(NSDate*) fetchIncomeMinDate {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    NSString* incomeMinMonthYear = [coreDataManager fetchIncomeMonthMin:managedObjectContext];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d MMM yyyy"];
+    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",incomeMinMonthYear]];
+    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
+    [coreDataManager release];
+    return monthBegin;
+}
+
+-(NSDate*) fetchIncomeMaxDate {
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    NSString* incomeMaxMonthYear = [coreDataManager fetchIncomeMonthMax:managedObjectContext];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d MMM yyyy"];
+    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",incomeMaxMonthYear]];
+    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
+    [coreDataManager release];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents* componentOffset = [[NSDateComponents alloc]init];
+    [componentOffset setMonth:1];
+    [componentOffset setDay: -1];
+    NSDate* monthEnd = [calendar dateByAddingComponents:componentOffset toDate:monthBegin options:NSCalendarMatchStrictly];
+    NSLog(@"The end of themonth is %@", [dateFormatter stringFromDate:monthEnd]);
+    return monthEnd;
+}
+
 @end

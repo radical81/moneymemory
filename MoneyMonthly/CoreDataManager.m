@@ -228,6 +228,32 @@
     return [incomeArray copy];
 }
 
+-(NSString*) fetchIncomeMonthMin:(NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"effective" ascending:YES]];
+    request.fetchLimit = 1;
+    NSError *error = nil;
+    Income* income = [moc executeFetchRequest:request error:&error].lastObject;
+    [request release];
+    NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM YYYY"];
+    return [dateFormatter stringFromDate:incomeDate];
+}
+
+-(NSString*) fetchIncomeMonthMax:(NSManagedObjectContext*) moc {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Income"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"effective" ascending:NO]];
+    request.fetchLimit = 1;
+    NSError *error = nil;
+    Income* income = [moc executeFetchRequest:request error:&error].lastObject;
+    [request release];
+    NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM YYYY"];
+    return [dateFormatter stringFromDate:incomeDate];
+}
+
 -(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
     NSLog(@"insertIncomeMonthly...");
     Income*  income = [NSEntityDescription insertNewObjectForEntityForName:@"Income" inManagedObjectContext:moc];
