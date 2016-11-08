@@ -15,6 +15,7 @@
                 <outlet property="background" destination="fy0-Vr-Tll" id="mcW-di-T0q"/>
                 <outlet property="categoryLimit" destination="YeX-HT-Y3A" id="wkv-fr-obd"/>
                 <outlet property="tipLabel" destination="qee-0b-YeX" id="Sdc-aq-xHn"/>
+                <outlet property="tipLabelWidth" destination="hbj-bj-Ikk" id="ZsX-lD-Ibu"/>
                 <outlet property="totalExpenses" destination="4kI-nD-TXI" id="SH9-C6-R1b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -39,8 +40,11 @@
                     <color key="textColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qee-0b-YeX">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tip" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qee-0b-YeX">
                     <rect key="frame" x="149" y="274" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="hbj-bj-Ikk"/>
+                    </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

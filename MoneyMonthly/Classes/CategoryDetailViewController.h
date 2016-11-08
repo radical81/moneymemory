@@ -22,5 +22,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *tipLabel;
 - (IBAction)didPressNewExpense:(id)sender;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *addExpenseTop;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *tipLabelWidth;
 
 @end

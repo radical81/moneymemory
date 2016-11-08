@@ -24,6 +24,8 @@
 @synthesize totalExpenses = _totalExpenses;
 @synthesize background = _background;
 @synthesize addExpenseTop = _addExpenseTop;
+@synthesize tipLabelWidth = _tipLabelWidth;
+
 @synthesize tipLabel = _tipLabel;
 
 CGFloat const GRAPH_LEFT_MARGIN = 50;
@@ -52,7 +54,7 @@ int const GRAPH_LINE_WIDTH = 40;
     formatter.groupingSeparator = @",";
     NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [formatter stringFromNumber:_category.limit]];
     _categoryLimit.text = categoryMax;
-    _tipLabel.text = @"Tap on the chart for expense history.";
+    _tipLabel.text = @"Chart reflects only this month's expenses. Tap on the chart for expense history.";
 }
 
 -(void) drawCircleChart:(NSNumber*) totalExpense {
@@ -64,6 +66,8 @@ int const GRAPH_LINE_WIDTH = 40;
         _addExpenseTop.constant -= graphWidth;
     }
     _addExpenseTop.constant += graphWidth;
+    _tipLabelWidth.constant = screenWidth - 40;
+    
     PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(GRAPH_LEFT_MARGIN, GRAPH_TOP_POSITION, graphWidth, graphWidth) total:_category.limit current:totalExpense clockwise:NO shadow: YES shadowColor: [UIColor colorWithRed:85/255.f green:107/255.f blue:47/255.f alpha:0.5f]];
     circleChart.backgroundColor = [UIColor clearColor];
     [circleChart setStrokeColor:[UIColor colorWithRed:205/255.f green:60/255.f blue:60/255.f alpha:0.5f]];
@@ -129,6 +133,7 @@ int const GRAPH_LINE_WIDTH = 40;
     [_background release];
     [_addExpenseTop release];
     [_tipLabel release];
+    [_tipLabelWidth release];
     [super dealloc];
 }
 
