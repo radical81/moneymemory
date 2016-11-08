@@ -13,11 +13,13 @@
 @synthesize id;
 @synthesize limit;
 @synthesize name;
+@synthesize visible;
 
 -(void) resetValues {
     self.id = nil;
     self.limit = nil;
     self.name = nil;
+    self.visible = YES;
 }
 
 @end

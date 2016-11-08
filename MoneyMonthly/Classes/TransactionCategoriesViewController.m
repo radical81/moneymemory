@@ -36,7 +36,7 @@ TransactionsLogicManager* logicManager;
     if (self) {
         // Custom initialization
         logicManager = [[TransactionsLogicManager alloc]init];
-        transactionCategories = [[logicManager fetchAllCategories] retain];
+        transactionCategories = [[logicManager fetchCurrentCategories] retain];
     }
     return self;
 }
@@ -170,10 +170,23 @@ TransactionsLogicManager* logicManager;
                                                 [logicManager deleteCategoryInCoreData:cat];
                                                 NSLog(@"transactionCategories after delete: %@",transactionCategories);
                                                 NSLog(@"Deleted row %d", (int)indexPath.row);
-                                                transactionCategories = [[logicManager fetchAllCategories] retain];
+                                                transactionCategories = [[logicManager fetchCurrentCategories] retain];
                                                 NSLog(@"number of transactionCategories after delete: %lu",(unsigned long)[transactionCategories count]);
                                                 [tableView reloadData];
                                             }
+                              ]
+     ];
+    [confirmDelete addAction:[UIAlertAction actionWithTitle:@"Hide"
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * action) {
+                                                        NSLog(@"Hide category");
+                                                        CategoryDomainObject* cat = [transactionCategories objectAtIndex:indexPath.row];
+                                                        cat.visible = NO;
+                                                        [logicManager updateCategory:cat];
+                                                        transactionCategories = [[logicManager fetchCurrentCategories] retain];
+                                                        NSLog(@"number of transactionCategories after hide: %lu",(unsigned long)[transactionCategories count]);
+                                                        [tableView reloadData];
+                                                    }
                               ]
      ];
     [confirmDelete addAction:[UIAlertAction actionWithTitle:@"Cancel"
@@ -186,7 +199,7 @@ TransactionsLogicManager* logicManager;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-    transactionCategories = [[logicManager fetchAllCategories] retain];
+    transactionCategories = [[logicManager fetchCurrentCategories] retain];
     [self.tableView reloadData];
     if([transactionCategories count] > 0) {
         self.tableView.backgroundView = nil;

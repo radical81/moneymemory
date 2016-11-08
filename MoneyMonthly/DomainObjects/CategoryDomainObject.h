@@ -13,6 +13,7 @@
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSNumber * limit;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic) BOOL visible;
 
 -(void) resetValues;
 

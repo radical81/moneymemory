@@ -42,6 +42,7 @@
     categoryDomainObject.id = [category valueForKey:@"id"];
     categoryDomainObject.limit = [category valueForKey:@"limit"];
     categoryDomainObject.name = [category valueForKey:@"name"];
+    categoryDomainObject.visible = [category valueForKey:@"visible"];
 
     return categoryDomainObject;
 }
@@ -68,6 +69,7 @@
         categoryDomainObject.id = [category valueForKey:@"id"];
         categoryDomainObject.limit = [category valueForKey:@"limit"];
         categoryDomainObject.name = [category valueForKey:@"name"];
+        categoryDomainObject.visible = [category valueForKey:@"visible"];
     }
     return categoryDomainObject;
 }
@@ -80,6 +82,21 @@
     for(Category* category in categories) {
         CategoryDomainObject* categoryDomainObject = [self generateCategoryDomainObjectFromCategory:category];
         [allCategories addObject:categoryDomainObject];
+    }
+    [coreDataManager release];
+    return allCategories;
+}
+
+-(NSArray*) fetchCurrentCategories {
+    NSMutableArray* allCategories = [[[NSMutableArray alloc]init]autorelease];
+    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
+    [self initCoreData];
+    NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
+    for(Category* category in categories) {
+        if(category.visible == YES) {
+            CategoryDomainObject* categoryDomainObject = [self generateCategoryDomainObjectFromCategory:category];
+            [allCategories addObject:categoryDomainObject];
+        }
     }
     [coreDataManager release];
     return allCategories;
@@ -267,9 +284,10 @@
     [self initCoreData];
     int categoryId = [categoryDomainObject.id intValue];
     double limit = [categoryDomainObject.limit doubleValue];
+    BOOL visible = categoryDomainObject.visible;
     NSString* categoryName = categoryDomainObject.name;
     
-    [coreDataManager updateCategoryWithId:categoryId newLimit:limit newName:categoryName context:managedObjectContext];
+    [coreDataManager updateCategoryWithId:categoryId newLimit:limit newName:categoryName visible:visible context:managedObjectContext];
     [coreDataManager release];
 }
 

@@ -15,6 +15,7 @@
 -(TransactionDomainObject*) generateTransactionDomainObject:(int) _id amount: (double) _amount timestamp:(int) _timestamp imagepath: (NSString*) _imagepath comment: (NSString*) _comment is_a:(CategoryDomainObject*) _is_a;
 -(CategoryDomainObject*) fetchCategoryWithId: (int) _id;
 -(NSArray*) fetchAllCategories;
+-(NSArray*) fetchCurrentCategories;
 -(NSArray*) fetchCategoryNames;
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id;
 -(NSArray*) fetchAllTransactions:(int) limit;

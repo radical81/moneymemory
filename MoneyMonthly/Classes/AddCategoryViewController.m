@@ -62,6 +62,7 @@ BOOL isAddCategory;
     category.id = [NSNumber numberWithInt:latestCategoryId];
     category.name = _categoryNew.text;
     category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
+    category.visible = YES;
     NSNumber* totalOfCategories = [transactionsLogicManager calculateTotalOfCategories];
     double total = [totalOfCategories doubleValue] + [_amountLimit.text doubleValue];
     double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];

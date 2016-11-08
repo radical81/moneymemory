@@ -14,5 +14,6 @@
 @dynamic id;
 @dynamic limit;
 @dynamic name;
+@dynamic visible;
 
 @end

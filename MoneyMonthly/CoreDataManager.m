@@ -16,6 +16,7 @@
     newCategory.id = [NSNumber numberWithInt:_id];
     newCategory.limit = [NSNumber numberWithDouble:_limit];
     newCategory.name = _name;
+    newCategory.visible = YES;
     NSError* error = nil;
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
@@ -114,10 +115,11 @@
     return resultsArray;
 }
 
--(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName context: (NSManagedObjectContext*) moc {
+-(void) updateCategoryWithId:(int) _id newLimit: (double) _newLimit newName: (NSString*) _newName visible: (BOOL)_visible context: (NSManagedObjectContext*) moc {
     Category* categoryToUpdate = [self fetchCategoryWithId:_id context:moc];
     categoryToUpdate.limit = [NSNumber numberWithDouble:_newLimit];
     categoryToUpdate.name = _newName;
+    categoryToUpdate.visible = _visible;
     NSError* error = nil;
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
