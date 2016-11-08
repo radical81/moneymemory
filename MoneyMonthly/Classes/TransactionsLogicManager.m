@@ -82,7 +82,6 @@
         [allCategories addObject:categoryDomainObject];
     }
     [coreDataManager release];
-    
     return allCategories;
 }
 
@@ -365,6 +364,8 @@
     CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
     [self initCoreData];
     Income* income = [coreDataManager retrieveIncome: managedObjectContext effective:timeStamp];
+    [coreDataManager release];
+    NSLog(@"Income %f", [income.monthly doubleValue]);
     return [income.monthly doubleValue];
 }
 
