@@ -159,7 +159,7 @@ TransactionsLogicManager* logicManager;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIAlertController* confirmDelete = [UIAlertController alertControllerWithTitle:@"Confirm Delete"
-                                                          message:@"All transactions in this category will be lost. Do you want to proceed?"
+                                                          message:@"All expenses in this category will be lost. Do you want to proceed? You can also choose Hide to preserve old expenses."
                                                           preferredStyle:UIAlertControllerStyleAlert];
     [confirmDelete addAction:[UIAlertAction actionWithTitle:@"Delete"
                                             style:UIAlertActionStyleDefault
