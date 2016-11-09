@@ -11,6 +11,7 @@
 #import "AssetsLibrary/AssetsLibrary.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "DesignHelper.h"
+#import "CurrencyHelper.h"
 
 @interface SpendMoneyViewController ()
 
@@ -298,13 +299,10 @@
     NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue] _givenDate:transactionDate];
     double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
     if(total > [_category.limit doubleValue]) {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setAllowsFloats:YES];
-        [formatter setMaximumFractionDigits:2];
-        formatter.usesGroupingSeparator = YES;
-        formatter.groupingSeparator = @",";
+        CurrencyHelper* helper = [[CurrencyHelper alloc]init];
         double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue];
-        [self showOverShotTransaction:[formatter stringFromNumber:[NSNumber numberWithDouble: allowance]]];
+        [self showOverShotTransaction:[helper numberWithComma:[NSNumber numberWithDouble: allowance]]];
+        [helper release];
         return;
     }
     

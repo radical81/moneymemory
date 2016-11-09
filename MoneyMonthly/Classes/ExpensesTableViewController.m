@@ -9,6 +9,7 @@
 #import "ExpensesTableViewController.h"
 #import "SpendMoneyViewController.h"
 #import "TransactionsLogicManager.h"
+#import "CurrencyHelper.h"
 
 @interface ExpensesTableViewController ()
 
@@ -220,14 +221,9 @@ TransactionsLogicManager* logicManager;
         cell = _expensesTableViewCell;
         _expensesTableViewCell = nil;
     }
-    
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setAllowsFloats:YES];
-    [formatter setMaximumFractionDigits:2];
-    formatter.usesGroupingSeparator = YES;
-    formatter.groupingSeparator = @",";
-    NSString* transactionAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber: transaction.amount]];
-    
+    CurrencyHelper* helper = [[CurrencyHelper alloc]init];
+    NSString* transactionAmount = [NSString stringWithFormat:@"$ %@", [helper numberWithComma: transaction.amount]];
+    [helper release];
     cell.amountLabel.text = transactionAmount;
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%@", transaction.comment];
     

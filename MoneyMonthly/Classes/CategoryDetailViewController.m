@@ -11,12 +11,15 @@
 #import "SpendMoneyViewController.h"
 #import "TransactionsLogicManager.h"
 #import "DesignHelper.h"
+#import "CurrencyHelper.h"
 
 @interface CategoryDetailViewController ()
 
 @end
 
-@implementation CategoryDetailViewController 
+@implementation CategoryDetailViewController {
+    CurrencyHelper* currencyHelper;
+}
 
 @synthesize category = _category;
 @synthesize expensesTable = _expensesTable;
@@ -44,15 +47,11 @@ int const GRAPH_LINE_WIDTH = 40;
     DesignHelper* designHelper = [[DesignHelper alloc] init];
     _background.image = [designHelper addBackgroundByScreenSize:@"background"];
     [designHelper release];
+    currencyHelper = [[CurrencyHelper alloc]init];
     [self calculateAndDisplayTotalExpenses];
 }
 - (void)viewWillAppear:(BOOL)animated {
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setAllowsFloats:YES];
-    [formatter setMaximumFractionDigits:2];
-    formatter.usesGroupingSeparator = YES;
-    formatter.groupingSeparator = @",";
-    NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [formatter stringFromNumber:_category.limit]];
+    NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [currencyHelper numberWithComma:_category.limit]];
     _categoryLimit.text = categoryMax;
     _tipLabel.text = @"Chart reflects only this month's expenses. Tap on the chart for expense history.";
 }
@@ -92,12 +91,7 @@ int const GRAPH_LINE_WIDTH = 40;
 -(void) calculateAndDisplayTotalExpenses {
     TransactionsLogicManager* transactionLogic = [[TransactionsLogicManager alloc]init];
     NSNumber* totalExpensesAmount = [transactionLogic calculateTotalForCategory:[_category.id intValue] _givenDate:[NSDate date]];
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setAllowsFloats:YES];
-    [formatter setMaximumFractionDigits:2];
-    formatter.usesGroupingSeparator = YES;
-    formatter.groupingSeparator = @",";
-    NSString* totalExpensesNow = [NSString stringWithFormat:@"Total: $ %@", [formatter stringFromNumber:totalExpensesAmount]];
+    NSString* totalExpensesNow = [NSString stringWithFormat:@"Total: $ %@", [currencyHelper numberWithComma:totalExpensesAmount]];
     [_totalExpenses setText: totalExpensesNow];
     [transactionLogic release];
     [self drawCircleChart:totalExpensesAmount];
@@ -134,6 +128,9 @@ int const GRAPH_LINE_WIDTH = 40;
     [_addExpenseTop release];
     [_tipLabel release];
     [_tipLabelWidth release];
+    if(currencyHelper != nil) {
+        [currencyHelper release];
+    }
     [super dealloc];
 }
 

@@ -8,6 +8,7 @@
 
 #import "GraphViewController.h"
 #import "TransactionsLogicManager.h"
+#import "CurrencyHelper.h"
 
 @interface GraphViewController ()
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *sliceTap;
@@ -57,17 +58,13 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     NSLog(@"generatePieGraph...");
     TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
     NSNumber* totalThisMonth = [logicManager calculateTotalForMonth:_currentDate];
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setAllowsFloats:YES];
-    [formatter setMaximumFractionDigits:2];
-    formatter.usesGroupingSeparator = YES;
-    formatter.groupingSeparator = @",";
-    _monthTotal.text = [NSString stringWithFormat:@"Total Expenses: $ %@", [formatter stringFromNumber:totalThisMonth]];
-
+    CurrencyHelper* helper = [[CurrencyHelper alloc]init];
+    _monthTotal.text = [NSString stringWithFormat:@"Total Expenses: $ %@", [helper numberWithComma:totalThisMonth]];
     double monthlyIncome = [logicManager retrieveIncomeMonthly: [_currentDate timeIntervalSince1970]];
     NSLog(@"Monthly income %f", monthlyIncome);
     double remaining = monthlyIncome - [totalThisMonth doubleValue];
-    _categoryPercent.text = [NSString stringWithFormat:@"Savings: $ %@", [formatter stringFromNumber:[NSNumber numberWithDouble:remaining]]];
+    _categoryPercent.text = [NSString stringWithFormat:@"Savings: $ %@", [helper numberWithComma:[NSNumber numberWithDouble:remaining]]];
+    [helper release];
     _clickedLabel.text = @"";
     _tipLabel.text = @"Tap on the pie slices to show details.";
     

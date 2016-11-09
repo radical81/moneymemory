@@ -10,7 +10,7 @@
 #import "TransactionsLogicManager.h"
 #import "CategoryDomainObject.h"
 #import "CategoryDetailViewController.h"
-
+#import "CurrencyHelper.h"
 #import "AddCategoryViewController.h"
 
 @interface TransactionCategoriesViewController ()
@@ -105,16 +105,10 @@ TransactionsLogicManager* logicManager;
         cell = _categoryCell;
         _categoryCell = nil;
     }
-    
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setAllowsFloats:YES];
-    [formatter setMaximumFractionDigits:2];
-    formatter.usesGroupingSeparator = YES;
-    formatter.groupingSeparator = @",";
-    NSString* categoryLimit = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:cat.limit]];
+    CurrencyHelper* helper = [[CurrencyHelper alloc]init];
+    NSString* categoryLimit = [NSString stringWithFormat:@"$ %@", [helper numberWithComma:cat.limit]];
     NSNumber* totalForCategory = [logicManager calculateTotalForCategory:[cat.id intValue] _givenDate:[NSDate date]];
-    NSString* totalExpensesAmount = [NSString stringWithFormat:@"$ %@", [formatter stringFromNumber:totalForCategory]];
-    
+    NSString* totalExpensesAmount = [NSString stringWithFormat:@"$ %@", [helper numberWithComma:totalForCategory]];
     
     double percentage = [totalForCategory floatValue]  / ([cat.limit floatValue] / 100.0);
     cell.nameLabel.text = cat.name;
@@ -125,9 +119,11 @@ TransactionsLogicManager* logicManager;
     [percentFormatter setRoundingMode: NSNumberFormatterRoundDown];
     
     NSString *percentString = [percentFormatter stringFromNumber:[NSNumber numberWithFloat:percentage]];
-    [formatter release];
+    
     cell.percentLabel.text = [NSString stringWithFormat:@"%@%%", percentString];
     cell.percentLabel.textColor = [self percentageColor:percentage];
+    
+    [helper release];
     return cell;
 }
 

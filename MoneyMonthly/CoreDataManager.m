@@ -8,6 +8,7 @@
 
 #import "CoreDataManager.h"
 #import <CoreData/CoreData.h>
+#import "CurrencyHelper.h"
 
 @implementation CoreDataManager
 
@@ -211,11 +212,7 @@
     NSArray* resultsArray = [moc executeFetchRequest:request error:&error];
     [request release];
     NSMutableArray* incomeArray = [[[NSMutableArray alloc]init]autorelease];
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setAllowsFloats:YES];
-    [formatter setMaximumFractionDigits:2];
-    formatter.usesGroupingSeparator = YES;
-    formatter.groupingSeparator = @",";
+    CurrencyHelper* helper = [[CurrencyHelper alloc]init];
 
     for (Income* income in resultsArray){
         NSLog(@"Income with id %@ amount %@ effective on %@", income.id, income.monthly, income.effective);
@@ -223,9 +220,9 @@
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MMM YYYY"];
         NSString* monthYear = [dateFormatter stringFromDate:incomeDate];
-        [incomeArray addObject: [NSString stringWithFormat:@"$ %@ (%@)", [formatter stringFromNumber: income.monthly], monthYear]];
+        [incomeArray addObject: [NSString stringWithFormat:@"$ %@ (%@)", [helper numberWithComma: income.monthly], monthYear]];
     }
-    [formatter release];
+    [helper release];
     NSLog(@"Monthly income history: %@", incomeArray);
     return [incomeArray copy];
 }

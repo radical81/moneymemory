@@ -9,6 +9,7 @@
 #import "AddCategoryViewController.h"
 #import "TransactionsLogicManager.h"
 #import "DesignHelper.h"
+#import "CurrencyHelper.h"
 
 @interface AddCategoryViewController ()
 
@@ -19,8 +20,11 @@
 @implementation AddCategoryViewController
 
 TransactionsLogicManager* transactionsLogicManager;
+CurrencyHelper *currencyHelper;
+
 BOOL categorySave;
 BOOL isAddCategory;
+
 @synthesize category = _category;
 @synthesize pageLabel = _pageLabel;
 @synthesize categoryNew = _categoryNew;
@@ -36,6 +40,7 @@ BOOL isAddCategory;
         _amountLimit = [[UITextField alloc] init];
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
         isAddCategory = YES;
+        currencyHelper = [[CurrencyHelper alloc]init];
     }
     return self;
 }
@@ -49,6 +54,7 @@ BOOL isAddCategory;
         _amountLimit = [[UITextField alloc] init];
         transactionsLogicManager = [[TransactionsLogicManager alloc]init];
         isAddCategory = NO;
+        currencyHelper = [[CurrencyHelper alloc]init];
     }
     return self;
     
@@ -68,12 +74,7 @@ BOOL isAddCategory;
     double monthlyIncome = [transactionsLogicManager retrieveIncomeMonthly];
     double allowance = monthlyIncome - [totalOfCategories doubleValue];
     if(total > monthlyIncome) {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setAllowsFloats:YES];
-        [formatter setMaximumFractionDigits:2];
-        formatter.usesGroupingSeparator = YES;
-        formatter.groupingSeparator = @",";
-        [self showOverShotBudget:[formatter stringFromNumber: [NSNumber numberWithDouble: monthlyIncome]] allowance:[formatter stringFromNumber: [NSNumber numberWithDouble: allowance]]];
+        [self showOverShotBudget:[currencyHelper numberWithComma: [NSNumber numberWithDouble: monthlyIncome]] allowance:[currencyHelper numberWithComma: [NSNumber numberWithDouble: allowance]]];
         return;
     }
     [self createNotificationObserver];
@@ -94,12 +95,7 @@ BOOL isAddCategory;
     NSLog(@"Monthly income: %f", monthlyIncome);
     NSLog(@"Total: %f", total);
     if(total > monthlyIncome) {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setAllowsFloats:YES];
-        [formatter setMaximumFractionDigits:2];
-        formatter.usesGroupingSeparator = YES;
-        formatter.groupingSeparator = @",";
-        [self showOverShotBudget: [formatter stringFromNumber: [NSNumber numberWithDouble: monthlyIncome]] allowance:[formatter stringFromNumber: [NSNumber numberWithDouble: allowance]]];
+        [self showOverShotBudget: [currencyHelper numberWithComma: [NSNumber numberWithDouble: monthlyIncome]] allowance:[currencyHelper numberWithComma: [NSNumber numberWithDouble: allowance]]];
         return;
     }
     _category.limit = [NSNumber numberWithDouble:[_amountLimit.text doubleValue]];
@@ -268,6 +264,9 @@ BOOL isAddCategory;
     [transactionsLogicManager release];
     [_pageLabel release];
     [_background release];
+    if(currencyHelper != nil) {
+        [currencyHelper release];
+    }
     [super dealloc];
 }
 @end
