@@ -65,6 +65,8 @@
 		862D6C1F1D25357E00823284 /* buttonSpend.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0D1D25357E00823284 /* buttonSpend.png */; };
 		862D6C201D25357E00823284 /* buttonStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0E1D25357E00823284 /* buttonStats.png */; };
 		862D6C211D25357E00823284 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 862D6C0F1D25357E00823284 /* icon_close.png */; };
+		86701D721DD34D5400DC7ACC /* DateFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 86701D711DD34D5400DC7ACC /* DateFormatHelper.m */; };
+		86701D741DD34EEA00DC7ACC /* DateFormatHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86701D731DD34EEA00DC7ACC /* DateFormatHelperTest.m */; };
 		86918B231B13770600AAA530 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86918B211B13770600AAA530 /* IncomeViewController.m */; };
 		86918B241B13770600AAA530 /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86918B221B13770600AAA530 /* IncomeViewController.xib */; };
 		869F194E1DB0FF37003629AC /* appNoPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 869F194D1DB0FF37003629AC /* appNoPhoto.png */; };
@@ -178,6 +180,9 @@
 		862D6C0D1D25357E00823284 /* buttonSpend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonSpend.png; path = Images/buttonSpend.png; sourceTree = "<group>"; };
 		862D6C0E1D25357E00823284 /* buttonStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonStats.png; path = Images/buttonStats.png; sourceTree = "<group>"; };
 		862D6C0F1D25357E00823284 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = Images/icon_close.png; sourceTree = "<group>"; };
+		86701D701DD34D5400DC7ACC /* DateFormatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateFormatHelper.h; path = Classes/DateFormatHelper.h; sourceTree = "<group>"; };
+		86701D711DD34D5400DC7ACC /* DateFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateFormatHelper.m; path = Classes/DateFormatHelper.m; sourceTree = "<group>"; };
+		86701D731DD34EEA00DC7ACC /* DateFormatHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatHelperTest.m; sourceTree = "<group>"; };
 		86918B201B13770600AAA530 /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeViewController.h; path = Classes/IncomeViewController.h; sourceTree = "<group>"; };
 		86918B211B13770600AAA530 /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeViewController.m; path = Classes/IncomeViewController.m; sourceTree = "<group>"; };
 		86918B221B13770600AAA530 /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeViewController.xib; path = Classes/IncomeViewController.xib; sourceTree = "<group>"; };
@@ -389,6 +394,7 @@
 				17ED424917E756E700C7080A /* MoneyMonthlyTests.m */,
 				17ED424317E756E700C7080A /* Supporting Files */,
 				8604CBC31DD340FA00E7EF5C /* CurrencyHelperTest.m */,
+				86701D731DD34EEA00DC7ACC /* DateFormatHelperTest.m */,
 			);
 			path = MoneyMonthlyTests;
 			sourceTree = "<group>";
@@ -467,6 +473,8 @@
 				86C4A5D11D22AB56007DE487 /* DesignHelper.m */,
 				8604CBC01DD340D400E7EF5C /* CurrencyHelper.h */,
 				8604CBC11DD340D400E7EF5C /* CurrencyHelper.m */,
+				86701D701DD34D5400DC7ACC /* DateFormatHelper.h */,
+				86701D711DD34D5400DC7ACC /* DateFormatHelper.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -699,6 +707,7 @@
 				8604CBC21DD340D400E7EF5C /* CurrencyHelper.m in Sources */,
 				86D61C631CF4254200D75695 /* ExpensesTableViewCell.m in Sources */,
 				17F8ADE917F07F00007F7C9E /* Model.xcdatamodeld in Sources */,
+				86701D721DD34D5400DC7ACC /* DateFormatHelper.m in Sources */,
 				17D8B64E180149E100D90AF6 /* Category.m in Sources */,
 				86918B231B13770600AAA530 /* IncomeViewController.m in Sources */,
 				17D8B68518014D0100D90AF6 /* CoreDataManager.m in Sources */,
@@ -726,6 +735,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8604CBC41DD340FA00E7EF5C /* CurrencyHelperTest.m in Sources */,
+				86701D741DD34EEA00DC7ACC /* DateFormatHelperTest.m in Sources */,
 				17ED424A17E756E700C7080A /* MoneyMonthlyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
