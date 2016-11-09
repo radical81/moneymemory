@@ -18,4 +18,12 @@
     return monthYear;
 }
 
+-(NSDate*) dateFromDayMonthYear:(NSString*) dateString {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d MMM yyyy"];
+    NSDate* dayMonthYear = [dateFormatter dateFromString:dateString];
+    [dateFormatter release];
+    return dayMonthYear;
+}
+
 @end

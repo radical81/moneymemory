@@ -11,5 +11,6 @@
 @interface DateFormatHelper : NSObject
 
 -(NSString*) stringFromMonthYear:(NSDate*) date;
+-(NSDate*) dateFromDayMonthYear:(NSString*) dateString;
 
 @end
