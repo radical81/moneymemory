@@ -9,8 +9,30 @@
 #import "CoreDataManager.h"
 #import <CoreData/CoreData.h>
 #import "CurrencyHelper.h"
+#import "DateFormatHelper.h"
+
+@interface CoreDataManager()
+
+@property(nonatomic, retain) DateFormatHelper* dateHelper;
+
+@end
 
 @implementation CoreDataManager
+
+@synthesize dateHelper = _dateHelper;
+
+-(id) init {
+    self = [super init];
+    if(self) {
+        _dateHelper = [[DateFormatHelper alloc]init];
+    }
+    return self;
+}
+
+- (void) dealloc {
+    [_dateHelper release];
+    [super dealloc];
+}
 
 -(void) insertCategory: (NSManagedObjectContext*)moc id: (int) _id limit: (double)_limit name: (NSString*) _name {
     Category* newCategory = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:moc];
@@ -217,9 +239,7 @@
     for (Income* income in resultsArray){
         NSLog(@"Income with id %@ amount %@ effective on %@", income.id, income.monthly, income.effective);
         NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMM YYYY"];
-        NSString* monthYear = [dateFormatter stringFromDate:incomeDate];
+        NSString* monthYear = [_dateHelper stringMonthYear:incomeDate];
         [incomeArray addObject: [NSString stringWithFormat:@"$ %@ (%@)", [helper numberWithComma: income.monthly], monthYear]];
     }
     [helper release];
@@ -235,9 +255,8 @@
     Income* income = [moc executeFetchRequest:request error:&error].lastObject;
     [request release];
     NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM YYYY"];
-    return [dateFormatter stringFromDate:incomeDate];
+    
+    return [_dateHelper stringMonthYear:incomeDate];
 }
 
 -(NSString*) fetchIncomeMonthMax:(NSManagedObjectContext*) moc {
@@ -248,9 +267,8 @@
     Income* income = [moc executeFetchRequest:request error:&error].lastObject;
     [request release];
     NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM YYYY"];
-    return [dateFormatter stringFromDate:incomeDate];
+
+    return [_dateHelper stringMonthYear:incomeDate];
 }
 
 -(void) insertIncomeMonthly: (NSManagedObjectContext*) moc amount: (double) _amount effective: (double) timeStamp {
@@ -283,10 +301,8 @@
         return;
     }
     NSDate* incomeDate = [NSDate dateWithTimeIntervalSince1970:[income.effective doubleValue]];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM YYYY"];
-    NSString* incomeMonthYear = [dateFormatter stringFromDate:incomeDate];
-    NSString* nowMonthYear = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
+    NSString* incomeMonthYear = [_dateHelper stringMonthYear:incomeDate];
+    NSString* nowMonthYear = [_dateHelper stringMonthYear:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
     NSLog(@"Income Month Year: %@", incomeMonthYear);
     NSLog(@"Now Month Year: %@", nowMonthYear);
     if([incomeMonthYear isEqualToString:nowMonthYear]) {

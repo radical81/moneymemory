@@ -27,11 +27,11 @@
     [super tearDown];
 }
 
-- (void)testStringFromMonthYear_givenNovember2016 {
+- (void)testStringMonthYear_givenNovember2016 {
     double timeStamp = 1478694724.200427;
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
     NSString* expected = @"Nov 2016";
-    XCTAssertEqualObjects(expected, [self.dateFormatHelper stringFromMonthYear:date]);
+    XCTAssertEqualObjects(expected, [self.dateFormatHelper stringMonthYear:date]);
 }
 
 - (void)testDateFromDayMonthYear_given1November2016 {

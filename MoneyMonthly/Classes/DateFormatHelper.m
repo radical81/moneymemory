@@ -10,7 +10,7 @@
 
 @implementation DateFormatHelper
 
--(NSString*) stringFromMonthYear:(NSDate*) date {
+-(NSString*) stringMonthYear:(NSDate*) date {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM YYYY"];
     NSString* monthYear = [dateFormatter stringFromDate:date];

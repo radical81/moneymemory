@@ -10,7 +10,7 @@
 
 @interface DateFormatHelper : NSObject
 
--(NSString*) stringFromMonthYear:(NSDate*) date;
+-(NSString*) stringMonthYear:(NSDate*) date;
 -(NSDate*) dateFromDayMonthYear:(NSString*) dateString;
 
 @end

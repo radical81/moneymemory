@@ -9,11 +9,12 @@
 #import "GraphViewController.h"
 #import "TransactionsLogicManager.h"
 #import "CurrencyHelper.h"
+#import "DateFormatHelper.h"
 
 @interface GraphViewController ()
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *sliceTap;
-
 @property(nonatomic, retain) NSDate* currentDate;
+@property(nonatomic, retain) DateFormatHelper* dateHelper;
 @end
 
 @implementation GraphViewController
@@ -26,6 +27,7 @@
 @synthesize monthYearTable = _monthYearTable;
 @synthesize currentDate = _currentDate;
 @synthesize sliceTap = _sliceTap;
+@synthesize dateHelper = _dateHelper;
 
 CGFloat const PIE_GRAPH_LEFT_MARGIN = 40;
 CGFloat const PIE_GRAPH_TOP_POSITION = 220;
@@ -36,16 +38,14 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     self.navigationItem.rightBarButtonItem = rightButton;
     _monthYearTable = [[StatsMonthYearTableViewController alloc]initWithAll];
     _monthYearTable.graphDisplay = self;
+    _dateHelper = [[DateFormatHelper alloc]init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM YYYY"];
     if(_currentDate == nil) {
         _currentDate = [[NSDate date]retain];
     }
-    NSString* currentMonth = [dateFormatter stringFromDate:_currentDate];
-    [dateFormatter release];
+    NSString* currentMonth = [_dateHelper stringMonthYear:_currentDate];
     _headerLabel.text = currentMonth;
     [self generatePieGraph];
 }
@@ -152,6 +152,7 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     [_currentDate release];
     [_tipLabel release];
     [_sliceTap release];
+    [_dateHelper release];
     [super dealloc];
 }
 

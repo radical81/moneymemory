@@ -8,11 +8,13 @@
 
 #import "HistoryMonthYearTableViewController.h"
 #import "TransactionsLogicManager.h"
+#import "DateFormatHelper.h"
 
 @interface HistoryMonthYearTableViewController ()
 
 @property(nonatomic, retain) NSDictionary* yearMonths;
 @property(nonatomic, retain) NSArray* yearsDesc;
+@property(nonatomic, retain) DateFormatHelper* dateHelper;
 
 @end
 
@@ -21,6 +23,7 @@
 @synthesize yearMonths = _yearMonths;
 @synthesize yearsDesc = _yearsDesc;
 @synthesize historyTable = _historyTable;
+@synthesize dateHelper = _dateHelper;
 
 - (id) initWithAll {
     NSLog(@"initWithAll...");
@@ -29,7 +32,8 @@
     if(self) {
         TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
         NSArray* timeStamps = [logicManager fetchTimeStamps];
-        NSLog(@"Time stamps: %@", timeStamps);
+        NSLog(@"Time stamps History: %@", timeStamps);
+        _dateHelper = [[DateFormatHelper alloc]init];
         _yearMonths = [[self generateYearMonths:timeStamps]retain];
         NSLog(@"Year months: %@", _yearMonths);
         _yearsDesc = [[[[[_yearMonths allKeys] sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects]retain];
@@ -40,6 +44,10 @@
     return self;
 }
 
+-(void) dealloc {
+    [_dateHelper release];
+    [super dealloc];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +68,7 @@
 }
 
 - (NSDictionary*) generateYearMonths:(NSArray*)timeStamps {
+    NSLog(@"generateYearMonths...");
     NSMutableDictionary* returnYearMonths = [[[NSMutableDictionary alloc]init]autorelease];
     for(NSNumber* t in timeStamps) {
         NSDate* transactionDate = [NSDate dateWithTimeIntervalSince1970:[t doubleValue]];
@@ -67,9 +76,7 @@
         NSDateComponents* components = [calendar components:NSCalendarUnitYear fromDate:transactionDate];
         NSString* year = [NSString stringWithFormat:@"%ld", (long)[components year]];
         NSLog(@"year: %@", year);
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMM YYYY"];
-        NSString* month = [dateFormatter stringFromDate:transactionDate];
+        NSString* month = [_dateHelper stringMonthYear:transactionDate];
         NSMutableArray* months = [returnYearMonths objectForKey:year];
         if(months == nil) {
             months = [NSMutableArray array];
