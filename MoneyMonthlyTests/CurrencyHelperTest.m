@@ -11,15 +11,15 @@
 
 @interface CurrencyHelperTest : XCTestCase
 
-@property (nonatomic) CurrencyHelper* currencyHelper;
-
 @end
 
-@implementation CurrencyHelperTest
+@implementation CurrencyHelperTest {
+    CurrencyHelper* currencyHelper;
+}
 
 - (void)setUp {
     [super setUp];
-    self.currencyHelper = [[CurrencyHelper alloc]init];
+    currencyHelper = [[CurrencyHelper alloc]init];
 }
 
 - (void)tearDown {
@@ -30,7 +30,7 @@
 - (void)testNumberWithComma {
     NSNumber* originalNum = [NSNumber numberWithInteger:1200];
     NSString* expected = @"1,200";
-    XCTAssertEqualObjects(expected, [self.currencyHelper numberWithComma:originalNum]);
+    XCTAssertEqualObjects(expected, [currencyHelper numberWithComma:originalNum]);
 }
 
 - (void)testPerformanceExample {

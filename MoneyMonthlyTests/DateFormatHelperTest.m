@@ -11,15 +11,15 @@
 
 @interface DateFormatHelperTest : XCTestCase
 
-@property(nonatomic) DateFormatHelper* dateFormatHelper;
-
 @end
 
-@implementation DateFormatHelperTest
+@implementation DateFormatHelperTest {
+    DateFormatHelper* dateFormatHelper;
+}
 
 - (void)setUp {
     [super setUp];
-    self.dateFormatHelper = [[DateFormatHelper alloc]init];
+    dateFormatHelper = [[DateFormatHelper alloc]init];
 }
 
 - (void)tearDown {
@@ -31,7 +31,7 @@
     double timeStamp = 1478694724.200427;
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
     NSString* expected = @"Nov 2016";
-    XCTAssertEqualObjects(expected, [self.dateFormatHelper stringMonthYear:date]);
+    XCTAssertEqualObjects(expected, [dateFormatHelper stringMonthYear:date]);
 }
 
 - (void)testDateFromDayMonthYear_given1November2016 {
@@ -39,7 +39,7 @@
     [dateFormatter setDateFormat:@"d MMM yyyy"];
     NSDate* expected = [dateFormatter dateFromString:@"1 NOV 2016"];
     [dateFormatter release];
-    XCTAssertEqualWithAccuracy([expected timeIntervalSinceReferenceDate], [[self.dateFormatHelper dateFromDayMonthYear:@"1 NOV 2016"] timeIntervalSinceReferenceDate], 0.001);
+    XCTAssertEqualWithAccuracy([expected timeIntervalSinceReferenceDate], [[dateFormatHelper dateFromDayMonthYear:@"1 NOV 2016"] timeIntervalSinceReferenceDate], 0.001);
 }
 
 - (void)testPerformanceExample {
