@@ -36,6 +36,7 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     [super viewDidLoad];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Month" style:UIBarButtonItemStyleDone target:self action:@selector(didTapChange)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    NSLog(@"Stats init all");
     _monthYearTable = [[StatsMonthYearTableViewController alloc]initWithAll];
     _monthYearTable.graphDisplay = self;
     _dateHelper = [[DateFormatHelper alloc]init];

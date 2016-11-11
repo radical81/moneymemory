@@ -16,10 +16,12 @@
 @property(nonatomic, retain) NSArray* yearsDesc;
 @property(nonatomic, retain) DateFormatHelper* dateHelper;
 
-
 @end
 
-@implementation StatsMonthYearTableViewController
+@implementation StatsMonthYearTableViewController {
+    TransactionsLogicManager* logicManager;
+}
+
 @synthesize yearMonths = _yearMonths;
 @synthesize yearsDesc = _yearsDesc;
 @synthesize graphDisplay = _graphDisplay;
@@ -30,22 +32,30 @@
     self = [super initWithNibName:@"StatsMonthYearTableViewController" bundle:nil];
     
     if(self) {
-        TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
-        NSArray* timeStamps = [logicManager fetchTimeStamps];
-        NSLog(@"Time stamps Stats: %@", timeStamps);
-        _dateHelper = [[DateFormatHelper alloc]init];
-        _yearMonths = [[self generateYearMonths:timeStamps]retain];
-        NSLog(@"Year months: %@", _yearMonths);
-        _yearsDesc = [[[[[_yearMonths allKeys] sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects]retain];
-        NSLog(@"Years sorted descending: %@", _yearsDesc);
+        logicManager = [[TransactionsLogicManager alloc]init];
         [_graphDisplay retain];
         self.tableView.delegate = self;
     }
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    NSArray* timeStamps = [logicManager fetchTimeStamps];
+    NSLog(@"Time stamps Stats: %@", timeStamps);
+    _dateHelper = [[DateFormatHelper alloc]init];
+    _yearMonths = [[self generateYearMonths:timeStamps]retain];
+    NSLog(@"Year months: %@", _yearMonths);
+    _yearsDesc = [[[[[_yearMonths allKeys] sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects]retain];
+    NSLog(@"Years sorted descending: %@", _yearsDesc);
+    [self.tableView reloadData];
+}
+
 -(void) dealloc {
     [_dateHelper release];
+    if(logicManager) {
+        [logicManager release];
+        logicManager = nil;
+    }
     [super dealloc];
 }
 

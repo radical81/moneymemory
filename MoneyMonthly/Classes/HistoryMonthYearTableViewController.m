@@ -18,7 +18,9 @@
 
 @end
 
-@implementation HistoryMonthYearTableViewController
+@implementation HistoryMonthYearTableViewController {
+    TransactionsLogicManager* logicManager;
+}
 
 @synthesize yearMonths = _yearMonths;
 @synthesize yearsDesc = _yearsDesc;
@@ -30,14 +32,7 @@
     self = [super initWithNibName:@"HistoryMonthYearTableViewController" bundle:nil];
     
     if(self) {
-        TransactionsLogicManager* logicManager = [[TransactionsLogicManager alloc]init];
-        NSArray* timeStamps = [logicManager fetchTimeStamps];
-        NSLog(@"Time stamps History: %@", timeStamps);
-        _dateHelper = [[DateFormatHelper alloc]init];
-        _yearMonths = [[self generateYearMonths:timeStamps]retain];
-        NSLog(@"Year months: %@", _yearMonths);
-        _yearsDesc = [[[[[_yearMonths allKeys] sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects]retain];
-        NSLog(@"Years sorted descending: %@", _yearsDesc);
+        logicManager = [[TransactionsLogicManager alloc]init];
         [_historyTable retain];
         self.tableView.delegate = self;
     }
@@ -46,6 +41,10 @@
 
 -(void) dealloc {
     [_dateHelper release];
+    if(logicManager) {
+        [logicManager release];
+        logicManager = nil;
+    }
     [super dealloc];
 }
 
@@ -55,6 +54,17 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Clear Filter" style:UIBarButtonItemStyleDone target:self action:@selector(clearDateFilter)];
     self.navigationItem.rightBarButtonItem = rightButton;
     [rightButton release];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    NSArray* timeStamps = [logicManager fetchTimeStamps];
+    NSLog(@"Time stamps History: %@", timeStamps);
+    _dateHelper = [[DateFormatHelper alloc]init];
+    _yearMonths = [[self generateYearMonths:timeStamps]retain];
+    NSLog(@"Year months: %@", _yearMonths);
+    _yearsDesc = [[[[[_yearMonths allKeys] sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects]retain];
+    NSLog(@"Years sorted descending: %@", _yearsDesc);
+    [self.tableView reloadData];
 }
 
 -(void) clearDateFilter {

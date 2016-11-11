@@ -103,6 +103,7 @@ TransactionsLogicManager* logicManager;
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Month" style:UIBarButtonItemStyleDone target:self action:@selector(filterByMonth)];
         self.navigationItem.rightBarButtonItem = rightButton;
         [rightButton release];
+        NSLog(@"History init all");
         _monthYearTable = [[HistoryMonthYearTableViewController alloc]initWithAll];
         _monthYearTable.historyTable = self;
     }
