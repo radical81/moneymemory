@@ -11,20 +11,23 @@
 #import "Transaction.h"
 #import "Category.h"
 #import "Income.h"
+#import "DateFormatHelper.h"
 
 @interface TransactionsLogicManager()
-
+@property(nonatomic, retain) DateFormatHelper* dateHelper;
 @end
 
 @implementation TransactionsLogicManager {
     NSManagedObjectContext *managedObjectContext;
     CoreDataManager* coreDataManager;
 }
+@synthesize dateHelper = _dateHelper;
 
 - (id) init {
     self = [super init];
     if(self) {
         [self initCoreData];
+        _dateHelper = [[DateFormatHelper alloc]init];
     }
     return self;
 }
@@ -38,6 +41,7 @@
         [coreDataManager release];
         coreDataManager = nil;
     }
+    [_dateHelper release];
     [super dealloc];
 }
 
@@ -421,33 +425,18 @@
 }
 
 -(NSDate*) fetchIncomeMinDate {
-    
-
     NSString* incomeMinMonthYear = [coreDataManager fetchIncomeMonthMin:managedObjectContext];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",incomeMinMonthYear]];
-    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
-    
-    return monthBegin;
+    return [_dateHelper dateFromDayMonthYear:[NSString stringWithFormat:@"1 %@",incomeMinMonthYear]];
 }
 
 -(NSDate*) fetchIncomeMaxDate {
-    
-
     NSString* incomeMaxMonthYear = [coreDataManager fetchIncomeMonthMax:managedObjectContext];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",incomeMaxMonthYear]];
-    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
-    
-    
+    NSDate* monthBegin = [_dateHelper dateFromDayMonthYear:[NSString stringWithFormat:@"1 %@",incomeMaxMonthYear]];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents* componentOffset = [[NSDateComponents alloc]init];
     [componentOffset setMonth:1];
     [componentOffset setDay: -1];
     NSDate* monthEnd = [calendar dateByAddingComponents:componentOffset toDate:monthBegin options:NSCalendarMatchStrictly];
-    NSLog(@"The end of themonth is %@", [dateFormatter stringFromDate:monthEnd]);
     return monthEnd;
 }
 

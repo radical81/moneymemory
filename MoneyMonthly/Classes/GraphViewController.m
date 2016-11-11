@@ -169,10 +169,8 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
 -(void) setMonthYear: (NSString*) monthYear {
     NSLog(@"setMonthYear: %@", monthYear);
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",monthYear]];
-    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
+
+    NSDate* monthBegin = [_dateHelper dateFromDayMonthYear:[NSString stringWithFormat:@"1 %@",monthYear]];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     NSDateComponents* componentOffset = [[NSDateComponents alloc]init];
@@ -180,7 +178,6 @@ CGFloat const PIE_GRAPH_TOP_POSITION = 220;
     [componentOffset setDay: -1];
     
     NSDate* monthEnd = [calendar dateByAddingComponents:componentOffset toDate:monthBegin options:NSCalendarMatchStrictly];
-    NSLog(@"The end of themonth is %@", [dateFormatter stringFromDate:monthEnd]);
     
     _currentDate = [monthEnd retain];
     [componentOffset release];

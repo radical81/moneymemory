@@ -10,6 +10,7 @@
 #import "SpendMoneyViewController.h"
 #import "TransactionsLogicManager.h"
 #import "CurrencyHelper.h"
+#import "DateFormatHelper.h"
 
 @interface ExpensesTableViewController ()
 
@@ -251,11 +252,9 @@ TransactionsLogicManager* logicManager;
 -(void) setMonthYear:(NSString *)monthYear {
     NSLog(@"setMonthYear: %@", monthYear);
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"d MMM yyyy"];
-    NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",monthYear]];
-    NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
-    
+    DateFormatHelper* dateHelper = [[DateFormatHelper alloc]init];
+    NSDate* monthBegin = [dateHelper dateFromDayMonthYear:[NSString stringWithFormat:@"1 %@",monthYear]];
+    [dateHelper release];
     _dateFilter = [monthBegin retain];
 }
 
