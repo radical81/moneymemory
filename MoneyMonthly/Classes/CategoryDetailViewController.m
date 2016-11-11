@@ -128,8 +128,9 @@ int const GRAPH_LINE_WIDTH = 40;
     [_addExpenseTop release];
     [_tipLabel release];
     [_tipLabelWidth release];
-    if(currencyHelper != nil) {
+    if(currencyHelper) {
         [currencyHelper release];
+        currencyHelper = nil;
     }
     [super dealloc];
 }

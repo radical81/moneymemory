@@ -12,13 +12,38 @@
 #import "Category.h"
 #import "Income.h"
 
+@interface TransactionsLogicManager()
+
+@end
+
 @implementation TransactionsLogicManager {
     NSManagedObjectContext *managedObjectContext;
-    NSFetchedResultsController *fetchedResultsController;
+    CoreDataManager* coreDataManager;
+}
+
+- (id) init {
+    self = [super init];
+    if(self) {
+        [self initCoreData];
+    }
+    return self;
+}
+
+- (void) dealloc {
+    if(managedObjectContext) {
+        [managedObjectContext release];
+        managedObjectContext = nil;
+    }
+    if(coreDataManager) {
+        [coreDataManager release];
+        coreDataManager = nil;
+    }
+    [super dealloc];
 }
 
 - (void) initCoreData
 {
+    coreDataManager = [[CoreDataManager alloc]init];
     NSError *error;
     
     // Path to sqlite file.
@@ -59,11 +84,11 @@
 }
 
 -(CategoryDomainObject*) fetchCategoryWithId: (int) _id {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     
     Category* category = [coreDataManager fetchCategoryWithId:_id context:managedObjectContext];
-    [coreDataManager release];
+    
     CategoryDomainObject* categoryDomainObject = [[[CategoryDomainObject alloc]init]autorelease];
     if(![category isKindOfClass:[NSNull class]]) {
         categoryDomainObject.id = [category valueForKey:@"id"];
@@ -76,21 +101,21 @@
 
 -(NSArray*) fetchAllCategories {
     NSMutableArray* allCategories = [[[NSMutableArray alloc]init]autorelease];
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
     for(Category* category in categories) {
         CategoryDomainObject* categoryDomainObject = [self generateCategoryDomainObjectFromCategory:category];
         [allCategories addObject:categoryDomainObject];
     }
-    [coreDataManager release];
+    
     return allCategories;
 }
 
 -(NSArray*) fetchCurrentCategories {
     NSMutableArray* allCategories = [[[NSMutableArray alloc]init]autorelease];
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
     for(Category* category in categories) {
         if(category.visible == YES) {
@@ -98,28 +123,28 @@
             [allCategories addObject:categoryDomainObject];
         }
     }
-    [coreDataManager release];
+    
     return allCategories;
 }
 
 -(NSArray*) fetchCategoryNames {
     NSMutableArray* categoryNames = [[[NSMutableArray alloc]init]autorelease];
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSArray* categories = [coreDataManager fetchAllCategories:managedObjectContext];
     for(Category* category in categories) {
         [categoryNames addObject:[category valueForKey:@"name"]];
     }
-    [coreDataManager release];
+    
     return categoryNames;
 }
 
 -(TransactionDomainObject*)fetchTransactionWithId: (int) _id {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     
     Transaction* transaction = [coreDataManager fetchTransactionWithId:_id context:managedObjectContext];
-    [coreDataManager release];
+    
     TransactionDomainObject* transactionDomainObject = [[[TransactionDomainObject alloc]init
                                                          ]autorelease];
     if(![transaction isKindOfClass:[NSNull class]]) {
@@ -135,8 +160,8 @@
 
 -(NSArray*) fetchAllTransactions:(int) limit {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSArray* transactions = [coreDataManager fetchAllTransactions:managedObjectContext limit:limit];
     for(Transaction* transaction in transactions) {
         TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
@@ -150,7 +175,7 @@
         [allTransactions addObject:transactionDomainObject];
         [transactionDomainObject release];
     }
-    [coreDataManager release];
+    
     return allTransactions;
 }
 
@@ -248,8 +273,8 @@
 
 -(NSArray*)fetchTransactionIsA: (int) categoryId limit: (int) limit {
     NSMutableArray* allTransactions = [[[NSMutableArray alloc]init]autorelease];
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSArray* transactions = [coreDataManager fetchTransactionIsA:categoryId context:managedObjectContext limit:limit];
     for(Transaction* transaction in transactions) {
         TransactionDomainObject* transactionDomainObject = [[TransactionDomainObject alloc]init];
@@ -264,46 +289,46 @@
         [allTransactions addObject:transactionDomainObject];
         [transactionDomainObject release];
     }
-    [coreDataManager release];
+    
     return allTransactions;
 }
 
 
 -(void) saveCategoryToCoreData:(CategoryDomainObject*) categoryDomainObject {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     int categoryId = [categoryDomainObject.id intValue];
     double limit = [categoryDomainObject.limit doubleValue];
     NSString* categoryName = categoryDomainObject.name;
     [coreDataManager insertCategory:managedObjectContext id:categoryId limit:limit name:categoryName];
-    [coreDataManager release];
+    
 }
 
 -(void) updateCategory:(CategoryDomainObject*) categoryDomainObject {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     int categoryId = [categoryDomainObject.id intValue];
     double limit = [categoryDomainObject.limit doubleValue];
     BOOL visible = categoryDomainObject.visible;
     NSString* categoryName = categoryDomainObject.name;
     
     [coreDataManager updateCategoryWithId:categoryId newLimit:limit newName:categoryName visible:visible context:managedObjectContext];
-    [coreDataManager release];
+    
 }
 
 -(void) deleteCategoryInCoreData:(CategoryDomainObject*) categoryDomainObject {
     NSLog(@"deleteCategoryInCoreData...");
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     int categoryId = [categoryDomainObject.id intValue];
     NSLog(@"Deleting category with id %d", categoryId);
     [coreDataManager deleteCategoryWithId:categoryId context: managedObjectContext];
-    [coreDataManager release];
+    
 }
 
 -(void) saveTransactionToCoreData:(TransactionDomainObject*) transactionDomainObject withCategory:(CategoryDomainObject*) categoryDomainObject {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     int categoryId = [categoryDomainObject.id intValue];
     int transactionId = [transactionDomainObject.id intValue];
     int timeStamp = [transactionDomainObject.timestamp intValue];
@@ -311,12 +336,12 @@
     NSString* comment = transactionDomainObject.comment;
     double transactionAmount = [transactionDomainObject.amount doubleValue];
     [coreDataManager insertTransaction:managedObjectContext id:transactionId amount:transactionAmount categoryId:categoryId timeStamp:timeStamp imagepath:imagepath comment:comment];
-    [coreDataManager release];
+    
 }
 
 -(void) updateTransaction:(TransactionDomainObject*) transactionDomainObject {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     int transactionId = [transactionDomainObject.id intValue];
     int timeStamp = [transactionDomainObject.timestamp intValue];
     NSString* imagepath = transactionDomainObject.imagepath;
@@ -324,38 +349,38 @@
     double transactionAmount = [transactionDomainObject.amount doubleValue];
 
     [coreDataManager updateTransactionWithId: transactionId newAmount: transactionAmount newTimeStamp: timeStamp newImagePath: imagepath newComment: comment context: managedObjectContext];
-    [coreDataManager release];
+    
 }
 
 -(void) deleteTransaction:(TransactionDomainObject*) transactionDomainObject {
     NSLog(@"deleteTransaction...");
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     int transactionId = [transactionDomainObject.id intValue];
     NSLog(@"Deleting Transaction with id %d", transactionId);
     [coreDataManager deleteTransactionWithId:transactionId context: managedObjectContext];
-    [coreDataManager release];
+    
 }
 
 -(int) retrieveLatestTransactionId {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     Transaction* lastTransaction = [coreDataManager retrieveTransactionWithMaxId:managedObjectContext];
     NSLog(@"retrieveLatestTransactionId, %d", [lastTransaction.id intValue]);
     return [lastTransaction.id intValue];
 }
 
 -(int) retrieveLatestCategoryId {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     Category* lastCategory = [coreDataManager retrieveCategoryWithMaxId:managedObjectContext];
     NSLog(@"retrieveLatestCategoryId, %d", [lastCategory.id intValue]);
     return [lastCategory.id intValue];
 }
 
 -(NSArray*) retrieveIncomeHistory {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     return [coreDataManager fetchIncomeMonthly: managedObjectContext];
 }
 
@@ -365,8 +390,8 @@
 }
 
 -(void) updateIncomeMonthly: (double) amount effective:(double) timeStamp {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     [coreDataManager updateIncomeMonthly:managedObjectContext amount:amount effective:timeStamp];
     NSLog(@"updateIncomeMonthly %f",amount);
 }
@@ -379,43 +404,43 @@
 -(double) retrieveIncomeMonthly :(double) timeStamp {
     NSLog(@"retrieveIncomeMonthly...");
     NSLog(@"timeStamp, %f", timeStamp);
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     Income* income = [coreDataManager retrieveIncome: managedObjectContext effective:timeStamp];
-    [coreDataManager release];
+    
     NSLog(@"Income %f", [income.monthly doubleValue]);
     return [income.monthly doubleValue];
 }
 
 -(NSArray*) fetchTimeStamps {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSArray* timeStamps = [coreDataManager fetchTimeStamps:managedObjectContext];
-    [coreDataManager release];
+    
     return timeStamps;
 }
 
 -(NSDate*) fetchIncomeMinDate {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSString* incomeMinMonthYear = [coreDataManager fetchIncomeMonthMin:managedObjectContext];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d MMM yyyy"];
     NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",incomeMinMonthYear]];
     NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
-    [coreDataManager release];
+    
     return monthBegin;
 }
 
 -(NSDate*) fetchIncomeMaxDate {
-    CoreDataManager* coreDataManager = [[CoreDataManager alloc]init];
-    [self initCoreData];
+    
+
     NSString* incomeMaxMonthYear = [coreDataManager fetchIncomeMonthMax:managedObjectContext];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d MMM yyyy"];
     NSDate* monthBegin = [dateFormatter dateFromString:[NSString stringWithFormat:@"1 %@",incomeMaxMonthYear]];
     NSLog(@"The beginning of the month is %@", [dateFormatter stringFromDate:monthBegin]);
-    [coreDataManager release];
+    
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents* componentOffset = [[NSDateComponents alloc]init];

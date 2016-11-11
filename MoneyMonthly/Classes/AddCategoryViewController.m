@@ -264,8 +264,9 @@ BOOL isAddCategory;
     [transactionsLogicManager release];
     [_pageLabel release];
     [_background release];
-    if(currencyHelper != nil) {
+    if(currencyHelper) {
         [currencyHelper release];
+        currencyHelper = nil;
     }
     [super dealloc];
 }
