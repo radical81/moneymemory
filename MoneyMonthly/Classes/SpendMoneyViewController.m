@@ -313,7 +313,7 @@
         double total = [totalForCategory doubleValue] - [_transaction.amount doubleValue] + [_amountTextField.text doubleValue];
         if(total > [_category.limit doubleValue]) {
             CurrencyHelper* helper = [[CurrencyHelper alloc]init];
-            double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue] - [_transaction.amount doubleValue];
+            double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue] + [_transaction.amount doubleValue];
             [self showOverShotTransaction:[helper numberWithComma:[NSNumber numberWithDouble: allowance]]];
             [helper release];
             return;
