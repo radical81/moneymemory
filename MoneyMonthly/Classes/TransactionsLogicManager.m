@@ -47,6 +47,10 @@
 
 - (void) initCoreData
 {
+    if(coreDataManager) {
+        [coreDataManager release];
+        coreDataManager = nil;
+    }
     coreDataManager = [[CoreDataManager alloc]init];
     NSError *error;
     
@@ -61,6 +65,10 @@
         NSLog(@"Error: %@", [error localizedFailureReason]);
     else
     {
+        if(managedObjectContext) {
+            [managedObjectContext release];
+            managedObjectContext = nil;
+        }
         managedObjectContext = [[NSManagedObjectContext alloc] init];
         [managedObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
     }
@@ -124,6 +132,7 @@
     for(Category* category in categories) {
         if(category.visible == YES) {
             CategoryDomainObject* categoryDomainObject = [self generateCategoryDomainObjectFromCategory:category];
+            NSLog(@"Category Limit: %@", categoryDomainObject.limit);
             [allCategories addObject:categoryDomainObject];
         }
     }
