@@ -32,7 +32,7 @@
 @synthesize tipLabel = _tipLabel;
 
 CGFloat const GRAPH_LEFT_MARGIN = 50;
-CGFloat const GRAPH_TOP_POSITION = 210;
+CGFloat const GRAPH_TOP_POSITION = 220;
 int const GRAPH_LINE_WIDTH = 40;
 
 - (void)viewDidLoad {
@@ -53,7 +53,7 @@ int const GRAPH_LINE_WIDTH = 40;
 - (void)viewWillAppear:(BOOL)animated {
     NSString* categoryMax = [NSString stringWithFormat:@"Limit: $ %@", [currencyHelper numberWithComma:_category.limit]];
     _categoryLimit.text = categoryMax;
-    _tipLabel.text = @"Chart reflects only this month's expenses. Tap on the chart for expense history.";
+    _tipLabel.text = @"The circle chart reflects this month's expenses. Tap on the chart for expense history.";
 }
 
 -(void) drawCircleChart:(NSNumber*) totalExpense {
