@@ -147,6 +147,9 @@
     if (![moc save:&error]){
         NSLog(@"Error in CoreData Save: %@", [error localizedDescription]);
     }
+    else {
+        NSLog(@"Saved category %@ with limit %f", _newName, _newLimit);
+    }
 }
 
 -(void) updateTransactionWithId: (int) _id newAmount: (double) _newAmount newTimeStamp: (int) _newTimeStamp newImagePath: (NSString*) _newImagePath newComment: (NSString*) _newComment context: (NSManagedObjectContext*) moc {
