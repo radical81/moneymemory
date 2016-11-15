@@ -297,19 +297,27 @@
     NSNumber* timeStamp = [NSNumber numberWithDouble:[transactionDate timeIntervalSince1970]];
     
     NSNumber* totalForCategory = [transactionsLogicManager calculateTotalForCategory:[_category.id intValue] _givenDate:transactionDate];
-    double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
-    if(total > [_category.limit doubleValue]) {
-        CurrencyHelper* helper = [[CurrencyHelper alloc]init];
-        double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue];
-        [self showOverShotTransaction:[helper numberWithComma:[NSNumber numberWithDouble: allowance]]];
-        [helper release];
-        return;
-    }
     
     if(_newTransaction == YES) {
+        double total = [totalForCategory doubleValue] + [_amountTextField.text doubleValue];
+        if(total > [_category.limit doubleValue]) {
+            CurrencyHelper* helper = [[CurrencyHelper alloc]init];
+            double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue];
+            [self showOverShotTransaction:[helper numberWithComma:[NSNumber numberWithDouble: allowance]]];
+            [helper release];
+            return;
+        }
         [self saveNewTransaction: timeStamp];
     }
     else {
+        double total = [totalForCategory doubleValue] - [_transaction.amount doubleValue] + [_amountTextField.text doubleValue];
+        if(total > [_category.limit doubleValue]) {
+            CurrencyHelper* helper = [[CurrencyHelper alloc]init];
+            double allowance = [_category.limit doubleValue] - [totalForCategory doubleValue] - [_transaction.amount doubleValue];
+            [self showOverShotTransaction:[helper numberWithComma:[NSNumber numberWithDouble: allowance]]];
+            [helper release];
+            return;
+        }
         [self updateTransaction:timeStamp];
     }
 }
